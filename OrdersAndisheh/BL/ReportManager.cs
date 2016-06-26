@@ -23,25 +23,31 @@ namespace OrdersAndisheh.BL
                 throw new ApplicationException("");
             }
             this.sefaresh = sefaresh;
-            اینجا باید سفارشات یک بازرس را جدا کنیم
         }
 
        
-        public void CreatBazresReport()
+        public void CreatAllBazresReport()
         {
-            //foreach (var item in sefaresh.Items)
-            //{
-            //    if (item.Product.Bazres)
-            //    {
-                    
-            //    }
-            //}
+            var bazres = sefaresh.Items.Select(p => p.BazresName).Distinct();
+            foreach (var item in bazres)
+            {
+                List<ReportRow> reportRows = new List<ReportRow>();
+                var r = sefaresh.Items.Where(p=>p.BazresName==item).ToList();
+                foreach (var b in r)
+                {
+                    reportRows.Add(new ReportRow(b.Kala, b.Tedad.ToString(),"", "", b.Maghsad, "", ""));
+                }
+                FileManagar fg = new FileManagar(reportRows);
+                fg.CreatDocFile(item);
+            }
 
         }
 
         public void CreatAnbarReport()
         {
-            throw new NotImplementedException();
+            //FileManagar fg = new FileManagar();
+
+            //fg.CreatDocFile("انبار");
         }
 
         public void CreatImenSazanReport()

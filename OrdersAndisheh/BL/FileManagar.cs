@@ -13,9 +13,29 @@ namespace BL
 
 	public class FileManagar
 	{
-		public virtual void CreatDocFile()
+        
+        //private List<ItemSefaresh> items;
+        private List<ReportRow> ReportRows;
+
+        //public FileManagar(List<ItemSefaresh> items)
+        //{
+        //    this.items = items;
+        //}
+
+        public FileManagar(List<ReportRow> reportRows)
+        {
+            // TODO: Complete member initialization
+            this.ReportRows = reportRows;
+        }
+
+        
+		public virtual void CreatDocFile(string fileName)
 		{
-			//
+
+            foreach (var row in ReportRows)
+            {
+                
+            }
 		}
 
 	}

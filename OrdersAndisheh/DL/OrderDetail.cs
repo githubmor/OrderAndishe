@@ -15,8 +15,8 @@ namespace OrdersAndisheh.DL
     public partial class OrderDetail
     {
         public int Id { get; set; }
-        public Nullable<int> Tedad { get; set; }
-        public Nullable<int> TahvilForosh { get; set; }
+        public int Tedad { get; set; }
+        public int TahvilForosh { get; set; }
         public string Description { get; set; }
         public short ProductId { get; set; }
         public short CustomerId { get; set; }

@@ -11,39 +11,34 @@ namespace BL
 	using System.Linq;
 	using System.Text;
 
-	public class Reportd
+	public class ReportRow
 	{
-        private List<ItemSefaresh> sefareshat;
+        public string kala;
+        public string tedad;
+        public string karton;
+        public string pallet;
+        public string maghsad;
+        public string vazn;
+        public string Ranande;
+
+        public ReportRow(string kala, string tedad, string karton, string pallet, string maghsad, string vazn, string Ranande)
+        {
+            // TODO: Complete member initialization
+            this.kala = kala;
+            this.tedad = tedad;
+            this.karton = karton;
+            this.pallet = pallet;
+            this.maghsad = maghsad;
+            this.vazn = vazn;
+            this.Ranande = Ranande;
+        }
+       
+
+        //public ReportRow(string kala, int tedad, int karton, int pallet, string maghsad, int vazn, string Ranande)
+        //{
+            
+        //}
         
-
-        public Reportd(string tarikh, List<ItemSefaresh> sefareshat)
-        {
-            this.sefareshat = sefareshat;
-            this.Tarikh = tarikh;
-
-            foreach (var item in sefareshat)
-            {
-                ListKala.Add(item.Kala);
-                //List
-            }
-        }
-
-        public string Tarikh { get; set; }
-        //{
-        //    get { return sefaresh.Tarikh; }
-        //}
-
-        //public string Description
-        //{
-        //    get { return sefaresh.Description; }
-        //}
-
-        public string RozHafte
-        {
-            get { return ""; } //برای محاسبه نام روز هفته - شنبه و یکشنبه
-        }
-
-        public List<string> ListKala { get; private set; }
         
     }
 }

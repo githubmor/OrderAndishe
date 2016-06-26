@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/12/2016 17:33:51
+-- Date Created: 06/26/2016 18:42:57
 -- Generated from EDMX file: D:\desktop\OrdersApp\OrdersAndisheh\OrdersAndisheh\DL\Model.edmx
 -- --------------------------------------------------
 
@@ -105,8 +105,8 @@ GO
 -- Creating table 'OrderDetail'
 CREATE TABLE [dbo].[OrderDetail] (
     [Id] int  NOT NULL,
-    [Tedad] int  NULL,
-    [TahvilForosh] int  NULL,
+    [Tedad] int  NOT NULL,
+    [TahvilForosh] int  NOT NULL,
     [Description] varchar(max)  NULL,
     [ProductId] smallint  NOT NULL,
     [CustomerId] smallint  NOT NULL,

@@ -79,8 +79,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Tedad" Type="int" Nullable="true" />
-    <Property Name="TahvilForosh" Type="int" Nullable="true" />
+    <Property Name="Tedad" Type="int" Nullable="false" />
+    <Property Name="TahvilForosh" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar(max)" Nullable="true" />
     <Property Name="ProductId" Type="smallint" Nullable="false" />
     <Property Name="CustomerId" Type="smallint" Nullable="false" />
@@ -233,8 +233,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Tedad" Type="Int32" />
-          <Property Name="TahvilForosh" Type="Int32" />
+          <Property Name="Tedad" Type="Int32" Nullable="false" />
+          <Property Name="TahvilForosh" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ProductId" Type="Int16" Nullable="false" />
           <Property Name="CustomerId" Type="Int16" Nullable="false" />

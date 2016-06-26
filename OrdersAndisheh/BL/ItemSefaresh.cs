@@ -97,13 +97,13 @@ namespace BL
             set { OrderDetail.Customer = value; }
 		}
 
-		public int? Tedad
+		public int Tedad
 		{
             get { return OrderDetail.Tedad; }
             set { OrderDetail.Tedad = value; }
 		}
 
-		public int? TahvilFrosh
+		public int TahvilFrosh
 		{
             get { return OrderDetail.TahvilForosh; }
             set { OrderDetail.TahvilForosh = value; }
@@ -122,6 +122,12 @@ namespace BL
 		}
 
 
-	}
+        //TODO اینا رو باید محاسبه
+        public int Karton { get; set; }
+
+        public int Pallet { get; set; }
+
+        public int Vazn { get; set; }
+    }
 }
 
