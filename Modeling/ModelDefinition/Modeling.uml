@@ -1,0 +1,2214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ad5fee96-f013-4618-ad58-1c102c96be96"
+  name="Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <appliedStereotypesInternal>
+    <stereotypeInstance
+      Id="54fc4f24-08e9-429f-b98d-003f18ff9ab1"
+      name="namespace"
+      profile="CSharpProfile">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="0850e58f-574b-4938-9a63-a982aad45e44">
+          <propertyInstance
+            Id="f04aec19-9d29-453e-af5a-a3abc17cac0f"
+            name="BaseName" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="8bfb7239-c91b-4dc8-aa68-951c8fc34aba">
+          <propertyInstance
+            Id="4d657dfe-3ef9-414e-a2d5-47026b60e778"
+            name="ClrAttributes" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="89cc619e-25a0-4383-86b5-a041ae244733">
+          <propertyInstance
+            Id="bf8e995f-b4f8-4636-82ba-eea97af5b652"
+            name="Usings" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance
+      Id="6b651f06-1927-4c10-8762-a89c0177ef55"
+      name="TextTemplateBindings"
+      profile="TextTemplateBindings">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="2a5c7604-96c2-4d01-8c50-6cea46835ced">
+          <propertyInstance
+            Id="b6f7691e-8471-41fa-8730-4bdfbbf0b0d0"
+            name="Alias"
+            value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="9c1f6a1f-de1b-49ef-a756-47f480440ff6">
+          <propertyInstance
+            Id="15dc8b90-8f08-43a2-8305-221aed29b83a"
+            name="TemplateFilePath"
+            value="ClassTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="ac569903-8823-424a-9a20-41baa6f30604">
+          <propertyInstance
+            Id="d3289696-49de-40d7-9aae-41f86cf4bf82"
+            name="ProjectPath"
+            value="ClassTemplate=..\ModelingLib\ModelingLib.csproj|EnumTemplate=..\ModelingLib\ModelingLib.csproj|InterfaceTemplate=..\ModelingLib\ModelingLib.csproj|StructTemplate=..\ModelingLib\ModelingLib.csproj" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="f28bd6f8-16c9-46bd-9e61-8bda86e4cbdc">
+          <propertyInstance
+            Id="ebdb648b-88cb-4fb0-89a9-b92721d9901a"
+            name="TargetDirectory"
+            value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="a92254a2-f97c-497e-b557-67d92e05a4a4">
+          <propertyInstance
+            Id="c953ffb9-4e53-4bf9-a698-075f2feede6b"
+            name="TargetName"
+            value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="52ac5805-48a3-4140-afaa-0f878fae4788">
+          <propertyInstance
+            Id="89458608-f531-44cb-9516-1993384ec36c"
+            name="Overwrite"
+            value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="ebf4abbb-8c70-49d8-9b4c-c7f49aacf9d6">
+          <propertyInstance
+            Id="6d79cefb-5cde-4082-a2ad-3b24935681f5"
+            name="Parameters" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="9d71cf26-4b0a-49fa-b37f-d071efe8fa66">
+      <profileInstance
+        Id="233de3b0-69e1-4eb3-a060-1d16347d39b1"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="fa0a2ca8-7aaf-48c7-8542-268a2b1e61fa">
+      <profileInstance
+        Id="f6c93c51-5097-4bcb-a8b7-9d9be23dd416"
+        name="TextTemplateBindings" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <subsystem
+        Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+        name="سفارش"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ab5bfc20-b38f-4537-a8ed-d6f370565265"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="fcf8b638-1e2d-459e-b3f4-53027ab4fda3"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="مشخص کردن لیست ارسال"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6fafd5fd-7abb-4ca1-a3db-31d573e02b36"
+              LastKnownName="لیست ارسال"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="484fa9c0-0e24-4cc7-b5a3-4e6bfe86416b"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="24053065-2b33-476f-bd70-1c8e17e047ce"
+                  name="مشخص کردن لیست ارسال"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8cb0ba4d-555f-4d1e-a3c1-4b76fdc8584f"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="تعیین مقاصد"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0c61812d-3409-4705-8c0c-8ef975a92e2b"
+              LastKnownName="تعیین مقاصد"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="484748bc-ee80-400a-a498-45c177c28e94"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2d143707-84c2-4de7-99c1-3f1d86d58489"
+                  name="تعیین مقاصد"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5b4e8e25-c6c6-45e4-a860-236faac96ba4"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="انجام فعالیت"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="95042e1a-087a-4ee8-8138-992c2ae05cbd"
+              LastKnownName="انجام فعالیت"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a6aa8c46-6ef7-4d73-8f7b-01fa6962a080"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5f8f0c2d-81de-4971-800d-740a47047cb0"
+                  name="انجام فعالیت"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9d7f19f1-6b73-48b5-aec3-8076d671ec52"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="ثبت شماره تحویل فروش"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1c1cc36e-657b-462c-86eb-20cc10bcf7e5"
+              LastKnownName="ثبت شماره تحویل فروش"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2156f521-3f08-4a3d-8cc2-4ed07acc9c48"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9d1d2df3-91c6-447b-b880-fc606d286cbd"
+                  name="ثبت شماره تحویل فروش"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="83fdc351-e355-4d87-a9fe-873d63aff354"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="انتخاب راننده"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e7f8e85c-7e1a-42d7-8841-979d718b1d89"
+              LastKnownName="انتخاب راننده"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e8576eb4-c89e-46e6-986f-eabe2b5dd3ee"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a76b4fec-945d-43bd-b54a-b349a53f3257"
+                  name="انتخاب راننده"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="371f1a00-59b6-40b0-8020-a8a48753c122"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="خروجی نهایی"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="91ec9436-e88b-43a5-baa3-f4b16e298f0f"
+              LastKnownName="خروجی نهایی"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a8897323-7a11-446b-99ee-c2ab9534baa3"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="023f9258-d328-4420-b911-cb1889048aed"
+                  name="خروجی نهایی"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ec75d62a-fe88-4dcc-852b-6909aa08a1a8"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="ثبت گواهی مرغوبیت "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f1f4a4af-707b-48f2-b459-39c120776c39"
+              LastKnownName="ثبت گواهی مرغوبیت "
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2c5a1fbd-6a2b-4edc-8037-c23bf60e83be"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e8738dde-7458-4744-8f5b-d2cbf241c0d6"
+                  name="ثبت گواهی مرغوبیت "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6fafd5fd-7abb-4ca1-a3db-31d573e02b36"
+        name="لیست ارسال"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="e30320e7-434e-4fb4-b36d-1b0ab9650b0c">
+            <useCaseMoniker
+              Id="0c61812d-3409-4705-8c0c-8ef975a92e2b"
+              LastKnownName="تعیین مقاصد"
+              LastKnownLocation="Modeling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="321c49e8-2112-45bd-827c-d97f6ef11bcc"
+        name="مقاصد "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0c61812d-3409-4705-8c0c-8ef975a92e2b"
+        name="تعیین مقاصد"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d3e1ea90-d67e-4858-a990-1b4773943a33"
+            isDerived="false"
+            sourceEndRoleName="تعیین مقاصد"
+            targetEndRoleName="خروجی اولیه"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4735f9d6-5822-4fbf-8bc9-2d76bc3a9809"
+              LastKnownName="خروجی اولیه"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8090baac-c07c-410e-8a7e-d5832643e2e9"
+                  name="تعیین مقاصد"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="486a8c7d-345b-4b12-8b87-dc14c8267fe6"
+                  name="خروجی اولیه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e2cf7999-d1e2-49e0-b371-9f8b044648f3"
+            isDerived="false"
+            sourceEndRoleName="تعیین مقاصد"
+            targetEndRoleName="لیست فعالیت ها"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e04a090a-3f3d-43fc-b5a6-efcab1046026"
+              LastKnownName="لیست فعالیت ها"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a057bb34-37a9-4cf2-8ddd-ad42b7fc52a9"
+                  name="تعیین مقاصد"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ecf21b9f-ab8b-492c-9e5b-ef90d21ba067"
+                  name="لیست فعالیت ها"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4735f9d6-5822-4fbf-8bc9-2d76bc3a9809"
+        name="خروجی اولیه"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="5c18be89-e369-4600-9b39-f40b9d5f818b"
+            isDerived="false"
+            sourceEndRoleName="خروجی اولیه"
+            targetEndRoleName="بازرس ها"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6221d76e-69dc-421d-9e89-0a5ec2a63317"
+              LastKnownName="بازرس ها"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="75193a2c-be3c-4529-ba2b-4a04bf9d1d16"
+                  name="خروجی اولیه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b09e43d8-064b-41a0-a006-e757b2b4d338"
+                  name="بازرس ها"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2c7fa557-d3da-4351-b24d-49ffb4ec1ae9"
+            isDerived="false"
+            sourceEndRoleName="خروجی اولیه"
+            targetEndRoleName="ایمن سازان"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="429879b8-ae23-45e7-894a-9372946b27e7"
+              LastKnownName="ایمن سازان"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="089c3dc7-3744-4354-8fb2-b33c5467ff60"
+                  name="خروجی اولیه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b3f58878-956a-44a3-8773-4894081ae944"
+                  name="ایمن سازان"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4a8df433-17de-4f7f-ad0b-3cd54d620bcf"
+            isDerived="false"
+            sourceEndRoleName="خروجی اولیه"
+            targetEndRoleName="کنترل کیفیت"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a3192b27-b1e7-47c9-9a6d-85f2dd88e09e"
+              LastKnownName="کنترل کیفیت"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58a22f35-9174-469d-bb17-c02557e47d83"
+                  name="خروجی اولیه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="22518004-5e00-4fa7-a23f-2b78333debc7"
+                  name="کنترل کیفیت"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="32e07b07-45c3-4a78-9da2-89f17ffd3ca3"
+            isDerived="false"
+            sourceEndRoleName="خروجی اولیه"
+            targetEndRoleName="انبار"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e11ea39c-f3d3-43e8-8df5-eab77eaaa3c1"
+              LastKnownName="انبار"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1b540801-76a8-4485-b349-472f77ffea11"
+                  name="خروجی اولیه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c5713a51-bd2a-45e9-b74c-aa164a4f8eda"
+                  name="انبار"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="c98a0310-71bd-4937-88a4-0611c804afc2"
+        name="خروجی های اولیه"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6221d76e-69dc-421d-9e89-0a5ec2a63317"
+        name="بازرس ها"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="c98a0310-71bd-4937-88a4-0611c804afc2"
+            LastKnownName="خروجی های اولیه"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a3192b27-b1e7-47c9-9a6d-85f2dd88e09e"
+        name="کنترل کیفیت"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="c98a0310-71bd-4937-88a4-0611c804afc2"
+            LastKnownName="خروجی های اولیه"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e11ea39c-f3d3-43e8-8df5-eab77eaaa3c1"
+        name="انبار"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="c98a0310-71bd-4937-88a4-0611c804afc2"
+            LastKnownName="خروجی های اولیه"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="429879b8-ae23-45e7-894a-9372946b27e7"
+        name="ایمن سازان"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="c98a0310-71bd-4937-88a4-0611c804afc2"
+            LastKnownName="خروجی های اولیه"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e04a090a-3f3d-43fc-b5a6-efcab1046026"
+        name="لیست فعالیت ها"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="9708786b-864f-44aa-9ccd-c82ceab9f467">
+            <useCaseMoniker
+              Id="95042e1a-087a-4ee8-8138-992c2ae05cbd"
+              LastKnownName="انجام فعالیت"
+              LastKnownLocation="Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="95042e1a-087a-4ee8-8138-992c2ae05cbd"
+        name="انجام فعالیت"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1c1cc36e-657b-462c-86eb-20cc10bcf7e5"
+        name="ثبت شماره تحویل فروش"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e7f8e85c-7e1a-42d7-8841-979d718b1d89"
+        name="انتخاب راننده"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="91ec9436-e88b-43a5-baa3-f4b16e298f0f"
+        name="خروجی نهایی"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="5831659d-c8da-4190-80b6-2772905fe4c1">
+            <useCaseMoniker
+              Id="4b2a086e-feee-4249-91c8-fff89ff427db"
+              LastKnownName="اصلاح لیست فعالیت ها"
+              LastKnownLocation="Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="c15f8668-896c-435d-a3c0-0e1b52c59cd1"
+            isDerived="false"
+            sourceEndRoleName="خروجی نهایی"
+            targetEndRoleName="لیست ارسال محصول"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2864b3a7-cf14-485b-ab01-d79492cfa1cb"
+              LastKnownName="لیست ارسال محصول"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="67e065d9-4b30-4e72-bf63-14f029a66a0f"
+                  name="خروجی نهایی"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5fe2f80a-d0e7-4dbc-b1ee-5f9d51e4f5a5"
+                  name="لیست ارسال محصول"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f6b932c1-e4ce-40ed-988f-10653015ec25"
+            isDerived="false"
+            sourceEndRoleName="خروجی نهایی"
+            targetEndRoleName="مشخصات مدارک محموله"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a5d69aac-7007-4131-8eb9-f741c035f825"
+              LastKnownName="مشخصات مدارک محموله"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6d798e54-9127-48a6-83e8-5a3c78e34c80"
+                  name="خروجی نهایی"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="956d508e-607a-4299-9125-1d5242c3be54"
+                  name="مشخصات مدارک محموله"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="73819c82-4c35-4c9e-8a12-fd451c93c520"
+            isDerived="false"
+            sourceEndRoleName="خروجی نهایی"
+            targetEndRoleName="چک لیست بارگیری و حمل"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8591b8d0-a034-432b-88be-f39d194b7b64"
+              LastKnownName="چک لیست بارگیری و حمل"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="288af956-ecef-4ad5-b408-b9e33205b6a2"
+                  name="خروجی نهایی"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b1d99f4f-129e-482c-9083-32d0f6be7056"
+                  name="چک لیست بارگیری و حمل"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bb3152d0-8b3f-468c-a397-cfdb97e8de94"
+            isDerived="false"
+            sourceEndRoleName="خروجی نهایی"
+            targetEndRoleName="بارنامه دستی"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d5660a6e-60f0-4ddb-ba9b-95623c7fa242"
+              LastKnownName="بارنامه دستی"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c9363577-1647-478c-acff-074c7cc77f6d"
+                  name="خروجی نهایی"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07644ce7-03f9-4fbb-affa-ae92ab4cb709"
+                  name="بارنامه دستی"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="28a09154-bcaf-4723-ab3c-f22083bad768"
+        name="خروجی نهایی"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2864b3a7-cf14-485b-ab01-d79492cfa1cb"
+        name="لیست ارسال محصول"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="28a09154-bcaf-4723-ab3c-f22083bad768"
+            LastKnownName="خروجی نهایی"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a5d69aac-7007-4131-8eb9-f741c035f825"
+        name="مشخصات مدارک محموله"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="28a09154-bcaf-4723-ab3c-f22083bad768"
+            LastKnownName="خروجی نهایی"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8591b8d0-a034-432b-88be-f39d194b7b64"
+        name="چک لیست بارگیری و حمل"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="28a09154-bcaf-4723-ab3c-f22083bad768"
+            LastKnownName="خروجی نهایی"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d5660a6e-60f0-4ddb-ba9b-95623c7fa242"
+        name="بارنامه دستی"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="28a09154-bcaf-4723-ab3c-f22083bad768"
+            LastKnownName="خروجی نهایی"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4b2a086e-feee-4249-91c8-fff89ff427db"
+        name="اصلاح لیست فعالیت ها"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="062c4133-b05f-4dfd-8e75-06a06c765d77">
+            <useCaseMoniker
+              Id="e04a090a-3f3d-43fc-b5a6-efcab1046026"
+              LastKnownName="لیست فعالیت ها"
+              LastKnownLocation="Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f1f4a4af-707b-48f2-b459-39c120776c39"
+        name="ثبت گواهی مرغوبیت "
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="cfcfaadf-4b45-482f-9081-15c0056d9881"
+            LastKnownName="سفارش"
+            LastKnownLocation="Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="c9f14a6b-2ff0-43e4-9547-7345f538246c"
+        name="Activity1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="03e0d146-14ee-4e72-a8c0-a3fb31af88b5"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="01cc7596-0c25-4851-a927-e870386c478d"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8097c3ee-a50d-400b-ad19-d5744c2f4751"
+                  LastKnownName="تعیین لیست ارسال"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="8097c3ee-a50d-400b-ad19-d5744c2f4751"
+            name="تعیین لیست ارسال"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="93c1f5da-6dfc-4146-bd52-271a2ab3c6cf"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="dd8fa0aa-6731-4bbb-b74c-310dd70eb553"
+                  LastKnownName="انتخاب مقاصد"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="dd8fa0aa-6731-4bbb-b74c-310dd70eb553"
+            name="انتخاب مقاصد"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1237e1d6-47ba-403d-a641-6223309ff419"
+                isLeaf="false">
+                <forkNodeMoniker
+                  Id="46fd595d-9f68-4401-9b40-df15299d92ec"
+                  LastKnownName="Fork1"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <forkNode
+            Id="46fd595d-9f68-4401-9b40-df15299d92ec"
+            name="Fork1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c52008ca-edb5-4b5a-add8-8d381a840e32"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="424d54ab-1a9d-4a1f-9976-e375c1eb06b1"
+                  LastKnownName="خروجی های اولیه"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="378f8465-a731-4d0f-8caa-212ff2535277"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="49ff1a67-8da2-4a52-85ef-cc9c09533b34"
+                  LastKnownName="لیست فعالیت ها"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="66b6c61b-fc5e-4918-8d04-7aacd44fbd58"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="220f46fa-a79a-4ed4-bd0d-79488c359fb0"
+                  LastKnownName="ثبت تحویل فروش"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="812c5422-a587-496a-95b6-1fa0a6321c00"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="73707fc0-aa81-4ae7-9561-c4059e1d86fc"
+                  LastKnownName="انتخاب راننده"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+          <opaqueAction
+            Id="424d54ab-1a9d-4a1f-9976-e375c1eb06b1"
+            name="خروجی های اولیه"
+            isLeaf="false" />
+          <opaqueAction
+            Id="49ff1a67-8da2-4a52-85ef-cc9c09533b34"
+            name="لیست فعالیت ها"
+            isLeaf="false" />
+          <opaqueAction
+            Id="220f46fa-a79a-4ed4-bd0d-79488c359fb0"
+            name="ثبت تحویل فروش"
+            isLeaf="false" />
+          <opaqueAction
+            Id="73707fc0-aa81-4ae7-9561-c4059e1d86fc"
+            name="انتخاب راننده"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1220a130-04fb-44ec-84d1-6950e260f05b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="46da8f22-d88d-468a-9942-afd490f9226f"
+                  LastKnownName="خروجی نهایی"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="46da8f22-d88d-468a-9942-afd490f9226f"
+            name="خروجی نهایی"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="15658e7a-ab28-459a-aa98-6b1f36d672aa"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ba4f0d1a-dcf6-443d-b45a-1d0eefe4edcd"
+        name="ثبت اولیه لیست ارسال"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="25a868a6-a222-40d5-9d5a-651ac06ad9aa">
+            <useCaseMoniker
+              Id="75995a03-16eb-45d0-a693-0277fe248511"
+              LastKnownName="خروجی اولیه"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+          <extend
+            Id="6041054f-de49-4546-ad00-60daf771b7ea">
+            <useCaseMoniker
+              Id="1d6669a3-ded6-4669-9573-2abb63364be7"
+              LastKnownName="فعالیت های اولیه"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="75995a03-16eb-45d0-a693-0277fe248511"
+        name="خروجی اولیه"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1d6669a3-ded6-4669-9573-2abb63364be7"
+        name="فعالیت های اولیه"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="adf817fe-9640-4196-bb37-0fa10200d6c1"
+        name="تغییر لیست اولیه"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="e3fda88e-1ebc-4a4f-b9f4-c83345c3f820">
+            <useCaseMoniker
+              Id="75995a03-16eb-45d0-a693-0277fe248511"
+              LastKnownName="خروجی اولیه"
+              LastKnownLocation="Modeling.uml" />
+          </include>
+          <include
+            Id="ae4d2014-23ab-42bb-9fb6-d80016deb43f">
+            <useCaseMoniker
+              Id="1d6669a3-ded6-4669-9573-2abb63364be7"
+              LastKnownName="فعالیت های اولیه"
+              LastKnownLocation="Modeling.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d8487e78-b1b8-4e3a-ae92-93f0e6691ad4"
+        name="ثبت شماره تحویل فروش"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cf76e07f-d1fe-4f2c-897c-f43260b2bb12"
+        name="پیشنهاد انتخاب راننده"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="a550b327-c35a-41e8-92db-8f44863b2056">
+            <useCaseMoniker
+              Id="a1a481e6-056a-45d8-850e-040c351a0767"
+              LastKnownName="ثبت راننده ها"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a1a481e6-056a-45d8-850e-040c351a0767"
+        name="ثبت راننده ها"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="a8c28ab9-1473-41c8-8a9f-a08f769ef860">
+            <useCaseMoniker
+              Id="b7388bae-1a73-4057-b00d-9246258bce0e"
+              LastKnownName="تثبیت لیست ارسال محصول"
+              LastKnownLocation="Modeling.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b7388bae-1a73-4057-b00d-9246258bce0e"
+        name="تثبیت لیست ارسال محصول"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="69e0be34-cbce-4847-b727-18319f06644c">
+            <useCaseMoniker
+              Id="547a7dc4-0fd7-4721-a47c-38421a25fc15"
+              LastKnownName="خروجی های نهایی"
+              LastKnownLocation="Modeling.uml" />
+          </dependency>
+          <dependency
+            Id="8f9f78bc-144d-4425-9a31-6202e2c4631a">
+            <useCaseMoniker
+              Id="e66a75fa-c1cc-4fd4-8d76-6b4bb7be3eab"
+              LastKnownName="لیست کارهای نهایی"
+              LastKnownLocation="Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="547a7dc4-0fd7-4721-a47c-38421a25fc15"
+        name="خروجی های نهایی"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e66a75fa-c1cc-4fd4-8d76-6b4bb7be3eab"
+        name="لیست کارهای نهایی"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="45db0fd7-0469-4a2b-9cb3-149f311eb484"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="a5781d1f-1627-485c-aafc-1e053343c890"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="ثبت اولیه لیست ارسال"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ba4f0d1a-dcf6-443d-b45a-1d0eefe4edcd"
+              LastKnownName="ثبت اولیه لیست ارسال"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="55ebe090-c33c-494a-b21a-9c118dc843dd"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="290026dc-0f74-489e-b747-ef32a535889a"
+                  name="ثبت اولیه لیست ارسال"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="83aa3666-627f-4f6e-a66a-0e9eeb970a84"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="تغییر لیست اولیه"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="adf817fe-9640-4196-bb37-0fa10200d6c1"
+              LastKnownName="تغییر لیست اولیه"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4967f1d4-b0f6-4bf9-8e8e-db484d12ad1b"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6e9023f5-0d1f-4455-82a1-b715e102b0cc"
+                  name="تغییر لیست اولیه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1456e33d-af64-4c01-a049-01b8300f18fe"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="خروجی اولیه"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="75995a03-16eb-45d0-a693-0277fe248511"
+              LastKnownName="خروجی اولیه"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2aa2999f-067a-4e6e-a733-7a4325a17a33"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7272988d-efff-4a4e-8c44-3fb76e714ce4"
+                  name="خروجی اولیه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c86546c8-6f6e-413d-b4ce-e66bedf6481a"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="ثبت شماره تحویل فروش"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d8487e78-b1b8-4e3a-ae92-93f0e6691ad4"
+              LastKnownName="ثبت شماره تحویل فروش"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="47f753f4-a502-4c16-b0d3-8c0b65b75381"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="de9cce89-45e5-4864-a61f-c6959198d056"
+                  name="ثبت شماره تحویل فروش"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="81e2eaaa-a3a3-4d5a-975f-952b49529d71"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="پیشنهاد انتخاب راننده"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cf76e07f-d1fe-4f2c-897c-f43260b2bb12"
+              LastKnownName="پیشنهاد انتخاب راننده"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="977bfff6-5742-409e-b83d-e7a8ed176874"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c3e3bd23-a46c-4b03-89fa-9dd5bb188a25"
+                  name="پیشنهاد انتخاب راننده"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f7e4eb15-2673-4fd8-acb1-dd4a155b182a"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="ثبت راننده ها"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a1a481e6-056a-45d8-850e-040c351a0767"
+              LastKnownName="ثبت راننده ها"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="40356c76-25cf-4c78-84b7-dbcc9b986ea1"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9d150546-da73-4341-bf63-6dde87d30af3"
+                  name="ثبت راننده ها"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d65e5ab6-5bff-4b42-995d-eff9927821a7"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="تثبیت لیست ارسال محصول"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b7388bae-1a73-4057-b00d-9246258bce0e"
+              LastKnownName="تثبیت لیست ارسال محصول"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="547ef3e4-8c4f-4fde-aab5-79e07f520425"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="43e75f1e-90b2-486a-9b53-02a2f30a838b"
+                  name="تثبیت لیست ارسال محصول"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bf10bbd8-0498-4b03-ab35-b7af4255f45e"
+        name="Class2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="9d4751d8-7dfd-4666-8247-520842ec0a3b"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7a203e91-de5e-49fd-9b4e-ac1b0c741556"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="مشخص کردن لیست ارسال روزانه"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cd7ee6e0-490e-49a8-b905-ed125b6b5d76"
+              LastKnownName="مشخص کردن لیست ارسال روزانه"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ecc7f983-139d-4cda-a800-912fbb7dfc38"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="38e09c6e-6642-4820-9f0f-c0a623028da5"
+                  name="مشخص کردن لیست ارسال روزانه"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c869f6b4-1b66-424e-a561-b0ca578c46a7"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="ثبت تحویل فروش "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d647907a-e8ae-4de0-b0c4-1db44c0a4ee9"
+              LastKnownName="ثبت تحویل فروش "
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="677a0800-7519-4103-bbeb-5632b43e9c64"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="376b1274-27e3-412f-a26f-4334306baec0"
+                  name="ثبت تحویل فروش "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4a38cdf2-36ff-4fcd-b63f-5c750842ca53"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="ثبت بدون اوراکل"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f04af02a-1fb2-4dbe-9014-19147d9890f1"
+              LastKnownName="ثبت بدون اوراکل"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e1167709-d5a7-4fe9-85d1-882c7722e724"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8f56c7b6-76b8-4860-a0e6-6c2d81a9cffb"
+                  name="ثبت بدون اوراکل"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cd7ee6e0-490e-49a8-b905-ed125b6b5d76"
+        name="مشخص کردن لیست ارسال روزانه"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="7c9ef404-ed28-43d4-a24a-c8d8200583cf">
+            <useCaseMoniker
+              Id="729ed9b5-36a2-4f2a-acd5-0116e68aff95"
+              LastKnownName="افزودن توضیحات به لیست"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+          <extend
+            Id="fa7d7730-1664-43fd-aa01-b50833f2c3a2">
+            <useCaseMoniker
+              Id="a5a7c4f7-5c68-465c-8478-57d6dac140f5"
+              LastKnownName="مشخص کردن نوع ارسال "
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d647907a-e8ae-4de0-b0c4-1db44c0a4ee9"
+        name="ثبت تحویل فروش "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f04af02a-1fb2-4dbe-9014-19147d9890f1"
+        name="ثبت بدون اوراکل"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a2fad6d4-33f0-4cb7-8ae9-745114e11b9a"
+        name="توضیحات"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="729ed9b5-36a2-4f2a-acd5-0116e68aff95"
+        name="افزودن توضیحات به لیست"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="d0870f6d-6704-44b0-ad64-06b91a0b5555"
+        name="System"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="01bc26ad-251d-438d-8ddd-41c428908f58"
+            isDerived="false"
+            sourceEndRoleName="System"
+            targetEndRoleName="لیست بازرس ها"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f0161ee7-e9b3-4044-b7f6-05c2bbeed53e"
+              LastKnownName="لیست بازرس ها"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2fee0bd2-de5a-4f9e-9369-16f329b54625"
+                  name="System"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="87581cc7-829e-4a7a-b9c5-22e13532228c"
+                  name="لیست بازرس ها"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d30bc5fb-87d8-4273-81b4-e3c483d5516d"
+            isDerived="false"
+            sourceEndRoleName="System"
+            targetEndRoleName="لیست انبار"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a22fa297-5cfb-4a96-8d5c-c9c15ad21312"
+              LastKnownName="لیست انبار"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8d2d5caa-cc49-41ae-85f7-629eaee7046e"
+                  name="System"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6e638b51-f995-45ea-8d80-3aa5db61f5e0"
+                  name="لیست انبار"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="29f053f5-aed3-4882-8604-ecd1b998c4f2"
+            isDerived="false"
+            sourceEndRoleName="System"
+            targetEndRoleName="لیست ایمن سازان"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7d307749-c88b-42ea-a694-54f8f95c6696"
+              LastKnownName="لیست ایمن سازان"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="903ab3ff-a366-4aa2-a416-dd396133b894"
+                  name="System"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="543a6728-b12b-4531-b022-15fe1e26e9ec"
+                  name="لیست ایمن سازان"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="fe67ee5a-bbbe-4608-b3d8-d98c164a1d27"
+            isDerived="false"
+            sourceEndRoleName="System"
+            targetEndRoleName="لیست کنترل کیفیت"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="286b354c-2e89-4f2a-9fa3-7ff8d09616fb"
+              LastKnownName="لیست کنترل کیفیت"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6e94293b-6173-4089-9f64-065fd635d46b"
+                  name="System"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ba75b914-581e-471a-9f29-1cd59a26a2f7"
+                  name="لیست کنترل کیفیت"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bb0e7ddf-af57-44f1-92b8-3430fa93a2e0"
+            isDerived="false"
+            sourceEndRoleName="System"
+            targetEndRoleName="لیست ارسال محصول نهایی"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f3b269e8-f139-45dd-bfc4-8936b19dd415"
+              LastKnownName="لیست ارسال محصول نهایی"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f422f1ae-f370-48fc-beec-65ca4b089536"
+                  name="System"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4e0232e3-4f90-4ed0-9edb-0c407d4e1c08"
+                  name="لیست ارسال محصول نهایی"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="35580ae1-6aa9-479f-bf1e-21584d4ec13a"
+            isDerived="false"
+            sourceEndRoleName="System"
+            targetEndRoleName="گزارش کلی ارسال"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="89e6b099-b17e-4e6f-bdf9-f439cb094a6d"
+              LastKnownName="گزارش کلی ارسال"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="57878741-07f1-41ab-9ac0-1baaea8f1212"
+                  name="System"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="afcd4d96-1caa-4cfb-a9a5-60b59d53e829"
+                  name="گزارش کلی ارسال"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f0161ee7-e9b3-4044-b7f6-05c2bbeed53e"
+        name="لیست بازرس ها"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a22fa297-5cfb-4a96-8d5c-c9c15ad21312"
+        name="لیست انبار"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7d307749-c88b-42ea-a694-54f8f95c6696"
+        name="لیست ایمن سازان"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="286b354c-2e89-4f2a-9fa3-7ff8d09616fb"
+        name="لیست کنترل کیفیت"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f3b269e8-f139-45dd-bfc4-8936b19dd415"
+        name="لیست ارسال محصول نهایی"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="89e6b099-b17e-4e6f-bdf9-f439cb094a6d"
+        name="گزارش کلی ارسال"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a5a7c4f7-5c68-465c-8478-57d6dac140f5"
+        name="مشخص کردن نوع ارسال "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0ae9aca8-faa9-4f03-b428-5ce9edc8e383"
+        name="Class3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="1c235b2c-3979-4af9-a370-be0590fea4ef"
+        name="Order" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="fece7ec7-dcf4-47af-bccf-defcbf732a3e"
+        name="Customer" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b776d203-243d-45f7-8bd8-1f7a4b960584"
+        name="Driver" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="281e9163-6e50-46b1-8a94-690997b2a51b"
+        name="OrderDetail" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="fc1d1934-6057-4e7b-8db0-f225e8d8643d"
+        name="Product" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="17994f3c-74cd-46c3-a6ed-36e73098cc6e"
+        LastKnownName="OrdersAndisheh.DL"
+        LastKnownLocation="Package_1604.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

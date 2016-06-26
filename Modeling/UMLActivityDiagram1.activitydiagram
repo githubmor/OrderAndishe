@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="0a3c6372-2a5d-428e-a848-74a0834f27dd" name="Activity1" linkedPackageId="f34dc1e8-9d3d-4291-b699-0ccc42df1db5" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="a8b9dd96-0120-43f4-98f9-a075f5cfd4a0">
+      <profileInstance Id="a6dc518c-4d2d-4106-8f04-0daa3c2c43e6" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="759a9766-943c-4cdb-880c-f73d67cc3465">
+      <profileInstance Id="80a9ccaa-2cc7-46da-94f9-15a15dbc3bc7" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="c82cbe5e-bf82-4859-b8df-21abb7a469c0" name="Activity1" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="c9f14a6b-2ff0-43e4-9547-7345f538246c" />
+        <nodes>
+          <initialNode Id="b7cdf308-c0b3-477e-b8e4-534a63af207c" name="Initial1" isLeaf="false">
+            <elementDefinition Id="03e0d146-14ee-4e72-a8c0-a3fb31af88b5" />
+            <flowNodeTargets>
+              <controlFlow Id="38f65d43-1a6c-4aa7-a06d-386d5f5ad5b7" isLeaf="false">
+                <opaqueActionMoniker Id="8e063aaf-3d47-4bfe-8df1-3adf3972849e" LastKnownName="تعیین لیست ارسال" />
+                <elementDefinition Id="01cc7596-0c25-4851-a927-e870386c478d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="8e063aaf-3d47-4bfe-8df1-3adf3972849e" name="تعیین لیست ارسال" isLeaf="false">
+            <elementDefinition Id="8097c3ee-a50d-400b-ad19-d5744c2f4751" />
+            <flowNodeTargets>
+              <controlFlow Id="bb2256ec-d6a4-4dd3-8cd8-d9d982da722a" isLeaf="false">
+                <opaqueActionMoniker Id="56061798-f894-4132-8615-5758a6cd8ce9" LastKnownName="انتخاب مقاصد" />
+                <elementDefinition Id="93c1f5da-6dfc-4146-bd52-271a2ab3c6cf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="56061798-f894-4132-8615-5758a6cd8ce9" name="انتخاب مقاصد" isLeaf="false">
+            <elementDefinition Id="dd8fa0aa-6731-4bbb-b74c-310dd70eb553" />
+            <flowNodeTargets>
+              <controlFlow Id="878a4892-a2bd-4557-a7eb-7914ff9dd4a6" isLeaf="false">
+                <forkNodeMoniker Id="8fc4fe13-da37-4290-b56b-9961cc4860af" LastKnownName="Fork1" />
+                <elementDefinition Id="1237e1d6-47ba-403d-a641-6223309ff419" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <forkNode Id="8fc4fe13-da37-4290-b56b-9961cc4860af" name="Fork1" isLeaf="false">
+            <elementDefinition Id="46fd595d-9f68-4401-9b40-df15299d92ec" />
+            <flowNodeTargets>
+              <controlFlow Id="e71bbff7-e822-40f1-8081-a759771ef984" isLeaf="false">
+                <opaqueActionMoniker Id="db2a4b38-a2a0-4074-aaa4-9a1e22a8dadc" LastKnownName="خروجی های اولیه" />
+                <elementDefinition Id="c52008ca-edb5-4b5a-add8-8d381a840e32" />
+              </controlFlow>
+              <controlFlow Id="d198965f-800d-48f1-ab13-388fa66cb3f9" isLeaf="false">
+                <opaqueActionMoniker Id="048ec2c4-97bf-4ea0-9cbb-9303a6660afa" LastKnownName="لیست فعالیت ها" />
+                <elementDefinition Id="378f8465-a731-4d0f-8caa-212ff2535277" />
+              </controlFlow>
+              <controlFlow Id="187b4de4-7326-4c55-aefc-1e60e696469d" isLeaf="false">
+                <opaqueActionMoniker Id="1d9c6fbf-b6dd-4e95-ae50-bc29fd1caca8" LastKnownName="ثبت تحویل فروش" />
+                <elementDefinition Id="66b6c61b-fc5e-4918-8d04-7aacd44fbd58" />
+              </controlFlow>
+              <controlFlow Id="127734cc-0dd8-4473-b4b5-81f765324d7b" isLeaf="false">
+                <opaqueActionMoniker Id="1105fdd0-0d16-4371-93ac-1452d1668b99" LastKnownName="انتخاب راننده" />
+                <elementDefinition Id="812c5422-a587-496a-95b6-1fa0a6321c00" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+          <opaqueAction Id="db2a4b38-a2a0-4074-aaa4-9a1e22a8dadc" name="خروجی های اولیه" isLeaf="false">
+            <elementDefinition Id="424d54ab-1a9d-4a1f-9976-e375c1eb06b1" />
+          </opaqueAction>
+          <opaqueAction Id="048ec2c4-97bf-4ea0-9cbb-9303a6660afa" name="لیست فعالیت ها" isLeaf="false">
+            <elementDefinition Id="49ff1a67-8da2-4a52-85ef-cc9c09533b34" />
+          </opaqueAction>
+          <opaqueAction Id="1d9c6fbf-b6dd-4e95-ae50-bc29fd1caca8" name="ثبت تحویل فروش" isLeaf="false">
+            <elementDefinition Id="220f46fa-a79a-4ed4-bd0d-79488c359fb0" />
+          </opaqueAction>
+          <opaqueAction Id="1105fdd0-0d16-4371-93ac-1452d1668b99" name="انتخاب راننده" isLeaf="false">
+            <elementDefinition Id="73707fc0-aa81-4ae7-9561-c4059e1d86fc" />
+            <flowNodeTargets>
+              <controlFlow Id="304846b6-b225-46d7-bad8-2ae1f8596457" isLeaf="false">
+                <opaqueActionMoniker Id="2b2511b9-b2d9-4c12-9e19-8f06f3b5d92d" LastKnownName="خروجی نهایی" />
+                <elementDefinition Id="1220a130-04fb-44ec-84d1-6950e260f05b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="2b2511b9-b2d9-4c12-9e19-8f06f3b5d92d" name="خروجی نهایی" isLeaf="false">
+            <elementDefinition Id="46da8f22-d88d-468a-9942-afd490f9226f" />
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="f34dc1e8-9d3d-4291-b699-0ccc42df1db5" name="Modeling">
+    <elementDefinition Id="ad5fee96-f013-4618-ad58-1c102c96be96" />
+  </package>
+</activityRootModel>

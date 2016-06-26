@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="UseCase">
+  <useCaseModelRootMoniker Id="13138f6d-abd8-46aa-90e0-dd6a92571d79" />
+  <nestedChildShapes>
+    <actorShape Id="2c8fc78d-ccfd-47df-811c-4430a53689fe" absoluteBounds="1.75, 2.25, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="3b4a997a-5bbb-4d57-b3d4-e412191df46b" LastKnownName="User" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="a6a9a826-5a5e-4ea0-ba71-65ee55235fa7" absoluteBounds="3.75, 1.625, 1, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="a515be63-627f-4914-8726-e4d015f251c7" LastKnownName="مشخص کردن لیست ارسال روزانه" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.25 : 2.4375); (3.78576165455737 : 2.05355958636066)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="6773669b-b7d1-4fd5-a9a8-b52cc6989ec8" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="2c8fc78d-ccfd-47df-811c-4430a53689fe" />
+        <useCaseShapeMoniker Id="a6a9a826-5a5e-4ea0-ba71-65ee55235fa7" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="99def874-bba0-4fe8-88d3-44a35677254d" absoluteBounds="3.75, 2.625, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="e6bcd4d2-55cd-4b2d-a40f-226ab8eb00c1" LastKnownName="ثبت تحویل فروش " />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.25 : 2.54166666666667); (3.77565835097474 : 2.79594305849579)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="cee7f715-623a-4009-8686-bf8f0176e042" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="2c8fc78d-ccfd-47df-811c-4430a53689fe" />
+        <useCaseShapeMoniker Id="99def874-bba0-4fe8-88d3-44a35677254d" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="fe018d43-19c4-4f6f-b3d8-3dd8e4e08390" absoluteBounds="3.75, 3.5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="c79b47d1-ca3f-4486-af75-ad3117d19e0a" LastKnownName="ثبت بدون اوراکل" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.25 : 2.63888888888889); (3.91551763418878 : 3.56417646343821)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="de7d0247-ee6c-42b9-a6ce-3b4f24e18457" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="2c8fc78d-ccfd-47df-811c-4430a53689fe" />
+        <useCaseShapeMoniker Id="fe018d43-19c4-4f6f-b3d8-3dd8e4e08390" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="df3b5f27-08ef-4c51-998c-63d320deadee" absoluteBounds="5.375, 1.125, 1, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="da816856-8733-4b31-af7a-ae2c8ddcb7e8" LastKnownName="افزودن توضیحات به لیست" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(4.69858533802027 : 1.79947374214761); (5.42641466197973 : 1.57552625785239)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="88c40c63-1b1e-46b9-8934-1fdf8879204b" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="4.625, 1.4375, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="a6a9a826-5a5e-4ea0-ba71-65ee55235fa7" />
+        <useCaseShapeMoniker Id="df3b5f27-08ef-4c51-998c-63d320deadee" />
+      </nodes>
+    </extendConnector>
+    <actorShape Id="5eda89ec-48c4-4228-80cc-c67a2e6ee3e8" absoluteBounds="1.875, 5.125, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="757304df-21d8-486b-9764-e93f2c10d281" LastKnownName="System" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="8c17d1f5-7d52-4f3e-95a7-c991baad8b7f" absoluteBounds="4.625, 4.5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="06acb279-5769-402b-b730-2a414a6c76fa" LastKnownName="لیست بازرس ها" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.375 : 5.32291666666667); (4.66346153846154 : 4.84615384615385)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="9b1c7baf-e7e7-4876-ac96-e31158b8c533" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="5eda89ec-48c4-4228-80cc-c67a2e6ee3e8" />
+        <useCaseShapeMoniker Id="8c17d1f5-7d52-4f3e-95a7-c991baad8b7f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="969fdd05-a1f0-4b45-89ec-f80ea4f93e1a" absoluteBounds="4.625, 5.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="7cb5a95c-867b-4c95-af5c-8b87177df498" LastKnownName="لیست انبار" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.375 : 5.39583333333333); (4.63180303808393 : 5.58390025317366)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="29c2e6f2-1711-461c-be35-cf7d886f19b7" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="5eda89ec-48c4-4228-80cc-c67a2e6ee3e8" />
+        <useCaseShapeMoniker Id="969fdd05-a1f0-4b45-89ec-f80ea4f93e1a" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="5b64b5e5-fc39-4e39-b69b-69cfa9b6ca87" absoluteBounds="4.625, 6.125, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="f7242658-8abd-417a-8379-d52a96096169" LastKnownName="لیست ایمن سازان" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.375 : 5.45833333333333); (4.70897485283108 : 6.23632495094369)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="619351bf-f93c-47c0-b65a-f6b41d42aef8" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="5eda89ec-48c4-4228-80cc-c67a2e6ee3e8" />
+        <useCaseShapeMoniker Id="5b64b5e5-fc39-4e39-b69b-69cfa9b6ca87" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="d92a7853-27cf-4ad4-b2bb-af67197927fb" absoluteBounds="4.625, 7, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="f1783d3a-d741-4f11-8ae6-ba5696fd6c56" LastKnownName="لیست کنترل کیفیت" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.375 : 5.53125); (4.81265247622279 : 7.05478279763924)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="3513d2cc-4f79-4dc1-a7bb-fb88b5d7204b" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="5eda89ec-48c4-4228-80cc-c67a2e6ee3e8" />
+        <useCaseShapeMoniker Id="d92a7853-27cf-4ad4-b2bb-af67197927fb" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="fe361dab-e247-43c3-bb52-d6d9efc824e9" absoluteBounds="4.625, 7.75, 1, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="c3e47f42-0c45-4ba8-861a-a36192fcaa6a" LastKnownName="لیست ارسال محصول نهایی" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.375 : 5.59895833333333); (4.83890920198796 : 7.80621032678088)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="5031b5c4-5f2b-4d4b-8f6d-3c0dedd5ab25" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="5eda89ec-48c4-4228-80cc-c67a2e6ee3e8" />
+        <useCaseShapeMoniker Id="fe361dab-e247-43c3-bb52-d6d9efc824e9" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="c46912a8-07da-4f5f-a911-48f433cd033f" absoluteBounds="2.5, 4, 1, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="8012d1fb-e21b-423b-824f-214da769e118" LastKnownName="گزارش کلی ارسال" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.33088235294118 : 5.125); (2.77117828409131 : 4.59035494074627)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="b9eba73b-9a1a-4cb4-895a-9febee110f7a" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="5eda89ec-48c4-4228-80cc-c67a2e6ee3e8" />
+        <useCaseShapeMoniker Id="c46912a8-07da-4f5f-a911-48f433cd033f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="edd2919b-7bea-44c3-876e-02d49df1cc44" absoluteBounds="5.875, 1.875, 1, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="db7c5493-a7ba-4277-a5fc-a9e2d22e12a4" LastKnownName="مشخص کردن نوع ارسال " />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(4.74137052616611 : 1.99530829719601); (5.88362947383389 : 2.12969170280399)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="55fd7b6c-b6b8-40f8-9a14-dc6673b3ad59" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="a6a9a826-5a5e-4ea0-ba71-65ee55235fa7" />
+        <useCaseShapeMoniker Id="edd2919b-7bea-44c3-876e-02d49df1cc44" />
+      </nodes>
+    </extendConnector>
+  </nestedChildShapes>
+</useCaseDiagram>
