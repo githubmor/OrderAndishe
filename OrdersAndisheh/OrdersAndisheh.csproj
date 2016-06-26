@@ -93,6 +93,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BL\AlarmManager.cs" />
     <Compile Include="BL\FileMangar.cs" />
     <Compile Include="BL\ItemSefaresh.cs" />
     <Compile Include="BL\ItemType.cs" />

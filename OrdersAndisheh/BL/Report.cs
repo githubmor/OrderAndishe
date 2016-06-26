@@ -13,16 +13,32 @@ namespace BL
 
 	public class Report
 	{
-
-        public string Tarikh { get; set; }
-
-        private int myVar;
-
-        public int Hafte
+        private Sefaresh sefaresh;
+        public Report(Sefaresh sefaresh)
         {
-            get { return myVar; }
-            private set { myVar = value; }
+            this.sefaresh = sefaresh;
+            foreach (var item in sefaresh.Items)
+            {
+                ListKala.Add(item.Kala);
+            }
         }
+
+        public string Tarikh 
+        {
+            get { return sefaresh.Tarikh; }
+        }
+
+        public string Description
+        {
+            get { return sefaresh.Description; }
+        }
+
+        public string RozHafte
+        {
+            get { return ""; } //برای محاسبه نام روز هفته - شنبه و یکشنبه
+        }
+
+        public List<string> ListKala { get; private set; }
         
     }
 }

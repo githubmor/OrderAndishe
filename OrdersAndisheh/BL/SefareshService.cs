@@ -11,7 +11,12 @@ namespace BL
 	using System.Linq;
 	using System.Text;
     using OrdersAndisheh.DL;
+    using OrdersAndisheh.BL;
 
+
+    /// <summary>
+    /// This is Just For Service Sefaresh To Database
+    /// </summary>
 	public class SefareshService
 	{
         //public virtual Sefaresh Sefareshs
@@ -71,12 +76,16 @@ namespace BL
             this.UpdateSefaresh(sefaresh);
 		}
 
-        private void PrintReports(Sefaresh sefaresh)
-        {
-            Report r = new Report();
-            r.Tarikh = sefaresh.Tarikh;
-           
-        }
+        //private void PrintReports(Sefaresh sefaresh)
+        //{
+        //    ReportManager rm = new ReportManager(sefaresh);
+
+        //    rm.CreatBazresReport();
+        //    rm.CreatAnbarReport();
+        //    rm.CreatImenSazanReport();
+        //    rm.CreatKontrolReport();
+        //    rm.CreatListErsalReport();
+        //}
 
 	}
 }
