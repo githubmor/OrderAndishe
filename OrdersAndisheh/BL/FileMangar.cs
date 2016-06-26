@@ -15,7 +15,7 @@ namespace BL
 	{
 		public virtual void CreatDocFile()
 		{
-			//this is in branch 1
+			
 		}
 
 	}
