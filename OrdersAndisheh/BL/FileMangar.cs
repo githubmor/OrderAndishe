@@ -15,7 +15,7 @@ namespace BL
 	{
 		public virtual void CreatDocFile()
 		{
-			throw new System.NotImplementedException();
+			
 		}
 
 	}
