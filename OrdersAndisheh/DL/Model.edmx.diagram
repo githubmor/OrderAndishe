@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="964ad1662b7b47b3ae72afa611d093de" Name="Diagram1">
-        <EntityTypeShape EntityType="OrderDbModel.Bazres" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderDbModel.Bazres" Width="1.5" PointX="0.5" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderDbModel.Customer" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderDbModel.Driver" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderDbModel.Order" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />

@@ -11,27 +11,32 @@ namespace BL
 	using System.Linq;
 	using System.Text;
 
-	public class Report
+	public class Reportd
 	{
-        private Sefaresh sefaresh;
-        public Report(Sefaresh sefaresh)
+        private List<ItemSefaresh> sefareshat;
+        
+
+        public Reportd(string tarikh, List<ItemSefaresh> sefareshat)
         {
-            this.sefaresh = sefaresh;
-            foreach (var item in sefaresh.Items)
+            this.sefareshat = sefareshat;
+            this.Tarikh = tarikh;
+
+            foreach (var item in sefareshat)
             {
                 ListKala.Add(item.Kala);
+                //List
             }
         }
 
-        public string Tarikh 
-        {
-            get { return sefaresh.Tarikh; }
-        }
+        public string Tarikh { get; set; }
+        //{
+        //    get { return sefaresh.Tarikh; }
+        //}
 
-        public string Description
-        {
-            get { return sefaresh.Description; }
-        }
+        //public string Description
+        //{
+        //    get { return sefaresh.Description; }
+        //}
 
         public string RozHafte
         {

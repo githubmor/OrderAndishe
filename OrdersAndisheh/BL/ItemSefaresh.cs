@@ -55,10 +55,17 @@ namespace BL
             get { return Product.Nam; }
         }
 
-        //public string Bazres
-        //{
-        //    get { return (Product.Bazres==null?"":Product.Bazres.Name); }
-        //}
+        public string BazresName
+        {
+            get 
+            {
+                if (Product.Bazres==null)
+                {
+                    throw new ApplicationException("باید بازرس های کالا ها از دیتابیس لود شود");
+                }
+                return Product.Bazres.Name; 
+            }
+        }
 
         public string CodeKala
         {

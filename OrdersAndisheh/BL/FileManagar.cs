@@ -11,7 +11,7 @@ namespace BL
 	using System.Linq;
 	using System.Text;
 
-	public class FileMangar
+	public class FileManagar
 	{
 		public virtual void CreatDocFile()
 		{

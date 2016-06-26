@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BL;
+using OrdersAndisheh.DL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +10,33 @@ namespace OrdersAndisheh.BL
 {
     public class ReportManager
     {
-        private global::BL.Sefaresh sefaresh;
+        private Sefaresh sefaresh;
 
-        public ReportManager(global::BL.Sefaresh sefaresh)
+        public ReportManager(Sefaresh sefaresh)
         {
-            // TODO: Complete member initialization
+            if (sefaresh==null)
+            {
+                throw new ApplicationException("");
+            }
+            if (sefaresh.Items==null)
+            {
+                throw new ApplicationException("");
+            }
             this.sefaresh = sefaresh;
+            اینجا باید سفارشات یک بازرس را جدا کنیم
         }
 
        
         public void CreatBazresReport()
         {
-            throw new NotImplementedException();
+            //foreach (var item in sefaresh.Items)
+            //{
+            //    if (item.Product.Bazres)
+            //    {
+                    
+            //    }
+            //}
+
         }
 
         public void CreatAnbarReport()
@@ -41,5 +58,7 @@ namespace OrdersAndisheh.BL
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }
