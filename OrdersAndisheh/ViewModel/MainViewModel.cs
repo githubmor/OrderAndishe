@@ -1,7 +1,4 @@
 using GalaSoft.MvvmLight;
-using OrdersAndisheh.DL;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -24,59 +21,14 @@ namespace OrdersAndisheh.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            if (IsInDesignMode)
-            {
-                // Code runs in Blend --> create design time data.
-            }
-            else
-            {
-                //using (MyContext db = new MyContext())
-                //{
-                //    try
-                //    {
-                //        Pallet os = new Pallet() { Name = "asd", Vazn = 60 };
-                //        Bazres asd = new Bazres() { Name = "ujg" };
-
-                //        Product p = new Product()
-                //        {
-                //            TedadDarPallet = 5,
-                //            TedadDarSabad = 6,
-                //            Code = "ttr",
-                //            CodeJense = "sastta",
-                //            FaniCode = "gh",
-                //            Nam = "fghj",
-                //            Weight = 2.3D
-                //        };
-                //        p.Pallet = os;
-                //        p.Bazres = asd;
-
-                //        db.Product.Add(p);
-                //        db.SaveChanges();
-
-                //        Plist = db.Product.ToList();
-                //    }
-                //    catch (System.Exception r)
-                //    {
-                //        //foreach (var item in r.StackTrace.)
-                //        //{
-                //            System.Windows.MessageBox.Show(r.Message.ToString());
-                //        //}
-                        
-                //    }
-                //}
-
-                
-                // Code runs "for real"
-            }
+            ////if (IsInDesignMode)
+            ////{
+            ////    // Code runs in Blend --> create design time data.
+            ////}
+            ////else
+            ////{
+            ////    // Code runs "for real"
+            ////}
         }
-
-        private List<Product> myVar;
-
-        public List<Product> Plist
-        {
-            get { return myVar; }
-            set { myVar = value; }
-        }
-        
     }
 }

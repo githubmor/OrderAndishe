@@ -10,7 +10,7 @@ namespace BL
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-    using OrdersAndisheh.DL;
+    using OrdersAndisheh.DBL;
     using OrdersAndisheh.BL;
 
 
@@ -29,9 +29,9 @@ namespace BL
 		{
             if (sefaresh.Order != null)
             {
-                using (MyContext db = new MyContext())
+                using (MyContextCF db = new MyContextCF())
                 {
-                    db.Order.Add(sefaresh.Order);
+                    db.Orders.Add(sefaresh.Order);
                     db.SaveChanges();
                 }
             }
@@ -41,9 +41,9 @@ namespace BL
 		{
             if (sefaresh.Order != null)
             {
-                using (MyContext db = new MyContext())
+                using (MyContextCF db = new MyContextCF())
                 {
-                    db.Order.Attach(sefaresh.Order);
+                    db.Orders.Attach(sefaresh.Order);
                     db.SaveChanges();
                 }
             }

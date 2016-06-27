@@ -10,7 +10,7 @@ namespace BL
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-    using OrdersAndisheh.DL;
+    using OrdersAndisheh.DBL;
 
 	public class ItemSefaresh
 	{
@@ -59,11 +59,11 @@ namespace BL
         {
             get 
             {
-                if (Product.Bazres==null)
+                if (Product.Bazre==null)
                 {
                     throw new ApplicationException("باید بازرس های کالا ها از دیتابیس لود شود");
                 }
-                return Product.Bazres.Name; 
+                return Product.Bazre.Name; 
             }
         }
 
@@ -128,6 +128,12 @@ namespace BL
         public int Pallet { get; set; }
 
         public int Vazn { get; set; }
+
+        public bool IsImenKala 
+        {
+            get { return Product.IsImenKala; }
+            set { Product.IsImenKala = value; } 
+        }
     }
 }
 

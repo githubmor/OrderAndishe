@@ -43,7 +43,6 @@ namespace OrdersAndisheh.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
-            //SimpleIoc.Default.Register<ProductViewModel>();
         }
 
         public MainViewModel Main
@@ -53,14 +52,6 @@ namespace OrdersAndisheh.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-
-        //public ProductViewModel Product
-        //{
-        //    get
-        //    {
-        //        return ServiceLocator.Current.GetInstance<ProductViewModel>();
-        //    }
-        //}
         
         public static void Cleanup()
         {

@@ -16,20 +16,21 @@ namespace BL
         
         //private List<ItemSefaresh> items;
         private List<ReportRow> ReportRows;
-
+        private string Tarikh;
         //public FileManagar(List<ItemSefaresh> items)
         //{
         //    this.items = items;
         //}
 
-        public FileManagar(List<ReportRow> reportRows)
+        public FileManagar(List<ReportRow> reportRows,string Tarikh )
         {
             // TODO: Complete member initialization
             this.ReportRows = reportRows;
+            this.Tarikh = Tarikh;
         }
 
         
-		public virtual void CreatDocFile(string fileName)
+		public virtual void CreatFile(string fileName)
 		{
 
             foreach (var row in ReportRows)
@@ -38,6 +39,8 @@ namespace BL
             }
 		}
 
-	}
+
+        
+    }
 }
 
