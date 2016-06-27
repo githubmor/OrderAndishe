@@ -5,7 +5,7 @@ namespace OrdersAndisheh.DBL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class MyContextCF : DbContext
+    public class MyContextCF : DbContext
     {
         public MyContextCF()
             : base("name=CodeFirstConection")

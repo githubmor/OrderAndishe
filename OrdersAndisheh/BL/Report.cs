@@ -13,32 +13,14 @@ namespace BL
 
 	public class ReportRow
 	{
-        public string kala;
-        public string tedad;
-        public string karton;
-        public string pallet;
-        public string maghsad;
-        public string vazn;
-        public string Ranande;
+        public string Kala { get; set; }
+        public string Tedad { get; set; }
+        public string Karton { get; set; }
+        public string Pallet { get; set; }
+        public string Maghsad { get; set; }
+        public string Vazn { get; set; }
+        public string Ranande { get; set; }
 
-        public ReportRow(string kala, string tedad, string karton, string pallet, string maghsad, string vazn, string Ranande)
-        {
-            // TODO: Complete member initialization
-            this.kala = kala;
-            this.tedad = tedad;
-            this.karton = karton;
-            this.pallet = pallet;
-            this.maghsad = maghsad;
-            this.vazn = vazn;
-            this.Ranande = Ranande;
-        }
-       
-
-        //public ReportRow(string kala, int tedad, int karton, int pallet, string maghsad, int vazn, string Ranande)
-        //{
-            
-        //}
-        
         
     }
 }

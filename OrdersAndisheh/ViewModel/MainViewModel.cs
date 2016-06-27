@@ -1,4 +1,6 @@
+﻿using BL;
 using GalaSoft.MvvmLight;
+using System.Collections.Generic;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -21,14 +23,16 @@ namespace OrdersAndisheh.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            //List<ReportRow> r = new List<ReportRow>();
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    r.Add(new ReportRow(){Kala ="کمربند 4 درب " + i,Karton = (i * i).ToString(),Maghsad="ایرانخودرو " + i,Pallet="4",Ranande="پورشریف " + i,Tedad=(i + 9).ToString(),Vazn="500" });
+            //}
+
+            //FileManagar f = new FileManagar(r, "1395/10/15");
+            //f.CreatFile("");
+            
         }
     }
 }

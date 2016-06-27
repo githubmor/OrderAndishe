@@ -6,25 +6,21 @@
 //------------------------------------------------------------------------------
 namespace BL
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
+    using Stimulsoft.Report;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
 
 	public class FileManagar
 	{
         
-        //private List<ItemSefaresh> items;
         private List<ReportRow> ReportRows;
         private string Tarikh;
-        //public FileManagar(List<ItemSefaresh> items)
-        //{
-        //    this.items = items;
-        //}
+        
 
         public FileManagar(List<ReportRow> reportRows,string Tarikh )
         {
-            // TODO: Complete member initialization
             this.ReportRows = reportRows;
             this.Tarikh = Tarikh;
         }
@@ -32,15 +28,33 @@ namespace BL
         
 		public virtual void CreatFile(string fileName)
 		{
-
-            foreach (var row in ReportRows)
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (string.IsNullOrEmpty(fileName))
             {
-                
+                fileName = "Report";
             }
+            var h = new Header();
+            h.Tarikh= Tarikh;
+            h.WeekDay= "شنبه";
+
+            
+
+            StiReport mainreport = new StiReport();
+            mainreport.RegBusinessObject("Sefaresh", h);
+            mainreport.RegBusinessObject("Items", ReportRows);
+            mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
+            mainreport.Render();
+            mainreport.Show();
+            mainreport.ExportDocument(StiExportFormat.Pdf, path +"\\"+fileName+".pdf");
 		}
 
-
         
+        
+    }
+    public class Header
+    {
+        public string Tarikh { get; set; }
+        public string WeekDay { get; set; }
     }
 }
 
