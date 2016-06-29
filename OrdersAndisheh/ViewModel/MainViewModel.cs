@@ -18,21 +18,29 @@ namespace OrdersAndisheh.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private List<ReportRow> r = new List<ReportRow>();
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            //List<ReportRow> r = new List<ReportRow>();
+            
 
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    r.Add(new ReportRow(){Kala ="کمربند 4 درب " + i,Karton = (i * i).ToString(),Maghsad="ایرانخودرو " + i,Pallet="4",Ranande="پورشریف " + i,Tedad=(i + 9).ToString(),Vazn="500" });
-            //}
+            for (int i = 0; i < 10; i++)
+            {
+                r.Add(new ReportRow() { Kala = "کمربند 4 درب " + i, Karton = (i * i).ToString(), Maghsad = "ایرانخودرو " + i, Pallet = "4", Ranande = "پورشریف " + i, Tedad = (i + 9).ToString(), Vazn = "500" });
+            }
 
             //FileManagar f = new FileManagar(r, "1395/10/15");
             //f.CreatFile("");
             
         }
+
+        public List<ReportRow> MyProperty
+        {
+            get { return r; }
+            set { r = value; }
+        }
+        
     }
 }
