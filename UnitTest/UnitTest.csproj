@@ -37,20 +37,20 @@
   <ItemGroup>
     <Reference Include="Stimulsoft.Base, Version=2012.1.1213.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Base.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Base.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Controls">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Controls.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Controls.Win">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Controls.Win.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Controls.Win.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report, Version=2012.1.1213.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Report.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Report.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report.Win">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Report.Win.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Report.Win.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>

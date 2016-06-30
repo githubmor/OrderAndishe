@@ -9,33 +9,17 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Grid>
-        <DockPanel>
-            <dxb:MainMenuControl Caption="File" DockPanel.Dock="Top">
-                <dxb:BarSubItem x:Name="biFile" Content="File">
-                    <dxb:BarButtonItem x:Name="biFileOpen" Content="Open" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
-                    <dxb:BarButtonItem x:Name="biFileNew" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
-                </dxb:BarSubItem>
-                <dxb:BarSubItem x:Name="biEdit" Content="Edit">
-                    <dxb:BarButtonItemLink BarItemName="biCut"/>
-                    <dxb:BarButtonItemLink BarItemName="biCopy"/>
-                    <dxb:BarButtonItemLink BarItemName="biPaste"/>
-                </dxb:BarSubItem>
-            </dxb:MainMenuControl>
-            <dxb:ToolBarControl Caption="Edit" DockPanel.Dock="Top">
-                <dxb:BarButtonItem x:Name="biCut" Content="Cut" Glyph="{dx:DXImage Image=Cut_16x16.png}" LargeGlyph="{dx:DXImage Image=Cut_32x32.png}"/>
-                <dxb:BarButtonItem x:Name="biCopy" Content="Copy" Glyph="{dx:DXImage Image=Copy_16x16.png}" LargeGlyph="{dx:DXImage Image=Copy_32x32.png}"/>
-                <dxb:BarButtonItem x:Name="biPaste" Content="Paste" Glyph="{dx:DXImage Image=Paste_16x16.png}" LargeGlyph="{dx:DXImage Image=Paste_32x32.png}"/>
-            </dxb:ToolBarControl>
-            <dxb:StatusBarControl Caption="StatusBar" DockPanel.Dock="Bottom" ShowSizeGrip="True">
-                <dxb:BarStaticItem x:Name="biRow" Content="Row:" ShowBorder="False"/>
-                <dxb:BarStaticItem x:Name="biRowValue" Content="1" ShowBorder="False"/>
-                <dxb:BarStaticItem x:Name="biColumn" Content="Column:" ShowBorder="False"/>
-                <dxb:BarStaticItem x:Name="biColumnValue" Content="2"/>
-                <dxb:BarCheckItem x:Name="biLeft" Alignment="Far" Glyph="{dx:DXImage Image=AlignLeft_16x16.png}" GroupIndex="1" IsChecked="True"/>
-                <dxb:BarCheckItem x:Name="biCenter" Alignment="Far" Glyph="{dx:DXImage Image=AlignCenter_16x16.png}" GroupIndex="1"/>
-                <dxb:BarCheckItem x:Name="biRight" Alignment="Far" Glyph="{dx:DXImage Image=AlignRight_16x16.png}" GroupIndex="1"/>
-            </dxb:StatusBarControl>
-            <Grid/>
-        </DockPanel>
+        <dxg:TreeListControl x:Name="treeList" AutoGenerateColumns="KeepOld" ItemsSource="{Binding MyProperty}" FlowDirection="RightToLeft" >
+            <dxg:TreeListControl.Columns>
+                <dxg:TreeListColumn FieldName="Kala" AllowSorting="True" />
+                <dxg:TreeListColumn FieldName="Executor" AllowSorting="True" />
+                <dxg:TreeListColumn FieldName="State" AllowSorting="True" />
+            </dxg:TreeListControl.Columns>
+            <dxg:TreeListControl.View>
+                <dxg:TreeListView x:Name="view"  ShowCheckboxes="True" CheckBoxFieldName="Checked" 
+                                  
+                                   />
+            </dxg:TreeListControl.View>
+        </dxg:TreeListControl>
     </Grid>
 </Window>

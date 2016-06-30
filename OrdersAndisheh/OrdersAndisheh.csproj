@@ -54,24 +54,31 @@
   <ItemGroup>
     <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\DLLCopy\DevExpress.Data.v15.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Images.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\DLLCopy\DevExpress.Images.v15.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Mvvm.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\DLLCopy\DevExpress.Mvvm.v15.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\DLLCopy\DevExpress.Printing.v15.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Core.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\DLLCopy\DevExpress.Xpf.Core.v15.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Grid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\DLLCopy\DevExpress.Xpf.Grid.v15.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Grid.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
+      <HintPath>..\DLLCopy\DevExpress.Xpf.Grid.v15.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -98,19 +105,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Stimulsoft.Base">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Base.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Base.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Controls">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Controls.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Controls.Win">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Controls.Win.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Controls.Win.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Report.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Report.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report.Win">
-      <HintPath>C:\Users\M\Desktop\Stimulsoft Reports.Net 2012.02.23\Stimulsoft.Report.Win.dll</HintPath>
+      <HintPath>..\DLLCopy\Stimulsoft.Report.Win.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -184,7 +191,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
