@@ -13,6 +13,8 @@ namespace OrdersAndisheh.View
         public MainView()
         {
             InitializeComponent();
+            
+            
         }
     }
 }

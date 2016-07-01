@@ -4,22 +4,75 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.ignore.com"
-        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="OrdersAndisheh.View.MainView"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="OrdersAndisheh.View.MainView"
         mc:Ignorable="d ignore"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Grid>
-        <dxg:TreeListControl x:Name="treeList" AutoGenerateColumns="KeepOld" ItemsSource="{Binding MyProperty}" FlowDirection="RightToLeft" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="425*"/>
+        </Grid.RowDefinitions>
+        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  ItemsSource="{Binding MyProperty}"  >
+            <dxg:GridControl.Columns>
+
+                <dxg:GridColumn FieldName="Kala" Header="کالا" />
+                <dxg:GridColumn FieldName="Tedad" Header="تعداد" />
+                <dxg:GridColumn FieldName="Karton" Header="کارتن" />
+                <dxg:GridColumn FieldName="Pallet" Header="پالت"/>
+                <dxg:GridColumn FieldName="Maghsad" Header="مقصد"/>
+                <dxg:GridColumn FieldName="Vazn" Header="وزن"/>
+                <dxg:GridColumn FieldName="Ranande" Header="راننده"/>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+
+                <dxg:TableView  AllowPerPixelScrolling="True" AllowEditing="False"  />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+        <dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
+            <dxlc:LayoutGroup Orientation="Vertical">
+                <dxlc:LayoutGroup VerticalAlignment="Top" >
+                    <dxlc:LayoutItem Label="کالا">
+                        <dxg:LookUpEdit/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="تعداد :" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <dxe:TextEdit Width="80" HorizontalAlignment="Left"/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="توضیحات :">
+                        <dxe:TextEdit/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutGroup Orientation="Horizontal">
+                        <Button Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40"/>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup>
+                    <dxlc:LayoutItem Label="مقصد :">
+                        <dxg:LookUpEdit/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="راننده :">
+                        <dxg:LookUpEdit/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutGroup Orientation="Horizontal">
+                        <Button Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40"/>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+        <!--<dxg:TreeListControl   EnableSmartColumnsGeneration="True"  FlowDirection="RightToLeft" ItemsSource="{Binding MyProperty}"  Grid.Row="1"  >
             <dxg:TreeListControl.Columns>
-                <dxg:TreeListColumn FieldName="Kala" AllowSorting="True" />
-                <dxg:TreeListColumn FieldName="Executor" AllowSorting="True" />
-                <dxg:TreeListColumn FieldName="State" AllowSorting="True" />
+                <dxg:TreeListColumn FieldName="Kala" Header="کالا" />
+                <dxg:TreeListColumn FieldName="Tedad" Header="تعداد" />
+                <dxg:TreeListColumn FieldName="Karton" Header="کارتن" />
+                <dxg:TreeListColumn FieldName="Pallet" Header="پالت"/>
+                <dxg:TreeListColumn FieldName="Maghsad" Header="مقصد"/>
+                <dxg:TreeListColumn FieldName="Vazn" Header="وزن"/>
+                <dxg:TreeListColumn FieldName="Ranande" Header="راننده"/>
             </dxg:TreeListControl.Columns>
+            
             <dxg:TreeListControl.View>
-                <dxg:TreeListView x:Name="view"  ShowCheckboxes="True" CheckBoxFieldName="Checked" 
-                                  
-                                   />
+                <dxg:TreeListView AllowPerPixelScrolling="True"   ShowCheckboxes="True" ShowIndicator="False" ShowRootIndent="False" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" AllowEditing="False" AllowFilterEditor="False"/>
+                
             </dxg:TreeListControl.View>
-        </dxg:TreeListControl>
+        </dxg:TreeListControl>-->
     </Grid>
 </Window>
