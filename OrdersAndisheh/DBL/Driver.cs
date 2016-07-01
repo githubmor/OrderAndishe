@@ -7,9 +7,8 @@ namespace OrdersAndisheh.DBL
     using System.Data.Entity.Spatial;
 
     [Table("Driver")]
-    public partial class Driver
+    public class Driver
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Driver()
         {
             OrderDetails = new HashSet<OrderDetail>();
@@ -36,7 +35,6 @@ namespace OrdersAndisheh.DBL
 
         public byte? Tol { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace OrdersAndisheh.DBL
     using System.Data.Entity.Spatial;
 
     [Table("OrderDetail")]
-    public partial class OrderDetail
+    public class OrderDetail
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }

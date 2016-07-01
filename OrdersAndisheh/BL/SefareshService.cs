@@ -7,11 +7,13 @@
 namespace BL
 {
 	using System;
+    using System.Data.Entity;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
     using OrdersAndisheh.DBL;
     using OrdersAndisheh.BL;
+using System.Collections.ObjectModel;
 
 
     /// <summary>
@@ -87,6 +89,30 @@ namespace BL
         //    rm.CreatListErsalReport();
         //}
 
-	}
+
+        public Sefaresh LoadSefaresh(string tarikh)
+        {
+            using (MyContextCF db = new MyContextCF())
+            {
+                try
+                {
+                    Order t = db.Orders.Where(p => p.Tarikh == tarikh)
+                                .Include("OrderDetails")
+                                .Include("OrderDetails.Customer")
+                                .Include("OrderDetails.Driver")
+                                .Include("OrderDetails.Product")
+                                .FirstOrDefault();
+
+                    return new Sefaresh(t, t.OrderDetails.ToList());
+                }
+                catch (Exception tr)
+                {
+
+                    System.Windows.Forms.MessageBox.Show(tr.InnerException.Message.ToString());
+                    return null;
+                }
+            }
+        }
+    }
 }
 
