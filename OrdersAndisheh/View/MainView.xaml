@@ -4,7 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.ignore.com"
-        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="OrdersAndisheh.View.MainView"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    x:Class="OrdersAndisheh.View.MainView"
         mc:Ignorable="d ignore"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
@@ -13,7 +18,7 @@
             <RowDefinition Height="79*"/>
             <RowDefinition Height="425*"/>
         </Grid.RowDefinitions>
-        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  ItemsSource="{Binding MyProperty}"  >
+        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  ItemsSource="{Binding Items}"  >
             <dxg:GridControl.Columns>
 
                 <dxg:GridColumn FieldName="Kala" Header="کالا" />
@@ -29,7 +34,7 @@
                 <dxg:TableView  AllowPerPixelScrolling="True" AllowEditing="False"  />
             </dxg:GridControl.View>
         </dxg:GridControl>
-        <dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
+        <!--<dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
             <dxlc:LayoutGroup Orientation="Vertical">
                 <dxlc:LayoutGroup VerticalAlignment="Top" >
                     <dxlc:LayoutItem Label="کالا">
@@ -57,7 +62,7 @@
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
             </dxlc:LayoutGroup>
-        </dxlc:LayoutControl>
+        </dxlc:LayoutControl>-->
         <!--<dxg:TreeListControl   EnableSmartColumnsGeneration="True"  FlowDirection="RightToLeft" ItemsSource="{Binding MyProperty}"  Grid.Row="1"  >
             <dxg:TreeListControl.Columns>
                 <dxg:TreeListColumn FieldName="Kala" Header="کالا" />

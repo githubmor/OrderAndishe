@@ -7,9 +7,8 @@ namespace OrdersAndisheh.DBL
     using System.Data.Entity.Spatial;
 
     [Table("Product")]
-    public partial class Product
+    public  class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
             OrderDetails = new HashSet<OrderDetail>();
@@ -43,9 +42,8 @@ namespace OrdersAndisheh.DBL
 
         public byte Bazres_Id { get; set; }
 
-        public virtual Bazre Bazre { get; set; }
+        public virtual Bazres Bazre { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         public virtual Pallet Pallet { get; set; }

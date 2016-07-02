@@ -4,15 +4,18 @@ namespace OrdersAndisheh.DBL
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using OrdersAndisheh.Migrations;
 
     public class MyContextCF : DbContext
     {
         public MyContextCF()
             : base("name=CodeFirstConection")
         {
+            //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF, Configuration>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
         }
 
-        public virtual DbSet<Bazre> Bazres { get; set; }
+        public virtual DbSet<Bazres> Bazress { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
@@ -22,7 +25,7 @@ namespace OrdersAndisheh.DBL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Bazre>()
+            modelBuilder.Entity<Bazres>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Bazre)
                 .HasForeignKey(e => e.Bazres_Id)

@@ -5,11 +5,10 @@ namespace OrdersAndisheh.DBL
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
-    public partial class Bazre
+    [Table("Bazres")]
+    public class Bazres
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Bazre()
+        public Bazres()
         {
             Products = new HashSet<Product>();
         }
@@ -20,7 +19,7 @@ namespace OrdersAndisheh.DBL
         [StringLength(50)]
         public string Name { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Product> Products { get; set; }
     }
 }

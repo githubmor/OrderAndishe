@@ -1,46 +1,30 @@
 ﻿using BL;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace OrdersAndisheh.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        private List<ReportRow> r = new List<ReportRow>();
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
+       
         public MainViewModel()
         {
-            
-
-            for (int i = 0; i < 10; i++)
-            {
-                r.Add(new ReportRow() { Kala = "کمربند 4 درب " + i, Karton = (i * i).ToString(), Maghsad = "ایرانخودرو " + i, Pallet = "4", Ranande = "پورشریف " + i, Tedad = (i + 9).ToString(), Vazn = "500" });
-            }
-
-            //FileManagar f = new FileManagar(r, "1395/10/15");
-            //f.CreatFile("");
-            
+            Messenger.Default.Register<string>(this, LoadThisDateSefaresh);
+            LoadThisDateSefaresh("1395/04/12");
         }
 
-        public List<ReportRow> MyProperty
+        private void LoadThisDateSefaresh(string tarikh)
         {
-            get { return r; }
-            set { r = value; }
+            SefareshService ss = new SefareshService();
+            sefaresh = ss.LoadSefaresh(tarikh);
+            Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items);
         }
-        
+
+       
+        public ObservableCollection<ItemSefaresh> Items { get; set; }
+
+        public Sefaresh sefaresh { get; set; }
     }
 }
