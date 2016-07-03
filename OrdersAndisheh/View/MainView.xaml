@@ -34,11 +34,11 @@
                 <dxg:TableView  AllowPerPixelScrolling="True" AllowEditing="False"  />
             </dxg:GridControl.View>
         </dxg:GridControl>
-        <!--<dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
-            <dxlc:LayoutGroup Orientation="Vertical">
+        <dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
+            <dxlc:LayoutGroup Orientation="Vertical" >
                 <dxlc:LayoutGroup VerticalAlignment="Top" >
                     <dxlc:LayoutItem Label="کالا">
-                        <dxg:LookUpEdit/>
+                        <dxg:LookUpEdit ItemsSource="{Binding Goods}" SelectedItem="{Binding SelectedProduct}" />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="تعداد :" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <dxe:TextEdit Width="80" HorizontalAlignment="Left"/>
@@ -47,37 +47,22 @@
                         <dxe:TextEdit/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
-                        <Button Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40"/>
+                        <Button Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding AddNewItem, Mode=OneWay}"/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
                 <dxlc:LayoutGroup>
                     <dxlc:LayoutItem Label="مقصد :">
-                        <dxg:LookUpEdit/>
+                        <dxg:LookUpEdit ItemsSource="{Binding Destinations}" SelectedItem="{Binding SelectedDestenation}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="راننده :">
-                        <dxg:LookUpEdit/>
+                        <dxg:LookUpEdit ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
-                        <Button Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40"/>
+                        <Button Content="↓"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding ADDDriverDestenation, Mode=OneWay}"/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
             </dxlc:LayoutGroup>
-        </dxlc:LayoutControl>-->
-        <!--<dxg:TreeListControl   EnableSmartColumnsGeneration="True"  FlowDirection="RightToLeft" ItemsSource="{Binding MyProperty}"  Grid.Row="1"  >
-            <dxg:TreeListControl.Columns>
-                <dxg:TreeListColumn FieldName="Kala" Header="کالا" />
-                <dxg:TreeListColumn FieldName="Tedad" Header="تعداد" />
-                <dxg:TreeListColumn FieldName="Karton" Header="کارتن" />
-                <dxg:TreeListColumn FieldName="Pallet" Header="پالت"/>
-                <dxg:TreeListColumn FieldName="Maghsad" Header="مقصد"/>
-                <dxg:TreeListColumn FieldName="Vazn" Header="وزن"/>
-                <dxg:TreeListColumn FieldName="Ranande" Header="راننده"/>
-            </dxg:TreeListControl.Columns>
-            
-            <dxg:TreeListControl.View>
-                <dxg:TreeListView AllowPerPixelScrolling="True"   ShowCheckboxes="True" ShowIndicator="False" ShowRootIndent="False" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" AllowEditing="False" AllowFilterEditor="False"/>
-                
-            </dxg:TreeListControl.View>
-        </dxg:TreeListControl>-->
+        </dxlc:LayoutControl>
+        
     </Grid>
 </Window>

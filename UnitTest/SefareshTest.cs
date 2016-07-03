@@ -103,6 +103,24 @@ namespace UnitTest
             Assert.AreEqual(1, sef.AgarShodItems.Count);
         }
 
+        [ExpectedException(typeof(ApplicationException))]
+        //اگر سفارش نال باشد
+        [TestMethod]
+        public void IfOrderISNull()
+        {
+
+            Sefaresh sef = new Sefaresh(null,null);
+          }
+        //اگر آیتم سفارش نال باشد
+        [ExpectedException(typeof(ApplicationException))]
+        [TestMethod]
+        public void IfOrderDetailISNull()
+        {
+            Order o = new Order() { Accepted = false, Id = 5, Tarikh = "1359/02/03" };
+            Sefaresh sef = new Sefaresh(o, null);
+        }
+
+
         public IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(List<TFirst> first, List<TSecond> second, Func<TFirst, TSecond, TResult> selector)
         {
             if (first.Count != second.Count)

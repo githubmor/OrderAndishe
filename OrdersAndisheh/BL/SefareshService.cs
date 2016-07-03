@@ -78,39 +78,54 @@ using System.Collections.ObjectModel;
             this.UpdateSefaresh(sefaresh);
 		}
 
-        //private void PrintReports(Sefaresh sefaresh)
-        //{
-        //    ReportManager rm = new ReportManager(sefaresh);
-
-        //    rm.CreatBazresReport();
-        //    rm.CreatAnbarReport();
-        //    rm.CreatImenSazanReport();
-        //    rm.CreatKontrolReport();
-        //    rm.CreatListErsalReport();
-        //}
-
+       
 
         public Sefaresh LoadSefaresh(string tarikh)
         {
+            if (string.IsNullOrEmpty(tarikh))
+            {
+                throw new ApplicationException("تاریخ به صورت صحیح وارد نشده");
+            }
             using (MyContextCF db = new MyContextCF())
             {
-                try
-                {
-                    Order t = db.Orders.Where(p => p.Tarikh == tarikh)
-                                .Include("OrderDetails")
-                                .Include("OrderDetails.Customer")
-                                .Include("OrderDetails.Driver")
-                                .Include("OrderDetails.Product")
-                                .FirstOrDefault();
+                
+                Order t = db.Orders.Where(p => p.Tarikh == tarikh)
+                            .Include("OrderDetails")
+                            .Include("OrderDetails.Customer")
+                            .Include("OrderDetails.Driver")
+                            .Include("OrderDetails.Product")
+                            .FirstOrDefault();
 
-                    return new Sefaresh(t, t.OrderDetails.ToList());
-                }
-                catch (Exception tr)
+                if (t==null)
                 {
-
-                    System.Windows.Forms.MessageBox.Show(tr.InnerException.Message.ToString());
-                    return null;
+                    throw new ApplicationException("اطلاعات سفارش وجود ندارد");
                 }
+                return new Sefaresh(t, t.OrderDetails.ToList());
+               
+            }
+        }
+
+        public List<Driver> LoadDrivers()
+        {
+            using (MyContextCF db = new MyContextCF())
+            {
+                return db.Drivers.ToList();
+            }
+        }
+
+        internal List<Product> LoadGoods()
+        {
+            using (MyContextCF db = new MyContextCF())
+            {
+                return db.Products.ToList();
+            }
+        }
+
+        internal List<Customer> LoadDestinations()
+        {
+            using (MyContextCF db = new MyContextCF())
+            {
+                return db.Customers.ToList();
             }
         }
     }

@@ -26,6 +26,10 @@ namespace BL
 
         public Sefaresh(Order order, List<OrderDetail> orderDetails):this()
         {
+            if (orderDetails == null)
+            {
+                throw new ApplicationException("اطلاعات آیتم سفارش وجود ندارد");
+            }
             this.Order = order;
             foreach (OrderDetail item in orderDetails)
             {
