@@ -16,5 +16,10 @@ namespace OrdersAndisheh.View
             
             
         }
+
+        //private void gg_SelectionChanged(object sender, DevExpress.Xpf.Grid.GridSelectionChangedEventArgs e)
+        //{
+        //    MessageBox.Show(sender.ToString());
+        //}
     }
 }

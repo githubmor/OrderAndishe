@@ -11,8 +11,9 @@ namespace BL
 	using System.Linq;
 	using System.Text;
     using OrdersAndisheh.DBL;
+    using System.ComponentModel;
 
-	public class ItemSefaresh
+    public class ItemSefaresh : INotifyPropertyChanged
 	{
         public ItemSefaresh(Product p)
         {
@@ -82,19 +83,28 @@ namespace BL
 		public Product Product
 		{
             private get { return OrderDetail.Product; }
-            set { OrderDetail.Product = value; }
+            set { OrderDetail.Product = value;
+            NotifyPropertyChanged("Kala");
+            NotifyPropertyChanged("CodeKala");
+            }
 		}
 
 		public Driver Driver
 		{
             private get { return OrderDetail.Driver; }
-            set { OrderDetail.Driver = value; }
+            set { OrderDetail.Driver = value;
+            NotifyPropertyChanged("Ranande");
+            }
 		}
 
 		public Customer Customer
 		{
             private get { return OrderDetail.Customer; }
-            set { OrderDetail.Customer = value; }
+            set 
+            { 
+                OrderDetail.Customer = value;
+                NotifyPropertyChanged("Maghsad");
+            }
 		}
 
 		public int Tedad
@@ -133,6 +143,16 @@ namespace BL
         {
             get { return Product.IsImenKala; }
             set { Product.IsImenKala = value; } 
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
         }
     }
 }

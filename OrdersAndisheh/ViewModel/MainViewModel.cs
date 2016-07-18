@@ -36,28 +36,45 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private string tedad;
+        private int tedad;
 
-        public string Tedad
+        public int Tedad
         {
             get { return tedad; }
             set 
-            { 
+            {
                 tedad = value;
                 RaisePropertyChanged(()=>Tedad);
+                AddNewItem.RaiseCanExecuteChanged();
             }
         }
-        
 
-        private ReportRow selectedItem;
 
-        public ReportRow SelectedItem
+        private ItemSefaresh selectedItem;
+
+        public ItemSefaresh SelectedItem
         {
             get { return selectedItem; }
             set 
             { 
                 selectedItem = value;
                 RaisePropertyChanged(() => SelectedItem);
+                ADDDriverDestenation.RaiseCanExecuteChanged();
+                AddNewItem.RaiseCanExecuteChanged();
+            }
+        }
+
+        private ObservableCollection<ItemSefaresh> selectedItems;
+
+        public ObservableCollection<ItemSefaresh> SelectedItems
+        {
+            get { return selectedItems; }
+            set
+            {
+                selectedItems = value;
+                RaisePropertyChanged(() => SelectedItems);
+                ADDDriverDestenation.RaiseCanExecuteChanged();
+                AddNewItem.RaiseCanExecuteChanged();
             }
         }
         
@@ -77,6 +94,8 @@ namespace OrdersAndisheh.ViewModel
             {
                 selectedDestenation = value;
                 RaisePropertyChanged(() => SelectedDestenation);
+                ADDDriverDestenation.RaiseCanExecuteChanged();
+                AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -89,6 +108,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 selectedProduct = value;
                 RaisePropertyChanged(() => SelectedProduct);
+                AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -101,6 +121,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 selectedDriver = value;
                 RaisePropertyChanged(() => SelectedDriver);
+                ADDDriverDestenation.RaiseCanExecuteChanged();
             }
         }
 
@@ -121,12 +142,22 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewItem()
         {
-            selectedItem.Tedad = tedad;
+            ItemSefaresh ss = new ItemSefaresh(selectedProduct);
+            ss.Tedad = tedad;
+            ss.Customer = selectedDestenation;
+            ss.Driver = selectedDriver;
+            Items.Add(ss);
+
+            SelectedProduct = null;
+            Tedad = 0;
+            selectedDriver = null;
+            selectedDestenation = null;
+            
         }
 
         private bool CanExecuteAddNewItem()
         {
-            return selectedProduct!=null & string.IsNullOrEmpty(tedad) ;
+            return selectedProduct!=null & tedad>0 ;
         }
 
         private RelayCommand addDriverDestenation;
@@ -146,12 +177,17 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteADDDriverDestenation()
         {
-            
+            SelectedItem.Customer = selectedDestenation;
+            SelectedItem.Driver = selectedDriver;
+            SelectedProduct = null;
+            Tedad = 0;
+            selectedDriver = null;
+            selectedDestenation = null;
         }
 
         private bool CanExecuteADDDriverDestenation()
         {
-            return selectedItem!=null & selectedDriver!=null | selectedDestenation!=null;
+            return selectedItems != null;// selectedItem!=null & (selectedDriver!=null | selectedDestenation!=null);
         }
 
        

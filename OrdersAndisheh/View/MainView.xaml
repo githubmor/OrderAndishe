@@ -18,7 +18,10 @@
             <RowDefinition Height="79*"/>
             <RowDefinition Height="425*"/>
         </Grid.RowDefinitions>
-        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  ItemsSource="{Binding Items}"  >
+        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
+                          ItemsSource="{Binding Items}" 
+                           
+                            >
             <dxg:GridControl.Columns>
 
                 <dxg:GridColumn FieldName="Kala" Header="کالا" />
@@ -31,17 +34,30 @@
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
 
-                <dxg:TableView  AllowPerPixelScrolling="True" AllowEditing="False"  />
+                <dxg:TableView MultiSelectMode="Row" 
+                               AllowPerPixelScrolling="True" 
+                               AllowEditing="False"
+                               NavigationStyle="Row" 
+                               SelectedRowsSource="{Binding SelectedItems}"
+                                />
             </dxg:GridControl.View>
         </dxg:GridControl>
         <dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
             <dxlc:LayoutGroup Orientation="Vertical" >
                 <dxlc:LayoutGroup VerticalAlignment="Top" >
                     <dxlc:LayoutItem Label="کالا">
-                        <dxg:LookUpEdit ItemsSource="{Binding Goods}" SelectedItem="{Binding SelectedProduct}" />
+                        <dxg:LookUpEdit ItemsSource="{Binding Goods}" SelectedItem="{Binding SelectedProduct}" 
+                                        ValueMember="Code" DisplayMember="Nam" 
+                                        AllowRejectUnknownValues="True" 
+                                        FilterCondition="Contains" 
+                                        FindMode="Always" 
+                                        IsTextEditable="True" 
+                                        AllowDefaultButton="True" 
+                                        ImmediatePopup="True"
+                                        />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="تعداد :" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <dxe:TextEdit Width="80" HorizontalAlignment="Left"/>
+                        <dxe:TextEdit Width="80" HorizontalAlignment="Left" Text="{Binding Tedad}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="توضیحات :">
                         <dxe:TextEdit/>
@@ -52,10 +68,27 @@
                 </dxlc:LayoutGroup>
                 <dxlc:LayoutGroup>
                     <dxlc:LayoutItem Label="مقصد :">
-                        <dxg:LookUpEdit ItemsSource="{Binding Destinations}" SelectedItem="{Binding SelectedDestenation}"/>
+                        <dxg:LookUpEdit ItemsSource="{Binding Destinations}" SelectedItem="{Binding SelectedDestenation}" 
+                                        ValueMember="Id" DisplayMember="Name"
+                                        AllowRejectUnknownValues="True" 
+                                        FilterCondition="Contains" 
+                                        FindMode="Always" 
+                                        IsTextEditable="True" 
+                                        AllowDefaultButton="True" 
+                                        ImmediatePopup="True"
+                                        />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="راننده :">
-                        <dxg:LookUpEdit ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}"/>
+                        <dxg:LookUpEdit ItemsSource="{Binding Drivers}" 
+                                        SelectedItem="{Binding SelectedDriver}" 
+                                        ValueMember="Id" DisplayMember="Nam"
+                                        AllowRejectUnknownValues="True" 
+                                        FilterCondition="Contains" 
+                                        FindMode="Always" 
+                                        IsTextEditable="True" 
+                                        AllowDefaultButton="True" 
+                                        ImmediatePopup="True"
+                                        />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
                         <Button Content="↓"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding ADDDriverDestenation, Mode=OneWay}"/>
