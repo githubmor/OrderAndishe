@@ -177,6 +177,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteADDDriverDestenation()
         {
+            SelectedItems = SelectedItems;
             SelectedItem.Customer = selectedDestenation;
             SelectedItem.Driver = selectedDriver;
             SelectedProduct = null;
@@ -187,7 +188,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteADDDriverDestenation()
         {
-            return selectedItems != null;// selectedItem!=null & (selectedDriver!=null | selectedDestenation!=null);
+            return SelectedItems==null & selectedItem!=null & (selectedDriver!=null | selectedDestenation!=null);
         }
 
        

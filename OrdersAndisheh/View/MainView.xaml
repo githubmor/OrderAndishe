@@ -20,7 +20,8 @@
         </Grid.RowDefinitions>
         <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
-                           
+                          SelectedItem="{Binding SelectedItem}"
+                          SelectedItems="{Binding SelectedItems}" SelectionMode="MultipleRow"
                             >
             <dxg:GridControl.Columns>
 
@@ -34,11 +35,8 @@
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
 
-                <dxg:TableView MultiSelectMode="Row" 
+                <dxg:TableView 
                                AllowPerPixelScrolling="True" 
-                               AllowEditing="False"
-                               NavigationStyle="Row" 
-                               SelectedRowsSource="{Binding SelectedItems}"
                                 />
             </dxg:GridControl.View>
         </dxg:GridControl>
