@@ -106,6 +106,11 @@ namespace BL
                 NotifyPropertyChanged("Maghsad");
             }
 		}
+        public bool IsSelected { get; set; }
+        //{
+        //    get { return OrderDetail.Tedad; }
+        //    set { OrderDetail.Tedad = value; }
+        //}
 
 		public int Tedad
 		{

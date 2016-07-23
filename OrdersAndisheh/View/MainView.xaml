@@ -20,11 +20,12 @@
         </Grid.RowDefinitions>
         <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
-                          SelectedItem="{Binding SelectedItem}"
-                          SelectedItems="{Binding SelectedItems}" SelectionMode="MultipleRow"
+                          
+                          SelectionMode="Row"
+                          
                             >
             <dxg:GridControl.Columns>
-
+                <dxg:GridColumn AllowEditing="True" FieldName="IsSelected" Header="کالا" />
                 <dxg:GridColumn FieldName="Kala" Header="کالا" />
                 <dxg:GridColumn FieldName="Tedad" Header="تعداد" />
                 <dxg:GridColumn FieldName="Karton" Header="کارتن" />
@@ -37,6 +38,7 @@
 
                 <dxg:TableView 
                                AllowPerPixelScrolling="True" 
+                    AllowEditing="False"
                                 />
             </dxg:GridControl.View>
         </dxg:GridControl>

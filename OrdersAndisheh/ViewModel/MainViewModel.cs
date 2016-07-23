@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.DBL;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -50,33 +51,33 @@ namespace OrdersAndisheh.ViewModel
         }
 
 
-        private ItemSefaresh selectedItem;
+        //private ItemSefaresh selectedItem;
 
-        public ItemSefaresh SelectedItem
-        {
-            get { return selectedItem; }
-            set 
-            { 
-                selectedItem = value;
-                RaisePropertyChanged(() => SelectedItem);
-                ADDDriverDestenation.RaiseCanExecuteChanged();
-                AddNewItem.RaiseCanExecuteChanged();
-            }
-        }
+        //public ItemSefaresh SelectedItem
+        //{
+        //    get { return selectedItem; }
+        //    set 
+        //    { 
+        //        selectedItem = value;
+        //        RaisePropertyChanged(() => SelectedItem);
+        //        ADDDriverDestenation.RaiseCanExecuteChanged();
+        //        AddNewItem.RaiseCanExecuteChanged();
+        //    }
+        //}
 
-        private ObservableCollection<ItemSefaresh> selectedItems;
+        //private ObservableCollection<ItemSefaresh> selectedItems;
 
-        public ObservableCollection<ItemSefaresh> SelectedItems
-        {
-            get { return selectedItems; }
-            set
-            {
-                selectedItems = value;
-                RaisePropertyChanged(() => SelectedItems);
-                ADDDriverDestenation.RaiseCanExecuteChanged();
-                AddNewItem.RaiseCanExecuteChanged();
-            }
-        }
+        //public virtual ObservableCollection<ItemSefaresh> SelectedItems
+        //{
+        //    get { return selectedItems; }
+        //    set
+        //    {
+        //        selectedItems = value;
+        //        RaisePropertyChanged(() => SelectedItems);
+        //        ADDDriverDestenation.RaiseCanExecuteChanged();
+        //        AddNewItem.RaiseCanExecuteChanged();
+        //    }
+        //}
         
 
         public List<Customer> Destinations { get; set; }
@@ -150,8 +151,8 @@ namespace OrdersAndisheh.ViewModel
 
             SelectedProduct = null;
             Tedad = 0;
-            selectedDriver = null;
-            selectedDestenation = null;
+            SelectedDriver = null;
+            SelectedDestenation = null;
             
         }
 
@@ -177,18 +178,30 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteADDDriverDestenation()
         {
-            SelectedItems = SelectedItems;
-            SelectedItem.Customer = selectedDestenation;
-            SelectedItem.Driver = selectedDriver;
+            foreach (var item in Items.Where(p=>p.IsSelected))
+            {
+                //if (string.IsNullOrEmpty(item.Maghsad))
+                //{
+                    item.Customer = selectedDestenation;
+                //}
+
+                //if (string.IsNullOrEmpty(item.Ranande))
+                //{
+                    item.Driver = selectedDriver;
+                //}
+                
+            }
+            //SelectedItem.Customer = selectedDestenation;
+            //SelectedItem.Driver = selectedDriver;
             SelectedProduct = null;
             Tedad = 0;
-            selectedDriver = null;
-            selectedDestenation = null;
+            SelectedDriver = null;
+            SelectedDestenation = null;
         }
 
         private bool CanExecuteADDDriverDestenation()
         {
-            return SelectedItems==null & selectedItem!=null & (selectedDriver!=null | selectedDestenation!=null);
+            return Items.Where(p => p.IsSelected).Count() > 0 & (selectedDriver!=null | selectedDestenation!=null);
         }
 
        
