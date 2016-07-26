@@ -34,21 +34,21 @@ namespace BL
             foreach (OrderDetail item in orderDetails)
             {
                 Items.Add(new ItemSefaresh(item));
-                switch (item.ItemType)
-                {
-                    case 0:
-                        ForiItems.Add(new ItemSefaresh(item));
-                        break;
-                    case 1:
-                        GovahiItems.Add(new ItemSefaresh(item));
-                        break;
-                    case 2:
-                        AgarShodItems.Add(new ItemSefaresh(item));
-                        break;
-                    case 3:
-                        UsualItems.Add(new ItemSefaresh(item));
-                        break;
-                }
+                //switch (item.ItemType)
+                //{
+                //    case 0:
+                //        ForiItems.Add(new ItemSefaresh(item));
+                //        break;
+                //    case 1:
+                //        GovahiItems.Add(new ItemSefaresh(item));
+                //        break;
+                //    case 2:
+                //        AgarShodItems.Add(new ItemSefaresh(item));
+                //        break;
+                //    case 3:
+                //        UsualItems.Add(new ItemSefaresh(item));
+                //        break;
+                //}
             }
         }
 
@@ -92,26 +92,26 @@ namespace BL
                 {
                     Order.OrderDetails.Add(s.OrderDetail);
                 }
-                foreach (var item in items)
-                {
-                    switch (item.ItemKind)
-                    {
-                        case ItemType.Fori:
-                            ForiItems.Add(item);
-                            break;
-                        case ItemType.Govahi:
-                            GovahiItems.Add(item);
-                            break;
-                        case ItemType.AgharAmadeShod:
-                            AgarShodItems.Add(item);
-                            break;
-                        case ItemType.Usual:
-                            UsualItems.Add(item);
-                            break;
-                        default:
-                            break;
-                    }
-                }
+                //foreach (var item in items)
+                //{
+                //    switch (item.ItemKind)
+                //    {
+                //        case ItemType.Fori:
+                //            ForiItems.Add(item);
+                //            break;
+                //        case ItemType.Govahi:
+                //            GovahiItems.Add(item);
+                //            break;
+                //        case ItemType.AgharAmadeShod:
+                //            AgarShodItems.Add(item);
+                //            break;
+                //        case ItemType.Usual:
+                //            UsualItems.Add(item);
+                //            break;
+                //        default:
+                //            break;
+                //    }
+                //}
             }
 	    }
 

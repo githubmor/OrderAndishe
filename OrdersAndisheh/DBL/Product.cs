@@ -14,7 +14,7 @@ namespace OrdersAndisheh.DBL
             OrderDetails = new HashSet<OrderDetail>();
         }
 
-        public short Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(8)]
@@ -22,25 +22,25 @@ namespace OrdersAndisheh.DBL
 
         [Required]
         [StringLength(100)]
-        public string Nam { get; set; }
+        public string Name { get; set; }
 
         public double? Weight { get; set; }
 
         public bool IsImenKala { get; set; }
 
-        [StringLength(15)]
+        
         public string FaniCode { get; set; }
 
-        [StringLength(20)]
+        
         public string CodeJense { get; set; }
 
-        public short? TedadDarPallet { get; set; }
+        public int? TedadDarPallet { get; set; }
 
-        public short? TedadDarSabad { get; set; }
+        public int? TedadDarSabad { get; set; }
 
-        public byte PalletId { get; set; }
+        public int PalletId { get; set; }
 
-        public byte Bazres_Id { get; set; }
+        public int Bazres_Id { get; set; }
 
         public virtual Bazres Bazre { get; set; }
 

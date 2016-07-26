@@ -14,7 +14,7 @@ namespace OrdersAndisheh.DBL
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public byte Id { get; set; }
+        public int Id { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }

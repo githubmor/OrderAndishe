@@ -17,12 +17,10 @@ namespace OrdersAndisheh.DBL
         public int Id { get; set; }
 
         [Required]
-        public string Nam { get; set; }
+        public string Name { get; set; }
 
-        [StringLength(50)]
         public string Tel1 { get; set; }
 
-        [StringLength(50)]
         public string Tel2 { get; set; }
 
         [StringLength(10)]
@@ -31,9 +29,9 @@ namespace OrdersAndisheh.DBL
         [StringLength(20)]
         public string Car { get; set; }
 
-        public byte? Ton { get; set; }
+        public int? Ton { get; set; }
 
-        public byte? Tol { get; set; }
+        public int? Tol { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

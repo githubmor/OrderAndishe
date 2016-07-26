@@ -15,12 +15,12 @@ namespace OrdersAndisheh.DBL
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public byte Id { get; set; }
+        public int Id { get; set; }
 
         [StringLength(10)]
         public string Name { get; set; }
 
-        public byte? Vazn { get; set; }
+        public int? Vazn { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

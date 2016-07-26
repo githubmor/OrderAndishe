@@ -11,8 +11,8 @@ namespace OrdersAndisheh.DBL
         public MyContextCF()
             : base("name=CodeFirstConection")
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF, Configuration>());
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyContextCF>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
         }
 
         public virtual DbSet<Bazres> Bazress { get; set; }
@@ -31,49 +31,51 @@ namespace OrdersAndisheh.DBL
                 .HasForeignKey(e => e.Bazres_Id)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.Customer)
+            modelBuilder.Entity<OrderDetail>()
+                .HasOptional(p => p.Customer)
+                .WithMany()
+                .HasForeignKey(p => p.CustomerId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Driver>()
-                .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.Driver)
+            modelBuilder.Entity<OrderDetail>()
+                .HasOptional(p => p.Driver)
+                .WithMany()
+                .HasForeignKey(p => p.DriverId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Order>()
-                .Property(e => e.Tarikh)
-                .IsFixedLength();
+            //modelBuilder.Entity<Order>()
+            //    .Property(e => e.Tarikh)
+            //    .IsFixedLength();
 
             modelBuilder.Entity<Order>()
                 .Property(e => e.Description)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Order>()
                 .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<OrderDetail>()
                 .Property(e => e.Description)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Pallet>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Pallet)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
-                .Property(e => e.Code)
-                .IsFixedLength();
+            //modelBuilder.Entity<Product>()
+            //    .Property(e => e.Code)
+            //    .IsFixedLength();
 
-            modelBuilder.Entity<Product>()
-                .Property(e => e.FaniCode)
-                .IsFixedLength();
+            //modelBuilder.Entity<Product>()
+            //    .Property(e => e.FaniCode)
+            //    .IsFixedLength();
 
-            modelBuilder.Entity<Product>()
-                .Property(e => e.CodeJense)
-                .IsFixedLength();
+            //modelBuilder.Entity<Product>()
+            //    .Property(e => e.CodeJense)
+            //    .IsFixedLength();
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails)

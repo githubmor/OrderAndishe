@@ -15,7 +15,7 @@ namespace OrdersAndisheh.DBL
             OrderDetails = new HashSet<OrderDetail>();
         }
 
-        public short Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]

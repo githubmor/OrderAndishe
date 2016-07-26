@@ -21,14 +21,14 @@ namespace BL
             {
                 throw new ApplicationException("کالا وجود ندارد !"); 
             }
-            if (p.Code==null&p.Nam==null)
+            if (p.Code==null&p.Name==null)
             {
                 throw new ApplicationException("نام کالا یا کد کالا مشخص نمی باشد !"); 
             }
             OrderDetail = new OrderDetail();
             Product = p;
             HasOracle = true;
-            ItemKind = ItemType.Usual;
+            ItemKind = ItemType.Usual.ToString();
         }
 
         public ItemSefaresh(OrderDetail od):this(od.Product)
@@ -43,7 +43,7 @@ namespace BL
 
         public string Ranande
         {
-            get { return (Driver==null?"":Driver.Nam); }
+            get { return (Driver==null?"":Driver.Name); }
         }
 
         public string Maghsad
@@ -53,7 +53,7 @@ namespace BL
 
         public string Kala
         {
-            get { return Product.Nam; }
+            get { return Product.Name; }
         }
 
         public string BazresName
@@ -130,10 +130,10 @@ namespace BL
             set { OrderDetail.HasOracle = value; }
 		}
 
-		public ItemType ItemKind
+		public string ItemKind
 		{
-            get { return (ItemType) OrderDetail.ItemType; }
-            set { OrderDetail.ItemType = (byte) value; }
+            get { return OrderDetail.ItemType; }
+            set { OrderDetail.ItemType = value; }
 		}
 
 

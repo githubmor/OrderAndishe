@@ -18,17 +18,17 @@ namespace OrdersAndisheh.DBL
 
         public string Description { get; set; }
 
-        public short ProductId { get; set; }
+        public int ProductId { get; set; }
 
-        public short CustomerId { get; set; }
+        public int? CustomerId { get; set; }
 
-        public int DriverId { get; set; }
+        public int? DriverId { get; set; }
 
         public int OrderId { get; set; }
 
         public bool HasOracle { get; set; }
 
-        public int ItemType { get; set; }
+        public string ItemType { get; set; }
 
         public virtual Customer Customer { get; set; }
 
