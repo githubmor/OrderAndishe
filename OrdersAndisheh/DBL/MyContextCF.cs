@@ -12,7 +12,7 @@ namespace OrdersAndisheh.DBL
             : base("name=CodeFirstConection")
         {
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyContextCF>());
-            Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
         }
 
         public virtual DbSet<Bazres> Bazress { get; set; }
@@ -34,15 +34,24 @@ namespace OrdersAndisheh.DBL
             modelBuilder.Entity<OrderDetail>()
                 .HasOptional(p => p.Customer)
                 .WithMany()
-                .HasForeignKey(p => p.CustomerId)
+                .HasForeignKey(o => o.Customer_Id)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<OrderDetail>()
                 .HasOptional(p => p.Driver)
                 .WithMany()
-                .HasForeignKey(p => p.DriverId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Customer>()
+                 .HasMany(p => p.OrderDetails)
+                 .WithOptional(p => p.Customer)
+                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Driver>()
+                 .HasMany(p => p.OrderDetails)
+                 .WithOptional(p => p.Driver)
+                 .HasForeignKey(i => i.Customer_Id)
+                 .WillCascadeOnDelete(false);
             //modelBuilder.Entity<Order>()
             //    .Property(e => e.Tarikh)
             //    .IsFixedLength();

@@ -19,6 +19,7 @@ namespace OrdersAndisheh.ViewModel
         {
             ss = new SefareshService();
             Messenger.Default.Register<string>(this, LoadThisDateSefaresh);
+            //LoadThisDateSefaresh("1395/05/05");
             
             Items = new ObservableCollection<ItemSefaresh>();
             sefaresh = new Sefaresh();

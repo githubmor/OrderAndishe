@@ -13,7 +13,7 @@ namespace OrdersAndisheh.DBL
         {
             OrderDetails = new HashSet<OrderDetail>();
         }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]

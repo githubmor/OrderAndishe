@@ -9,7 +9,7 @@ namespace OrdersAndisheh.DBL
     [Table("OrderDetail")]
     public class OrderDetail
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int Tedad { get; set; }
@@ -20,9 +20,11 @@ namespace OrdersAndisheh.DBL
 
         public int ProductId { get; set; }
 
-        public int? CustomerId { get; set; }
 
-        public int? DriverId { get; set; }
+        public int? Customer_Id { get; set; }
+
+        
+        public int? Driver_Id { get; set; }
 
         public int OrderId { get; set; }
 
