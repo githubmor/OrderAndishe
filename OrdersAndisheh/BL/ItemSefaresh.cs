@@ -91,7 +91,7 @@ namespace BL
 
 		public Driver Driver
 		{
-            private get { return OrderDetail.Driver; }
+            get { return OrderDetail.Driver; }
             set { OrderDetail.Driver = value;
             NotifyPropertyChanged("Ranande");
             }
@@ -99,7 +99,7 @@ namespace BL
 
 		public Customer Customer
 		{
-            private get { return OrderDetail.Customer; }
+            get { return OrderDetail.Customer; }
             set 
             { 
                 OrderDetail.Customer = value;

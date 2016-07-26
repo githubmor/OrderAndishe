@@ -33,7 +33,20 @@ using System.Collections.ObjectModel;
             {
                 using (MyContextCF db = new MyContextCF())
                 {
+
                     db.Orders.Add(sefaresh.Order);
+                    foreach (var item in sefaresh.Order.OrderDetails)
+                    {
+                        if (item.Customer != null)
+                        {
+                            db.Customers.Attach(item.Customer);
+                        }
+                        if (item.Driver != null)
+                        {
+                            db.Drivers.Attach(item.Driver);
+                        }
+                        db.OrderDetails.Add(item);
+                    }
                     db.SaveChanges();
                 }
             }

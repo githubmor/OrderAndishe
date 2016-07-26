@@ -5,7 +5,10 @@ using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.DBL;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Validation;
 using System.Linq;
+using System.Windows.Forms;
+
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -49,36 +52,17 @@ namespace OrdersAndisheh.ViewModel
                 AddNewItem.RaiseCanExecuteChanged();
             }
         }
+        public string Tarikh
+        {
+            get { return sefaresh.Tarikh; }
+            set
+            {
+                sefaresh.Tarikh = value;
+                RaisePropertyChanged(() => Tarikh);
+                SaveSefaresh.RaiseCanExecuteChanged();
+            }
+        }
 
-
-        //private ItemSefaresh selectedItem;
-
-        //public ItemSefaresh SelectedItem
-        //{
-        //    get { return selectedItem; }
-        //    set 
-        //    { 
-        //        selectedItem = value;
-        //        RaisePropertyChanged(() => SelectedItem);
-        //        ADDDriverDestenation.RaiseCanExecuteChanged();
-        //        AddNewItem.RaiseCanExecuteChanged();
-        //    }
-        //}
-
-        //private ObservableCollection<ItemSefaresh> selectedItems;
-
-        //public virtual ObservableCollection<ItemSefaresh> SelectedItems
-        //{
-        //    get { return selectedItems; }
-        //    set
-        //    {
-        //        selectedItems = value;
-        //        RaisePropertyChanged(() => SelectedItems);
-        //        ADDDriverDestenation.RaiseCanExecuteChanged();
-        //        AddNewItem.RaiseCanExecuteChanged();
-        //    }
-        //}
-        
 
         public List<Customer> Destinations { get; set; }
         public List<Product> Goods { get; set; }
@@ -126,6 +110,7 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
+        #region Command
         private RelayCommand addNewItem;
 
         /// <summary>
@@ -153,12 +138,12 @@ namespace OrdersAndisheh.ViewModel
             Tedad = 0;
             SelectedDriver = null;
             SelectedDestenation = null;
-            
+
         }
 
         private bool CanExecuteAddNewItem()
         {
-            return selectedProduct!=null & tedad>0 ;
+            return SelectedProduct != null & tedad > 0;
         }
 
         private RelayCommand addDriverDestenation;
@@ -178,21 +163,47 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteADDDriverDestenation()
         {
-            foreach (var item in Items.Where(p=>p.IsSelected))
+            foreach (var item in Items.Where(p => p.IsSelected))
             {
-                //if (string.IsNullOrEmpty(item.Maghsad))
-                //{
-                    item.Customer = selectedDestenation;
-                //}
+                if (SelectedDestenation != null)
+                {
+                    if (string.IsNullOrEmpty(item.Maghsad))
+                    {
+                        item.Customer = selectedDestenation;
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("آیا میخواهید مقصد را تغییر دهید ؟",
+                            "اخطار", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            item.Customer = selectedDestenation;
+                        }
 
-                //if (string.IsNullOrEmpty(item.Ranande))
-                //{
-                    item.Driver = selectedDriver;
-                //}
-                
+
+                    }
+                }
+
+                if (SelectedDriver != null)
+                {
+                    if (string.IsNullOrEmpty(item.Ranande))
+                    {
+                        item.Driver = selectedDriver;
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("آیا میخواهید راننده را تغییر دهید ؟",
+                            "اخطار", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            item.Driver = selectedDriver;
+                        }
+
+
+                    }
+                }
+
             }
-            //SelectedItem.Customer = selectedDestenation;
-            //SelectedItem.Driver = selectedDriver;
             SelectedProduct = null;
             Tedad = 0;
             SelectedDriver = null;
@@ -201,8 +212,52 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteADDDriverDestenation()
         {
-            return Items.Where(p => p.IsSelected).Count() > 0 & (selectedDriver!=null | selectedDestenation!=null);
+            return Items.Where(p => p.IsSelected).Count() > 0 & (SelectedDriver != null | SelectedDestenation != null);
         }
+
+        private RelayCommand _saveSefares;
+
+        /// <summary>
+        /// Gets the SaveSefaresh.
+        /// </summary>
+        public RelayCommand SaveSefaresh
+        {
+            get
+            {
+                return _saveSefares ?? (_saveSefares = new RelayCommand(
+                    ExecuteSaveSefaresh,
+                    CanExecuteSaveSefaresh));
+            }
+        }
+
+        private void ExecuteSaveSefaresh()
+        {
+            try
+            {
+                sefaresh.Items = Items.ToList();
+                ss.SaveSefaresh(sefaresh);
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    MessageBox.Show("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:" + "\n" +
+                        eve.Entry.Entity.GetType().Name + "\n" + eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        MessageBox.Show("- Property: \"{0}\", Error: \"{1}\"" + "\n" +
+                            ve.PropertyName + "\n" + ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+        }
+
+        private bool CanExecuteSaveSefaresh()
+        {
+            return Items.Count > 0 & !string.IsNullOrEmpty(Tarikh);
+        }
+        #endregion
 
        
     }

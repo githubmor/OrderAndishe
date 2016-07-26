@@ -88,6 +88,10 @@ namespace BL
 		    get { return items;}
 		    set { 
                 items = value;
+                foreach (var s in value)
+                {
+                    Order.OrderDetails.Add(s.OrderDetail);
+                }
                 foreach (var item in items)
                 {
                     switch (item.ItemKind)

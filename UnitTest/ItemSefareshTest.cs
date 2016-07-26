@@ -27,8 +27,8 @@ namespace UnitTest
             Assert.AreEqual(p.Nam, i.Kala);
             Assert.IsTrue(i.HasOracle);
             Assert.AreEqual(ItemType.Usual, i.ItemKind);
-            Assert.IsNull(i.TahvilFrosh);
-            Assert.IsNull(i.Tedad);
+            Assert.AreEqual(0,i.TahvilFrosh);
+            Assert.AreEqual(0,i.Tedad);
 
             
             i.Customer = c;

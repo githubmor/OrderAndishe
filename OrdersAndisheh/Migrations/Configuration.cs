@@ -11,6 +11,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            
         }
 
         protected override void Seed(OrdersAndisheh.DBL.MyContextCF context)

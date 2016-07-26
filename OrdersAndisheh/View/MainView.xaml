@@ -15,17 +15,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="79*"/>
-            <RowDefinition Height="425*"/>
+            <RowDefinition Height="94*"/>
+            <RowDefinition Height="411*"/>
         </Grid.RowDefinitions>
         <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
-                          
                           SelectionMode="Row"
-                          
                             >
             <dxg:GridControl.Columns>
-                <dxg:GridColumn AllowEditing="True" FieldName="IsSelected" Header="کالا" />
+                <dxg:GridColumn AllowEditing="True" FieldName="IsSelected" Header="انتخاب" />
                 <dxg:GridColumn FieldName="Kala" Header="کالا" />
                 <dxg:GridColumn FieldName="Tedad" Header="تعداد" />
                 <dxg:GridColumn FieldName="Karton" Header="کارتن" />
@@ -95,7 +93,9 @@
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
             </dxlc:LayoutGroup>
+            <Button Content="ذخیره" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="97" Margin="1,26,-56,-26" Command="{Binding SaveSefaresh, Mode=OneWay}"/>
+            <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0"/>
         </dxlc:LayoutControl>
-        
+
     </Grid>
 </Window>
