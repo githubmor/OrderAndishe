@@ -33,7 +33,6 @@ using System.Collections.ObjectModel;
             {
                 using (MyContextCF db = new MyContextCF())
                 {
-
                     db.Orders.Add(sefaresh.Order);
                     foreach (var item in sefaresh.Order.OrderDetails)
                     {
@@ -45,6 +44,7 @@ using System.Collections.ObjectModel;
                         {
                             db.Drivers.Attach(item.Driver);
                         }
+                       
                         db.OrderDetails.Add(item);
                     }
                     db.SaveChanges();
@@ -54,14 +54,21 @@ using System.Collections.ObjectModel;
 
         public void UpdateSefaresh(Sefaresh sefaresh)
 		{
-            if (sefaresh.Order != null)
-            {
-                using (MyContextCF db = new MyContextCF())
-                {
-                    db.Orders.Attach(sefaresh.Order);
-                    db.SaveChanges();
-                }
-            }
+            throw new ApplicationException("این قسمت هنوز پیاده سازی نشده");
+
+            //TODO  اینجا باید اول آیتم های اضافه شده رو از آیتم های قبلا ثبت شده جدا کنیم
+            //بعد آیتم های جدید رو بزاریم برای ثبت
+            //آیتم های قبلا ثبت شده رو بزاریم برای ویرایش
+            //آخر سر هم خود سفارش رو ویرایش کنیم اگر تغییر دادند
+
+            //if (sefaresh.Order != null)
+            //{
+            //    using (MyContextCF db = new MyContextCF())
+            //    {
+            //        db.Orders.Attach(sefaresh.Order);
+            //        db.SaveChanges();
+            //    }
+            //}
 		}
 
         public virtual void AcceptSefaresh(Sefaresh sefaresh)

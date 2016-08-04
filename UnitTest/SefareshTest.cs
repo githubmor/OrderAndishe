@@ -4,6 +4,7 @@ using BL;
 using System.Linq;
 using System.Collections.Generic;
 using OrdersAndisheh.DBL;
+using System.Collections.ObjectModel;
 
 namespace UnitTest
 {
@@ -21,18 +22,18 @@ namespace UnitTest
             Product p = new Product() {Code="656",Name="hghg" };
             //باید یادمان باشد ایتم سفارش اینجا چک نمیشود - نحوه ذخیره سازی هم اینجا چک نمی شود
             // اینجا فقط ساخت یک سفارش چک میشود
-            List<ItemSefaresh> f = new List<ItemSefaresh>()
+            ObservableCollection<ItemSefaresh> f = new ObservableCollection<ItemSefaresh>()
             {
-                new ItemSefaresh(p){ItemKind=ItemType.Fori.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.AgharAmadeShod.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.Govahi.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.Usual.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.AgharAmadeShod.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.Usual.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.Usual.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.AgharAmadeShod.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.Govahi.ToString()},
-                new ItemSefaresh(p){ItemKind=ItemType.Govahi.ToString()},
+                new ItemSefaresh(p){ItemKind="فوری"},
+                new ItemSefaresh(p){ItemKind="نامشخص"},
+                new ItemSefaresh(p){ItemKind="گواهی"},
+                new ItemSefaresh(p){ItemKind="عادی"},
+                new ItemSefaresh(p){ItemKind="گواهی"},
+                new ItemSefaresh(p){ItemKind="عادی"},
+                new ItemSefaresh(p){ItemKind="عادی"},
+                new ItemSefaresh(p){ItemKind="گواهی"},
+                new ItemSefaresh(p){ItemKind="گواهی"},
+                new ItemSefaresh(p){ItemKind="گواهی"},
             };
             Sefaresh s = new Sefaresh();
             s.Tarikh = "1395/01/02";
@@ -80,11 +81,11 @@ namespace UnitTest
 
             List<OrderDetail> od = new List<OrderDetail>()
             {
-                new OrderDetail(){Customer_Id=4,ItemType=ItemType.Usual.ToString(),Driver_Id=2,HasOracle=false,Id=6,Product=new Product(){Name="d",Code="d"},Tedad=85},
-                new OrderDetail(){Customer_Id=8,ItemType=ItemType.Govahi.ToString(),Driver_Id=3,HasOracle=true,Id=2,Product=new Product(){Name="d",Code="d"},Tedad=6},
-                new OrderDetail(){Customer_Id=7,ItemType=ItemType.Usual.ToString(),Driver_Id=2,HasOracle=true,Id=1,Product=new Product(){Name="d",Code="d"},Tedad=5},
-                new OrderDetail(){Customer_Id=2,ItemType=ItemType.Fori.ToString(),Driver_Id=5,HasOracle=false,Id=3,Product=new Product(){Name="d",Code="d"},Tedad=78},
-                new OrderDetail(){Customer_Id=1,ItemType=ItemType.Usual.ToString(),Driver_Id=2,HasOracle=true,Id=4,Product=new Product(){Name="d",Code="d"},Tedad=98},
+                new OrderDetail(){Customer_Id=4,ItemType="عادی",Driver_Id=2,HasOracle=false,Id=6,Product=new Product(){Name="d",Code="d"},Tedad=85},
+                new OrderDetail(){Customer_Id=8,ItemType="گواهی",Driver_Id=3,HasOracle=true,Id=2,Product=new Product(){Name="d",Code="d"},Tedad=6},
+                new OrderDetail(){Customer_Id=7,ItemType="عادی",Driver_Id=2,HasOracle=true,Id=1,Product=new Product(){Name="d",Code="d"},Tedad=5},
+                new OrderDetail(){Customer_Id=2,ItemType="فوری",Driver_Id=5,HasOracle=false,Id=3,Product=new Product(){Name="d",Code="d"},Tedad=78},
+                new OrderDetail(){Customer_Id=1,ItemType="عادی",Driver_Id=2,HasOracle=true,Id=4,Product=new Product(){Name="d",Code="d"},Tedad=98},
             };
 
             Sefaresh sef = new Sefaresh(o,od);
@@ -93,7 +94,7 @@ namespace UnitTest
             Assert.AreEqual(o.Accepted, sef.Accepted);
             Assert.AreEqual(o.Description, sef.Description);
 
-            foreach (var item in this.Zip(sef.Items, od, (x, y) => new {sefareshOd = x, Od = y}))
+            foreach (var item in this.Zip(sef.Items.ToList(), od, (x, y) => new {sefareshOd = x, Od = y}))
             {
                 Assert.AreEqual(item.Od, item.sefareshOd.OrderDetail);
             }

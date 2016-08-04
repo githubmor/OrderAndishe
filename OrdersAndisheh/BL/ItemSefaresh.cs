@@ -28,7 +28,7 @@ namespace BL
             OrderDetail = new OrderDetail();
             Product = p;
             HasOracle = true;
-            ItemKind = ItemType.Usual.ToString();
+            ItemKind = ItemType.عادی.ToString();
         }
 
         public ItemSefaresh(OrderDetail od):this(od.Product)
@@ -83,9 +83,11 @@ namespace BL
 		public Product Product
 		{
             private get { return OrderDetail.Product; }
-            set { OrderDetail.Product = value;
-            NotifyPropertyChanged("Kala");
-            NotifyPropertyChanged("CodeKala");
+            set 
+            { 
+                OrderDetail.Product = value;
+                NotifyPropertyChanged("Kala");
+                NotifyPropertyChanged("CodeKala");
             }
 		}
 
@@ -106,11 +108,16 @@ namespace BL
                 NotifyPropertyChanged("Maghsad");
             }
 		}
-        public bool IsSelected { get; set; }
-        //{
-        //    get { return OrderDetail.Tedad; }
-        //    set { OrderDetail.Tedad = value; }
-        //}
+        private bool isSelacted;
+        public bool IsSelected //{ get; set; }
+        {
+            get { return isSelacted; }
+            set 
+            { 
+                isSelacted = value;
+                NotifyPropertyChanged("IsSelected");
+            }
+        }
 
 		public int Tedad
 		{
@@ -138,12 +145,52 @@ namespace BL
 
 
         //TODO اینا رو باید محاسبه
-        public int Karton { get; set; }
+        public string Karton //{ get; set; }
+        {
+            get { return KartonCalCulate(); }
+        }
 
-        public int Pallet { get; set; }
+        private string KartonCalCulate()
+        {
+            if (Tedad % Product.TedadDarPallet > 0)
+            {
+                return (Tedad / Product.TedadDarSabad).ToString() +"+"+ (Tedad % Product.TedadDarSabad).ToString();
+            }
+            else
+            {
+                return "";
+            }
+            //if (Product.TedadDarSabad > 0 & Product.TedadDarSabad != null)
+            //{
+            //    if (Tedad == Product.TedadDarPallet)
+            //    {
+                    
+            //    }
+            //    return (Tedad / Product.TedadDarSabad).ToString();
+            //}
+            //else
+            //{
+            //    return "";
+            //}
+        }
+        public string Pallet //{ get; set; }
+        {
+            get { return PalletCalCulate(); }
+        }
 
-        public int Vazn { get; set; }
+        private string PalletCalCulate()
+        {
+            return (Tedad / Product.TedadDarPallet).ToString();
+        }
+        public int Vazn //{ get; set; }
+        {
+            get { return VaznCalCulate(); }
+        }
 
+        private int VaznCalCulate()
+        {
+            return (Tedad / (int)Product.TedadDarPallet) * (int) Product.Weight;
+        }
         public bool IsImenKala 
         {
             get { return Product.IsImenKala; }
@@ -151,6 +198,7 @@ namespace BL
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        
 
         private void NotifyPropertyChanged(String info)
         {
@@ -159,6 +207,7 @@ namespace BL
                 PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
         }
+
     }
 }
 

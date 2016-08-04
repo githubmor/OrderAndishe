@@ -26,7 +26,7 @@ namespace UnitTest
             Assert.AreEqual(p.Code, i.CodeKala);
             Assert.AreEqual(p.Name, i.Kala);
             Assert.IsTrue(i.HasOracle);
-            Assert.AreEqual(ItemType.Usual.ToString(), i.ItemKind);
+            Assert.AreEqual("عادی", i.ItemKind);
             Assert.AreEqual(0,i.TahvilFrosh);
             Assert.AreEqual(0,i.Tedad);
 
@@ -34,7 +34,7 @@ namespace UnitTest
             i.Customer = c;
             i.Driver = d;
             i.HasOracle = false;
-            i.ItemKind = ItemType.Govahi.ToString();
+            i.ItemKind = ItemType.گواهی.ToString();
             i.TahvilFrosh = 654;
             i.Tedad = 6500;
 
@@ -47,11 +47,11 @@ namespace UnitTest
             Assert.AreEqual(d, i.OrderDetail.Driver);
             Assert.AreEqual(p, i.OrderDetail.Product);
             Assert.IsFalse(i.OrderDetail.HasOracle);
-            Assert.AreEqual(ItemType.Govahi.ToString(), i.OrderDetail.ItemType);
+            Assert.AreEqual("گواهی", i.OrderDetail.ItemType);
             Assert.AreEqual(654, i.OrderDetail.TahvilForosh);
             Assert.AreEqual(6500, i.OrderDetail.Tedad);
             Assert.IsFalse(i.HasOracle);
-            Assert.AreEqual(ItemType.Govahi.ToString(), i.ItemKind);
+            Assert.AreEqual(ItemType.گواهی.ToString(), i.ItemKind);
             Assert.AreEqual(654,i.TahvilFrosh);
             Assert.AreEqual(6500,i.Tedad);
             
@@ -72,7 +72,7 @@ namespace UnitTest
             o.Driver = d;
             o.Product = p;
             o.HasOracle = true;
-            o.ItemType = ItemType.Usual.ToString();
+            o.ItemType = "عادی";
             o.TahvilForosh = 56;
             o.Tedad = 48522;
 
@@ -87,7 +87,7 @@ namespace UnitTest
             Assert.AreEqual(p.Code, i.CodeKala);
             Assert.AreEqual(p.Name, i.Kala);
             Assert.IsTrue(i.HasOracle);
-            Assert.AreEqual(ItemType.Usual.ToString(), i.ItemKind);
+            Assert.AreEqual("عادی", i.ItemKind);
             Assert.AreEqual(o.TahvilForosh,i.TahvilFrosh);
             Assert.AreEqual(o.Tedad,i.Tedad);
 
@@ -119,6 +119,32 @@ namespace UnitTest
             OrderDetail o = new OrderDetail();
             ItemSefaresh i = new ItemSefaresh(o);
 
+        }
+
+        //چک کردن تعداد در پالت و تعداد در سبد
+        [TestMethod]
+        public void CheckIfKartonAndSabadWorkFine()
+        {
+            Pallet pl = new Pallet() { Name = "ASasd", Vazn = 200 };
+
+            Product p = new Product() { Name = "PT206", Pallet = pl, TedadDarPallet = 96, TedadDarSabad = 4 };
+
+            ItemSefaresh i = new ItemSefaresh(p);
+
+            i.Tedad = 192;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("2", i.Pallet);
+
+            i.Tedad = 96;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+            wew
+            i.Tedad = 70;
+            Assert.AreEqual("17+2", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+
+
+            
         }
     }
 }

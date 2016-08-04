@@ -13,9 +13,9 @@ namespace BL
 
 	public enum ItemType : int
 	{
-		Fori,
-		Govahi,
-		AgharAmadeShod,
-		Usual,
+		فوری,
+		گواهی,
+		نامشخص,
+		عادی,
 	}
 }

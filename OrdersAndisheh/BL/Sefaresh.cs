@@ -6,9 +6,10 @@
 //------------------------------------------------------------------------------
 namespace BL
 {
-	using OrdersAndisheh.DBL;
+    using OrdersAndisheh.DBL;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Text;
 
@@ -16,7 +17,7 @@ namespace BL
 	{
         public Sefaresh()
         {
-            Items = new List<ItemSefaresh>();
+            Items = new ObservableCollection<ItemSefaresh>();
             Order = new Order();
             AgarShodItems = new List<ItemSefaresh>();
             UsualItems = new List<ItemSefaresh>();
@@ -79,17 +80,18 @@ namespace BL
             private set;
         }
 
-       
-        private List<ItemSefaresh> items;
+
+        private ObservableCollection<ItemSefaresh> items;
         
 
-	    public List<ItemSefaresh> Items
+	    public ObservableCollection<ItemSefaresh> Items
 	    {
 		    get { return items;}
 		    set { 
                 items = value;
                 foreach (var s in value)
                 {
+                    s.OrderDetail.OrderId = Order.Id;
                     Order.OrderDetails.Add(s.OrderDetail);
                 }
                 //foreach (var item in items)
