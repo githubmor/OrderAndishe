@@ -82,7 +82,7 @@ namespace BL
 
 		public Product Product
 		{
-            private get { return OrderDetail.Product; }
+            get { return OrderDetail.Product; }
             set 
             { 
                 OrderDetail.Product = value;
@@ -152,26 +152,20 @@ namespace BL
 
         private string KartonCalCulate()
         {
-            if (Tedad % Product.TedadDarPallet > 0)
+            
+            if (Tedad % Product.TedadDarSabad > 0)
             {
-                return (Tedad / Product.TedadDarSabad).ToString() +"+"+ (Tedad % Product.TedadDarSabad).ToString();
+                return (Tedad / Product.TedadDarSabad).ToString() +"+1";
             }
-            else
+            else if (Tedad % Product.TedadDarPallet == 0)
             {
                 return "";
             }
-            //if (Product.TedadDarSabad > 0 & Product.TedadDarSabad != null)
-            //{
-            //    if (Tedad == Product.TedadDarPallet)
-            //    {
-                    
-            //    }
-            //    return (Tedad / Product.TedadDarSabad).ToString();
-            //}
-            //else
-            //{
-            //    return "";
-            //}
+            else
+            {
+                return (Tedad / Product.TedadDarSabad).ToString();
+            }
+            
         }
         public string Pallet //{ get; set; }
         {
@@ -180,7 +174,22 @@ namespace BL
 
         private string PalletCalCulate()
         {
-            return (Tedad / Product.TedadDarPallet).ToString();
+            if (Tedad > Product.TedadDarPallet)
+            {
+                if (Tedad % Product.TedadDarPallet==0)
+                {
+                    return (Tedad / Product.TedadDarPallet).ToString();
+                }
+                else
+                {
+                    return ((Tedad / Product.TedadDarPallet)+1).ToString();
+                }
+                
+            }
+            else
+            {
+                return "1";
+            }
         }
         public int Vazn //{ get; set; }
         {
@@ -189,7 +198,26 @@ namespace BL
 
         private int VaznCalCulate()
         {
-            return (Tedad / (int)Product.TedadDarPallet) * (int) Product.Weight;
+            if (Tedad % Product.TedadDarPallet==0)
+            {
+                return (int)((Tedad / Product.TedadDarPallet) * Product.Weight);
+            }
+            else
+            {
+                double OneProductWeight;
+                if (Product.Weight!=null)
+                {
+                    int p = (int)Product.Weight - (int)Product.Pallet.Vazn;
+
+                    OneProductWeight = (double)(p / (double)Product.TedadDarPallet);
+                }
+                else
+                {
+                    OneProductWeight = 0;
+                }
+                
+                return (int)(Tedad * OneProductWeight) + int.Parse(PalletCalCulate())*(Product.Pallet.Vazn!=null?(int)Product.Pallet.Vazn:0);
+            }
         }
         public bool IsImenKala 
         {

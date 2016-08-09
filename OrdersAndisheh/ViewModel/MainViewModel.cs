@@ -17,15 +17,15 @@ namespace OrdersAndisheh.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        SefareshService ss;
+        ISefareshService ss;
         bool IsEdit;
         private List<ItemType> enumList;
-        public MainViewModel()
+        public MainViewModel(ISefareshService service)
         {
-            ss = new SefareshService();
+            ss = service;
             Messenger.Default.Register<string>(this, LoadThisDateSefaresh);
-            
-            
+
+            SelecteddItem = null;
             sefaresh = new Sefaresh();
             Drivers = ss.LoadDrivers();
             Goods = ss.LoadGoods();
@@ -66,14 +66,14 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private int tedad;
+        //private int tedad;
 
         public int Tedad
         {
-            get { return tedad; }
+            get { return selectedItem.Tedad; }
             set 
             {
-                tedad = value;
+                selectedItem.Tedad = value;
                 RaisePropertyChanged(()=>Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
             }
@@ -113,6 +113,18 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => Items);
             }
         }
+        private ItemSefaresh selectedItem;
+        public ItemSefaresh SelecteddItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                selectedItem = value;
+                RaisePropertyChanged(() => SelecteddItem);
+            }
+        }
+
+
         public Sefaresh sefaresh { get; set; }
 
         private Customer selectedDestenation;
@@ -129,14 +141,14 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private Product selectedProduct;
+        //private Product selectedProduct;
 
         public Product SelectedProduct
         {
-            get { return selectedProduct; }
+            get { return selectedItem.Product; }
             set
             {
-                selectedProduct = value;
+                selectedItem.Product = value;
                 RaisePropertyChanged(() => SelectedProduct);
                 AddNewItem.RaiseCanExecuteChanged();
             }
@@ -173,22 +185,23 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewItem()
         {
-            ItemSefaresh ss = new ItemSefaresh(selectedProduct);
-            ss.Tedad = tedad;
-            ss.Customer = selectedDestenation;
-            ss.Driver = selectedDriver;
-            Items.Add(ss);
+            //ItemSefaresh ss = new ItemSefaresh(selectedProduct);
+            //ss.Tedad = tedad;
+            selectedItem.Customer = selectedDestenation;
+            selectedItem.Driver = selectedDriver;
+            Items.Add(selectedItem);
 
-            SelectedProduct = null;
-            Tedad = 0;
-            SelectedDriver = null;
-            SelectedDestenation = null;
+            SelecteddItem = null;
+            //SelectedProduct = null;
+            //Tedad = 0;
+            //SelectedDriver = null;
+            //SelectedDestenation = null;
 
         }
 
         private bool CanExecuteAddNewItem()
         {
-            return SelectedProduct != null & tedad > 0;
+            return SelectedProduct != null & selectedItem.Tedad > 0;
         }
 
         private RelayCommand addDriverDestenation;
@@ -266,6 +279,7 @@ namespace OrdersAndisheh.ViewModel
         }
 
         private RelayCommand _saveSefares;
+        
 
         /// <summary>
         /// Gets the SaveSefaresh.

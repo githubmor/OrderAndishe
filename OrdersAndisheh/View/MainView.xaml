@@ -20,6 +20,7 @@
         </Grid.RowDefinitions>
         <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
+                          SelectedItem="{Binding SelecteddItem}"
                           SelectionMode="Row"
                             >
             <dxg:GridControl.Columns>

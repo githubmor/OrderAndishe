@@ -127,24 +127,82 @@ namespace UnitTest
         {
             Pallet pl = new Pallet() { Name = "ASasd", Vazn = 200 };
 
-            Product p = new Product() { Name = "PT206", Pallet = pl, TedadDarPallet = 96, TedadDarSabad = 4 };
+            Product p = new Product() { Name = "PT206", Pallet = pl, TedadDarPallet = 96, TedadDarSabad = 4,Weight = 500 };
 
             ItemSefaresh i = new ItemSefaresh(p);
 
             i.Tedad = 192;
             Assert.AreEqual("", i.Karton);
             Assert.AreEqual("2", i.Pallet);
+            Assert.AreEqual(1000, i.Vazn);
 
             i.Tedad = 96;
             Assert.AreEqual("", i.Karton);
             Assert.AreEqual("1", i.Pallet);
-            wew
+            Assert.AreEqual(500, i.Vazn);
+            
             i.Tedad = 70;
-            Assert.AreEqual("17+2", i.Karton);
+            Assert.AreEqual("17+1", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+            Assert.AreEqual(418, i.Vazn);
+
+            i.Tedad = 200;
+            Assert.AreEqual("50", i.Karton);
+            Assert.AreEqual("3", i.Pallet);
+            Assert.AreEqual(1225, i.Vazn);
+
+            i.Tedad = 213;
+            Assert.AreEqual("53+1", i.Karton);
+            Assert.AreEqual("3", i.Pallet);
+            Assert.AreEqual(1265, i.Vazn);
+        }
+
+        //چک کردن تعداد در پالت و تعداد در سبد
+        [TestMethod]
+        public void CheckIfTedadDarSabadOrKartonIsNull()
+        {
+            Pallet pl = new Pallet() { Name = "ASasd", Vazn = 200 };
+
+            Product p = new Product() { Name = "PT206", Pallet = pl};
+
+            ItemSefaresh i = new ItemSefaresh(p);
+
+            i.Tedad = 192;
+            Assert.AreEqual("", i.Karton);
             Assert.AreEqual("1", i.Pallet);
 
+            i.Tedad = 96;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
 
-            
+            i.Tedad = 70;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+
+            i.Tedad = 200;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+
+            i.Tedad = 213;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+        }
+
+        //چک کردن تعداد در پالت و تعداد در سبد
+        [TestMethod]
+        public void CheckIfPalletWeightIsNull()
+        {
+            Pallet pl = new Pallet() { Name = "ASasd", Vazn = null};
+
+            Product p = new Product() { Name = "PT206", Pallet = pl, TedadDarPallet = null, TedadDarSabad = null ,Weight=null};
+
+            ItemSefaresh i = new ItemSefaresh(p);
+
+            i.Tedad = 192;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+            Assert.AreEqual(0, i.Vazn);
+
         }
     }
 }

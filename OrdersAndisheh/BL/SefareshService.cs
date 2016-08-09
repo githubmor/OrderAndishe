@@ -19,7 +19,7 @@ using System.Collections.ObjectModel;
     /// <summary>
     /// This is Just For Service Sefaresh To Database
     /// </summary>
-	public class SefareshService
+	public class SefareshService : ISefareshService 
 	{
         //public virtual Sefaresh Sefareshs
         //{
@@ -133,15 +133,15 @@ using System.Collections.ObjectModel;
             }
         }
 
-        internal List<Product> LoadGoods()
+        public List<Product> LoadGoods()
         {
             using (MyContextCF db = new MyContextCF())
             {
-                return db.Products.ToList();
+                return db.Products.Include("Pallet").ToList();
             }
         }
 
-        internal List<Customer> LoadDestinations()
+        public List<Customer> LoadDestinations()
         {
             using (MyContextCF db = new MyContextCF())
             {

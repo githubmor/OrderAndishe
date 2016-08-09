@@ -12,6 +12,7 @@
   See http://www.galasoft.ch/mvvm
 */
 
+using BL;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -43,6 +44,7 @@ namespace OrdersAndisheh.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ISefareshService, SefareshService>();
         }
 
         public MainViewModel Main
