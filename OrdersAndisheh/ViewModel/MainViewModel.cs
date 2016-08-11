@@ -25,7 +25,7 @@ namespace OrdersAndisheh.ViewModel
             ss = service;
             Messenger.Default.Register<string>(this, LoadThisDateSefaresh);
 
-            SelecteddItem = null;
+            //SelecteddItem = null;
             sefaresh = new Sefaresh();
             Drivers = ss.LoadDrivers();
             Goods = ss.LoadGoods();
@@ -70,9 +70,13 @@ namespace OrdersAndisheh.ViewModel
 
         public int Tedad
         {
-            get { return selectedItem.Tedad; }
+            get { return (selectedItem!=null?selectedItem.Tedad:0); }
             set 
             {
+                if (selectedItem==null)
+                {
+                    throw new ApplicationException("باید یک کالا را انتخاب کنید !");
+                }
                 selectedItem.Tedad = value;
                 RaisePropertyChanged(()=>Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
@@ -145,10 +149,10 @@ namespace OrdersAndisheh.ViewModel
 
         public Product SelectedProduct
         {
-            get { return selectedItem.Product; }
+            get { return (selectedItem!=null?selectedItem.Product:null); }
             set
             {
-                selectedItem.Product = value;
+                selectedItem = new ItemSefaresh(value);
                 RaisePropertyChanged(() => SelectedProduct);
                 AddNewItem.RaiseCanExecuteChanged();
             }
@@ -201,7 +205,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteAddNewItem()
         {
-            return SelectedProduct != null & selectedItem.Tedad > 0;
+            return SelectedProduct != null & Tedad > 0;
         }
 
         private RelayCommand addDriverDestenation;
