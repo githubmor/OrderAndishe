@@ -31,24 +31,9 @@ namespace OrdersAndisheh.ViewModel
             Goods = ss.LoadGoods();
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
-            //Items.CollectionChanged += this.OnCollectionChanged;
             
             //LoadThisDateSefaresh("1395/05/05");
         }
-
-        //private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        //{
-        //    ObservableCollection<ItemSefaresh> obsSender = sender as ObservableCollection<ItemSefaresh>;
-
-        //    foreach (var item in obsSender)
-        //    {
-        //        if (item.IsSelected)
-        //        {
-        //            MessageBox.Show(item.Kala);
-        //        }
-        //    }
-
-        //}
 
         
 
@@ -66,18 +51,21 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        //private int tedad;
+        private int tempTedad;
 
         public int Tedad
         {
             get { return (selectedItem!=null?selectedItem.Tedad:0); }
             set 
             {
-                if (selectedItem==null)
+                if (selectedItem != null)
                 {
-                    throw new ApplicationException("باید یک کالا را انتخاب کنید !");
+                    selectedItem.Tedad = value;
                 }
-                selectedItem.Tedad = value;
+                else
+                {
+                    tempTedad = value;
+                }
                 RaisePropertyChanged(()=>Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
             }
@@ -131,14 +119,21 @@ namespace OrdersAndisheh.ViewModel
 
         public Sefaresh sefaresh { get; set; }
 
-        private Customer selectedDestenation;
+        private Customer tempDestenation;
 
         public Customer SelectedDestenation
         {
-            get { return selectedDestenation; }
+            get { return (selectedItem != null ? selectedItem.Customer : null); }
             set
             {
-                selectedDestenation = value;
+                if (selectedItem!=null)
+                {
+                    selectedItem.Customer = value;
+                }
+                else
+                {
+                    tempDestenation = value;
+                }
                 RaisePropertyChanged(() => SelectedDestenation);
                 ADDDriverDestenation.RaiseCanExecuteChanged();
                 AddNewItem.RaiseCanExecuteChanged();
@@ -153,19 +148,39 @@ namespace OrdersAndisheh.ViewModel
             set
             {
                 selectedItem = new ItemSefaresh(value);
+                if (tempDestenation!=null)
+                {
+                    selectedItem.Customer = tempDestenation;
+                }
+                if (tempDriver != null)
+                {
+                    selectedItem.Driver = tempDriver;
+                }
+                if (tempTedad > 0)
+                {
+                    selectedItem.Tedad = tempTedad;
+                }
                 RaisePropertyChanged(() => SelectedProduct);
+                RaisePropertyChanged(() => Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
-        private Driver selectedDriver;
+        private Driver tempDriver;
 
         public Driver SelectedDriver
         {
-            get { return selectedDriver; }
+            get { return (selectedItem != null ? selectedItem.Driver : null); }
             set
             {
-                selectedDriver = value;
+                if (selectedItem != null)
+                {
+                    selectedItem.Driver = value;
+                }
+                else
+                {
+                    tempDriver = value;
+                }
                 RaisePropertyChanged(() => SelectedDriver);
                 ADDDriverDestenation.RaiseCanExecuteChanged();
             }
@@ -189,18 +204,8 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewItem()
         {
-            //ItemSefaresh ss = new ItemSefaresh(selectedProduct);
-            //ss.Tedad = tedad;
-            selectedItem.Customer = selectedDestenation;
-            selectedItem.Driver = selectedDriver;
             Items.Add(selectedItem);
-
             SelecteddItem = null;
-            //SelectedProduct = null;
-            //Tedad = 0;
-            //SelectedDriver = null;
-            //SelectedDestenation = null;
-
         }
 
         private bool CanExecuteAddNewItem()
@@ -231,7 +236,7 @@ namespace OrdersAndisheh.ViewModel
                 {
                     if (string.IsNullOrEmpty(item.Maghsad))
                     {
-                        item.Customer = selectedDestenation;
+                        item.Customer = SelectedDestenation;
                     }
                     else
                     {
@@ -239,7 +244,7 @@ namespace OrdersAndisheh.ViewModel
                             "اخطار", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
-                            item.Customer = selectedDestenation;
+                            item.Customer = SelectedDestenation;
                         }
 
 
@@ -250,7 +255,7 @@ namespace OrdersAndisheh.ViewModel
                 {
                     if (string.IsNullOrEmpty(item.Ranande))
                     {
-                        item.Driver = selectedDriver;
+                        item.Driver = SelectedDriver;
                     }
                     else
                     {
@@ -258,7 +263,7 @@ namespace OrdersAndisheh.ViewModel
                             "اخطار", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
-                            item.Driver = selectedDriver;
+                            item.Driver = SelectedDriver;
                         }
 
 

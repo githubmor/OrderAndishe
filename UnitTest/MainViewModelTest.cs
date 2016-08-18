@@ -5,6 +5,7 @@ using Moq;
 using BL;
 using System.Collections.Generic;
 using OrdersAndisheh.DBL;
+using System.Collections.ObjectModel;
 
 namespace UnitTest
 {
@@ -76,9 +77,9 @@ namespace UnitTest
 
         }
 
-        //انتخاب یک کالا چه بر سر فرم میاورد
+        //اول انتخاب کالا بعد بقیه اطلاعات 
         [TestMethod]
-        public void IfSelectProductIsOk()
+        public void IfFirstSelectProductAndThenSelectOtherIsOk()
         {
             vm.SelectedProduct = pds[1];
 
@@ -88,34 +89,102 @@ namespace UnitTest
             Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
             Assert.IsFalse(vm.AddNewItem.CanExecute(null));
             Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
-        }
 
-        //انتخاب تعداد چه بر سر فرم میاورد
-        [ExpectedException(typeof(ApplicationException))]
-        [TestMethod]
-        public void IfNOTSelectProductButTedadSetThrowException()
-        {
             vm.Tedad = 10;
 
+
+            Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
+            Assert.IsTrue(vm.AddNewItem.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
+
+            vm.SelectedDestenation = cts[2];
+
+            Assert.AreEqual(cts[2], vm.SelecteddItem.Customer);
+
+            vm.SelectedDriver = drs[1];
+
+            Assert.AreEqual(drs[1], vm.SelecteddItem.Driver);
+
+            Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
+            Assert.IsTrue(vm.AddNewItem.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
+
+            
+
         }
 
 
-        //انتخاب یک مقصد چه بر سر فرم میاورد
+        //اول اطلاعات اضافی بعد کالا
         [TestMethod]
-        public void IfSelectDestenation()
+        public void IfFirstSelectDestenationAndDriverThenSelectProduct()
         {
             vm.SelectedDestenation = cts[2];
-kjhkjhj
+            vm.SelectedDriver = drs[2];
 
+            Assert.IsNull(vm.SelecteddItem);
+
+            Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
+            Assert.IsFalse(vm.AddNewItem.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
+
+            vm.SelectedProduct = pds[3];
+
+            //بعد از اینکه کالا انتخاب شد باید بشه 
+            Assert.AreEqual(cts[2], vm.SelecteddItem.Customer);
+            Assert.AreEqual(drs[2], vm.SelecteddItem.Driver);
+
+            Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
+            Assert.IsFalse(vm.AddNewItem.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
+
+            vm.Tedad = 15000;
+
+            Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
+            Assert.IsTrue(vm.AddNewItem.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
         }
 
-        //انتخاب یک راننده چه بر سر فرم میاورد
 
         //بعد از افزودن آیتم چه میشود
+        [TestMethod]
+        public void IfAddNewItem()
+        {
+            vm.SelectedDestenation = cts[1];
+            vm.SelectedDriver = drs[1];
+            vm.SelectedProduct = pds[1];
+            vm.Tedad = 100;
 
-        // بعد از افزودن راننده مقصد چه میشود
+            Assert.IsNotNull(vm.SelecteddItem);
 
+            vm.AddNewItem.Execute(null);
+
+            Assert.AreEqual(1, vm.Items.Count);
+            Assert.IsNull(vm.SelecteddItem);
+            Assert.IsNull(vm.SelectedDestenation);
+            Assert.IsNull(vm.SelectedDriver);
+            Assert.IsNull(vm.SelectedProduct);
+            Assert.AreEqual(0,vm.Tedad);
+        }
+       
         //بعد از ذخیره سازی سفارش چه میشود
+        [TestMethod]
+        public void IfSaveSefareshIsOkForm()
+        {
+            vm.Items = new ObservableCollection<ItemSefaresh>(){
+                new ItemSefaresh(pds[0]),
+                new ItemSefaresh(pds[1]),
+                new ItemSefaresh(pds[2]),
+                new ItemSefaresh(pds[3])
+            };
+
+            vm.Tarikh = "1395/05/05";
+
+            Assert.IsTrue(vm.SaveSefaresh.CanExecute(null));
+
+            vm.SaveSefaresh.Execute(null);
+
+
+        }
 
         // یک آیتم انتخاب شد چه میشود
 
