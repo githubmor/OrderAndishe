@@ -17,9 +17,15 @@ namespace UnitTest
         List<Product> pds;
         List<Customer> cts;
 
+        List<Order> InDBOrder;
+        List<OrderDetail> InDBOrderDetails;
+
         [TestInitialize]
         public void IntializeTest()
         {
+            InDBOrder = new List<Order>();
+            InDBOrderDetails = new List<OrderDetail>();
+
             drs = new List<Driver>(){
                 new Driver(){Id=1,Name="ASD",Pelak="as",Car="Asd"},
                 new Driver(){Id=2,Name="ASD",Pelak="as",Car="Asd"},
@@ -29,16 +35,16 @@ namespace UnitTest
 
             pds = new List<Product>(){
                 new Product(){Id=1,Name="ASD",Code="AS"},
-                new Product(){Id=1,Name="ASD",Code="AS"},
-                new Product(){Id=1,Name="ASD",Code="AS"},
-                new Product(){Id=1,Name="ASD",Code="AS"}
+                new Product(){Id=2,Name="ASD",Code="AS"},
+                new Product(){Id=3,Name="ASD",Code="AS"},
+                new Product(){Id=4,Name="ASD",Code="AS"}
             };
 
             cts = new List<Customer>(){
                 new Customer(){Id=1,Name="ASD"},
-                new Customer(){Id=1,Name="ASD"},
-                new Customer(){Id=1,Name="ASD"},
-                new Customer(){Id=1,Name="ASD"}
+                new Customer(){Id=2,Name="ASD"},
+                new Customer(){Id=3,Name="ASD"},
+                new Customer(){Id=4,Name="ASD"}
             };
 
             Mock<ISefareshService> ss = new Mock<ISefareshService>();
@@ -46,6 +52,19 @@ namespace UnitTest
             ss.Setup(p => p.LoadDrivers()).Returns(drs);
             ss.Setup(p => p.LoadGoods()).Returns(pds);
             ss.Setup(p => p.LoadDestinations()).Returns(cts);
+            ss.Setup(p => p.SaveSefaresh(It.IsAny<Sefaresh>())).Callback((Sefaresh pp) =>
+            {
+                if (pp.Order==null)
+                {
+                    throw new ApplicationException("Order Is Null !");
+                }
+                if (pp.Order.OrderDetails == null)
+                {
+                    throw new ApplicationException("OrderDetails Is Null !");
+                }
+                InDBOrder.Add(pp.Order);
+                InDBOrderDetails.AddRange(pp.Order.OrderDetails);
+            });
 
 
             vm = new MainViewModel(ss.Object);
@@ -171,7 +190,7 @@ namespace UnitTest
         public void IfSaveSefareshIsOkForm()
         {
             vm.Items = new ObservableCollection<ItemSefaresh>(){
-                new ItemSefaresh(pds[0]),
+                new ItemSefaresh(pds[0]){},
                 new ItemSefaresh(pds[1]),
                 new ItemSefaresh(pds[2]),
                 new ItemSefaresh(pds[3])
@@ -183,10 +202,37 @@ namespace UnitTest
 
             vm.SaveSefaresh.Execute(null);
 
+            Assert.AreEqual(1, InDBOrder.Count);
+            Assert.AreEqual(4, InDBOrderDetails.Count);
+
+            Assert.AreEqual("1395/05/05", InDBOrder[0].Tarikh);
+            Assert.AreEqual(pds[0],InDBOrderDetails[0].Product);
 
         }
 
         // یک آیتم انتخاب شد چه میشود
+        [TestMethod]
+        public void IfSelectedItem()
+        {
+            vm.Items = new ObservableCollection<ItemSefaresh>(){
+                new ItemSefaresh(pds[0]){Customer=cts[0],Driver=drs[0],Tedad=50},
+                new ItemSefaresh(pds[1]){Customer=cts[1],Driver=drs[1],Tedad=50},
+                new ItemSefaresh(pds[2]){Customer=cts[2],Driver=drs[2],Tedad=50},
+                new ItemSefaresh(pds[3]){Customer=cts[0],Driver=drs[3],Tedad=50}
+            };
+
+            vm.SelecteddItem = vm.Items[1];
+
+            Assert.AreEqual(pds[1], vm.SelectedProduct);
+            Assert.AreEqual(drs[1], vm.SelectedDriver);
+            Assert.AreEqual(cts[1], vm.SelectedDestenation);
+            تعداد هم چک شود
+
+            Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
+            Assert.IsTrue(vm.AddNewItem.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
+
+        }
 
         //اگر یک آیتم را انتخاب کردیم و همه بالایی ها را انجام دهیم چه اتفاقی می افتد
 

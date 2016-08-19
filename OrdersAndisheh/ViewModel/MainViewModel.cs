@@ -103,6 +103,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 sefaresh.Items = value;
                 RaisePropertyChanged(() => Items);
+
             }
         }
         private ItemSefaresh selectedItem;
@@ -113,6 +114,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 selectedItem = value;
                 RaisePropertyChanged(() => SelecteddItem);
+                AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
