@@ -25,27 +25,18 @@ namespace UnitTest
         {
             InDBOrder = new List<Order>();
             InDBOrderDetails = new List<OrderDetail>();
+            drs = new List<Driver>();
+            pds = new List<Product>();
+            cts = new List<Customer>();
 
-            drs = new List<Driver>(){
-                new Driver(){Id=1,Name="ASD",Pelak="as",Car="Asd"},
-                new Driver(){Id=2,Name="ASD",Pelak="as",Car="Asd"},
-                new Driver(){Id=3,Name="ASD",Pelak="as",Car="Asd"},
-                new Driver(){Id=4,Name="ASD",Pelak="as",Car="Asd"}
-            };
+            for (int i = 0; i < 5; i++)
+            {
+                drs.Add(new Driver(){Id=i+1,Name="Driver"+i});
+                pds.Add(new Product(){Id=i+1,Name="Product"+i,Code="Code"+i});
+                cts.Add(new Customer(){Id=i+1,Name="Customer"+i});
+            }
+            
 
-            pds = new List<Product>(){
-                new Product(){Id=1,Name="ASD",Code="AS"},
-                new Product(){Id=2,Name="ASD",Code="AS"},
-                new Product(){Id=3,Name="ASD",Code="AS"},
-                new Product(){Id=4,Name="ASD",Code="AS"}
-            };
-
-            cts = new List<Customer>(){
-                new Customer(){Id=1,Name="ASD"},
-                new Customer(){Id=2,Name="ASD"},
-                new Customer(){Id=3,Name="ASD"},
-                new Customer(){Id=4,Name="ASD"}
-            };
 
             Mock<ISefareshService> ss = new Mock<ISefareshService>();
 
@@ -74,9 +65,9 @@ namespace UnitTest
         [TestMethod]
         public void CreateNewInstanceIsOk()
         {
-            Assert.AreEqual(4,vm.Destinations.Count);
-            Assert.AreEqual(4, vm.Drivers.Count);
-            Assert.AreEqual(4, vm.Goods.Count);
+            Assert.AreEqual(5,vm.Destinations.Count);
+            Assert.AreEqual(5, vm.Drivers.Count);
+            Assert.AreEqual(5, vm.Goods.Count);
 
             Assert.IsNotNull(vm.sefaresh);//چون اینجا الان داریم یه سفارش میسازیم دیگه - نال نیست ولی تهی هست
             Assert.IsNotNull(vm.TypeList);
@@ -218,7 +209,7 @@ namespace UnitTest
                 new ItemSefaresh(pds[0]){Customer=cts[0],Driver=drs[0],Tedad=50},
                 new ItemSefaresh(pds[1]){Customer=cts[1],Driver=drs[1],Tedad=50},
                 new ItemSefaresh(pds[2]){Customer=cts[2],Driver=drs[2],Tedad=50},
-                new ItemSefaresh(pds[3]){Customer=cts[0],Driver=drs[3],Tedad=50}
+                new ItemSefaresh(pds[3]){Customer=cts[3],Driver=drs[3],Tedad=50}
             };
 
             vm.SelecteddItem = vm.Items[1];
@@ -226,17 +217,48 @@ namespace UnitTest
             Assert.AreEqual(pds[1], vm.SelectedProduct);
             Assert.AreEqual(drs[1], vm.SelectedDriver);
             Assert.AreEqual(cts[1], vm.SelectedDestenation);
-            تعداد هم چک شود
+            Assert.IsTrue(vm.Tedad > 0);
+            Assert.AreEqual(vm.Items[1].Tedad, vm.Tedad);
 
             Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
             Assert.IsTrue(vm.AddNewItem.CanExecute(null));
             Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
 
+            vm.Tedad = 300;
+            vm.SelectedDestenation = cts[4];
+            vm.SelectedDriver = drs[4];
+            vm.SelectedProduct = pds[4];
+
+            vm.SaveSefaresh.Execute(null);
+
+            Assert.AreEqual(4, vm.Items.Count);
+            Assert.AreEqual(300, vm.Items[1].Tedad);
+            Assert.AreEqual(cts[4].Name, vm.Items[1].Maghsad);
+            Assert.AreEqual(drs[4].Name, vm.Items[1].Ranande);
+            //Assert.AreEqual(pds[4].Name, vm.Items[1].Kala);چون قسمت آپديت را ما بايد ژياده سازي موك بكنيم كه نكرديم
+
         }
 
-        //اگر یک آیتم را انتخاب کردیم و همه بالایی ها را انجام دهیم چه اتفاقی می افتد
-
         //یک آیتم تیک خورد همه بالا انجام شد چه میشود  
+        //[TestMethod]
+        //public void IfCheckBoxAnItem()
+        //{
+        //    vm.Items = new ObservableCollection<ItemSefaresh>(){
+        //        new ItemSefaresh(pds[0]){Customer=cts[0],Driver=drs[0],Tedad=50},
+        //        new ItemSefaresh(pds[1]){Customer=cts[1],Driver=drs[1],Tedad=50},
+        //        new ItemSefaresh(pds[2]){Customer=cts[2],Driver=drs[2],Tedad=50},
+        //        new ItemSefaresh(pds[3]){Customer=cts[3],Driver=drs[3],Tedad=50}
+        //    };
+
+        //    vm.Items[1].IsSelected = true;
+        //    vm.Items[2].IsSelected = true;
+
+        //    Assert.IsTrue(vm.ADDDriverDestenation.CanExecute(null));
+        //    Assert.IsFalse(vm.AddNewItem.CanExecute(null));
+        //    Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
+
+        //}
+
 
         //چند آیتم تیک خورد همه بالا چه میشود
 

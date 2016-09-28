@@ -18,7 +18,7 @@ namespace OrdersAndisheh.ViewModel
     public class MainViewModel : ViewModelBase
     {
         ISefareshService ss;
-        bool IsEdit;
+        bool IsEdit,IsEditItem;
         private List<ItemType> enumList;
         public MainViewModel(ISefareshService service)
         {
@@ -31,7 +31,7 @@ namespace OrdersAndisheh.ViewModel
             Goods = ss.LoadGoods();
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
-            
+
             //LoadThisDateSefaresh("1395/05/05");
         }
 
@@ -66,6 +66,7 @@ namespace OrdersAndisheh.ViewModel
                 {
                     tempTedad = value;
                 }
+                
                 RaisePropertyChanged(()=>Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
             }
@@ -112,9 +113,17 @@ namespace OrdersAndisheh.ViewModel
             get { return selectedItem; }
             set
             {
+                if (value!=null)
+                {
+                    IsEditItem = true;
+                }
                 selectedItem = value;
-                RaisePropertyChanged(() => SelecteddItem);
+                RaisePropertyChanged(() => SelectedProduct);
+                RaisePropertyChanged(() => SelectedDriver);
+                RaisePropertyChanged(() => SelectedDestenation);
+                RaisePropertyChanged(() => Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
+                DeleteItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -125,7 +134,7 @@ namespace OrdersAndisheh.ViewModel
 
         public Customer SelectedDestenation
         {
-            get { return (selectedItem != null ? selectedItem.Customer : null); }
+            get { return (selectedItem != null ? selectedItem.Customer: null); }
             set
             {
                 if (selectedItem!=null)
@@ -149,18 +158,21 @@ namespace OrdersAndisheh.ViewModel
             get { return (selectedItem!=null?selectedItem.Product:null); }
             set
             {
-                selectedItem = new ItemSefaresh(value);
-                if (tempDestenation!=null)
+                if (value != null)
                 {
-                    selectedItem.Customer = tempDestenation;
-                }
-                if (tempDriver != null)
-                {
-                    selectedItem.Driver = tempDriver;
-                }
-                if (tempTedad > 0)
-                {
-                    selectedItem.Tedad = tempTedad;
+                    selectedItem = new ItemSefaresh(value);
+                    if (tempDestenation != null)
+                    {
+                        selectedItem.Customer = tempDestenation;
+                    }
+                    if (tempDriver != null)
+                    {
+                        selectedItem.Driver = tempDriver;
+                    }
+                    if (tempTedad > 0)
+                    {
+                        selectedItem.Tedad = tempTedad;
+                    }
                 }
                 RaisePropertyChanged(() => SelectedProduct);
                 RaisePropertyChanged(() => Tedad);
@@ -206,7 +218,11 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewItem()
         {
-            Items.Add(selectedItem);
+            if (!IsEditItem)
+            {
+                Items.Add(selectedItem);
+            }
+            IsEditItem = false;
             SelecteddItem = null;
         }
 
@@ -278,16 +294,52 @@ namespace OrdersAndisheh.ViewModel
                 item.IsSelected = false;
             }
             ADDDriverDestenation.RaiseCanExecuteChanged();
-            SelectedProduct = null;
-            Tedad = 0;
-            SelectedDriver = null;
-            SelectedDestenation = null;
+            SelecteddItem = null;
+            
         }
 
         private bool CanExecuteADDDriverDestenation()
         {
             return Items.Where(p => p.IsSelected).Count() > 0 & (SelectedDriver != null | SelectedDestenation != null);
         }
+
+        private RelayCommand delItem;
+
+        /// <summary>
+        /// Gets the ADDDriverDestenation.
+        /// </summary>
+        public RelayCommand DeleteItem
+        {
+            get
+            {
+                return delItem ?? (delItem = new RelayCommand(
+                    ExecuteDelItem,
+                    CanExecuteDelItem));
+            }
+        }
+
+        private void ExecuteDelItem()
+        {
+            foreach (var item in Items)
+            {
+                if (item.IsSelected)
+                {
+                    Items.Remove(item);
+                }
+                
+            }
+            
+            DeleteItem.RaiseCanExecuteChanged();
+            SelecteddItem = null;
+
+        }
+
+        private bool CanExecuteDelItem()
+        {
+            return Items.Where(p => p.IsSelected).Count() > 0;
+        }
+
+
 
         private RelayCommand _saveSefares;
         

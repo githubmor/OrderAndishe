@@ -204,5 +204,53 @@ namespace UnitTest
             Assert.AreEqual(0, i.Vazn);
 
         }
+
+        //چک کردن تعداد صفر در پالت و تعداد در سبد
+        [TestMethod]
+        public void CheckIfTedadDarSabadOrKartonIsZero()
+        {
+            Pallet pl = new Pallet() { Name = "ASasd", Vazn = 200 };
+
+            Product p = new Product() { Name = "PT206", Pallet = pl,TedadDarPallet=0,TedadDarSabad=0 };
+
+            ItemSefaresh i = new ItemSefaresh(p);
+
+            i.Tedad = 192;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+
+            i.Tedad = 96;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+
+            i.Tedad = 70;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+
+            i.Tedad = 200;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+
+            i.Tedad = 213;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+        }
+
+        //چک کردن تعداد صفر در پالت و تعداد در سبد
+        [TestMethod]
+        public void CheckIfPalletWeightIsZero()
+        {
+            Pallet pl = new Pallet() { Name = "ASasd", Vazn = null };
+
+            Product p = new Product() { Name = "PT206", Pallet = pl, TedadDarPallet = 0, TedadDarSabad = 0, Weight = null };
+
+            ItemSefaresh i = new ItemSefaresh(p);
+
+            i.Tedad = 192;
+            Assert.AreEqual("", i.Karton);
+            Assert.AreEqual("1", i.Pallet);
+            Assert.AreEqual(0, i.Vazn);
+
+        }
     }
 }

@@ -122,7 +122,11 @@ namespace BL
 		public int Tedad
 		{
             get { return OrderDetail.Tedad; }
-            set { OrderDetail.Tedad = value; }
+            set 
+            { 
+                OrderDetail.Tedad = value;
+                NotifyPropertyChanged("Tedad");
+            }
 		}
 
 		public int TahvilFrosh
@@ -152,18 +156,22 @@ namespace BL
 
         private string KartonCalCulate()
         {
-            
-            if (Tedad % Product.TedadDarSabad > 0)
+
+            if (Product.TedadDarSabad>0 && Tedad % Product.TedadDarSabad > 0)
             {
                 return (Tedad / Product.TedadDarSabad).ToString() +"+1";
             }
-            else if (Tedad % Product.TedadDarPallet == 0)
+            else if (Product.TedadDarPallet > 0 && Tedad % Product.TedadDarPallet == 0)
             {
                 return "";
             }
-            else
+            else if (Product.TedadDarSabad > 0)
             {
                 return (Tedad / Product.TedadDarSabad).ToString();
+            }
+            else
+            {
+                return "";
             }
             
         }
@@ -176,13 +184,20 @@ namespace BL
         {
             if (Tedad > Product.TedadDarPallet)
             {
-                if (Tedad % Product.TedadDarPallet==0)
+                if (Product.TedadDarPallet > 0)
                 {
-                    return (Tedad / Product.TedadDarPallet).ToString();
+                    if (Tedad % Product.TedadDarPallet == 0)
+                    {
+                        return (Tedad / Product.TedadDarPallet).ToString();
+                    }
+                    else
+                    {
+                        return ((Tedad / Product.TedadDarPallet) + 1).ToString();
+                    }
                 }
                 else
                 {
-                    return ((Tedad / Product.TedadDarPallet)+1).ToString();
+                    return "1";
                 }
                 
             }
@@ -198,7 +213,7 @@ namespace BL
 
         private int VaznCalCulate()
         {
-            if (Tedad % Product.TedadDarPallet==0)
+            if (Product.TedadDarPallet > 0 && Tedad % Product.TedadDarPallet == 0)
             {
                 return (int)((Tedad / Product.TedadDarPallet) * Product.Weight);
             }

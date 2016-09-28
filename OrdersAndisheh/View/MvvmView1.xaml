@@ -22,7 +22,7 @@
                 </Style>
             </DataGrid.RowStyle>-->
         </DataGrid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="490,10,0,0" TextWrapping="Wrap" Text="{Binding Tedad}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="490,10,0,0" TextWrapping="Wrap" Text="{Binding Tedad, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
         <Button Content="Fori" HorizontalAlignment="Left" Margin="675,102,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SetAsFori, Mode=OneWay}"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="11,5,0,0" TextWrapping="Wrap" Text="{Binding Tarikh}" VerticalAlignment="Top" Width="120"/>
     </Grid>
