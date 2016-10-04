@@ -25,7 +25,6 @@ namespace OrdersAndisheh.ViewModel
             ss = service;
             Messenger.Default.Register<string>(this, LoadThisDateSefaresh);
 
-            //SelecteddItem = null;
             sefaresh = new Sefaresh();
             Drivers = ss.LoadDrivers();
             Goods = ss.LoadGoods();
@@ -55,12 +54,12 @@ namespace OrdersAndisheh.ViewModel
 
         public int Tedad
         {
-            get { return (selectedItem!=null?selectedItem.Tedad:0); }
+            get { return (SelecteddItem != null ? SelecteddItem.Tedad : 0); }
             set 
             {
-                if (selectedItem != null)
+                if (SelecteddItem != null)
                 {
-                    selectedItem.Tedad = value;
+                    SelecteddItem.Tedad = value;
                 }
                 else
                 {
@@ -89,7 +88,6 @@ namespace OrdersAndisheh.ViewModel
             {
                 enumList = value;
                 RaisePropertyChanged(() => TypeList);
-                //SaveSefaresh.RaiseCanExecuteChanged();
             }
         }
 
@@ -118,7 +116,9 @@ namespace OrdersAndisheh.ViewModel
                     IsEditItem = true;
                 }
                 selectedItem = value;
-                RaisePropertyChanged(() => SelectedProduct);
+                
+                RaisePropertyChanged(() => GoodCode);
+                RaisePropertyChanged(() => GoodName);
                 RaisePropertyChanged(() => SelectedDriver);
                 RaisePropertyChanged(() => SelectedDestenation);
                 RaisePropertyChanged(() => Tedad);
@@ -134,12 +134,12 @@ namespace OrdersAndisheh.ViewModel
 
         public Customer SelectedDestenation
         {
-            get { return (selectedItem != null ? selectedItem.Customer: null); }
+            get { return (SelecteddItem != null ? SelecteddItem.Customer : null); }
             set
             {
-                if (selectedItem!=null)
+                if (SelecteddItem != null)
                 {
-                    selectedItem.Customer = value;
+                    SelecteddItem.Customer = value;
                 }
                 else
                 {
@@ -151,45 +151,67 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        //private Product selectedProduct;
+        
 
-        public Product SelectedProduct
+        public string GoodCode
         {
-            get { return (selectedItem!=null?selectedItem.Product:null); }
-            set
+            get { return (SelecteddItem != null ? SelecteddItem.CodeKala : null); }
+            set 
             {
-                if (value != null)
+                if (value.Length>=8)
                 {
-                    selectedItem = new ItemSefaresh(value);
+                    Product gg = Goods.Where(p => p.Code == value).FirstOrDefault();
+                    if (gg!=null)
+                    {
+                        //باید تفاوتی بین ویرایش یک آیتم و ساخت آیتم جدید قایل شد
+                        سیبی
+                        SelecteddItem = new ItemSefaresh(gg);
+                        IsEditItem = false;
+                    }
                     if (tempDestenation != null)
                     {
-                        selectedItem.Customer = tempDestenation;
+                        SelecteddItem.Customer = tempDestenation;
                     }
                     if (tempDriver != null)
                     {
-                        selectedItem.Driver = tempDriver;
+                        SelecteddItem.Driver = tempDriver;
                     }
                     if (tempTedad > 0)
                     {
-                        selectedItem.Tedad = tempTedad;
+                        SelecteddItem.Tedad = tempTedad;
                     }
                 }
-                RaisePropertyChanged(() => SelectedProduct);
+                else
+                {
+                    SelecteddItem = null;
+                }
+                
+                RaisePropertyChanged(() => GoodCode);
+                RaisePropertyChanged(() => GoodName);
                 RaisePropertyChanged(() => Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
+
             }
         }
+
+
+        public string GoodName
+        {
+            get { return (SelecteddItem != null ? SelecteddItem.Kala : ""); }
+        }
+        
+
 
         private Driver tempDriver;
 
         public Driver SelectedDriver
         {
-            get { return (selectedItem != null ? selectedItem.Driver : null); }
+            get { return (SelecteddItem != null ? SelecteddItem.Driver : null); }
             set
             {
-                if (selectedItem != null)
+                if (SelecteddItem != null)
                 {
-                    selectedItem.Driver = value;
+                    SelecteddItem.Driver = value;
                 }
                 else
                 {
@@ -220,15 +242,16 @@ namespace OrdersAndisheh.ViewModel
         {
             if (!IsEditItem)
             {
-                Items.Add(selectedItem);
+                Items.Add(SelecteddItem);
             }
+            RaisePropertyChanged(() => SelecteddItem);
             IsEditItem = false;
             SelecteddItem = null;
         }
 
         private bool CanExecuteAddNewItem()
         {
-            return SelectedProduct != null & Tedad > 0;
+            return (SelecteddItem != null?SelecteddItem.Product!=null:false) & Tedad > 0;
         }
 
         private RelayCommand addDriverDestenation;
@@ -320,13 +343,13 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDelItem()
         {
-            foreach (var item in Items)
+           
+            for (int i = 0; i < Items.Count; i++)
             {
-                if (item.IsSelected)
+                if (Items[i].IsSelected)
                 {
-                    Items.Remove(item);
+                    Items.Remove(Items[i]);
                 }
-                
             }
             
             DeleteItem.RaiseCanExecuteChanged();

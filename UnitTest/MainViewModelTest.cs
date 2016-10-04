@@ -32,7 +32,7 @@ namespace UnitTest
             for (int i = 0; i < 5; i++)
             {
                 drs.Add(new Driver(){Id=i+1,Name="Driver"+i});
-                pds.Add(new Product(){Id=i+1,Name="Product"+i,Code="Code"+i});
+                pds.Add(new Product(){Id=i+1,Name="Product"+i,Code="Codeeee"+i});
                 cts.Add(new Customer(){Id=i+1,Name="Customer"+i});
             }
             
@@ -76,7 +76,8 @@ namespace UnitTest
             Assert.IsNull(vm.SelectedDestenation);
             Assert.IsNull(vm.SelecteddItem);
             Assert.IsNull(vm.SelectedDriver);
-            Assert.IsNull(vm.SelectedProduct);
+            Assert.IsNull(vm.GoodCode);
+            Assert.AreEqual("",vm.GoodName);
             Assert.IsNull(vm.Tarikh);
 
             Assert.AreEqual(0,vm.Tedad);
@@ -91,8 +92,9 @@ namespace UnitTest
         [TestMethod]
         public void IfFirstSelectProductAndThenSelectOtherIsOk()
         {
-            vm.SelectedProduct = pds[1];
+            vm.GoodCode = pds[1].Code;
 
+            Assert.AreEqual(pds[1].Name,vm.GoodName);
             Assert.IsNotNull(vm.SelecteddItem);//یک آیتم برای ذخیره شدن ساخته شد دیگه
             Assert.AreEqual(pds[1], vm.SelecteddItem.Product);
 
@@ -137,9 +139,10 @@ namespace UnitTest
             Assert.IsFalse(vm.AddNewItem.CanExecute(null));
             Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
 
-            vm.SelectedProduct = pds[3];
+            vm.GoodCode = pds[3].Code;
 
             //بعد از اینکه کالا انتخاب شد باید بشه 
+            Assert.AreEqual(pds[3].Name, vm.GoodName);
             Assert.AreEqual(cts[2], vm.SelecteddItem.Customer);
             Assert.AreEqual(drs[2], vm.SelecteddItem.Driver);
 
@@ -161,18 +164,21 @@ namespace UnitTest
         {
             vm.SelectedDestenation = cts[1];
             vm.SelectedDriver = drs[1];
-            vm.SelectedProduct = pds[1];
+            vm.GoodCode = pds[1].Code;
             vm.Tedad = 100;
 
+            Assert.AreEqual(pds[1].Name, vm.GoodName);
             Assert.IsNotNull(vm.SelecteddItem);
 
             vm.AddNewItem.Execute(null);
 
+            
             Assert.AreEqual(1, vm.Items.Count);
             Assert.IsNull(vm.SelecteddItem);
             Assert.IsNull(vm.SelectedDestenation);
             Assert.IsNull(vm.SelectedDriver);
-            Assert.IsNull(vm.SelectedProduct);
+            Assert.IsNull(vm.GoodCode);
+            Assert.AreEqual("",vm.GoodName);
             Assert.AreEqual(0,vm.Tedad);
         }
        
@@ -214,7 +220,8 @@ namespace UnitTest
 
             vm.SelecteddItem = vm.Items[1];
 
-            Assert.AreEqual(pds[1], vm.SelectedProduct);
+            Assert.AreEqual(pds[1].Code, vm.GoodCode);
+            Assert.AreEqual(pds[1].Name, vm.GoodName);
             Assert.AreEqual(drs[1], vm.SelectedDriver);
             Assert.AreEqual(cts[1], vm.SelectedDestenation);
             Assert.IsTrue(vm.Tedad > 0);
@@ -227,7 +234,7 @@ namespace UnitTest
             vm.Tedad = 300;
             vm.SelectedDestenation = cts[4];
             vm.SelectedDriver = drs[4];
-            vm.SelectedProduct = pds[4];
+            vm.GoodCode = pds[4].Code;
 
             vm.SaveSefaresh.Execute(null);
 
