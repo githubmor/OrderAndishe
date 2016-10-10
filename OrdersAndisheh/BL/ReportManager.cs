@@ -26,7 +26,7 @@ namespace OrdersAndisheh.BL
         }
 
        
-        public void CreatAllBazresReport()
+        public void CreatAllBazresReportOnDeskTop()
         {
             var bazres = sefaresh.Items.Select(p => p.BazresName).Distinct();
             foreach (var name in bazres)

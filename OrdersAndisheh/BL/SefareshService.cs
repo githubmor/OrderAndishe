@@ -122,6 +122,7 @@ using System.Collections.ObjectModel;
                             .Include("OrderDetails.Driver")
                             .Include("OrderDetails.Product")
                             .Include("OrderDetails.Product.Pallet")
+                            .Include("OrderDetails.Product.Bazre")
                             .FirstOrDefault();
 
                 if (t==null)

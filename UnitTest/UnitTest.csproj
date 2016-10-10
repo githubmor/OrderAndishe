@@ -99,6 +99,7 @@
     <Compile Include="ItemSefareshTest.cs" />
     <Compile Include="SefareshServiceTest.cs" />
     <Compile Include="MainViewModelTest.cs" />
+    <Compile Include="ReportManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OrdersAndisheh\OrdersAndisheh.csproj">
