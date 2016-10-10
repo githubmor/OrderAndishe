@@ -57,6 +57,7 @@ namespace UnitTest
             s.Items = f;
 
             Assert.AreEqual(f.Count, s.Items.Count);
+            Assert.AreEqual(f.Count, s.Order.OrderDetails.Count);
             //Assert.AreEqual(f.Count(po => po.ItemKind == ItemType.AgharAmadeShod.ToString()), s.AgarShodItems.Count);
             //Assert.AreEqual(f.Count(po => po.ItemKind == ItemType.Fori.ToString()), s.ForiItems.Count);
             //Assert.AreEqual(f.Count(po => po.ItemKind == ItemType.Usual.ToString()), s.UsualItems.Count);

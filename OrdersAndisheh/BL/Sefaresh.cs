@@ -10,6 +10,7 @@ namespace BL
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Collections.Specialized;
     using System.Linq;
     using System.Text;
 
@@ -23,6 +24,18 @@ namespace BL
             UsualItems = new List<ItemSefaresh>();
             ForiItems = new List<ItemSefaresh>();
             GovahiItems = new List<ItemSefaresh>();
+            Items.CollectionChanged += (sender, e) =>
+            {
+                if (e.Action == NotifyCollectionChangedAction.Add)
+                {
+                    foreach (var item in e.NewItems)
+                    {
+                        ItemSefaresh d = (ItemSefaresh)item;
+                        Order.OrderDetails.Add(d.OrderDetail);
+                    }
+                    
+                }
+            };
         }
 
         public Sefaresh(Order order, List<OrderDetail> orderDetails):this()
@@ -35,21 +48,6 @@ namespace BL
             foreach (OrderDetail item in orderDetails)
             {
                 Items.Add(new ItemSefaresh(item));
-                //switch (item.ItemType)
-                //{
-                //    case 0:
-                //        ForiItems.Add(new ItemSefaresh(item));
-                //        break;
-                //    case 1:
-                //        GovahiItems.Add(new ItemSefaresh(item));
-                //        break;
-                //    case 2:
-                //        AgarShodItems.Add(new ItemSefaresh(item));
-                //        break;
-                //    case 3:
-                //        UsualItems.Add(new ItemSefaresh(item));
-                //        break;
-                //}
             }
         }
 
@@ -72,6 +70,11 @@ namespace BL
 		{
 			get { return Order.Description; }
             set { Order.Description = value; }
+        }
+
+        public int SefareshId
+        {
+            get { return Order.Id; }
         }
 		
         public Order Order
@@ -116,6 +119,8 @@ namespace BL
                 //}
             }
 	    }
+
+        
 
         
 

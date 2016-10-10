@@ -54,21 +54,28 @@ using System.Collections.ObjectModel;
 
         public void UpdateSefaresh(Sefaresh sefaresh)
 		{
-            throw new ApplicationException("این قسمت هنوز پیاده سازی نشده");
+            using (MyContextCF db = new MyContextCF())
+            {
+                //Order d = db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault();
+                db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
+                db.Orders.Add(sefaresh.Order);
+                db.SaveChanges();
+            }
+            //throw new ApplicationException("این قسمت هنوز پیاده سازی نشده");
 
-            //TODO  اینجا باید اول آیتم های اضافه شده رو از آیتم های قبلا ثبت شده جدا کنیم
-            //بعد آیتم های جدید رو بزاریم برای ثبت
-            //آیتم های قبلا ثبت شده رو بزاریم برای ویرایش
-            //آخر سر هم خود سفارش رو ویرایش کنیم اگر تغییر دادند
+            ////TODO  اینجا باید اول آیتم های اضافه شده رو از آیتم های قبلا ثبت شده جدا کنیم
+            ////بعد آیتم های جدید رو بزاریم برای ثبت
+            ////آیتم های قبلا ثبت شده رو بزاریم برای ویرایش
+            ////آخر سر هم خود سفارش رو ویرایش کنیم اگر تغییر دادند
 
-            //if (sefaresh.Order != null)
-            //{
-            //    using (MyContextCF db = new MyContextCF())
-            //    {
-            //        db.Orders.Attach(sefaresh.Order);
-            //        db.SaveChanges();
-            //    }
-            //}
+            ////if (sefaresh.Order != null)
+            ////{
+            ////    using (MyContextCF db = new MyContextCF())
+            ////    {
+            ////        db.Orders.Attach(sefaresh.Order);
+            ////        db.SaveChanges();
+            ////    }
+            ////}
 		}
 
         public virtual void AcceptSefaresh(Sefaresh sefaresh)
@@ -114,6 +121,7 @@ using System.Collections.ObjectModel;
                             .Include("OrderDetails.Customer")
                             .Include("OrderDetails.Driver")
                             .Include("OrderDetails.Product")
+                            .Include("OrderDetails.Product.Pallet")
                             .FirstOrDefault();
 
                 if (t==null)

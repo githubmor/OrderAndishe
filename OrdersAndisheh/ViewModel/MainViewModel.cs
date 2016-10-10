@@ -31,7 +31,7 @@ namespace OrdersAndisheh.ViewModel
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
 
-            //LoadThisDateSefaresh("1395/05/05");
+            //LoadThisDateSefaresh("1395/07/19");
         }
 
         
@@ -41,7 +41,7 @@ namespace OrdersAndisheh.ViewModel
             try
             {
                 sefaresh = ss.LoadSefaresh(tarikh);
-                Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items);
+                RaisePropertyChanged(() => Items);
                 IsEdit = true;
             }
             catch (System.Exception r)
@@ -111,10 +111,7 @@ namespace OrdersAndisheh.ViewModel
             get { return selectedItem; }
             set
             {
-                if (value!=null)
-                {
-                    IsEditItem = true;
-                }
+               
                 selectedItem = value;
                 
                 RaisePropertyChanged(() => GoodCode);
@@ -124,6 +121,21 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => Tedad);
                 AddNewItem.RaiseCanExecuteChanged();
                 DeleteItem.RaiseCanExecuteChanged();
+            }
+        }
+
+        private ItemSefaresh clickedItem;
+        public ItemSefaresh ClickedItem
+        {
+            get { return clickedItem; }
+            set
+            {
+                if (value!=null)
+                {
+                    SelecteddItem = value;
+                }
+                clickedItem = value;
+                IsEditItem = true;
             }
         }
 
@@ -164,9 +176,8 @@ namespace OrdersAndisheh.ViewModel
                     if (gg!=null)
                     {
                         //باید تفاوتی بین ویرایش یک آیتم و ساخت آیتم جدید قایل شد
-                        سیبی
                         SelecteddItem = new ItemSefaresh(gg);
-                        IsEditItem = false;
+                        //IsEditItem = false;
                     }
                     if (tempDestenation != null)
                     {
@@ -244,7 +255,15 @@ namespace OrdersAndisheh.ViewModel
             {
                 Items.Add(SelecteddItem);
             }
-            RaisePropertyChanged(() => SelecteddItem);
+            else
+            {
+                if (GoodCode!=ClickedItem.CodeKala)
+                {
+                    Items.Remove(Items.Where(p => p.CodeKala == ClickedItem.CodeKala).FirstOrDefault());
+                    Items.Add(SelecteddItem);
+                }
+            }
+            //RaisePropertyChanged(() => SelecteddItem);
             IsEditItem = false;
             SelecteddItem = null;
         }
