@@ -32,7 +32,7 @@ namespace OrdersAndisheh.ViewModel
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
 
-            LoadThisDateSefaresh("1395/07/19");
+            //LoadThisDateSefaresh("1395/07/19");
         }
 
         
