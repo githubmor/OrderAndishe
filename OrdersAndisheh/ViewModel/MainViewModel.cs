@@ -299,9 +299,9 @@ namespace OrdersAndisheh.ViewModel
                     {
                         item.Customer = SelectedDestenation;
                     }
-                    else
+                    else if(item.Maghsad != SelectedDestenation.Name)
                     {
-                        DialogResult result = MessageBox.Show("آیا میخواهید مقصد را تغییر دهید ؟",
+                        DialogResult result = MessageBox.Show("آیا میخواهید مقصد را از " + item.Maghsad + " به " + SelectedDestenation.Name + " تغییر دهید ؟",
                             "اخطار", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
