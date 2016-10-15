@@ -40,6 +40,7 @@ namespace OrdersAndisheh.DBL
             modelBuilder.Entity<OrderDetail>()
                 .HasOptional(p => p.Driver)
                 .WithMany()
+                .HasForeignKey(o => o.Driver_Id)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Customer>()
@@ -50,7 +51,6 @@ namespace OrdersAndisheh.DBL
             modelBuilder.Entity<Driver>()
                  .HasMany(p => p.OrderDetails)
                  .WithOptional(p => p.Driver)
-                 .HasForeignKey(i => i.Customer_Id)
                  .WillCascadeOnDelete(false);
             //modelBuilder.Entity<Order>()
             //    .Property(e => e.Tarikh)
@@ -74,17 +74,6 @@ namespace OrdersAndisheh.DBL
                 .WithRequired(e => e.Pallet)
                 .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<Product>()
-            //    .Property(e => e.Code)
-            //    .IsFixedLength();
-
-            //modelBuilder.Entity<Product>()
-            //    .Property(e => e.FaniCode)
-            //    .IsFixedLength();
-
-            //modelBuilder.Entity<Product>()
-            //    .Property(e => e.CodeJense)
-            //    .IsFixedLength();
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails)

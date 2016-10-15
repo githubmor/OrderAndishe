@@ -32,7 +32,7 @@ namespace OrdersAndisheh.ViewModel
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
 
-            //LoadThisDateSefaresh("1395/07/19");
+            LoadThisDateSefaresh("1395/07/22");
         }
 
         
@@ -150,7 +150,7 @@ namespace OrdersAndisheh.ViewModel
             get { return (SelecteddItem != null ? SelecteddItem.Customer : null); }
             set
             {
-                if (SelecteddItem != null)
+                if (SelecteddItem != null & value !=null)
                 {
                     SelecteddItem.Customer = value;
                 }
@@ -221,7 +221,7 @@ namespace OrdersAndisheh.ViewModel
             get { return (SelecteddItem != null ? SelecteddItem.Driver : null); }
             set
             {
-                if (SelecteddItem != null)
+                if (SelecteddItem != null & value != null)
                 {
                     SelecteddItem.Driver = value;
                 }

@@ -123,6 +123,7 @@ using System.Collections.ObjectModel;
                             .Include("OrderDetails.Product")
                             .Include("OrderDetails.Product.Pallet")
                             .Include("OrderDetails.Product.Bazre")
+                            .OrderBy(p=>p.Id)
                             .FirstOrDefault();
 
                 if (t==null)

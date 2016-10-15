@@ -11,6 +11,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            //Database.SetInitializer<MyContextCF>(new DropCreateDatabaseAlways<MyContextCF>());
             
         }
 
