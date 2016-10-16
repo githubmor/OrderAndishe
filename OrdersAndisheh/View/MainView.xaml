@@ -40,13 +40,21 @@
                                                   />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
+                <dxg:GridColumn  FieldName="Des" Header="توضیحات" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
 
-                <dxg:TableView 
-                               AllowPerPixelScrolling="True" 
-                    AllowEditing="False" AutoWidth="True"
-                                />
+                <dxg:TableView AllowPerPixelScrolling="True" AllowEditing="False" AutoWidth="True" AllowConditionalFormattingMenu="True">
+                    <dxg:TableView.FormatConditions>
+                        <dxg:FormatCondition Expression="[Maghsad] == ''" ApplyToRow="True" >
+                            <dx:Format Background="Beige"  />
+                        </dxg:FormatCondition>
+                        <dxg:FormatCondition Expression="[Ranande] == ''" ApplyToRow="True" >
+                            <dx:Format Background="Aquamarine"  />
+                        </dxg:FormatCondition>
+                    </dxg:TableView.FormatConditions>
+                    
+                </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>
         <dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
@@ -62,7 +70,7 @@
                         <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding Tedad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="2"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="توضیحات :">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="3"/>
+                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="3" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
                         <Button UI:EventFocusAttachment.ElementToFocus="{Binding ElementName=code}" Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding AddNewItem, Mode=OneWay}" TabIndex="4"/>
@@ -111,7 +119,16 @@
             <TextBox UI:FocusAdvancement.AdvancesByEnterKey="True" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0" TabIndex="9"/>
 
         </dxlc:LayoutControl>
-        <Button Content="ساخت ليست ارسال" HorizontalAlignment="Left" Margin="261,22,0,0" Grid.Row="2" VerticalAlignment="Top" Width="116" Command="{Binding CreateErsalLists, Mode=OneWay}"/>
+        <Button Content="ساخت ليست بازرسان" HorizontalAlignment="Left" Margin="634,10,0,0" Grid.Row="2" 
+                VerticalAlignment="Top" Width="116" Command="{Binding CreateBazresLists, Mode=OneWay}"/>
+        <Button Content="ساخت ليست ارسال" HorizontalAlignment="Left" Margin="513,10,0,0" Grid.Row="2" 
+                VerticalAlignment="Top" Width="116" Command="{Binding CreatListErsal, Mode=OneWay}"/>
+        <Button Content="ساخت ليست کنترل" HorizontalAlignment="Left" Margin="392,10,0,0" Grid.Row="2"
+                VerticalAlignment="Top" Width="116" Command="{Binding CreateKontrolList, Mode=OneWay}"/>
+        <Button Content="ساخت ليست انبار" HorizontalAlignment="Left" Margin="271,10,0,0" Grid.Row="2" 
+                VerticalAlignment="Top" Width="116" Command="{Binding CreateAnbarList, Mode=OneWay}"/>
+        <Button Content="ساخت ليست ایمن سازان" HorizontalAlignment="Left" Margin="150,10,0,0" Grid.Row="2" 
+                VerticalAlignment="Top" Width="116" Command="{Binding CreateImensazanList, Mode=OneWay}"/>
 
     </Grid>
 </Window>

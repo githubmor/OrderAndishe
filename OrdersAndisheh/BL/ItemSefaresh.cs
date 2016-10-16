@@ -128,6 +128,15 @@ namespace BL
                 NotifyPropertyChanged("Tedad");
             }
 		}
+        public string Des
+        {
+            get { return OrderDetail.Description; }
+            set
+            {
+                OrderDetail.Description = value;
+                NotifyPropertyChanged("Des");
+            }
+        }
 
 		public int TahvilFrosh
 		{
@@ -148,7 +157,6 @@ namespace BL
 		}
 
 
-        //TODO اینا رو باید محاسبه
         public string Karton //{ get; set; }
         {
             get { return KartonCalCulate(); }

@@ -32,6 +32,14 @@ namespace OrdersAndisheh.ViewModel
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
 
+            //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
+            //TODO قفل های بدون اورکل چی شد 
+            //TODO لیست روزهای ثبت شده و باز کردن برای ویرایش 
+            //TODO تثبیت ارسال چی شد ؟
+            //TODO ثبت تحویل فروش از روی خروجی برهان و ایرور هایی که باید بدهد
+            //TODO چرا در پی دی اف حروف انگلیسی رو بصورت جعبه نشان میدهد
+            //TODO رنگ بندی کردن فایل خروجی پی دی اف برای لیست ارسال
+            //TODO رنگ بندی کردن لیست ارسال داخل خود نرم افزار
             LoadThisDateSefaresh("1395/07/22");
         }
 
@@ -68,6 +76,27 @@ namespace OrdersAndisheh.ViewModel
                 }
                 
                 RaisePropertyChanged(()=>Tedad);
+                AddNewItem.RaiseCanExecuteChanged();
+            }
+        }
+
+        private string tempDes;
+
+        public string Description
+        {
+            get { return (SelecteddItem != null ? SelecteddItem.Des : ""); }
+            set
+            {
+                if (SelecteddItem != null)
+                {
+                    SelecteddItem.Des = value;
+                }
+                else
+                {
+                    tempDes = value;
+                }
+
+                RaisePropertyChanged(() => Description);
                 AddNewItem.RaiseCanExecuteChanged();
             }
         }
@@ -120,6 +149,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => SelectedDriver);
                 RaisePropertyChanged(() => SelectedDestenation);
                 RaisePropertyChanged(() => Tedad);
+                RaisePropertyChanged(() => Description);
                 AddNewItem.RaiseCanExecuteChanged();
                 DeleteItem.RaiseCanExecuteChanged();
             }
@@ -192,6 +222,10 @@ namespace OrdersAndisheh.ViewModel
                     {
                         SelecteddItem.Tedad = tempTedad;
                     }
+                    if (tempDes != "")
+                    {
+                        SelecteddItem.Des = tempDes;
+                    }
                 }
                 else
                 {
@@ -201,6 +235,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => GoodCode);
                 RaisePropertyChanged(() => GoodName);
                 RaisePropertyChanged(() => Tedad);
+                RaisePropertyChanged(() => Description);
                 AddNewItem.RaiseCanExecuteChanged();
 
             }
@@ -271,7 +306,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteAddNewItem()
         {
-            return (SelecteddItem != null?SelecteddItem.Product!=null:false) & Tedad > 0;
+            return (SelecteddItem != null?SelecteddItem.Product!=null:false);
         }
 
         private RelayCommand addDriverDestenation;
@@ -301,7 +336,8 @@ namespace OrdersAndisheh.ViewModel
                     }
                     else if(item.Maghsad != SelectedDestenation.Name)
                     {
-                        DialogResult result = MessageBox.Show("آیا میخواهید مقصد را از " + item.Maghsad + " به " + SelectedDestenation.Name + " تغییر دهید ؟",
+                        DialogResult result = MessageBox.Show("آیا میخواهید مقصد را از " +
+                            item.Maghsad + " به " + SelectedDestenation.Name + " تغییر دهید ؟",
                             "اخطار", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
@@ -318,9 +354,10 @@ namespace OrdersAndisheh.ViewModel
                     {
                         item.Driver = SelectedDriver;
                     }
-                    else
+                    else if (item.Ranande != SelectedDriver.Name)
                     {
-                        DialogResult result = MessageBox.Show("آیا میخواهید راننده را تغییر دهید ؟",
+                        DialogResult result = MessageBox.Show("آیا میخواهید راننده را از " +
+                            item.Ranande + " به " + SelectedDriver.Name + " تغییر دهید ؟",
                             "اخطار", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
@@ -439,32 +476,137 @@ namespace OrdersAndisheh.ViewModel
             return Items.Count > 0 & !string.IsNullOrEmpty(Tarikh);
         }
 
-        private RelayCommand createErsalList;
+        private RelayCommand createBazresList;
 
         /// <summary>
-        /// Gets the CreateErsalLists.
+        /// Gets the CreateBazresLists.
         /// </summary>
-        public RelayCommand CreateErsalLists
+        public RelayCommand CreateBazresLists
         {
             get
             {
-                return createErsalList ?? (createErsalList = new RelayCommand(
-                    ExecuteCreateErsalLists,
-                    CanExecuteCreateErsalLists));
+                return createBazresList ?? (createBazresList = new RelayCommand(
+                    ExecuteCreateBazresLists,
+                    CanExecuteCreateBazresLists));
             }
         }
 
-        private void ExecuteCreateErsalLists()
+        private void ExecuteCreateBazresLists()
         {
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatAllBazresReportOnDeskTop();
         }
 
-        private bool CanExecuteCreateErsalLists()
+        private bool CanExecuteCreateBazresLists()
         {
             return true;
         }
 
+
+        private RelayCommand _myCommand7;
+
+        /// <summary>
+        /// Gets the CreatListErsal.
+        /// </summary>
+        public RelayCommand CreatListErsal
+        {
+            get
+            {
+                return _myCommand7 ?? (_myCommand7 = new RelayCommand(
+                    ExecuteCreatListErsal,
+                    CanExecuteCreatListErsal));
+            }
+        }
+
+        private void ExecuteCreatListErsal()
+        {
+            ReportManager rp = new ReportManager(sefaresh);
+            rp.CreatListErsalReportOnDeskTop();
+        }
+
+        private bool CanExecuteCreatListErsal()
+        {
+            return true;
+        }
+
+        private RelayCommand _myCommand8;
+
+        /// <summary>
+        /// Gets the CreateAnbarList.
+        /// </summary>
+        public RelayCommand CreateAnbarList
+        {
+            get
+            {
+                return _myCommand8 ?? (_myCommand8 = new RelayCommand(
+                    ExecuteCreateAnbarList,
+                    CanExecuteCreateAnbarList));
+            }
+        }
+
+        private void ExecuteCreateAnbarList()
+        {
+            ReportManager rp = new ReportManager(sefaresh);
+            rp.CreatAnbarReportOnDeskTop();
+        }
+
+        private bool CanExecuteCreateAnbarList()
+        {
+            return true;
+        }
+
+        private RelayCommand _myCommand9;
+
+        /// <summary>
+        /// Gets the CreateImensazanList.
+        /// </summary>
+        public RelayCommand CreateImensazanList
+        {
+            get
+            {
+                return _myCommand9 ?? (_myCommand9 = new RelayCommand(
+                    ExecuteCreateImensazanList,
+                    CanExecuteCreateImensazanList));
+            }
+        }
+
+        private void ExecuteCreateImensazanList()
+        {
+             ReportManager rp = new ReportManager(sefaresh);
+            rp.CreatImenSazanReportOnDeskTop();
+        }
+
+        private bool CanExecuteCreateImensazanList()
+        {
+            return true;
+        }
+
+        private RelayCommand _myCommand10;
+
+        /// <summary>
+        /// Gets the CreateKontrolList.
+        /// </summary>
+        public RelayCommand CreateKontrolList
+        {
+            get
+            {
+                return _myCommand10 ?? (_myCommand10 = new RelayCommand(
+                    ExecuteCreateKontrolList,
+                    CanExecuteCreateKontrolList));
+            }
+        }
+
+        private void ExecuteCreateKontrolList()
+        {
+             ReportManager rp = new ReportManager(sefaresh);
+            rp.CreatKontrolReportOnDeskTop();
+        }
+
+        private bool CanExecuteCreateKontrolList()
+        {
+            //TODO باید اینجا فقط زمانی اینا فعال باشن که اولا ثبت شده باشد یعنی در حال ویرایش و دوما هیچ تغییر ثبت نشده جدیدی وجود نداشته باشد
+            return IsEdit;
+        }
 
         #endregion
 

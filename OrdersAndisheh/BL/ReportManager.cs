@@ -43,7 +43,7 @@ namespace OrdersAndisheh.BL
 
         }
 
-        public void CreatAnbarReport()
+        public void CreatAnbarReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
             foreach (var b in sefaresh.Items)
@@ -55,7 +55,7 @@ namespace OrdersAndisheh.BL
            
         }
 
-        public void CreatImenSazanReport()
+        public void CreatImenSazanReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
             var ImenKalas = sefaresh.Items.Where(p => p.IsImenKala).ToList();
@@ -67,14 +67,26 @@ namespace OrdersAndisheh.BL
             fg.CreatFile("ImenSazan");
         }
 
-        public void CreatKontrolReport()
+        public void CreatKontrolReportOnDeskTop()
         {
-            throw new NotImplementedException();
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow() { Kala = b.Kala, Maghsad = b.Maghsad});
+            }
+            FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
+            fg.CreatFile("Kontrol");
         }
 
-        public void CreatListErsalReport()
+        public void CreatListErsalReportOnDeskTop()
         {
-            throw new NotImplementedException();
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = b.Tedad.ToString(), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(),Vazn=b.Vazn.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
+            }
+            FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
+            fg.CreatFile("Ersal");
         }
 
         

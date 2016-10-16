@@ -56,26 +56,11 @@ using System.Collections.ObjectModel;
 		{
             using (MyContextCF db = new MyContextCF())
             {
-                //Order d = db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault();
                 db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
                 db.Orders.Add(sefaresh.Order);
                 db.SaveChanges();
             }
-            //throw new ApplicationException("این قسمت هنوز پیاده سازی نشده");
-
-            ////TODO  اینجا باید اول آیتم های اضافه شده رو از آیتم های قبلا ثبت شده جدا کنیم
-            ////بعد آیتم های جدید رو بزاریم برای ثبت
-            ////آیتم های قبلا ثبت شده رو بزاریم برای ویرایش
-            ////آخر سر هم خود سفارش رو ویرایش کنیم اگر تغییر دادند
-
-            ////if (sefaresh.Order != null)
-            ////{
-            ////    using (MyContextCF db = new MyContextCF())
-            ////    {
-            ////        db.Orders.Attach(sefaresh.Order);
-            ////        db.SaveChanges();
-            ////    }
-            ////}
+            
 		}
 
         public virtual void AcceptSefaresh(Sefaresh sefaresh)
@@ -117,14 +102,18 @@ using System.Collections.ObjectModel;
             {
                 
                 Order t = db.Orders.Where(p => p.Tarikh == tarikh)
-                            .Include("OrderDetails")
-                            .Include("OrderDetails.Customer")
-                            .Include("OrderDetails.Driver")
-                            .Include("OrderDetails.Product")
-                            .Include("OrderDetails.Product.Pallet")
-                            .Include("OrderDetails.Product.Bazre")
-                            .OrderBy(p=>p.Id)
                             .FirstOrDefault();
+                List<OrderDetail> to = db.OrderDetails.Where(p => p.OrderId == t.Id)
+                    .Include("Customer")
+                    .Include("Driver")
+                    .Include("Product")
+                    .Include("Product.Pallet")
+                    .Include("Product.Bazre")
+                    .OrderBy(o => o.Customer_Id)
+                    .OrderBy(o => o.Driver_Id)
+                    .ToList();
+
+                t.OrderDetails = to;
 
                 if (t==null)
                 {
