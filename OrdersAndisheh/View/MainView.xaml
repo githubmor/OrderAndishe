@@ -33,7 +33,7 @@
                 <dxg:GridColumn FieldName="Pallet" Header="پالت"/>
                 <dxg:GridColumn FieldName="Maghsad" Header="مقصد"/>
                 <dxg:GridColumn FieldName="Vazn" Header="وزن"/>
-                <dxg:GridColumn FieldName="Ranande" Header="راننده"/>
+                <dxg:GridColumn FieldName="Ranande" Header="راننده" SortOrder="Ascending" SortIndex="0"/>
                 <dxg:GridColumn AllowEditing="True" FieldName="ItemKind" Header="نوع ارسال">
                     <dxg:GridColumn.EditSettings>
                         <dxe:ComboBoxEditSettings ItemsSource="{Binding TypeList}" 
@@ -52,8 +52,9 @@
                         <dxg:FormatCondition Expression="[Ranande] == ''" ApplyToRow="True" >
                             <dx:Format Background="Aquamarine"  />
                         </dxg:FormatCondition>
+                        <dxg:ColorScaleFormatCondition FieldName="Ranande" PredefinedFormatName="GreenYellowRedColorScale"/>
                     </dxg:TableView.FormatConditions>
-                    
+
                 </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>
