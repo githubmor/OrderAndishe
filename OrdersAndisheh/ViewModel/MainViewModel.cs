@@ -19,7 +19,7 @@ namespace OrdersAndisheh.ViewModel
     public class MainViewModel : ViewModelBase
     {
         ISefareshService ss;
-        bool IsEdit,IsEditItem;
+        bool IsEdit,IsEditItem,CanReport;
         private List<ItemType> enumList;
         public MainViewModel(ISefareshService service)
         {
@@ -34,13 +34,18 @@ namespace OrdersAndisheh.ViewModel
 
             //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
             //TODO قفل های بدون اورکل چی شد 
-            //TODO لیست روزهای ثبت شده و باز کردن برای ویرایش 
             //TODO تثبیت ارسال چی شد ؟
             //TODO ثبت تحویل فروش از روی خروجی برهان و ایرور هایی که باید بدهد
             //TODO چرا در پی دی اف حروف انگلیسی رو بصورت جعبه نشان میدهد
             //TODO رنگ بندی کردن فایل خروجی پی دی اف برای لیست ارسال
             //TODO رنگ بندی کردن لیست ارسال داخل خود نرم افزار
-            LoadThisDateSefaresh("1395/07/22");
+            //TODO حذف سفارش یک روز 
+            //TODO
+            //TODO
+            //TODO
+
+
+            //LoadThisDateSefaresh("1395/07/22");
         }
 
         
@@ -52,6 +57,13 @@ namespace OrdersAndisheh.ViewModel
                 sefaresh = ss.LoadSefaresh(tarikh);
                 RaisePropertyChanged(() => Items);
                 IsEdit = true;
+                CanReport = true;
+                MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد" ) ;
+                CreateAnbarList.RaiseCanExecuteChanged();
+                CreateBazresLists.RaiseCanExecuteChanged();
+                CreateImensazanList.RaiseCanExecuteChanged();
+                CreateKontrolList.RaiseCanExecuteChanged();
+                CreatListErsal.RaiseCanExecuteChanged();
             }
             catch (System.Exception r)
             {
@@ -105,9 +117,13 @@ namespace OrdersAndisheh.ViewModel
             get { return sefaresh.Tarikh; }
             set
             {
-                sefaresh.Tarikh = value;
+                //if (value.Length>9)
+                //{
+                    sefaresh.Tarikh = value;
+                //}
                 RaisePropertyChanged(() => Tarikh);
                 SaveSefaresh.RaiseCanExecuteChanged();
+                LoadSefaresh.RaiseCanExecuteChanged();
             }
         }
 
@@ -143,7 +159,6 @@ namespace OrdersAndisheh.ViewModel
             {
                
                 selectedItem = value;
-                
                 RaisePropertyChanged(() => GoodCode);
                 RaisePropertyChanged(() => GoodName);
                 RaisePropertyChanged(() => SelectedDriver);
@@ -167,6 +182,12 @@ namespace OrdersAndisheh.ViewModel
                 }
                 clickedItem = value;
                 IsEditItem = true;
+                CanReport = false;
+                CreateAnbarList.RaiseCanExecuteChanged();
+                CreateBazresLists.RaiseCanExecuteChanged();
+                CreateImensazanList.RaiseCanExecuteChanged();
+                CreateKontrolList.RaiseCanExecuteChanged();
+                CreatListErsal.RaiseCanExecuteChanged();
             }
         }
 
@@ -445,6 +466,7 @@ namespace OrdersAndisheh.ViewModel
                 {
                     //sefaresh.Items = Items.ToList();
                     ss.UpdateSefaresh(sefaresh);
+                    IsEdit = false;
                     MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ویرایش شد");
                 }
                 else
@@ -453,6 +475,12 @@ namespace OrdersAndisheh.ViewModel
                     ss.SaveSefaresh(sefaresh);
                     MessageBox.Show("اطلاعات سفارش روز "+Tarikh+" ذخیره شد");
                 }
+                CanReport = true;
+                CreateAnbarList.RaiseCanExecuteChanged();
+                CreateBazresLists.RaiseCanExecuteChanged();
+                CreateImensazanList.RaiseCanExecuteChanged();
+                CreateKontrolList.RaiseCanExecuteChanged();
+                CreatListErsal.RaiseCanExecuteChanged();
                 
             }
             catch (DbEntityValidationException e)
@@ -499,7 +527,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreateBazresLists()
         {
-            return true;
+            return CanReport;
         }
 
 
@@ -526,7 +554,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreatListErsal()
         {
-            return true;
+            return CanReport;
         }
 
         private RelayCommand _myCommand8;
@@ -552,7 +580,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreateAnbarList()
         {
-            return true;
+            return CanReport;
         }
 
         private RelayCommand _myCommand9;
@@ -578,7 +606,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreateImensazanList()
         {
-            return true;
+            return CanReport;
         }
 
         private RelayCommand _myCommand10;
@@ -605,7 +633,44 @@ namespace OrdersAndisheh.ViewModel
         private bool CanExecuteCreateKontrolList()
         {
             //TODO باید اینجا فقط زمانی اینا فعال باشن که اولا ثبت شده باشد یعنی در حال ویرایش و دوما هیچ تغییر ثبت نشده جدیدی وجود نداشته باشد
-            return IsEdit;
+            return CanReport;
+        }
+
+        private RelayCommand _myCommand111;
+
+        /// <summary>
+        /// Gets the LoadSefaresh.
+        /// </summary>
+        public RelayCommand LoadSefaresh
+        {
+            get
+            {
+                return _myCommand111 ?? (_myCommand111 = new RelayCommand(
+                    ExecuteLoadSefaresh,
+                    CanExecuteLoadSefaresh));
+            }
+        }
+
+        private void ExecuteLoadSefaresh()
+        {
+            if (IsEdit)
+            {
+                DialogResult result = MessageBox.Show("آیا میخواهید راننده را از " ,
+                            "اطلاع", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    this.LoadThisDateSefaresh(Tarikh);
+                }
+            }
+            else
+            {
+                this.LoadThisDateSefaresh(Tarikh);
+            }
+        }
+
+        private bool CanExecuteLoadSefaresh()
+        {
+            return !string.IsNullOrEmpty(Tarikh) ;
         }
 
         #endregion

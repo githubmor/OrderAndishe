@@ -44,6 +44,7 @@ namespace OrdersAndisheh.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<FirstViewModel>();
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
         }
 
@@ -52,6 +53,13 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+        public FirstViewModel First
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<FirstViewModel>();
             }
         }
         

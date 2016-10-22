@@ -35,7 +35,8 @@ namespace OrdersAndisheh.BL
                 var allBazres = sefaresh.Items.Where(p=>p.BazresName==name).ToList();
                 foreach (var b in allBazres)
                 {
-                    reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = b.Tedad.ToString(), Maghsad = b.Maghsad });
+
+                    reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
                 }
                 FileManagar fg = new FileManagar(reportRows,sefaresh.Tarikh);
                 fg.CreatFile(name);
@@ -46,10 +47,12 @@ namespace OrdersAndisheh.BL
         public void CreatAnbarReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
+            sefaresh.Items.OrderBy(o => o.Ranande).OrderBy(p => p.Maghsad).ToList();
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = b.Tedad.ToString(), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
+                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
             }
+            
             FileManagar fg = new FileManagar(reportRows,sefaresh.Tarikh);
             fg.CreatFile("Anbar");
            
@@ -61,7 +64,7 @@ namespace OrdersAndisheh.BL
             var ImenKalas = sefaresh.Items.Where(p => p.IsImenKala).ToList();
             foreach (var b in ImenKalas)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = b.Tedad.ToString(), Maghsad = b.Maghsad });
+                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
             }
             FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
             fg.CreatFile("ImenSazan");
@@ -83,7 +86,7 @@ namespace OrdersAndisheh.BL
             List<ReportRow> reportRows = new List<ReportRow>();
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = b.Tedad.ToString(), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(),Vazn=b.Vazn.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
+                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Vazn = (b.Vazn > 0 ? b.Vazn.ToString() : ""), Maghsad = b.Maghsad, Ranande = b.Ranande });
             }
             FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
             fg.CreatFile("Ersal");

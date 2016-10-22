@@ -8,9 +8,11 @@ namespace OrdersAndisheh.DBL
 
     public class MyContextCF : DbContext
     {
+
         public MyContextCF()
             : base("name=CodeFirstConection")
         {
+            
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyContextCF>());
             //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
         }

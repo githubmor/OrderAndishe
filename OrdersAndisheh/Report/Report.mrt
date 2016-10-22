@@ -222,7 +222,7 @@
             <HeaderItems_maghsad Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.7,0,0.5,0.3</ClientRectangle>
+              <ClientRectangle>3.7,0,0.5,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -409,7 +409,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>5.4,0,2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,12</Font>
+              <Font>2  Nazanin,12</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
@@ -473,10 +473,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/15/2016 6:57:30 PM</ReportChanged>
+  <ReportChanged>10/22/2016 5:13:00 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report.mrt</ReportFile>
-  <ReportGuid>b6cef771826b4150993d418ce84a21dd</ReportGuid>
+  <ReportGuid>a6603e4630f74aa3a0aea3d6cba70a24</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
