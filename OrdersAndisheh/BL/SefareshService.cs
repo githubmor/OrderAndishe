@@ -13,7 +13,7 @@ namespace BL
 	using System.Text;
     using OrdersAndisheh.DBL;
     using OrdersAndisheh.BL;
-using System.Collections.ObjectModel;
+    using System.Collections.ObjectModel;
 
 
     /// <summary>
@@ -21,19 +21,17 @@ using System.Collections.ObjectModel;
     /// </summary>
 	public class SefareshService : ISefareshService 
 	{
-        //public virtual Sefaresh Sefareshs
+        //MyContextCF db;
+        //public SefareshService(MyContextCF context)
         //{
-        //    get;
-        //    set;
+        //    db = context;
         //}
-
 		public void SaveSefaresh(Sefaresh sefaresh)
 		{
             if (sefaresh.Order != null)
             {
                 using (MyContextCF db = new MyContextCF())
                 {
-                    db.Orders.Add(sefaresh.Order);
                     foreach (var item in sefaresh.Order.OrderDetails)
                     {
                         if (item.Customer != null)
@@ -44,9 +42,12 @@ using System.Collections.ObjectModel;
                         {
                             db.Drivers.Attach(item.Driver);
                         }
-                       
-                        db.OrderDetails.Add(item);
+                        db.Pallets.Attach(item.Product.Pallet);
+                        db.Bazress.Attach(item.Product.Bazre);
+                        db.Products.Attach(item.Product);
+                        //db.OrderDetails.Add(item);
                     }
+                    db.Orders.Add(sefaresh.Order);
                     db.SaveChanges();
                 }
             }
@@ -120,7 +121,7 @@ using System.Collections.ObjectModel;
                     throw new ApplicationException("اطلاعات سفارش وجود ندارد");
                 }
                 return new Sefaresh(t, t.OrderDetails.ToList());
-               
+
             }
         }
 

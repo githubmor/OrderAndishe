@@ -11,6 +11,7 @@ namespace BL
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Windows.Forms;
 
 	public class FileManagar
 	{
@@ -28,7 +29,16 @@ namespace BL
         
 		public virtual void CreatFile(string fileName)
 		{
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string path = ""; //= Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select a folder";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("You selected: " + dlg.SelectedPath);
+                    path = dlg.SelectedPath;
+                }
+            }
             if (string.IsNullOrEmpty(fileName))
             {
                 fileName = "Report";
@@ -42,7 +52,7 @@ namespace BL
             StiReport mainreport = new StiReport();
             mainreport.RegBusinessObject("Sefaresh", h);
             mainreport.RegBusinessObject("Items", ReportRows);
-            mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
+            mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report.mrt");
             mainreport.Render();
             //mainreport.Show();
             mainreport.ExportDocument(StiExportFormat.Pdf, path +"\\"+fileName+".pdf");

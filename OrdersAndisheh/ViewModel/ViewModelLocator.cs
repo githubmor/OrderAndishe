@@ -16,6 +16,7 @@ using BL;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using OrdersAndisheh.DBL;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -32,20 +33,11 @@ namespace OrdersAndisheh.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
-
+            
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<FirstViewModel>();
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
+            
         }
 
         public MainViewModel Main

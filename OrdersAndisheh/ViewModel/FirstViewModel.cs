@@ -9,7 +9,7 @@ namespace OrdersAndisheh.ViewModel
         SefareshService ss;
         public FirstViewModel()
         {
-            ss = new SefareshService();
+            //ss = new SefareshService();
 
         }
 

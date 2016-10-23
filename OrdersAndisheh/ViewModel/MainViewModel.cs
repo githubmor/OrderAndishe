@@ -243,7 +243,7 @@ namespace OrdersAndisheh.ViewModel
                     {
                         SelecteddItem.Tedad = tempTedad;
                     }
-                    if (tempDes != "")
+                    if (!string.IsNullOrEmpty(tempDes))
                     {
                         SelecteddItem.Des = tempDes;
                     }
@@ -626,8 +626,16 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteCreateKontrolList()
         {
-             ReportManager rp = new ReportManager(sefaresh);
-            rp.CreatKontrolReportOnDeskTop();
+            try
+            {
+                ReportManager rp = new ReportManager(sefaresh);
+                rp.CreatKontrolReportOnDeskTop();
+            }
+            catch (Exception rrr)
+            {
+
+                MessageBox.Show(rrr.Message.ToString()); ;
+            }
         }
 
         private bool CanExecuteCreateKontrolList()
