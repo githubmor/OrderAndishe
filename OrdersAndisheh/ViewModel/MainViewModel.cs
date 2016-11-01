@@ -24,7 +24,7 @@ namespace OrdersAndisheh.ViewModel
         public MainViewModel(ISefareshService service)
         {
             ss = service;
-            Messenger.Default.Register<string>(this, LoadThisDateSefaresh);
+            Messenger.Default.Register<string>(this,"EditSefaresh",LoadThisDateSefaresh);
 
             sefaresh = new Sefaresh();
             Drivers = ss.LoadDrivers();
@@ -37,7 +37,6 @@ namespace OrdersAndisheh.ViewModel
             //TODO تثبیت ارسال چی شد ؟
             //TODO ثبت تحویل فروش از روی خروجی برهان و ایرور هایی که باید بدهد
             //TODO چرا در پی دی اف حروف انگلیسی رو بصورت جعبه نشان میدهد
-            //TODO رنگ بندی کردن فایل خروجی پی دی اف برای لیست ارسال
             //TODO رنگ بندی کردن لیست ارسال داخل خود نرم افزار
             //TODO حذف سفارش یک روز 
             //TODO

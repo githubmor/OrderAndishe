@@ -3,11 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
         DataContext="{Binding First, Mode=OneWay, Source={StaticResource Locator}}">
 
-    <Grid>
-        <TreeView HorizontalAlignment="Right" Width="200"/>
+    <Grid FlowDirection="RightToLeft">
+        <StackPanel  Orientation="Vertical" HorizontalAlignment="Right" >
+            <Label Content="لیست سفارشات ثبت شده" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" HorizontalContentAlignment="Center"/>
+            <ListView 
+                HorizontalAlignment="Right" Width="200" 
+                ItemsSource="{Binding Lists}" 
+                VerticalContentAlignment="Stretch" MouseDoubleClick="ListView_MouseDoubleClick">
+                
+            </ListView>
+        </StackPanel>
+        <StackPanel  Orientation="Vertical" >
+            <Button Content="سفارش جدید" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Command="{Binding NewSefaresh, Mode=OneWay}" />
+            <Button Content="بک آپ گیری" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+        </StackPanel>
     </Grid>
 </Window>

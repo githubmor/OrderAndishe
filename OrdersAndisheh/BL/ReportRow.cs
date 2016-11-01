@@ -13,6 +13,7 @@ namespace BL
 
 	public class ReportRow
 	{
+        
         public string Kala { get; set; }
         public string Tedad { get; set; }
         public string Karton { get; set; }
@@ -20,8 +21,6 @@ namespace BL
         public string Maghsad { get; set; }
         public string Vazn { get; set; }
         public string Ranande { get; set; }
-
-        
     }
 }
 

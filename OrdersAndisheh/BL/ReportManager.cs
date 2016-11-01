@@ -84,9 +84,28 @@ namespace OrdersAndisheh.BL
         public void CreatListErsalReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
+            string lastDriver = "", lastDes = "";
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Vazn = (b.Vazn > 0 ? b.Vazn.ToString() : ""), Maghsad = b.Maghsad, Ranande = b.Ranande });
+                if (b.Maghsad!=lastDes & b.Ranande!=lastDriver & lastDriver!="")
+                {
+                    reportRows.Add(new ReportRow() {Kala = "khali" });
+                }
+                
+                reportRows.Add(new ReportRow() 
+                { 
+                    Kala = b.Kala, 
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), 
+                    Karton = b.Karton.ToString(), 
+                    Pallet = b.Pallet.ToString(), 
+                    Vazn = (b.Vazn > 0 ? b.Vazn.ToString() : ""), 
+                    Maghsad = b.Maghsad, 
+                    Ranande = b.Ranande 
+                });
+                lastDes = b.Maghsad;
+                lastDriver = b.Ranande;
+                
+                
             }
             FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
             fg.CreatFile("Ersal");

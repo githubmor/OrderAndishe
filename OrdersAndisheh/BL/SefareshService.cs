@@ -148,6 +148,14 @@ namespace BL
                 return db.Customers.ToList();
             }
         }
+
+        public List<string> LoadAllSefareshTarikh()
+        {
+            using (MyContextCF db = new MyContextCF())
+            {
+                return db.Orders.Select(p=>p.Tarikh).ToList();
+            }
+        }
     }
 }
 
