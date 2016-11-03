@@ -380,7 +380,9 @@
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>3.7,0,0.5,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
+              <Conditions isList="true" count="1">
+                <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
+              </Conditions>
               <Font>B Nazanin,11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -446,7 +448,7 @@
               <Name>Text7</Name>
               <Page isRef="4" />
               <Parent isRef="21" />
-              <Text>{IIF(Items.Kala="khali",{LineThrough},"")}</Text>
+              <Text>{LineThrough}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -487,10 +489,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/31/2016 6:39:17 PM</ReportChanged>
+  <ReportChanged>11/3/2016 9:35:09 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report.mrt</ReportFile>
-  <ReportGuid>95d7615123184468826e6abeb4a8f1a7</ReportGuid>
+  <ReportGuid>5a3912c736284f40b5f5d581039b7559</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

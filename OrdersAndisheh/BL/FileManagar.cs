@@ -54,7 +54,7 @@ namespace BL
             mainreport.RegBusinessObject("Items", ReportRows);
             mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
             mainreport.Render();
-            //mainreport.Show();
+            mainreport.Show();
             mainreport.ExportDocument(StiExportFormat.Pdf, path +"\\"+fileName+".pdf");
 		}
 

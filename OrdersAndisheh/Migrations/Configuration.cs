@@ -12,7 +12,7 @@
         {
             AutomaticMigrationsEnabled = true;
             //Database.SetInitializer<MyContextCF>(new DropCreateDatabaseAlways<MyContextCF>());
-            
+           
         }
 
         protected override void Seed(OrdersAndisheh.DBL.MyContextCF context)

@@ -203,6 +203,7 @@ namespace OrdersAndisheh.ViewModel
                 if (SelecteddItem != null & value !=null)
                 {
                     SelecteddItem.Customer = value;
+                    //SelecteddItem.OrderDetail.Customer_Id = value.Id;
                 }
                 else
                 {
@@ -228,15 +229,18 @@ namespace OrdersAndisheh.ViewModel
                     {
                         //باید تفاوتی بین ویرایش یک آیتم و ساخت آیتم جدید قایل شد
                         SelecteddItem = new ItemSefaresh(gg);
+                        //SelecteddItem.OrderDetail.ProductId = gg.Id;
                         //IsEditItem = false;
                     }
                     if (tempDestenation != null)
                     {
                         SelecteddItem.Customer = tempDestenation;
+                        //SelecteddItem.OrderDetail.Customer_Id = tempDestenation.Id;
                     }
                     if (tempDriver != null)
                     {
                         SelecteddItem.Driver = tempDriver;
+                        //SelecteddItem.OrderDetail.Driver_Id = tempDriver.Id;
                     }
                     if (tempTedad > 0)
                     {
@@ -279,6 +283,7 @@ namespace OrdersAndisheh.ViewModel
                 if (SelecteddItem != null & value != null)
                 {
                     SelecteddItem.Driver = value;
+                    //SelecteddItem.OrderDetail.Driver_Id = value.Id;
                 }
                 else
                 {
@@ -573,8 +578,16 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteCreateAnbarList()
         {
-            ReportManager rp = new ReportManager(sefaresh);
-            rp.CreatAnbarReportOnDeskTop();
+            try
+            {
+                ReportManager rp = new ReportManager(sefaresh);
+                rp.CreatAnbarReportOnDeskTop();
+            }
+            catch (Exception rt)
+            {
+
+                MessageBox.Show(rt.Message.ToString());
+            }
         }
 
         private bool CanExecuteCreateAnbarList()

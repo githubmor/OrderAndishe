@@ -32,32 +32,59 @@ namespace BL
             {
                 using (MyContextCF db = new MyContextCF())
                 {
-                    foreach (var item in sefaresh.Order.OrderDetails)
-                    {
-                        if (item.Customer != null)
-                        {
-                            db.Customers.Attach(item.Customer);
-                        }
-                        if (item.Driver != null)
-                        {
-                            db.Drivers.Attach(item.Driver);
-                        }
-                        db.Pallets.Attach(item.Product.Pallet);
-                        db.Bazress.Attach(item.Product.Bazre);
-                        db.Products.Attach(item.Product);
-                        //db.OrderDetails.Add(item);
-                    }
+                    AttachToDataBase(sefaresh.Order.OrderDetails.ToList(), db);
                     db.Orders.Add(sefaresh.Order);
                     db.SaveChanges();
                 }
             }
 		}
 
+        private void AttachToDataBase(List<OrderDetail> orderDetails, MyContextCF db)
+        {
+            foreach (var item in orderDetails)
+            {
+                if (item.Customer != null)
+                {
+                    db.Customers.Attach(item.Customer);
+                }
+                if (item.Driver != null)
+                {
+                    db.Drivers.Attach(item.Driver);
+                }
+                db.Pallets.Attach(item.Product.Pallet);
+                db.Bazress.Attach(item.Product.Bazre);
+                db.Products.Attach(item.Product);
+            }
+        }
+
         public void UpdateSefaresh(Sefaresh sefaresh)
 		{
             using (MyContextCF db = new MyContextCF())
             {
+
+                //List<OrderDetail> existingItems = db.OrderDetails.
+                //Where(p=>p.OrderId==sefaresh.SefareshId).ToList();
+
+
+                //List<OrderDetail> newItems = new List<OrderDetail>();
+                //foreach (var item in sefaresh.Items)
+                //{
+                //    newItems.Add(item.OrderDetail);
+                //}
+
+                //List<OrderDetail> addedItems = newItems.Except(existingItems).ToList();
+
+                //List<OrderDetail> deletedItems = existingItems.Except(newItems).ToList();
+
+                //List<OrderDetail> modifiedItems = newItems.Except(addedItems).ToList();
+
                 db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
+                db.SaveChanges();
+                //foreach (var item in deletedItems)
+                //{
+                //    db.OrderDetails.Remove(item);
+                //}
+                //AttachToDataBase(modifiedItems, db);
                 db.Orders.Add(sefaresh.Order);
                 db.SaveChanges();
             }
@@ -137,7 +164,8 @@ namespace BL
         {
             using (MyContextCF db = new MyContextCF())
             {
-                return db.Products.Include("Pallet").ToList();
+                var pp = db.Products.Include("Pallet").ToList();
+                return pp;
             }
         }
 

@@ -12,7 +12,7 @@ namespace OrdersAndisheh.DBL
         public MyContextCF()
             : base("name=CodeFirstConection")
         {
-            
+            base.Configuration.ProxyCreationEnabled = false;
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyContextCF>());
             //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
         }
