@@ -35,6 +35,14 @@ namespace BL
                     }
                     
                 }
+                if (e.Action == NotifyCollectionChangedAction.Remove)
+                {
+                    foreach (var item in e.OldItems)
+                    {
+                        ItemSefaresh d = (ItemSefaresh)item;
+                        Order.OrderDetails.Remove(d.OrderDetail);
+                    }
+                }
             };
         }
 

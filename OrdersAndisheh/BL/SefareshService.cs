@@ -10,10 +10,7 @@ namespace BL
     using System.Data.Entity;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
     using OrdersAndisheh.DBL;
-    using OrdersAndisheh.BL;
-    using System.Collections.ObjectModel;
 
 
     /// <summary>
@@ -21,21 +18,21 @@ namespace BL
     /// </summary>
 	public class SefareshService : ISefareshService 
 	{
-        //MyContextCF db;
-        //public SefareshService(MyContextCF context)
-        //{
-        //    db = context;
-        //}
+        MyContextCF db;
+        public SefareshService()
+        {
+            db = new MyContextCF();
+        }
 		public void SaveSefaresh(Sefaresh sefaresh)
 		{
             if (sefaresh.Order != null)
             {
-                using (MyContextCF db = new MyContextCF())
-                {
-                    AttachToDataBase(sefaresh.Order.OrderDetails.ToList(), db);
+                //using (MyContextCF db = new MyContextCF())
+                //{
+                    //AttachToDataBase(sefaresh.Order.OrderDetails.ToList(), db);
                     db.Orders.Add(sefaresh.Order);
                     db.SaveChanges();
-                }
+                //}
             }
 		}
 
@@ -59,35 +56,39 @@ namespace BL
 
         public void UpdateSefaresh(Sefaresh sefaresh)
 		{
-            using (MyContextCF db = new MyContextCF())
+            //using (MyContextCF db = new MyContextCF())
+            //{
+                //الان آپدیت که می کنیم همه چی قاطی میشه
+            List<OrderDetail> existingItems = db.OrderDetails.
+            Where(p => p.OrderId == sefaresh.SefareshId).ToList();
+
+
+            List<OrderDetail> newItems = new List<OrderDetail>();
+            foreach (var item in sefaresh.Items)
             {
-
-                //List<OrderDetail> existingItems = db.OrderDetails.
-                //Where(p=>p.OrderId==sefaresh.SefareshId).ToList();
-
-
-                //List<OrderDetail> newItems = new List<OrderDetail>();
-                //foreach (var item in sefaresh.Items)
-                //{
-                //    newItems.Add(item.OrderDetail);
-                //}
-
-                //List<OrderDetail> addedItems = newItems.Except(existingItems).ToList();
-
-                //List<OrderDetail> deletedItems = existingItems.Except(newItems).ToList();
-
-                //List<OrderDetail> modifiedItems = newItems.Except(addedItems).ToList();
-
-                db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
-                db.SaveChanges();
-                //foreach (var item in deletedItems)
-                //{
-                //    db.OrderDetails.Remove(item);
-                //}
-                //AttachToDataBase(modifiedItems, db);
-                db.Orders.Add(sefaresh.Order);
-                db.SaveChanges();
+                newItems.Add(item.OrderDetail);
             }
+
+            //List<OrderDetail> addedItems = newItems.Except(existingItems).ToList();
+
+            List<OrderDetail> deletedItems = existingItems.Except(newItems).ToList();
+
+            //List<OrderDetail> modifiedItems = newItems.Except(addedItems).ToList();
+
+            //    //db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
+            //    //db.SaveChanges();
+            foreach (var item in deletedItems)
+            {
+                db.OrderDetails.Remove(item);
+            }
+            //foreach (var item in addedItems)
+            //{
+            //    db.OrderDetails.Add(item);
+            //}
+            
+
+            db.SaveChanges();
+            //}
             
 		}
 
@@ -126,8 +127,8 @@ namespace BL
             {
                 throw new ApplicationException("تاریخ به صورت صحیح وارد نشده");
             }
-            using (MyContextCF db = new MyContextCF())
-            {
+            //using (MyContextCF db = new MyContextCF())
+            //{
                 
                 Order t = db.Orders.Where(p => p.Tarikh == tarikh)
                             .FirstOrDefault();
@@ -141,7 +142,7 @@ namespace BL
                     .OrderBy(o => o.Driver_Id)
                     .ToList();
 
-                t.OrderDetails = to;
+                //t.OrderDetails = to;
 
                 if (t==null)
                 {
@@ -149,40 +150,40 @@ namespace BL
                 }
                 return new Sefaresh(t, t.OrderDetails.ToList());
 
-            }
+            //}
         }
 
         public List<Driver> LoadDrivers()
         {
-            using (MyContextCF db = new MyContextCF())
-            {
+            //using (MyContextCF db = new MyContextCF())
+            //{
                 return db.Drivers.ToList();
-            }
+            //}
         }
 
         public List<Product> LoadGoods()
         {
-            using (MyContextCF db = new MyContextCF())
-            {
+            //using (MyContextCF db = new MyContextCF())
+            //{
                 var pp = db.Products.Include("Pallet").ToList();
                 return pp;
-            }
+            //}
         }
 
         public List<Customer> LoadDestinations()
         {
-            using (MyContextCF db = new MyContextCF())
-            {
+            //using (MyContextCF db = new MyContextCF())
+            //{
                 return db.Customers.ToList();
-            }
+            //}
         }
 
         public List<string> LoadAllSefareshTarikh()
         {
-            using (MyContextCF db = new MyContextCF())
-            {
+            //using (MyContextCF db = new MyContextCF())
+            //{
                 return db.Orders.Select(p=>p.Tarikh).ToList();
-            }
+            //}
         }
     }
 }

@@ -316,13 +316,17 @@ namespace OrdersAndisheh.ViewModel
             {
                 Items.Add(SelecteddItem);
             }
-            else
+            else if (ClickedItem!=null)
             {
                 if (GoodCode!=ClickedItem.CodeKala)
                 {
                     Items.Remove(Items.Where(p => p.CodeKala == ClickedItem.CodeKala).FirstOrDefault());
                     Items.Add(SelecteddItem);
                 }
+            }
+            else
+            {
+                Items.Add(SelecteddItem);
             }
             //RaisePropertyChanged(() => SelecteddItem);
             IsEditItem = false;
