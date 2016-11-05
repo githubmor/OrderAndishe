@@ -84,14 +84,16 @@ namespace OrdersAndisheh.BL
         public void CreatListErsalReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
-            string lastDriver = "", lastDes = "";
+            string lastDriver = "";//, lastDes = "";
             foreach (var b in sefaresh.Items)
             {
-                if (b.Maghsad!=lastDes & b.Ranande!=lastDriver & lastDriver!="")
+                if (lastDriver!="")
                 {
-                    reportRows.Add(new ReportRow() {Kala = "khali" });
+                    if ( b.Ranande!=lastDriver)
+                    {
+                        reportRows.Add(new ReportRow() { Kala = "khali" });
+                    }
                 }
-                
                 reportRows.Add(new ReportRow() 
                 { 
                     Kala = b.Kala, 
@@ -102,7 +104,7 @@ namespace OrdersAndisheh.BL
                     Maghsad = b.Maghsad, 
                     Ranande = b.Ranande 
                 });
-                lastDes = b.Maghsad;
+                //lastDes = b.Maghsad;
                 lastDriver = b.Ranande;
                 
                 

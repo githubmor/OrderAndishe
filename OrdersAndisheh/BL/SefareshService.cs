@@ -22,6 +22,7 @@ namespace BL
         public SefareshService()
         {
             db = new MyContextCF();
+            
         }
 		public void SaveSefaresh(Sefaresh sefaresh)
 		{
@@ -185,6 +186,13 @@ namespace BL
                 return db.Orders.Select(p=>p.Tarikh).ToList();
             //}
         }
+
+
+
+        //public void Dispose()
+        //{
+        //    db.Database.Connection.Close();
+        //}
     }
 }
 
