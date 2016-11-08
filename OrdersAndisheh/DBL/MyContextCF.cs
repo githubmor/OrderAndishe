@@ -82,6 +82,16 @@ namespace OrdersAndisheh.DBL
                 .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Product>()
+                .HasMany(o=>o.Customers)
+                .WithMany(p=>p.Products)
+                .Map(
+                    m =>
+                    {
+                        m.MapLeftKey("ProductId");
+                        m.MapRightKey("CustomerId");
+                        m.ToTable("Oracle");
+                    });
         }
     }
 }

@@ -12,6 +12,7 @@ namespace OrdersAndisheh.DBL
         public Product()
         {
             OrderDetails = new HashSet<OrderDetail>();
+            Customers = new HashSet<Customer>();
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -45,6 +46,7 @@ namespace OrdersAndisheh.DBL
         public virtual Bazres Bazre { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
 
         public virtual Pallet Pallet { get; set; }
     }
