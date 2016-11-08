@@ -8,6 +8,11 @@
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
         DataContext="{Binding First, Mode=OneWay, Source={StaticResource Locator}}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Grid FlowDirection="RightToLeft">
         <StackPanel  Orientation="Vertical" HorizontalAlignment="Right" >
@@ -19,9 +24,21 @@
                 
             </ListView>
         </StackPanel>
-        <StackPanel  Orientation="Vertical" >
+        <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" >
             <Button Content="سفارش جدید" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Command="{Binding NewSefaresh, Mode=OneWay}" />
             <Button Content="بک آپ گیری" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding BackUpDatabase, Mode=OneWay}" />
+            <Button Content="به روز رسانی اطلاعات" Click="Button_Click" />
+            <Label Content="{Binding FilePath}"/>
+            <Button Content="چک کردن فایل" Command="{Binding CheckingData, Mode=OneWay}"/>
+            <TextBlock Text="{Binding CheckResult}" TextWrapping="Wrap"  ScrollViewer.HorizontalScrollBarVisibility="Visible" FlowDirection="RightToLeft" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" Height="146" />
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Content="پالت جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding AddNewPallet, Mode=OneWay}" Visibility="{Binding HasNewPallet, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <Button Content="بازرس جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Visibility="{Binding HasNewBazres, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding AddNewBazres, Mode=OneWay}"/>
+                <Button Content="مشتری جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Visibility="{Binding HasNewCustomer, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding AddNewCustomer, Mode=OneWay}"/>
+                <Button Content="راننده جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Visibility="{Binding HasNewDriver, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding AddNewDriver, Mode=OneWay}"/>
+                <Button Content="کالای جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Visibility="{Binding HasNewProduct, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding AddNewProduct, Mode=OneWay}"/>
+            </StackPanel>
         </StackPanel>
+       
     </Grid>
 </Window>

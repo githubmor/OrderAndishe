@@ -10,7 +10,7 @@ namespace OrdersAndisheh.DBL
     {
 
         public MyContextCF()
-            : base("name=CodeFirstConection")
+            : base("name=CodeFirstConectionCompact")
         {
             base.Configuration.ProxyCreationEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;

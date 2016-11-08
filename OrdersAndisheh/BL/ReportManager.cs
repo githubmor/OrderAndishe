@@ -23,6 +23,7 @@ namespace OrdersAndisheh.BL
                 throw new ApplicationException("سفارش نمیتواند بدون آیتم باشد");
             }
             this.sefaresh = sefaresh;
+            this.sefaresh.Items.OrderBy(p => p.Maghsad).ToList();
         }
 
        
@@ -75,7 +76,7 @@ namespace OrdersAndisheh.BL
             List<ReportRow> reportRows = new List<ReportRow>();
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Maghsad = b.Maghsad});
+                reportRows.Add(new ReportRow() { Kala = b.Kala, Maghsad = b.Maghsad, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : "") ,Karton = b.CodeKala}); //TODO اینو باید بعدا حذف کنیم 
             }
             FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
             fg.CreatFile("Kontrol");

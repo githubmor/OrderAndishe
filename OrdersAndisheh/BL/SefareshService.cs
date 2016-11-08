@@ -140,7 +140,6 @@ namespace BL
                     .Include("Product.Pallet")
                     .Include("Product.Bazre")
                     .OrderBy(o => o.Customer_Id)
-                    .OrderBy(o => o.Driver_Id)
                     .ToList();
 
                 //t.OrderDetails = to;
