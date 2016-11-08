@@ -36,11 +36,18 @@ namespace OrdersAndisheh.BL
                 var allBazres = sefaresh.Items.Where(p=>p.BazresName==name).ToList();
                 foreach (var b in allBazres)
                 {
-
                     reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
                 }
                 FileManagar fg = new FileManagar(reportRows,sefaresh.Tarikh);
-                fg.CreatFile(name);
+                if (name == "فهامه")
+                {
+                    fg.CreatDocFile(name);
+                }
+                else
+                {
+                    fg.CreatFile(name);
+                }
+                
             }
 
         }

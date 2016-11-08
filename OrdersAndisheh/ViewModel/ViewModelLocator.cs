@@ -36,6 +36,7 @@ namespace OrdersAndisheh.ViewModel
             
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<FirstViewModel>();
+            SimpleIoc.Default.Register<DriverSelectionViewModel>();
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
             
         }
@@ -54,7 +55,14 @@ namespace OrdersAndisheh.ViewModel
                 return ServiceLocator.Current.GetInstance<FirstViewModel>();
             }
         }
-        
+
+        public DriverSelectionViewModel DriverSel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DriverSelectionViewModel>();
+            }
+        }
         public static void Cleanup()
         {
             

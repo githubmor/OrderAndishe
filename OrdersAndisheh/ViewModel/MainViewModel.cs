@@ -24,7 +24,7 @@ namespace OrdersAndisheh.ViewModel
         public MainViewModel(ISefareshService service)
         {
             ss = service;
-            Messenger.Default.Register<string>(this,"EditSefaresh",LoadThisDateSefaresh);
+            Messenger.Default.Register<string>(this,"Editsefaresh",LoadThisDateSefaresh);
 
             sefaresh = new Sefaresh();
             Drivers = ss.LoadDrivers();
@@ -49,7 +49,7 @@ namespace OrdersAndisheh.ViewModel
 
         
 
-        private void LoadThisDateSefaresh(string tarikh)
+        public void LoadThisDateSefaresh(string tarikh)
         {
             try
             {

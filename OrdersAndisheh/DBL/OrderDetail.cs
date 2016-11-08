@@ -39,5 +39,6 @@ namespace OrdersAndisheh.DBL
         public virtual Order Order { get; set; }
 
         public virtual Product Product { get; set; }
+        public virtual MOracle MOracle { get; set; }
     }
 }

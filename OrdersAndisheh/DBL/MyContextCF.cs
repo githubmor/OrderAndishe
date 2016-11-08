@@ -25,6 +25,7 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Pallet> Pallets { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<MOracle> MOracles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -77,6 +78,10 @@ namespace OrdersAndisheh.DBL
                 .WithRequired(e => e.Pallet)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<OrderDetail>()
+                .HasOptional(p => p.MOracle)
+                .WithRequired(p => p.OrderDetail)
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails)
@@ -90,7 +95,7 @@ namespace OrdersAndisheh.DBL
                     {
                         m.MapLeftKey("ProductId");
                         m.MapRightKey("CustomerId");
-                        m.ToTable("Oracle");
+                        m.ToTable("OracleRelations");
                     });
         }
     }

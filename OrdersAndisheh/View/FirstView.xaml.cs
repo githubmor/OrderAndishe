@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
+using OrdersAndisheh.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -24,7 +25,7 @@ namespace OrdersAndisheh.View
             //System.Windows.Forms.MessageBox.Show(s.SelectedItem.ToString());
 
             MainView v = new MainView();
-            Messenger.Default.Send(s.SelectedItem, "EditSefaresh");
+            Messenger.Default.Send<string>(s.SelectedItem.ToString(), "Editsefaresh");
             v.Show();
             
         }
