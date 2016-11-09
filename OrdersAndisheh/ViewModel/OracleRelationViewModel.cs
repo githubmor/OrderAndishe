@@ -136,6 +136,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteAddNewOProduct()
         {
             SelectedoCustomer.OracleProducts.Add(SelectedProductForAdd);
+            RaisePropertyChanged(() => this.OracleProducts);
         }
 
         private bool CanExecuteAddNewOProduct()
@@ -160,7 +161,16 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteSaveChanges()
         {
-            service.SaveOracleRelation(OracleCustomers.ToList());
+            try
+            {
+                service.SaveOracleRelation(OracleCustomers.ToList());
+                System.Windows.Forms.MessageBox.Show("ذخیره شد");
+            }
+            catch (System.Exception tr)
+            {
+
+                System.Windows.Forms.MessageBox.Show(tr.Message.ToString()); ;
+            }
         }
 
         private bool CanExecuteSaveChanges()

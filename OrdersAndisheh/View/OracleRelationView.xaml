@@ -31,7 +31,7 @@
             <Button Content="حذف کالا" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="0,1.5" Command="{Binding DelOProduct, Mode=OneWay}"/>
         </StackPanel>
         <Button Content="ذخیره" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Command="{Binding SaveChanges, Mode=OneWay}"/>
-        <DataGrid Margin="10" Grid.Row="3" ItemsSource="{Binding OracleProducts}" FlowDirection="RightToLeft">
+        <DataGrid Margin="10" Grid.Row="3" ItemsSource="{Binding OracleProducts}" FlowDirection="RightToLeft" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="نام کالا" SortDirection="Ascending"/>
                 <DataGridTextColumn Binding="{Binding Code}" ClipboardContentBinding="{x:Null}" Header="کد کالا"/>

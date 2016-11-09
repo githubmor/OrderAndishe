@@ -89,6 +89,7 @@
       <Private>True</Private>
       <HintPath>..\DLLCopy\DevExpress.Mvvm.v15.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
       <HintPath>..\DLLCopy\DevExpress.Printing.v15.1.Core.dll</HintPath>
@@ -96,6 +97,7 @@
     <Reference Include="DevExpress.RichEdit.v15.1.Core">
       <HintPath>..\DLL\DevExpress.RichEdit.v15.1.Core.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Charts.v15.1">
       <HintPath>..\DLL\DevExpress.Xpf.Charts.v15.1.dll</HintPath>
     </Reference>
@@ -129,12 +131,14 @@
     <Reference Include="DevExpress.Xpf.NavBar.v15.1">
       <HintPath>..\DLL\DevExpress.Xpf.NavBar.v15.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.PropertyGrid.v15.1">
       <HintPath>..\DLL\DevExpress.Xpf.PropertyGrid.v15.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Ribbon.v15.1">
       <HintPath>..\DLL\DevExpress.Xpf.Ribbon.v15.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Xpf.Spreadsheet.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -293,6 +297,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
