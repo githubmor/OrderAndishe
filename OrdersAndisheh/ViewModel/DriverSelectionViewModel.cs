@@ -1,8 +1,5 @@
-﻿using BL;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
-using OrdersAndisheh.DBL;
-using System.Collections.Generic;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -14,25 +11,17 @@ namespace OrdersAndisheh.ViewModel
     /// </summary>
     public class DriverSelectionViewModel : ViewModelBase
     {
-        ISefareshService service;
         /// <summary>
         /// Initializes a new instance of the DriverSelection class.
         /// </summary>
-        public DriverSelectionViewModel(ISefareshService _service)
+        public DriverSelectionViewModel()
         {
-            service = _service;
-            MyProperty = service.LoadGoods();
-            MyProperty2 = new List<Product>();
-            //Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);
+            Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);
         }
 
-        public List<Product> MyProperty { get; set; }
-
-
-        public List<Product> MyProperty2 { get; set; }
-        //private void ThisSefaresh(string obj)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
+        private void ThisSefaresh(string obj)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
