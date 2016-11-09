@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.ignore.com"
-        xmlns:Views="clr-namespace:OrdersAndisheh.DevUI.Views" x:Class="OrdersAndisheh.View.DriverSelectionView"
-        mc:Ignorable="d ignore"
-        DataContext="{Binding DriverSel, Source={StaticResource Locator}}">
+        xmlns:Views="clr-namespace:OrdersAndisheh.DevUI.Views" x:Class="OrdersAndisheh.View.UIEditon"
+        mc:Ignorable="d ignore">
 
-    <Grid/>
+    <Grid>
+        <Views:MyContextCFView/>
+    </Grid>
 </Window>

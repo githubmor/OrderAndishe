@@ -41,6 +41,7 @@
             <Button Content="ارتباط اوراکل" Width="75" Margin="0,10,0,0" Command="{Binding OracleRelation, Mode=OneWay}"/>
 
         </StackPanel>
-       
+        <Button Content="Button" Command="{Binding DataUIEdition}" HorizontalAlignment="Left" Margin="424,39,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

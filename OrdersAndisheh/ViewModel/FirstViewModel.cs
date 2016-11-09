@@ -12,6 +12,7 @@ using System.IO;
 using System.Reflection;
 using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
+using OrdersAndisheh.DevUI.Views;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -466,6 +467,26 @@ namespace OrdersAndisheh.ViewModel
             v.Show();
         }
 
+
+        private RelayCommand _myCommand654654;
+
+        /// <summary>
+        /// Gets the DataUIEdition.
+        /// </summary>
+        public RelayCommand DataUIEdition
+        {
+            get
+            {
+                return _myCommand654654
+                    ?? (_myCommand654654 = new RelayCommand(ExecuteDataUIEdition));
+            }
+        }
+
+        private void ExecuteDataUIEdition()
+        {
+            UIEditon v = new UIEditon();
+            v.Show();
+        }
         
     }
 
