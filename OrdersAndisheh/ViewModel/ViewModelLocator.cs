@@ -37,6 +37,7 @@ namespace OrdersAndisheh.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<FirstViewModel>();
             SimpleIoc.Default.Register<DriverSelectionViewModel>();
+            SimpleIoc.Default.Register<OracleRelationViewModel>();
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
             
         }
@@ -61,6 +62,14 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<DriverSelectionViewModel>();
+            }
+        }
+
+        public OracleRelationViewModel OracleRelation
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<OracleRelationViewModel>();
             }
         }
         public static void Cleanup()

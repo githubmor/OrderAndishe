@@ -88,8 +88,8 @@ namespace OrdersAndisheh.DBL
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
             modelBuilder.Entity<Product>()
-                .HasMany(o=>o.Customers)
-                .WithMany(p=>p.Products)
+                .HasMany(o=>o.OracleCustomers)
+                .WithMany(p=>p.OracleProducts)
                 .Map(
                     m =>
                     {

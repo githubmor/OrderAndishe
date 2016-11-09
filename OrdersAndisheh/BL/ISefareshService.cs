@@ -11,5 +11,8 @@ namespace BL
         void SaveSefaresh(BL.Sefaresh sefaresh);
         void UnAcceptSefaresh(BL.Sefaresh sefaresh);
         void UpdateSefaresh(BL.Sefaresh sefaresh);
+        System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> LoadOracleCustomer();
+
+        void SaveOracleRelation(System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> OCustomers);
     }
 }

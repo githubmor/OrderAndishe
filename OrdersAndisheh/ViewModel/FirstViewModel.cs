@@ -446,6 +446,26 @@ namespace OrdersAndisheh.ViewModel
             //}
         }
 
+        private RelayCommand _myCommand565;
+
+        /// <summary>
+        /// Gets the OracleRelation.
+        /// </summary>
+        public RelayCommand OracleRelation
+        {
+            get
+            {
+                return _myCommand565
+                    ?? (_myCommand565 = new RelayCommand(ExecuteOracleRelation));
+            }
+        }
+
+        private void ExecuteOracleRelation()
+        {
+            OracleRelationView v = new OracleRelationView();
+            v.Show();
+        }
+
         
     }
 

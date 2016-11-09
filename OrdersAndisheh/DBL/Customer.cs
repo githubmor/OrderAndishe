@@ -13,7 +13,7 @@ namespace OrdersAndisheh.DBL
         public Customer()
         {
             OrderDetails = new HashSet<OrderDetail>();
-            Products = new HashSet<Product>();
+            OracleProducts = new HashSet<Product>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,6 +24,6 @@ namespace OrdersAndisheh.DBL
         public string Name { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product> OracleProducts { get; set; }
     }
 }

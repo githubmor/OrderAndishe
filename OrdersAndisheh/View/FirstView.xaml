@@ -30,7 +30,7 @@
             <Button Content="به روز رسانی اطلاعات" Click="Button_Click" />
             <Label Content="{Binding FilePath}"/>
             <Button Content="چک کردن فایل" Command="{Binding CheckingData, Mode=OneWay}"/>
-            <TextBlock Text="{Binding CheckResult}" TextWrapping="Wrap"  ScrollViewer.HorizontalScrollBarVisibility="Visible" FlowDirection="RightToLeft" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" Height="146" />
+            <TextBlock Text="{Binding CheckResult}" TextWrapping="Wrap"  ScrollViewer.VerticalScrollBarVisibility="Visible" FlowDirection="RightToLeft" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" Height="146" />
             <StackPanel  Orientation="Vertical" HorizontalAlignment="Center">
                 <Button Content="پالت جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding AddNewPallet, Mode=OneWay}" Visibility="{Binding HasNewPallet, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                 <Button Content="بازرس جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Visibility="{Binding HasNewBazres, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding AddNewBazres, Mode=OneWay}"/>
@@ -38,6 +38,8 @@
                 <Button Content="راننده جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Visibility="{Binding HasNewDriver, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding AddNewDriver, Mode=OneWay}"/>
                 <Button Content="کالای جدید" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Visibility="{Binding HasNewProduct, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding AddNewProduct, Mode=OneWay}"/>
             </StackPanel>
+            <Button Content="ارتباط اوراکل" Width="75" Margin="0,10,0,0" Command="{Binding OracleRelation, Mode=OneWay}"/>
+
         </StackPanel>
        
     </Grid>

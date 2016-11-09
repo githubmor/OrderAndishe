@@ -37,23 +37,23 @@ namespace BL
             }
 		}
 
-        private void AttachToDataBase(List<OrderDetail> orderDetails, MyContextCF db)
-        {
-            foreach (var item in orderDetails)
-            {
-                if (item.Customer != null)
-                {
-                    db.Customers.Attach(item.Customer);
-                }
-                if (item.Driver != null)
-                {
-                    db.Drivers.Attach(item.Driver);
-                }
-                db.Pallets.Attach(item.Product.Pallet);
-                db.Bazress.Attach(item.Product.Bazre);
-                db.Products.Attach(item.Product);
-            }
-        }
+        //private void AttachToDataBase(List<OrderDetail> orderDetails, MyContextCF db)
+        //{
+        //    foreach (var item in orderDetails)
+        //    {
+        //        if (item.Customer != null)
+        //        {
+        //            db.Customers.Attach(item.Customer);
+        //        }
+        //        if (item.Driver != null)
+        //        {
+        //            db.Drivers.Attach(item.Driver);
+        //        }
+        //        db.Pallets.Attach(item.Product.Pallet);
+        //        db.Bazress.Attach(item.Product.Bazre);
+        //        db.Products.Attach(item.Product);
+        //    }
+        //}
 
         public void UpdateSefaresh(Sefaresh sefaresh)
 		{
@@ -187,8 +187,42 @@ namespace BL
             //}
         }
 
+        public List<Customer> LoadOracleCustomer()
+        {
+            //using (MyContextCF db = new MyContextCF())
+            //{
+            var b = db.Customers.Include("OracleProducts").ToList();
+            return b.Where(p => p.OracleProducts.Count>0).ToList();
+            //}
+        }
+
+        public void SaveOracleRelation(List<Customer> oCustomers)
+        {
+            var b = db.Customers.Include("OracleProducts").ToList();
+            List<Customer> existingItems = b.Where(p => p.OracleProducts.Count > 0).ToList();
 
 
+            List<Customer> newItems = new List<Customer>();
+            foreach (var item in oCustomers)
+            {
+                newItems.Add(item);
+            }
+
+            //List<OrderDetail> addedItems = newItems.Except(existingItems).ToList();
+
+            List<Customer> deletedItems = existingItems.Except(newItems).ToList();
+
+            //List<OrderDetail> modifiedItems = newItems.Except(addedItems).ToList();
+
+            //    //db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
+            //    //db.SaveChanges();
+            foreach (var item in deletedItems)
+            {
+                db.Customers.Remove(item);
+            }
+
+            db.SaveChanges();
+        }
         //public void Dispose()
         //{
         //    db.Database.Connection.Close();
