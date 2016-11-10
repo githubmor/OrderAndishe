@@ -223,10 +223,19 @@ namespace BL
 
             db.SaveChanges();
         }
-        //public void Dispose()
-        //{
-        //    db.Database.Connection.Close();
-        //}
+
+        public List<ItemSefaresh> LoadSefareshItems(string sefareshTarikh)
+        {
+            List<ItemSefaresh> mn = new List<ItemSefaresh>();
+            var m = db.OrderDetails.Where(p => p.Order.Tarikh == sefareshTarikh).Include("Product").ToList();
+            foreach (var item in m)
+            {
+                mn.Add(new ItemSefaresh(item));
+            }
+
+            return mn;
+        }
+       
     }
 }
 

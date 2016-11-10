@@ -368,7 +368,7 @@ namespace OrdersAndisheh.ViewModel
             if (!string.IsNullOrEmpty(SelectedTarikh))
             {
                 MainView v = new MainView();
-                Messenger.Default.Send(SelectedTarikh, "EditSefaresh");
+                Messenger.Default.Send<string>(SelectedTarikh, "EditSefaresh");
                 v.Show();
                 
             }
@@ -484,7 +484,10 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDataUIEdition()
         {
-            UIEditon v = new UIEditon();
+            //UIEditon v = new UIEditon();
+            //v.Show();
+            DriverSelectionView v = new DriverSelectionView();
+            Messenger.Default.Send<string>("1395/08/12", "ThisSefaresh");
             v.Show();
         }
         

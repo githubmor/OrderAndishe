@@ -14,5 +14,7 @@ namespace BL
         System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> LoadOracleCustomer();
 
         void SaveOracleRelation(System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> OCustomers);
+
+        System.Collections.Generic.List<ItemSefaresh> LoadSefareshItems(string sefareshTarikh);
     }
 }

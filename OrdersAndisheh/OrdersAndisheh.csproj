@@ -140,6 +140,7 @@
     </Reference>
     <Reference Include="DevExpress.Xpf.Printing.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\DLL\DevExpress.Xpf.Printing.v15.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.PropertyGrid.v15.1">
       <HintPath>..\DLL\DevExpress.Xpf.PropertyGrid.v15.1.dll</HintPath>
@@ -355,9 +356,6 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\DriverSelectionView.xaml.cs">
-      <DependentUpon>DriverSelectionView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\EnterNextTab.cs" />
     <Compile Include="View\FirstView.xaml.cs">
       <DependentUpon>FirstView.xaml</DependentUpon>
@@ -368,6 +366,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\DriverSelectionView.xaml.cs">
+      <DependentUpon>DriverSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OracleRelationView.xaml.cs">
       <DependentUpon>OracleRelationView.xaml</DependentUpon>
@@ -419,16 +420,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\DriverSelectionView.xaml">
-      <SubType>Form</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\FirstView.xaml">
       <SubType>Form</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainView.xaml">
       <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DriverSelectionView.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OracleRelationView.xaml">
@@ -458,7 +459,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

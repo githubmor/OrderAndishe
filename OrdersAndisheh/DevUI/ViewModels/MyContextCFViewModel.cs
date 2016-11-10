@@ -17,7 +17,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
     public partial class MyContextCFViewModel : DocumentsViewModel<MyContextCFModuleDescription, IMyContextCFUnitOfWork>
     {
 
-        const string TablesGroup = "Tables";
+        const string TablesGroup = "اطلاعات";
 
         const string ViewsGroup = "Views";
         INavigationService NavigationService { get { return this.GetService<INavigationService>(); } }
@@ -42,11 +42,11 @@ namespace OrdersAndisheh.DevUI.ViewModels
         protected override MyContextCFModuleDescription[] CreateModules()
         {
             return new MyContextCFModuleDescription[] {
-                new MyContextCFModuleDescription("Bazress", "BazresCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bazress)),
-                new MyContextCFModuleDescription("Products", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),
-                new MyContextCFModuleDescription("Customers", "CustomerCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Customers)),
-                new MyContextCFModuleDescription("Drivers", "DriverCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Drivers)),
-                new MyContextCFModuleDescription("Pallets", "PalletCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Pallets)),
+                new MyContextCFModuleDescription("بازرس", "BazresCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bazress)),
+                new MyContextCFModuleDescription("كالا", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),
+                new MyContextCFModuleDescription("مقاصد", "CustomerCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Customers)),
+                new MyContextCFModuleDescription("راننده", "DriverCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Drivers)),
+                new MyContextCFModuleDescription("پالت", "PalletCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Pallets)),
 			};
         }
 
