@@ -26,7 +26,11 @@ namespace OrdersAndisheh.ViewModel
             service = _s;
             Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);
             ErsalItems = new ObservableCollection<ItemSefaresh>();
-            DriverItems1 = new ObservableCollection<ItemSefaresh>();
+            DriverItems1 = new ObservableCollection<ObservableCollection<ItemSefaresh>>() 
+            { 
+                new ObservableCollection<ItemSefaresh>(),
+                ErsalItems
+            };
         }
 
         private void ThisSefaresh(string obj)
@@ -44,10 +48,10 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.ErsalItems);
             }
         }
-        
-        
 
-        public ObservableCollection<ItemSefaresh> DriverItems1 { get; set; }
+
+
+        public ObservableCollection<ObservableCollection<ItemSefaresh>> DriverItems1 { get; set; }
         //public ObservableCollection<ItemSefaresh> item2 { get; set; }
         //public ObservableCollection<ItemSefaresh> item3 { get; set; }
         //public ObservableCollection<ItemSefaresh> item4 { get; set; }

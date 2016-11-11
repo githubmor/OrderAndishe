@@ -486,7 +486,7 @@ namespace OrdersAndisheh.ViewModel
         {
             //UIEditon v = new UIEditon();
             //v.Show();
-            DriverSelectionView v = new DriverSelectionView();
+            DriverSelectionView1 v = new DriverSelectionView1();
             Messenger.Default.Send<string>("1395/08/12", "ThisSefaresh");
             v.Show();
         }

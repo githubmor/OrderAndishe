@@ -351,11 +351,18 @@
     <Compile Include="ExcelManager\DbService.cs" />
     <Compile Include="ExcelManager\ExcelService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ViewModel\DriverContainerViewModel.cs" />
     <Compile Include="ViewModel\DriverSelectionViewModel.cs" />
     <Compile Include="ViewModel\FirstViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\DriverContainerUserControl.xaml.cs">
+      <DependentUpon>DriverContainerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DriverSelectionView - Copy.xaml.cs">
+      <DependentUpon>DriverSelectionView - Copy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EnterNextTab.cs" />
     <Compile Include="View\FirstView.xaml.cs">
       <DependentUpon>FirstView.xaml</DependentUpon>
@@ -420,6 +427,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\DriverContainerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DriverSelectionView - Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\FirstView.xaml">
       <SubType>Form</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -459,6 +474,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
