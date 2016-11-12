@@ -24,18 +24,22 @@ namespace OrdersAndisheh.ViewModel
         public DriverSelectionViewModel(ISefareshService _s)
         {
             service = _s;
-            Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);
             ErsalItems = new ObservableCollection<ItemSefaresh>();
-            DriverItems1 = new ObservableCollection<ObservableCollection<ItemSefaresh>>() 
-            { 
-                new ObservableCollection<ItemSefaresh>(),
-                ErsalItems
-            };
+            DriverViewModels = new ObservableCollection<DriverContainerViewModel>();
+            Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);
         }
 
         private void ThisSefaresh(string obj)
         {
             ErsalItems = new ObservableCollection<ItemSefaresh>(service.LoadSefareshItems(obj));
+
+            var ma = ErsalItems.Select(p => p.Maghsad).Distinct();
+
+            foreach (var item in ma)
+            {
+                var p = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Maghsad == item).ToList());
+                DriverViewModels.Add(new DriverContainerViewModel(p));
+            }
         }
 
         private ObservableCollection<ItemSefaresh> ersalItems =  new ObservableCollection<ItemSefaresh>();
@@ -50,14 +54,7 @@ namespace OrdersAndisheh.ViewModel
         }
 
 
-
-        public ObservableCollection<ObservableCollection<ItemSefaresh>> DriverItems1 { get; set; }
-        //public ObservableCollection<ItemSefaresh> item2 { get; set; }
-        //public ObservableCollection<ItemSefaresh> item3 { get; set; }
-        //public ObservableCollection<ItemSefaresh> item4 { get; set; }
-        //public ObservableCollection<ItemSefaresh> item5 { get; set; }
-        //public ObservableCollection<ItemSefaresh> item6 { get; set; }
-        //public ObservableCollection<ItemSefaresh> item7 { get; set; }
-        //public ObservableCollection<ItemSefaresh> item8 { get; set; }
+        public ObservableCollection<DriverContainerViewModel> DriverViewModels { get; set; }
+       
     }
 }

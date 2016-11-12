@@ -38,19 +38,19 @@ namespace OrdersAndisheh.View
        void DriverSelectionView_Loaded(object sender, RoutedEventArgs e)
        {
 
-           DriverListBox1.AllowDrop = true;
-           DriverListBox2.AllowDrop = true;
+           //DriverListBox1.AllowDrop = true;
+           //DriverListBox2.AllowDrop = true;
            ErsallistBox.AllowDrop = true;
 
-           DriverListBox1.AddHandler(ListBoxEdit.MouseLeftButtonDownEvent, new MouseButtonEventHandler(list_MouseLeftButtonDown), true);
-           DriverListBox1.PreviewMouseMove += new MouseEventHandler(list_PreviewMouseMove);
-           DriverListBox1.DragOver += new DragEventHandler(list_DragOver);
-           DriverListBox1.Drop += new DragEventHandler(list_Drop);
+           //DriverListBox1.AddHandler(ListBoxEdit.MouseLeftButtonDownEvent, new MouseButtonEventHandler(list_MouseLeftButtonDown), true);
+           //DriverListBox1.PreviewMouseMove += new MouseEventHandler(list_PreviewMouseMove);
+           //DriverListBox1.DragOver += new DragEventHandler(list_DragOver);
+           //DriverListBox1.Drop += new DragEventHandler(list_Drop);
 
-           DriverListBox2.AddHandler(ListBoxEdit.MouseLeftButtonDownEvent, new MouseButtonEventHandler(list_MouseLeftButtonDown), true);
-           DriverListBox2.PreviewMouseMove += new MouseEventHandler(list_PreviewMouseMove);
-           DriverListBox2.DragOver += new DragEventHandler(list_DragOver);
-           DriverListBox2.Drop += new DragEventHandler(list_Drop);
+           //DriverListBox2.AddHandler(ListBoxEdit.MouseLeftButtonDownEvent, new MouseButtonEventHandler(list_MouseLeftButtonDown), true);
+           //DriverListBox2.PreviewMouseMove += new MouseEventHandler(list_PreviewMouseMove);
+           //DriverListBox2.DragOver += new DragEventHandler(list_DragOver);
+           //DriverListBox2.Drop += new DragEventHandler(list_Drop);
 
            ErsallistBox.AddHandler(ListBoxEdit.MouseLeftButtonDownEvent, new MouseButtonEventHandler(list_MouseLeftButtonDown), true);
            ErsallistBox.PreviewMouseMove += new MouseEventHandler(list_PreviewMouseMove);

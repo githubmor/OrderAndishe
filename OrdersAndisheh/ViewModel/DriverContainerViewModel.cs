@@ -1,5 +1,6 @@
 ﻿using BL;
 using GalaSoft.MvvmLight;
+using System;
 using System.Collections.ObjectModel;
 
 namespace OrdersAndisheh.ViewModel
@@ -12,16 +13,30 @@ namespace OrdersAndisheh.ViewModel
     /// </summary>
     public class DriverContainerViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the DriverContainerViewModel class.
-        /// </summary>
+        int felaziPalletCount = 0;
+        int chobiPalletCount = 0;
         public DriverContainerViewModel()
         {
             Mahmole = new ObservableCollection<ItemSefaresh>();
             Mahmole.CollectionChanged += (sender, e) =>
             {
                 RaisePropertyChanged(() => this.VaznKol);
+                RaisePropertyChanged(() => this.FeleziPalletCount);
+                RaisePropertyChanged(() => this.ChobiPalletCount);
                 RaisePropertyChanged(() => this.JaigahCount);
+            };
+        }
+        
+
+        public DriverContainerViewModel(ObservableCollection<ItemSefaresh> items)
+        {
+            Mahmole = items;
+            Mahmole.CollectionChanged += (sender, e) =>
+            {
+                RaisePropertyChanged(() => this.VaznKol);
+                RaisePropertyChanged(() => this.JaigahCount);
+                RaisePropertyChanged(() => this.FeleziPalletCount);
+                RaisePropertyChanged(() => this.ChobiPalletCount);
             };
         }
 
@@ -30,10 +45,11 @@ namespace OrdersAndisheh.ViewModel
 
         private int vaznCal()
         {
+            //string re = "وزن ";
             int s = 0;
             foreach (var item in Mahmole)
             {
-                s += item.Vazn;
+                s += item.Vazn ;
             }
             return s;
         }
@@ -42,19 +58,59 @@ namespace OrdersAndisheh.ViewModel
         {
             get { return vaznCal(); }
         }
-        public int JaigahCount
+        public string JaigahCount
         {
             get { return JaigahCountCal(); }
         }
 
-        private int JaigahCountCal()
+        private string JaigahCountCal()
         {
-            int d = 0;
+           
+            return (Math.Ceiling((double)FeleziPalletCount / 2) + ChobiPalletCount).ToString();
+        }
+
+        public int FeleziPalletCount //{ get; set; }
+        {
+            get 
+            {
+                return PalletFelezCount();
+            }
+        }
+
+        private int PalletFelezCount()
+        {
+            felaziPalletCount = 0;
             foreach (var item in Mahmole)
             {
-                d += int.Parse(item.Pallet);
+                if (item.Product.Pallet.Vazn > 30)
+                {
+                    felaziPalletCount += int.Parse(item.Pallet);
+                }
             }
-            return d;
+
+            return felaziPalletCount;
         }
+        public int ChobiPalletCount //{ get; set; }
+        {
+            get
+            {
+                return PalletChobiCount();
+            }
+        }
+
+        private int PalletChobiCount()
+        {
+            chobiPalletCount = 0;
+            foreach (var item in Mahmole)
+            {
+                if (item.Product.Pallet.Vazn < 30)
+                {
+                    chobiPalletCount += int.Parse(item.Pallet);
+                }
+            }
+
+            return chobiPalletCount;
+        }
+        //public string ChobiPalletCount { get; set; }
     }
 }

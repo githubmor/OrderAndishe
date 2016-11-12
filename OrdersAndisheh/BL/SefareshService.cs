@@ -227,7 +227,12 @@ namespace BL
         public List<ItemSefaresh> LoadSefareshItems(string sefareshTarikh)
         {
             List<ItemSefaresh> mn = new List<ItemSefaresh>();
-            var m = db.OrderDetails.Where(p => p.Order.Tarikh == sefareshTarikh).Include("Product").ToList();
+            var m = db.OrderDetails
+                .Where(p => p.Order.Tarikh == sefareshTarikh)
+                .Include("Customer")
+                .Include("Product")
+                .Include("Product.Pallet")
+                .ToList();
             foreach (var item in m)
             {
                 mn.Add(new ItemSefaresh(item));

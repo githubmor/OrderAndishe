@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="OrdersAndisheh.View.DriverContainerUserControl" 
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:l="clr-namespace:OrdersAndisheh.View"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    x:Class="OrdersAndisheh.View.DriverContainerUserControl" 
              mc:Ignorable="d" >
+    <UserControl.Resources>
+        <l:ColorValueConvertor x:Key="converter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -12,14 +18,64 @@
         </Grid.RowDefinitions>
 
 
-        <dxe:ListBoxEdit Margin="10" Grid.Row="0" Height="150" Width="200" ItemsSource="{Binding }"/>
+        <dxe:ListBoxEdit DisplayMember="Kala" x:Name="DriverListBox" 
+                         Margin="2" Grid.Row="0" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }" 
+                         MinWidth="80" MinHeight="100"/>
         <dx:UniformStackPanel FlowDirection="RightToLeft" Orientation="Vertical" Grid.RowSpan="1" Grid.Row="1" >
-            
-            <Label Content="وزن کل :"  VerticalContentAlignment="Center"/>
-            <Label Content="تعداد جایگاه :"  VerticalContentAlignment="Center"/>
-            <Label Content="نوع ماشین :"  VerticalContentAlignment="Center"/>
-            <Label Content="تعداد پالت فلزی :"  VerticalContentAlignment="Center"/>
-            <Label Content="تعداد پالت چوبی :" VerticalContentAlignment="Center"/>
+
+            <Label  VerticalContentAlignment="Center">
+                <Label.Content>
+                    <Binding Path="VaznKol"/>
+                </Label.Content>
+                <Label.ContentStringFormat>
+                     {0} کیلوگرم
+                </Label.ContentStringFormat>
+            </Label>
+            <Label  VerticalContentAlignment="Center">
+                <Label.Content>
+                    <Binding Path="FeleziPalletCount"/>
+                </Label.Content>
+                <Label.ContentStringFormat>
+                    {0} پالت فلزی
+                </Label.ContentStringFormat>
+            </Label>
+            <Label  VerticalContentAlignment="Center">
+                <Label.Content>
+                    <Binding Path="ChobiPalletCount"/>
+                </Label.Content>
+                <Label.ContentStringFormat>
+                    {0} پالت چوبی
+                </Label.ContentStringFormat>
+            </Label>
+            <Label  VerticalContentAlignment="Center" Foreground="{Binding JaigahCount, Converter={StaticResource converter}}">
+                <Label.Content>
+                    <Binding Path="JaigahCount"  />
+                </Label.Content>
+                <Label.ContentStringFormat>
+                    {0} جایگاه
+                </Label.ContentStringFormat>
+            </Label>
+            <!--<Label  VerticalContentAlignment="Center">
+                --><!--<Label.Content>--><!--
+                    <Label.Content>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                <Binding Path="FeleziPalletCount" />
+                                <Binding Path="ChobiPalletCount" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </Label.Content>
+                    --><!--<MultiBinding StringFormat="{}{0} + {1}">
+                        <Binding Path="FeleziPalletCount" />
+                        <Binding Path="ChobiPalletCount" />
+                    </MultiBinding>-->
+                <!--</Label.Content>-->
+                <!--<Label.ContentStringFormat>
+                    {0} پالت فلزی {1} پالت چوبی
+                </Label.ContentStringFormat>--><!--
+            </Label>-->
         </dx:UniformStackPanel>
 
     </Grid>

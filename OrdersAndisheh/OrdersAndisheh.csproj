@@ -291,6 +291,7 @@
     <Compile Include="Common\ViewModel\PersistentLayoutHelper.cs" />
     <Compile Include="Common\ViewModel\ReadOnlyCollectionViewModel.cs" />
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
+    <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\Bazres.cs" />
     <Compile Include="DBL\Customer.cs" />
@@ -357,11 +358,12 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\ColorValueConvertor.cs" />
     <Compile Include="View\DriverContainerUserControl.xaml.cs">
       <DependentUpon>DriverContainerUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DriverSelectionView - Copy.xaml.cs">
-      <DependentUpon>DriverSelectionView - Copy.xaml</DependentUpon>
+    <Compile Include="View\DriverSelectionView.xaml.cs">
+      <DependentUpon>DriverSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EnterNextTab.cs" />
     <Compile Include="View\FirstView.xaml.cs">
@@ -373,9 +375,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="View\DriverSelectionView.xaml.cs">
-      <DependentUpon>DriverSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OracleRelationView.xaml.cs">
       <DependentUpon>OracleRelationView.xaml</DependentUpon>
@@ -431,7 +430,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DriverSelectionView - Copy.xaml">
+    <Page Include="View\DriverSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -441,10 +440,6 @@
     </Page>
     <Page Include="View\MainView.xaml">
       <SubType>Form</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DriverSelectionView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OracleRelationView.xaml">
@@ -474,7 +469,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
