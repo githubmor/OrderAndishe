@@ -73,7 +73,7 @@ namespace OrdersAndisheh.ViewModel
             get 
             {
                 if (selectedoCustomer != null)
-                    return new ObservableCollection<Product>(SelectedoCustomer.OracleProducts);
+                    return new ObservableCollection<Product>(SelectedoCustomer.ProductRelation.Products);
                 else
                     return null;
             }
@@ -135,7 +135,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewOProduct()
         {
-            SelectedoCustomer.OracleProducts.Add(SelectedProductForAdd);
+            SelectedoCustomer.ProductRelation.Products.Add(SelectedProductForAdd);
         }
 
         private bool CanExecuteAddNewOProduct()
@@ -210,7 +210,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDelOProduct()
         {
-            SelectedoCustomer.OracleProducts.Remove(SelectedoProduct);
+            SelectedoCustomer.ProductRelation.Products.Remove(SelectedoProduct);
         }
 
         private bool CanExecuteDelOProduct()

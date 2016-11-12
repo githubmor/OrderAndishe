@@ -24,7 +24,7 @@ namespace UnitTest
                     });
                 vazn += p[i].Vazn;
             }
-            
+
 
             DriverContainerViewModel v = new DriverContainerViewModel(p);
 

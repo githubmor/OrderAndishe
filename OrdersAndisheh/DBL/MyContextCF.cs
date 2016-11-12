@@ -26,6 +26,7 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<Pallet> Pallets { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<MOracle> MOracles { get; set; }
+        public virtual DbSet<CustomerProductRelation> CustomerProductRelations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -87,6 +88,16 @@ namespace OrdersAndisheh.DBL
                 .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
+            modelBuilder.Entity<CustomerProductRelation>()
+                .HasMany(p => p.Customers)
+                .WithRequired(o => o.ProductRelation)
+                .HasForeignKey(p=>p.RelationId)
+                .WillCascadeOnDelete(true);
+            modelBuilder.Entity<CustomerProductRelation>()
+                .HasMany(p => p.Products)
+                .WithRequired(o => o.CustomerRelation)
+                .HasForeignKey(p => p.RelationId)
+                .WillCascadeOnDelete(true);
             //modelBuilder.Entity<Product>()
             //    .HasMany(o=>o.OracleCustomers)
             //    .WithMany(p=>p.OracleProducts)

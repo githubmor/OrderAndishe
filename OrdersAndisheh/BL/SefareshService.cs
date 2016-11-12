@@ -192,14 +192,14 @@ namespace BL
             //using (MyContextCF db = new MyContextCF())
             //{
             var b = db.Customers.Include("OracleProducts").ToList();
-            return b.Where(p => p.OracleProducts.Count>0).ToList();
+            return b.Where(p => p.ProductRelation.Customers.Count>0).ToList();
             //}
         }
 
         public void SaveOracleRelation(List<Customer> oCustomers)
         {
             var b = db.Customers.Include("OracleProducts").ToList();
-            List<Customer> existingItems = b.Where(p => p.OracleProducts.Count > 0).ToList();
+            List<Customer> existingItems = b.Where(p => p.ProductRelation.Customers.Count > 0).ToList();
 
 
             List<Customer> newItems = new List<Customer>();
