@@ -110,7 +110,7 @@ namespace OrdersAndisheh.View
         {
             ListView listBoxEdit = (ListView)sender;
             DependencyObject hittedObject = listBoxEdit.InputHitTest(e.GetPosition(listBoxEdit)) as DependencyObject;
-            FrameworkElement hittedItem = LayoutHelper.FindParentObject<ListBoxEditItem>(hittedObject);
+            FrameworkElement hittedItem = LayoutHelper.FindParentObject<ListView>(hittedObject);
 
             if (hittedItem != null)
             {

@@ -10,9 +10,18 @@
              mc:Ignorable="d" >
     <UserControl.Resources>
         <l:ColorValueConvertor x:Key="converter" />
+        <l:ZeroToVisibleConvertor x:Key="converter2" />
     </UserControl.Resources>
     <Grid>
         <StackPanel FlowDirection="RightToLeft" Orientation="Vertical" >
+            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top" >
+                <Label.Content>
+                    <Binding Path="DriverNumber"/>
+                </Label.Content>
+                <Label.ContentStringFormat>
+                    {0} راننده
+                </Label.ContentStringFormat>
+            </Label>
             <ListView Margin="5"  Name="DriverListBox" MinHeight="80" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }"   FlowDirection="RightToLeft">
                 <ListView.View>
                     <GridView>
@@ -22,23 +31,26 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-
-            <!--<ListView x:Name="DriverListBox" 
-                         Margin="2" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }" 
-                      MinHeight="50" MinWidth="60" 
-                         >
-                <ListViewItem Content="sd" />
-            </ListView>-->
-        
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top" >
-                <Label.Content>
-                    <Binding Path="DriverNumber"/>
-                </Label.Content>
-                <Label.ContentStringFormat>
-                    {0} راننده
-                </Label.ContentStringFormat>
-            </Label>
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
+            <!--<ListBox ItemsSource="{Binding Mahmole}" Margin="5"  Name="DriverListBox" MinHeight="80" Grid.IsSharedSizeScope="True" Width="120">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Column1"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Column2"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Column3"/>
+                            </Grid.ColumnDefinitions>
+                            --><!-- Assumes MVVM and you wish to bind to properties and commands --><!--
+                            <TextBlock Grid.Column="0" Text="{Binding Kala}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Vazn}"/>
+                            <TextBlock Grid.Column="2" Text="{Binding Pallet}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
+            
+            
+            <Label Visibility="{Binding VaznKol, Converter={StaticResource converter2}}"  VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="VaznKol"/>
                 </Label.Content>
@@ -46,7 +58,7 @@
                      {0} کیلوگرم
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
+            <Label  VerticalContentAlignment="Center" Visibility="{Binding FeleziPalletCount, Converter={StaticResource converter2}}" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="FeleziPalletCount"/>
                 </Label.Content>
@@ -54,7 +66,7 @@
                     {0} پالت فلزی
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
+            <Label Visibility="{Binding ChobiPalletCount, Converter={StaticResource converter2}}" VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="ChobiPalletCount"/>
                 </Label.Content>
@@ -62,7 +74,7 @@
                     {0} پالت چوبی
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center" Foreground="{Binding JaigahCount, Converter={StaticResource converter}}">
+            <Label Visibility="{Binding JaigahCount, Converter={StaticResource converter2}}" VerticalContentAlignment="Center" Foreground="{Binding JaigahCount, Converter={StaticResource converter}}">
                 <Label.Content>
                     <Binding Path="JaigahCount"  />
                 </Label.Content>
@@ -70,7 +82,7 @@
                     {0} جایگاه
                 </Label.ContentStringFormat>
             </Label>
-            
+            <ComboBox ItemsSource="{Binding Drivers}"/>
         </StackPanel>
 
     </Grid>

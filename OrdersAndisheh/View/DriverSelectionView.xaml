@@ -27,19 +27,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-                <!--<ListView x:Name="ErsallistBox" FlowDirection="RightToLeft" Margin="10" 
-                Height="444" ItemsSource="{Binding ErsalItems}"  >
-                    <ListView.View>
-                        <GridView>
-                            <GridView.Columns>
-                                <GridViewColumn Header="1" Width="Auto" DisplayMemberBinding="{Binding Path=Kala}" />
-                                <GridViewColumn Header="2" Width="Auto" DisplayMemberBinding="{Binding Path=Maghsad}" />
-                                <GridViewColumn Header="3" Width="Auto" DisplayMemberBinding="{Binding Path=Pallet}" />
-                            </GridView.Columns>
-                        </GridView>
-                    </ListView.View>
-                </ListView>-->
-            <!--</ListBox>-->
+            
         </StackPanel>
         <ItemsControl Grid.Column="0"
               ItemsSource="{Binding DriverViewModels}">
