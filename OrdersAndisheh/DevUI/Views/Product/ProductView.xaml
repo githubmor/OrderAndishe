@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.ProductView"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
+xmlns:system="clr-namespace:System;assembly=mscorlib"
+
+    mc:Ignorable="d"
+    d:DesignHeight="400" d:DesignWidth="600"
+	 DataContext="{dxmvvm:ViewModelSource viewmodel:ProductViewModel}"
+ 
+>
+    <dxmvvm:Interaction.Behaviors>
+        <dxwui:WinUIMessageBoxService/>
+        <dxmvvm:EventToCommand Event="Loaded" Command="{Binding OnLoadedCommand}" />
+    </dxmvvm:Interaction.Behaviors>
+
+    <DockPanel>
+        <dxwui:AppBar DockPanel.Dock="Bottom" HideMode="AlwaysVisible">
+            <dxwui:AppBarButton Label="Save" Command="{Binding SaveCommand}" Glyph="{dx:DXImageGrayscale Image=Save_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Save And Close" Command="{Binding SaveAndCloseCommand}" Glyph="{dx:DXImageGrayscale Image=SaveAndClose_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Save And New" Command="{Binding SaveAndNewCommand}" Glyph="{dx:DXImageGrayscale Image=SaveAndNew_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Reset Changes" Command="{Binding ResetCommand}" Glyph="{dx:DXImageGrayscale Image=Reset_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Delete" Command="{Binding DeleteCommand}" Glyph="{dx:DXImageGrayscale Image=Delete_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+        </dxwui:AppBar>
+        <dxlc:LayoutControl Orientation="Vertical" Padding="67,0,43,0" Margin="0,0,0,16">
+            <dxmvvm:Interaction.Behaviors>
+                <dxmvvm:EventToCommand Event="{x:Static Binding.SourceUpdatedEvent}" Command="{Binding UpdateCommand}" />
+            </dxmvvm:Interaction.Behaviors>
+            <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
+                <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Code" IsRequired="True" Name="layoutItemCode" >
+                <dxe:TextEdit EditValue="{Binding Entity.Code, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="8" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Name" IsRequired="True" Name="layoutItemName" >
+                <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="100" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Weight" Name="layoutItemWeight" >
+                <dxe:TextEdit EditValue="{Binding Entity.Weight, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" HorizontalContentAlignment="Right" EditValueType="system:Double" AllowNullInput="True" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Is Imen Kala" Name="layoutItemIsImenKala" >
+                <dxe:CheckEdit EditValue="{Binding Entity.IsImenKala, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Fani Code" Name="layoutItemFaniCode" >
+                <dxe:TextEdit EditValue="{Binding Entity.FaniCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Code Jense" Name="layoutItemCodeJense" >
+                <dxe:TextEdit EditValue="{Binding Entity.CodeJense, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Tedad Dar Pallet" Name="layoutItemTedadDarPallet" >
+                <dxe:TextEdit EditValue="{Binding Entity.TedadDarPallet, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int32" AllowNullInput="True" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Tedad Dar Sabad" Name="layoutItemTedadDarSabad" >
+                <dxe:TextEdit EditValue="{Binding Entity.TedadDarSabad, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int32" AllowNullInput="True" />
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Bazre" Name="layoutItemBazre" >
+                <dxg:LookUpEdit EditValue="{Binding Entity.Bazres_Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpBazress.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
+                    <dxg:LookUpEdit.PopupContentTemplate>
+                        <ControlTemplate TargetType="ContentControl" >
+                            <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpBazress.IsLoading}" />
+                        </ControlTemplate>
+                    </dxg:LookUpEdit.PopupContentTemplate>
+                </dxg:LookUpEdit>
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Customer Relation" Name="layoutItemCustomerRelation" >
+                <dxg:LookUpEdit EditValue="{Binding Entity.RelationId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpCustomerProductRelations.Entities}" ValueMember="Id" DisplayMember="Id" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
+                    <dxg:LookUpEdit.PopupContentTemplate>
+                        <ControlTemplate TargetType="ContentControl" >
+                            <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpCustomerProductRelations.IsLoading}" />
+                        </ControlTemplate>
+                    </dxg:LookUpEdit.PopupContentTemplate>
+                </dxg:LookUpEdit>
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Pallet" Name="layoutItemPallet" >
+                <dxg:LookUpEdit EditValue="{Binding Entity.PalletId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpPallets.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
+                    <dxg:LookUpEdit.PopupContentTemplate>
+                        <ControlTemplate TargetType="ContentControl" >
+                            <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpPallets.IsLoading}" />
+                        </ControlTemplate>
+                    </dxg:LookUpEdit.PopupContentTemplate>
+                </dxg:LookUpEdit>
+            </dxlc:LayoutItem>
+        </dxlc:LayoutControl>
+    </DockPanel>
+</UserControl>

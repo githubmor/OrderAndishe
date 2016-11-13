@@ -12,7 +12,6 @@ using System.IO;
 using System.Reflection;
 using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
-using OrdersAndisheh.DevUI.Views;
 
 namespace OrdersAndisheh.ViewModel
 {
