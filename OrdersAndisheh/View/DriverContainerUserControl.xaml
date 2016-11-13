@@ -10,9 +10,18 @@
              mc:Ignorable="d" >
     <UserControl.Resources>
         <l:ColorValueConvertor x:Key="converter" />
+        <l:ZeroVisibleConvertor x:Key="converter2" />
     </UserControl.Resources>
     <Grid>
         <StackPanel FlowDirection="RightToLeft" Orientation="Vertical" >
+            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top" >
+                <Label.Content>
+                    <Binding Path="DriverNumber"/>
+                </Label.Content>
+                <Label.ContentStringFormat>
+                    {0} راننده
+                </Label.ContentStringFormat>
+            </Label>
             <ListView Margin="5"  Name="DriverListBox" MinHeight="80" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }"   FlowDirection="RightToLeft">
                 <ListView.View>
                     <GridView>
@@ -29,16 +38,9 @@
                          >
                 <ListViewItem Content="sd" />
             </ListView>-->
-        
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top" >
-                <Label.Content>
-                    <Binding Path="DriverNumber"/>
-                </Label.Content>
-                <Label.ContentStringFormat>
-                    {0} راننده
-                </Label.ContentStringFormat>
-            </Label>
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
+
+
+            <Label Visibility="{Binding VaznKol, Converter={StaticResource converter2}}"  VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="VaznKol"/>
                 </Label.Content>
@@ -46,7 +48,7 @@
                      {0} کیلوگرم
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
+            <Label Visibility="{Binding FeleziPalletCount, Converter={StaticResource converter2}}" VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="FeleziPalletCount"/>
                 </Label.Content>
@@ -54,7 +56,7 @@
                     {0} پالت فلزی
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
+            <Label Visibility="{Binding ChobiPalletCount, Converter={StaticResource converter2}}" VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="ChobiPalletCount"/>
                 </Label.Content>
@@ -62,7 +64,7 @@
                     {0} پالت چوبی
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center" Foreground="{Binding JaigahCount, Converter={StaticResource converter}}">
+            <Label Visibility="{Binding JaigahCount, Converter={StaticResource converter2}}" VerticalContentAlignment="Center" Foreground="{Binding JaigahCount, Converter={StaticResource converter}}">
                 <Label.Content>
                     <Binding Path="JaigahCount"  />
                 </Label.Content>

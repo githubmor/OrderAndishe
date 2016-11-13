@@ -9,18 +9,11 @@ using System.Linq;
 
 namespace OrdersAndisheh.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
+    
     public class DriverSelectionViewModel : ViewModelBase
     {
         ISefareshService service;
-        /// <summary>
-        /// Initializes a new instance of the DriverSelection class.
-        /// </summary>
+        int pos = 1;
         public DriverSelectionViewModel(ISefareshService _s)
         {
             service = _s;
@@ -38,7 +31,13 @@ namespace OrdersAndisheh.ViewModel
             foreach (var item in ma)
             {
                 var p = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Maghsad == item).ToList());
-                DriverViewModels.Add(new DriverContainerViewModel(p));
+                DriverViewModels.Add(new DriverContainerViewModel(p,pos));
+                pos += 1;
+            }
+            var ooo = ErsalItems.Where(p=>p.Maghsad=="").ToList();
+            for (int i = 0; i < ooo.Count; i++)
+            {
+                ErsalItems.Remove(ooo[i]);
             }
         }
 
@@ -55,6 +54,26 @@ namespace OrdersAndisheh.ViewModel
 
 
         public ObservableCollection<DriverContainerViewModel> DriverViewModels { get; set; }
+
+        private RelayCommand _myCommand1;
+
+        /// <summary>
+        /// Gets the AddNewContainer.
+        /// </summary>
+        public RelayCommand AddNewContainer
+        {
+            get
+            {
+                return _myCommand1
+                    ?? (_myCommand1 = new RelayCommand(ExecuteAddNewContainer));
+            }
+        }
+
+        private void ExecuteAddNewContainer()
+        {
+            DriverViewModels.Add(new DriverContainerViewModel(pos));
+            pos += 1;
+        }
        
     }
 }

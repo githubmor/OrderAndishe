@@ -358,6 +358,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\ZeroVisibleConvertor.cs" />
     <Compile Include="View\ColorValueConvertor.cs" />
     <Compile Include="View\DriverContainerUserControl.xaml.cs">
       <DependentUpon>DriverContainerUserControl.xaml</DependentUpon>
@@ -378,9 +379,6 @@
     </Compile>
     <Compile Include="View\OracleRelationView.xaml.cs">
       <DependentUpon>OracleRelationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UIEditon.xaml.cs">
-      <DependentUpon>UIEditon.xaml</DependentUpon>
     </Compile>
     <Page Include="DevUI\Views\Bazres\BazresCollectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -444,10 +442,6 @@
     </Page>
     <Page Include="View\OracleRelationView.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UIEditon.xaml">
-      <SubType>Form</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

@@ -39,14 +39,14 @@ namespace OrdersAndisheh.ViewModel
         public DriverContainerViewModel(ObservableCollection<ItemSefaresh> items,int position):this(position)
         {
             Mahmole = items;
-            //Mahmole.CollectionChanged += (sender, e) =>
-            //{
-            //    RaisePropertyChanged(() => this.VaznKol);
-            //    RaisePropertyChanged(() => this.JaigahCount);
-            //    RaisePropertyChanged(() => this.FeleziPalletCount);
-            //    RaisePropertyChanged(() => this.ChobiPalletCount);
-            //};
-            //DriverNumber = position;
+            Mahmole.CollectionChanged += (sender, e) =>
+            {
+                RaisePropertyChanged(() => this.VaznKol);
+                RaisePropertyChanged(() => this.JaigahCount);
+                RaisePropertyChanged(() => this.FeleziPalletCount);
+                RaisePropertyChanged(() => this.ChobiPalletCount);
+            };
+            DriverNumber = position;
         }
 
 
