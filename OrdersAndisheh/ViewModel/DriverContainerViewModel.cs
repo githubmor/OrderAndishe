@@ -5,17 +5,12 @@ using System.Collections.ObjectModel;
 
 namespace OrdersAndisheh.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
+    
     public class DriverContainerViewModel : ViewModelBase
     {
         int felaziPalletCount = 0;
         int chobiPalletCount = 0;
-        public DriverContainerViewModel()
+        public DriverContainerViewModel(int position)
         {
             Mahmole = new ObservableCollection<ItemSefaresh>();
             Mahmole.CollectionChanged += (sender, e) =>
@@ -25,19 +20,33 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.ChobiPalletCount);
                 RaisePropertyChanged(() => this.JaigahCount);
             };
+            DriverNumber = position;
+        }
+
+        private int driverNum;
+
+        public int DriverNumber
+        {
+            get { return driverNum; }
+            set 
+            {
+                driverNum = value;
+                RaisePropertyChanged(() => this.DriverNumber);
+            }
         }
         
 
-        public DriverContainerViewModel(ObservableCollection<ItemSefaresh> items)
+        public DriverContainerViewModel(ObservableCollection<ItemSefaresh> items,int position):this(position)
         {
             Mahmole = items;
-            Mahmole.CollectionChanged += (sender, e) =>
-            {
-                RaisePropertyChanged(() => this.VaznKol);
-                RaisePropertyChanged(() => this.JaigahCount);
-                RaisePropertyChanged(() => this.FeleziPalletCount);
-                RaisePropertyChanged(() => this.ChobiPalletCount);
-            };
+            //Mahmole.CollectionChanged += (sender, e) =>
+            //{
+            //    RaisePropertyChanged(() => this.VaznKol);
+            //    RaisePropertyChanged(() => this.JaigahCount);
+            //    RaisePropertyChanged(() => this.FeleziPalletCount);
+            //    RaisePropertyChanged(() => this.ChobiPalletCount);
+            //};
+            //DriverNumber = position;
         }
 
 
