@@ -1,12 +1,63 @@
 ﻿<Window x:Class="OrdersAndisheh.View.DriverSelectionView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ignore="http://www.ignore.com"
-        mc:Ignorable="d ignore"
+        Title="MainWindow" 
+        xmlns:c="clr-namespace:OrdersAndisheh.View"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
         DataContext="{Binding DriverSel, Source={StaticResource Locator}}">
-
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Margin="10" Orientation="Vertical">
+            <Button Content="افزودن راننده جدید" Command="{Binding AddNewContainer }"/>
+            <Label Content="لیست ارسال " Margin="0" FlowDirection="RightToLeft"/>
+            <!--<dxe:ListBoxEdit
+    			 x:Name="ErsallistBox" DisplayMember="Kala" FlowDirection="RightToLeft" Margin="10" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                Height="397" ItemsSource="{Binding ErsalItems}" >
+                
+            </dxe:ListBoxEdit>-->
+            <ListView Margin="5"  Name="ErsallistBox" MinHeight="80" ItemsSource="{Binding ErsalItems }"   FlowDirection="RightToLeft">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="نام کالا" Width="Auto" DisplayMemberBinding="{Binding Kala}" />
+                        <GridViewColumn Header="وزن" Width="Auto" DisplayMemberBinding="{Binding Vazn}" />
+                        <GridViewColumn Header="تعداد پالت"  DisplayMemberBinding="{Binding Pallet}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+                <!--<ListView x:Name="ErsallistBox" FlowDirection="RightToLeft" Margin="10" 
+                Height="444" ItemsSource="{Binding ErsalItems}"  >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="1" Width="Auto" DisplayMemberBinding="{Binding Path=Kala}" />
+                                <GridViewColumn Header="2" Width="Auto" DisplayMemberBinding="{Binding Path=Maghsad}" />
+                                <GridViewColumn Header="3" Width="Auto" DisplayMemberBinding="{Binding Path=Pallet}" />
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>-->
+            <!--</ListBox>-->
+        </StackPanel>
+        <ItemsControl Grid.Column="0"
+              ItemsSource="{Binding DriverViewModels}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"
+                 IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="x:Type c:DriverContainerViewModel">
+                    <c:DriverContainerUserControl 
+                         />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
     </Grid>
+    
+
 </Window>
