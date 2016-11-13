@@ -72,7 +72,7 @@
                     {0} جایگاه
                 </Label.ContentStringFormat>
             </Label>
-            <ComboBox ItemsSource="{Binding Drivers}"/>
+            <ComboBox ItemsSource="{Binding Drivers}"  DisplayMemberPath="Name"/>
         </StackPanel>
 
     </Grid>
