@@ -89,15 +89,15 @@ namespace OrdersAndisheh.DBL
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
             modelBuilder.Entity<CustomerProductRelation>()
-                .HasRequired(p => p.Customer)
-                .WithMany(o => o.ProductRelations)
-                .HasForeignKey(i => i.CustomerId)
-                .WillCascadeOnDelete(false);
+                .HasMany(p => p.Customers)
+                .WithRequired(o => o.ProductRelation)
+                .HasForeignKey(p=>p.RelationId)
+                .WillCascadeOnDelete(true);
             modelBuilder.Entity<CustomerProductRelation>()
-                .HasRequired(p => p.Product)
-                .WithMany(o => o.CustomerRelations)
-                .HasForeignKey(i => i.ProductId)
-                .WillCascadeOnDelete(false);
+                .HasMany(p => p.Products)
+                .WithRequired(o => o.CustomerRelation)
+                .HasForeignKey(p => p.RelationId)
+                .WillCascadeOnDelete(true);
             //modelBuilder.Entity<Product>()
             //    .HasMany(o=>o.OracleCustomers)
             //    .WithMany(p=>p.OracleProducts)

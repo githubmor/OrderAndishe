@@ -10,23 +10,15 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" Margin="10" Orientation="Vertical">
-            <Button Content="افزودن راننده جدید" Command="{Binding AddNewContainer }"/>
+        <StackPanel Grid.Column="1" Margin="0" Orientation="Vertical">
             <Label Content="لیست ارسال " Margin="0" FlowDirection="RightToLeft"/>
-            <!--<dxe:ListBoxEdit
+
+
+            <dxe:ListBoxEdit
     			 x:Name="ErsallistBox" DisplayMember="Kala" FlowDirection="RightToLeft" Margin="10" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                Height="397" ItemsSource="{Binding ErsalItems}" >
+                Height="444" ItemsSource="{Binding ErsalItems}" >
                 
-            </dxe:ListBoxEdit>-->
-            <ListView Margin="5"  Name="ErsallistBox" MinHeight="80" ItemsSource="{Binding ErsalItems }"   FlowDirection="RightToLeft">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="نام کالا" Width="Auto" DisplayMemberBinding="{Binding Kala}" />
-                        <GridViewColumn Header="وزن" Width="Auto" DisplayMemberBinding="{Binding Vazn}" />
-                        <GridViewColumn Header="تعداد پالت"  DisplayMemberBinding="{Binding Pallet}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            </dxe:ListBoxEdit>
                 <!--<ListView x:Name="ErsallistBox" FlowDirection="RightToLeft" Margin="10" 
                 Height="444" ItemsSource="{Binding ErsalItems}"  >
                     <ListView.View>

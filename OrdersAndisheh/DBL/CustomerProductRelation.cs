@@ -12,8 +12,8 @@ namespace OrdersAndisheh.DBL
 
         public CustomerProductRelation()
         {
-            //Customers = new HashSet<Customer>();
-            //Products = new HashSet<Product>();
+            Customers = new HashSet<Customer>();
+            Products = new HashSet<Product>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -26,10 +26,7 @@ namespace OrdersAndisheh.DBL
         public bool HasLabelPrint { get; set; }
         public bool HasHamloNaghl { get; set; }
         public bool HasMoshtariASN { get; set; }
-        public int PrintBarnameTedad { get; set; }
-        public int CustomerId { get; set; }
-        public virtual Customer Customer { get; set; }
-        public int ProductId { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

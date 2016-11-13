@@ -14,14 +14,14 @@ namespace OrdersAndisheh.View
 
         public object Convert(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            //if (value == null )
-            //    return new SolidColorBrush(Colors.Black);
+            if (value == null || !(value is decimal))
+                return new SolidColorBrush(Colors.Black);
 
             var dValue = System.Convert.ToDecimal(value);
-            if (dValue >  8)
+            if (dValue >  10)
                 return new SolidColorBrush(Colors.Red);
             else
-                return new SolidColorBrush(Colors.Black);
+                return new SolidColorBrush(Colors.Green);
         }
 
         public object ConvertBack(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)

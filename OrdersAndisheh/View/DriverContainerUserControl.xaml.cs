@@ -36,8 +36,7 @@ namespace OrdersAndisheh.View
         private void DriverContainerView_Loaded(object sender, RoutedEventArgs e)
         {
             DriverListBox.AllowDrop = true;
-            DriverListBox.AddHandler(ListView.MouseLeftButtonDownEvent, new MouseButtonEventHandler(list_MouseLeftButtonDown),
-                true);
+            DriverListBox.AddHandler(ListBoxEdit.MouseLeftButtonDownEvent, new MouseButtonEventHandler(list_MouseLeftButtonDown), true);
             DriverListBox.PreviewMouseMove += new MouseEventHandler(list_PreviewMouseMove);
             DriverListBox.DragOver += new DragEventHandler(list_DragOver);
             DriverListBox.Drop += new DragEventHandler(list_Drop);
@@ -46,14 +45,14 @@ namespace OrdersAndisheh.View
         void list_Drop(object sender, DragEventArgs e)
         {
             ItemSefaresh item = (ItemSefaresh)e.Data.GetData(typeof(ItemSefaresh));
-            ObservableCollection<ItemSefaresh> senderItemsSource = (ObservableCollection<ItemSefaresh>)((ListView)sender).ItemsSource;
+            ObservableCollection<ItemSefaresh> senderItemsSource = (ObservableCollection<ItemSefaresh>)((ListBoxEdit)sender).ItemsSource;
 
             if (!senderItemsSource.Contains(item) || IsCopyEffect(e))
             {
 
                 if (!IsCopyEffect(e))
                 {
-                    ListView dragSourceListBox = (ListView)e.Data.GetData("dragSource");
+                    ListBoxEdit dragSourceListBox = (ListBoxEdit)e.Data.GetData("dragSource");
                     ObservableCollection<ItemSefaresh> dragSourceItemsSource = (ObservableCollection<ItemSefaresh>)dragSourceListBox.ItemsSource;
 
                     dragSourceItemsSource.Remove(item);
@@ -67,7 +66,7 @@ namespace OrdersAndisheh.View
         void list_DragOver(object sender, DragEventArgs e)
         {
             ItemSefaresh item = (ItemSefaresh)e.Data.GetData(typeof(ItemSefaresh));
-            ObservableCollection<ItemSefaresh> senderItemsSource = (ObservableCollection<ItemSefaresh>)((ListView)sender).ItemsSource;
+            ObservableCollection<ItemSefaresh> senderItemsSource = (ObservableCollection<ItemSefaresh>)((ListBoxEdit)sender).ItemsSource;
 
             if (senderItemsSource.Contains(item))
             {
@@ -92,7 +91,7 @@ namespace OrdersAndisheh.View
             {
                 if (isDragStarted)
                 {
-                    ListView listBoxEdit = (ListView)sender;
+                    ListBoxEdit listBoxEdit = (ListBoxEdit)sender;
                     ItemSefaresh item = (ItemSefaresh)listBoxEdit.SelectedItem;
 
                     if (item != null)
@@ -108,7 +107,7 @@ namespace OrdersAndisheh.View
 
         void list_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ListView listBoxEdit = (ListView)sender;
+            ListBoxEdit listBoxEdit = (ListBoxEdit)sender;
             DependencyObject hittedObject = listBoxEdit.InputHitTest(e.GetPosition(listBoxEdit)) as DependencyObject;
             FrameworkElement hittedItem = LayoutHelper.FindParentObject<ListBoxEditItem>(hittedObject);
 

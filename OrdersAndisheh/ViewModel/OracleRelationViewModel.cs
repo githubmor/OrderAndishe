@@ -73,7 +73,7 @@ namespace OrdersAndisheh.ViewModel
             get 
             {
                 if (selectedoCustomer != null)
-                    return new ObservableCollection<Product>(SelectedoCustomer.ProductRelations.Select(p=>p.Product).ToList());
+                    return new ObservableCollection<Product>(SelectedoCustomer.ProductRelation.Products);
                 else
                     return null;
             }
@@ -135,12 +135,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewOProduct()
         {
-            SelectedoCustomer.ProductRelations.Add
-                (new CustomerProductRelation() 
-                { 
-                    Product = SelectedProductForAdd, 
-                    Customer = SelectedoCustomer 
-                }); 
+            SelectedoCustomer.ProductRelation.Products.Add(SelectedProductForAdd);
         }
 
         private bool CanExecuteAddNewOProduct()
@@ -215,8 +210,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDelOProduct()
         {
-            //اینجا باید اصلاح بشه
-            SelectedoCustomer.ProductRelations.Where(p => p.Product == SelectedoProduct).First();
+            SelectedoCustomer.ProductRelation.Products.Remove(SelectedoProduct);
         }
 
         private bool CanExecuteDelOProduct()

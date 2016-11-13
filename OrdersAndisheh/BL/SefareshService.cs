@@ -189,33 +189,39 @@ namespace BL
 
         public List<Customer> LoadOracleCustomer()
         {
-            
-            //var b = db.Customers.Include("OracleProducts").ToList();
-            //return b.Where(p => p.ProductRelations.Customers.Count>0).ToList();
-            return null;
+            //using (MyContextCF db = new MyContextCF())
+            //{
+            var b = db.Customers.Include("OracleProducts").ToList();
+            return b.Where(p => p.ProductRelation.Customers.Count>0).ToList();
+            //}
         }
 
         public void SaveOracleRelation(List<Customer> oCustomers)
         {
-            //var b = db.Customers.Include("OracleProducts").ToList();
-            //List<Customer> existingItems = b.Where(p => p.ProductRelation.Customers.Count > 0).ToList();
+            var b = db.Customers.Include("OracleProducts").ToList();
+            List<Customer> existingItems = b.Where(p => p.ProductRelation.Customers.Count > 0).ToList();
 
 
-            //List<Customer> newItems = new List<Customer>();
-            //foreach (var item in oCustomers)
-            //{
-            //    newItems.Add(item);
-            //}
+            List<Customer> newItems = new List<Customer>();
+            foreach (var item in oCustomers)
+            {
+                newItems.Add(item);
+            }
 
+            //List<OrderDetail> addedItems = newItems.Except(existingItems).ToList();
 
-            //List<Customer> deletedItems = existingItems.Except(newItems).ToList();
+            List<Customer> deletedItems = existingItems.Except(newItems).ToList();
 
-            //foreach (var item in deletedItems)
-            //{
-            //    db.Customers.Remove(item);
-            //}
+            //List<OrderDetail> modifiedItems = newItems.Except(addedItems).ToList();
 
-            //db.SaveChanges();
+            //    //db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
+            //    //db.SaveChanges();
+            foreach (var item in deletedItems)
+            {
+                db.Customers.Remove(item);
+            }
+
+            db.SaveChanges();
         }
 
         public List<ItemSefaresh> LoadSefareshItems(string sefareshTarikh)
