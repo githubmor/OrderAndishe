@@ -260,54 +260,6 @@
     <Compile Include="DBL\OrderDetail.cs" />
     <Compile Include="DBL\Pallet.cs" />
     <Compile Include="DBL\Product.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel\DesignTimeMyContextCFUnitOfWork.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel\IMyContextCFUnitOfWork.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel\MyContextCFUnitOfWork.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel\UnitOfWorkSource.cs" />
-    <Compile Include="DevUI\ViewModels\Bazres\BazresCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Bazres\BazresViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Customer\CustomerCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Customer\CustomerViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Driver\DriverCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Driver\DriverViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\MyContextCFViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Pallet\PalletCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Pallet\PalletViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Product\ProductCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Product\ProductViewModel.cs" />
-    <Compile Include="DevUI\Views\Bazres\BazresCollectionView.xaml.cs">
-      <DependentUpon>BazresCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Bazres\BazresView.xaml.cs">
-      <DependentUpon>BazresView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Customer\CustomerCollectionView.xaml.cs">
-      <DependentUpon>CustomerCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Customer\CustomerView.xaml.cs">
-      <DependentUpon>CustomerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Driver\DriverCollectionView.xaml.cs">
-      <DependentUpon>DriverCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Driver\DriverView.xaml.cs">
-      <DependentUpon>DriverView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\MyContextCFView.xaml.cs">
-      <DependentUpon>MyContextCFView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Pallet\PalletCollectionView.xaml.cs">
-      <DependentUpon>PalletCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Pallet\PalletView.xaml.cs">
-      <DependentUpon>PalletView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Product\ProductCollectionView.xaml.cs">
-      <DependentUpon>ProductCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Product\ProductView.xaml.cs">
-      <DependentUpon>ProductView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ExcelManager\DbService.cs" />
     <Compile Include="ExcelManager\ExcelService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -339,50 +291,6 @@
     <Compile Include="View\OracleRelationView.xaml.cs">
       <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
-    <Page Include="DevUI\Views\Bazres\BazresCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Bazres\BazresView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Customer\CustomerCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Customer\CustomerView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Driver\DriverCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Driver\DriverView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\MyContextCFView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Pallet\PalletCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Pallet\PalletView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Product\ProductCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Product\ProductView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\DriverContainerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -460,7 +368,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DevUI\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
