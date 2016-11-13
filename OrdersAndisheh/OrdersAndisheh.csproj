@@ -358,7 +358,6 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\ZeroToVisibleConvertor.cs" />
     <Compile Include="View\ColorValueConvertor.cs" />
     <Compile Include="View\DriverContainerUserControl.xaml.cs">
       <DependentUpon>DriverContainerUserControl.xaml</DependentUpon>
