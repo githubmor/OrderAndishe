@@ -1,6 +1,9 @@
 ﻿using BL;
 using GalaSoft.MvvmLight;
+using OrdersAndisheh.DBL;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace OrdersAndisheh.ViewModel
@@ -10,6 +13,8 @@ namespace OrdersAndisheh.ViewModel
     {
         int felaziPalletCount = 0;
         int chobiPalletCount = 0;
+        SefareshService ss;
+        List<Driver> driver;
         public DriverContainerViewModel(int position)
         {
             Mahmole = new ObservableCollection<ItemSefaresh>();
@@ -21,6 +26,8 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.JaigahCount);
             };
             DriverNumber = position;
+            ss = new SefareshService();
+            driver = ss.LoadDrivers();
         }
 
         private int driverNum;
@@ -36,6 +43,7 @@ namespace OrdersAndisheh.ViewModel
         }
         
 
+
         public DriverContainerViewModel(ObservableCollection<ItemSefaresh> items,int position):this(position)
         {
             Mahmole = items;
@@ -46,9 +54,26 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.FeleziPalletCount);
                 RaisePropertyChanged(() => this.ChobiPalletCount);
             };
-            DriverNumber = position;
+            //DriverNumber = position;
         }
 
+
+        //private int myVar;
+
+        public List<Driver> Drivers
+        {
+            get 
+            { 
+                return DriverCal(); 
+            }
+            //set { myVar = value; }
+        }
+
+        private List<Driver> DriverCal()
+        {
+            return driver;//.Where(p => p.Ton < VaznKol).ToList();
+        }
+        
 
         public ObservableCollection<ItemSefaresh> Mahmole { get; set; }
 

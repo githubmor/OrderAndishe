@@ -90,12 +90,12 @@ namespace OrdersAndisheh.DBL
                 .WillCascadeOnDelete(false);
             modelBuilder.Entity<CustomerProductRelation>()
                 .HasMany(p => p.Customers)
-                .WithRequired(o => o.ProductRelation)
+                .WithOptional(o => o.ProductRelation)
                 .HasForeignKey(p=>p.RelationId)
                 .WillCascadeOnDelete(true);
             modelBuilder.Entity<CustomerProductRelation>()
                 .HasMany(p => p.Products)
-                .WithRequired(o => o.CustomerRelation)
+                .WithOptional(o => o.CustomerRelation)
                 .HasForeignKey(p => p.RelationId)
                 .WillCascadeOnDelete(true);
             //modelBuilder.Entity<Product>()
