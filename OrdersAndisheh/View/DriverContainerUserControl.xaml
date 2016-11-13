@@ -1,29 +1,44 @@
 ﻿<UserControl
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
-    xmlns:l="clr-namespace:OrdersAndisheh.View"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
-    x:Class="OrdersAndisheh.View.DriverContainerUserControl" 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+            xmlns:l="clr-namespace:OrdersAndisheh.View"
+            xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+            x:Class="OrdersAndisheh.View.DriverContainerUserControl" 
              mc:Ignorable="d" >
     <UserControl.Resources>
         <l:ColorValueConvertor x:Key="converter" />
     </UserControl.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
+        <StackPanel FlowDirection="RightToLeft" Orientation="Vertical" >
+            <ListView Margin="5"  Name="DriverListBox" MinHeight="80" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }"   FlowDirection="RightToLeft">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="نام کالا" Width="Auto" DisplayMemberBinding="{Binding Kala}" />
+                        <GridViewColumn Header="وزن" Width="Auto" DisplayMemberBinding="{Binding Vazn}" />
+                        <GridViewColumn Header="تعداد پالت"  DisplayMemberBinding="{Binding Pallet}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
-
-        <dxe:ListBoxEdit DisplayMember="Kala" x:Name="DriverListBox" 
-                         Margin="2" Grid.Row="0" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }" 
-                         MinWidth="80" MinHeight="100"/>
-        <dx:UniformStackPanel FlowDirection="RightToLeft" Orientation="Vertical" Grid.RowSpan="1" Grid.Row="1" >
-
-            <Label  VerticalContentAlignment="Center">
+            <!--<ListView x:Name="DriverListBox" 
+                         Margin="2" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }" 
+                      MinHeight="50" MinWidth="60" 
+                         >
+                <ListViewItem Content="sd" />
+            </ListView>-->
+        
+            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top" >
+                <Label.Content>
+                    <Binding Path="DriverNumber"/>
+                </Label.Content>
+                <Label.ContentStringFormat>
+                    {0} راننده
+                </Label.ContentStringFormat>
+            </Label>
+            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="VaznKol"/>
                 </Label.Content>
@@ -31,7 +46,7 @@
                      {0} کیلوگرم
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center">
+            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="FeleziPalletCount"/>
                 </Label.Content>
@@ -39,7 +54,7 @@
                     {0} پالت فلزی
                 </Label.ContentStringFormat>
             </Label>
-            <Label  VerticalContentAlignment="Center">
+            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="ChobiPalletCount"/>
                 </Label.Content>
@@ -55,28 +70,8 @@
                     {0} جایگاه
                 </Label.ContentStringFormat>
             </Label>
-            <!--<Label  VerticalContentAlignment="Center">
-                --><!--<Label.Content>--><!--
-                    <Label.Content>
-                        <TextBlock>
-                            <TextBlock.Text>
-                                <MultiBinding StringFormat="{}{0} - {1}">
-                                <Binding Path="FeleziPalletCount" />
-                                <Binding Path="ChobiPalletCount" />
-                                </MultiBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
-                    </Label.Content>
-                    --><!--<MultiBinding StringFormat="{}{0} + {1}">
-                        <Binding Path="FeleziPalletCount" />
-                        <Binding Path="ChobiPalletCount" />
-                    </MultiBinding>-->
-                <!--</Label.Content>-->
-                <!--<Label.ContentStringFormat>
-                    {0} پالت فلزی {1} پالت چوبی
-                </Label.ContentStringFormat>--><!--
-            </Label>-->
-        </dx:UniformStackPanel>
+            
+        </StackPanel>
 
     </Grid>
 </UserControl>
