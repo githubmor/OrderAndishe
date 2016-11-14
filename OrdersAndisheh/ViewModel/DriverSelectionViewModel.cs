@@ -77,6 +77,41 @@ namespace OrdersAndisheh.ViewModel
             DriverViewModels.Add(new DriverContainerViewModel(pos));
             pos += 1;
         }
+
+        private RelayCommand _myCommand2;
+
+        /// <summary>
+        /// Gets the SaveDrivers.
+        /// </summary>
+        public RelayCommand SaveDrivers
+        {
+            get
+            {
+                return _myCommand2
+                    ?? (_myCommand2 = new RelayCommand(ExecuteSaveDrivers));
+            }
+        }
+
+        private void ExecuteSaveDrivers()
+        {
+            foreach (var item in DriverViewModels)
+            {
+                if (item.SelectedDriver!=null)
+                {
+                    System.Windows.Forms.MessageBox.Show(item.SelectedDriver.Name);
+                }
+                else
+                {
+                    Driver p = new Driver() { Name = "راننده " + item.DriverNumber, Tol = item.VaznKol, 
+                        TempDriver = new TempDriver() { Name = item.DriverNumber.ToString() } };
+                    service.SaverDriver(p);
+                    item.SelectedDriver = p;
+                    hnhli
+                }
+                
+            }
+            
+        }
        
     }
 }

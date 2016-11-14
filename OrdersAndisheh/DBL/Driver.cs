@@ -34,6 +34,9 @@ namespace OrdersAndisheh.DBL
 
         public int? Tol { get; set; }
 
+
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        //public int? TempDriverId { get; set; }
+        public virtual TempDriver TempDriver { get; set; }
     }
 }

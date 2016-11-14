@@ -7,7 +7,7 @@
             xmlns:l="clr-namespace:OrdersAndisheh.View"
             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
             x:Class="OrdersAndisheh.View.DriverContainerUserControl" 
-             mc:Ignorable="d" >
+             mc:Ignorable="d" Background="#FFF1F1F1" >
     <UserControl.Resources>
         <l:ColorValueConvertor x:Key="converter" />
         <l:ZeroVisibleConvertor x:Key="converter2" />
@@ -72,7 +72,7 @@
                     {0} جایگاه
                 </Label.ContentStringFormat>
             </Label>
-            <ComboBox ItemsSource="{Binding Drivers}"  DisplayMemberPath="Name"/>
+            <ComboBox ItemsSource="{Binding Drivers}"  SelectedItem="{Binding SelectedDriver,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name"/>
         </StackPanel>
 
     </Grid>

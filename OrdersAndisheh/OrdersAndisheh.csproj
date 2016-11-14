@@ -251,6 +251,7 @@
     <Compile Include="BL\Sefaresh.cs" />
     <Compile Include="BL\SefareshService.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
+    <Compile Include="DBL\TempDriver.cs" />
     <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\Bazres.cs" />
     <Compile Include="DBL\Customer.cs" />
@@ -326,7 +327,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -7,17 +7,13 @@
         DataContext="{Binding DriverSel, Source={StaticResource Locator}}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" Margin="10" Orientation="Vertical">
             <Button Content="افزودن راننده جدید" Command="{Binding AddNewContainer }"/>
             <Label Content="لیست ارسال " Margin="0" FlowDirection="RightToLeft"/>
-            <!--<dxe:ListBoxEdit
-    			 x:Name="ErsallistBox" DisplayMember="Kala" FlowDirection="RightToLeft" Margin="10" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                Height="397" ItemsSource="{Binding ErsalItems}" >
-                
-            </dxe:ListBoxEdit>-->
+
             <ListView Margin="5"  Name="ErsallistBox" MinHeight="80" ItemsSource="{Binding ErsalItems }"   FlowDirection="RightToLeft">
                 <ListView.View>
                     <GridView>
@@ -27,19 +23,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-                <!--<ListView x:Name="ErsallistBox" FlowDirection="RightToLeft" Margin="10" 
-                Height="444" ItemsSource="{Binding ErsalItems}"  >
-                    <ListView.View>
-                        <GridView>
-                            <GridView.Columns>
-                                <GridViewColumn Header="1" Width="Auto" DisplayMemberBinding="{Binding Path=Kala}" />
-                                <GridViewColumn Header="2" Width="Auto" DisplayMemberBinding="{Binding Path=Maghsad}" />
-                                <GridViewColumn Header="3" Width="Auto" DisplayMemberBinding="{Binding Path=Pallet}" />
-                            </GridView.Columns>
-                        </GridView>
-                    </ListView.View>
-                </ListView>-->
-            <!--</ListBox>-->
+            <Button Content="ذخیره" Command="{Binding SaveDrivers}"/>
         </StackPanel>
         <ItemsControl Grid.Column="0"
               ItemsSource="{Binding DriverViewModels}">
@@ -58,6 +42,6 @@
         </ItemsControl>
 
     </Grid>
-    
+
 
 </Window>

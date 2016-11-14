@@ -71,7 +71,20 @@ namespace OrdersAndisheh.ViewModel
 
         private List<Driver> DriverCal()
         {
+            //TODO باید اینجا راننده ای که به وزن محموله بخورد فقط بیاید
             return driver;//.Where(p => p.Ton < VaznKol).ToList();
+        }
+
+        private Driver myVar;
+
+        public Driver SelectedDriver
+        {
+            get { return myVar; }
+            set 
+            { 
+                myVar = value;
+                RaisePropertyChanged(() => this.SelectedDriver);
+            }
         }
         
 

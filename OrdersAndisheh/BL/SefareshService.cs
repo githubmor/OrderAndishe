@@ -189,17 +189,16 @@ namespace BL
 
         public List<Customer> LoadOracleCustomer()
         {
-            //using (MyContextCF db = new MyContextCF())
-            //{
+           
             var b = db.Customers.Include("OracleProducts").ToList();
-            return b.Where(p => p.ProductRelation.Customers.Count>0).ToList();
-            //}
+            return b.Where(p => p.Relations!=null).ToList();
+            
         }
 
         public void SaveOracleRelation(List<Customer> oCustomers)
         {
             var b = db.Customers.Include("OracleProducts").ToList();
-            List<Customer> existingItems = b.Where(p => p.ProductRelation.Customers.Count > 0).ToList();
+            List<Customer> existingItems = b.Where(p => p.Relations!=null).ToList();
 
 
             List<Customer> newItems = new List<Customer>();
@@ -240,7 +239,12 @@ namespace BL
 
             return mn;
         }
-       
+
+        public void SaverDriver(Driver p)
+        {
+            db.Drivers.Add(p);
+            db.SaveChanges();
+        }
     }
 }
 

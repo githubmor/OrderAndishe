@@ -27,6 +27,7 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<MOracle> MOracles { get; set; }
         public virtual DbSet<CustomerProductRelation> CustomerProductRelations { get; set; }
+        public virtual DbSet<TempDriver> TempDriver { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -88,6 +89,12 @@ namespace OrdersAndisheh.DBL
                 .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TempDriver>()
+                .HasRequired(e => e.Driver)
+                .WithOptional(e => e.TempDriver)
+                .WillCascadeOnDelete(true);
+
             modelBuilder.Entity<CustomerProductRelation>()
                 .HasRequired(p => p.Customer)
                 .WithMany(o => o.Relations)
