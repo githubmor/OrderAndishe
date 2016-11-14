@@ -46,8 +46,8 @@ namespace OrdersAndisheh.DBL
         public virtual Bazres Bazre { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public int? RelationId { get; set; }
-        public virtual CustomerProductRelation CustomerRelation { get; set; }
+        //public int? RelationId { get; set; }
+        public virtual ICollection<CustomerProductRelation> Relations { get; set; }
 
         public virtual Pallet Pallet { get; set; }
     }

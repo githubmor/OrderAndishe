@@ -24,7 +24,7 @@ namespace OrdersAndisheh.DBL
         public string Name { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public int? RelationId { get; set; }
-        public virtual CustomerProductRelation ProductRelation { get; set; }
+        //public int? RelationId { get; set; }
+        public virtual ICollection<CustomerProductRelation> Relations { get; set; }
     }
 }

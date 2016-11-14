@@ -250,47 +250,6 @@
     <Compile Include="BL\ReportRow.cs" />
     <Compile Include="BL\Sefaresh.cs" />
     <Compile Include="BL\SefareshService.cs" />
-    <Compile Include="Common\CommonResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommonResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Common\DataModel\DbExceptions.cs" />
-    <Compile Include="Common\DataModel\DesignTime\DesignTimeInstantFeedbackSource.cs" />
-    <Compile Include="Common\DataModel\DesignTime\DesignTimeReadOnlyRepository.cs" />
-    <Compile Include="Common\DataModel\DesignTime\DesignTimeRepository.cs" />
-    <Compile Include="Common\DataModel\DesignTime\DesignTimeUnitOfWork.cs" />
-    <Compile Include="Common\DataModel\DesignTime\DesignTimeUnitOfWorkFactory.cs" />
-    <Compile Include="Common\DataModel\EntityFramework\DbExceptionsConverter.cs" />
-    <Compile Include="Common\DataModel\EntityFramework\DbReadOnlyRepository.cs" />
-    <Compile Include="Common\DataModel\EntityFramework\DbRepository.cs" />
-    <Compile Include="Common\DataModel\EntityFramework\DbUnitOfWork.cs" />
-    <Compile Include="Common\DataModel\EntityFramework\DbUnitOfWorkFactory.cs" />
-    <Compile Include="Common\DataModel\EntityFramework\InstantFeedbackSource.cs" />
-    <Compile Include="Common\DataModel\EntityState.cs" />
-    <Compile Include="Common\DataModel\IReadOnlyRepository.cs" />
-    <Compile Include="Common\DataModel\IRepository.cs" />
-    <Compile Include="Common\DataModel\IUnitOfWork.cs" />
-    <Compile Include="Common\DataModel\UnitOfWorkBase.cs" />
-    <Compile Include="Common\LayoutSettings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>LayoutSettings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Common\Utils\DbExtensions.cs" />
-    <Compile Include="Common\Utils\ExpressionHelper.cs" />
-    <Compile Include="Common\ViewModel\CollectionViewModel.cs" />
-    <Compile Include="Common\ViewModel\DocumentManagerServiceExtensions.cs" />
-    <Compile Include="Common\ViewModel\DocumentsViewModel.cs" />
-    <Compile Include="Common\ViewModel\EntitiesViewModel.cs" />
-    <Compile Include="Common\ViewModel\InstantFeedbackCollectionViewModel.cs" />
-    <Compile Include="Common\ViewModel\ISingleObjectViewModel.cs" />
-    <Compile Include="Common\ViewModel\LookUpEntitiesViewModel.cs" />
-    <Compile Include="Common\ViewModel\Messages.cs" />
-    <Compile Include="Common\ViewModel\PeekCollectionViewModel.cs" />
-    <Compile Include="Common\ViewModel\PersistentLayoutHelper.cs" />
-    <Compile Include="Common\ViewModel\ReadOnlyCollectionViewModel.cs" />
-    <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\Bazres.cs" />
@@ -301,62 +260,6 @@
     <Compile Include="DBL\OrderDetail.cs" />
     <Compile Include="DBL\Pallet.cs" />
     <Compile Include="DBL\Product.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel1\DesignTimeMyContextCFUnitOfWork.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel1\IMyContextCFUnitOfWork.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel1\MyContextCFUnitOfWork.cs" />
-    <Compile Include="DevUI\MyContextCFDataModel1\UnitOfWorkSource.cs" />
-    <Compile Include="DevUI\ViewModels\Bazres\BazresCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Bazres\BazresViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Customer\CustomerCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Customer\CustomerViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Driver\DriverCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Driver\DriverViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\MyContextCFViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Pallet\PalletCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Pallet\PalletViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Product\ProductCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\Product\ProductViewModel.cs" />
-    <Compile Include="DevUI\Views\Bazres\BazresCollectionView.xaml.cs">
-      <DependentUpon>BazresCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Bazres\BazresView.xaml.cs">
-      <DependentUpon>BazresView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml.cs">
-      <DependentUpon>CustomerProductRelationCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationView.xaml.cs">
-      <DependentUpon>CustomerProductRelationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Customer\CustomerCollectionView.xaml.cs">
-      <DependentUpon>CustomerCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Customer\CustomerView.xaml.cs">
-      <DependentUpon>CustomerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Driver\DriverCollectionView.xaml.cs">
-      <DependentUpon>DriverCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Driver\DriverView.xaml.cs">
-      <DependentUpon>DriverView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\MyContextCFView.xaml.cs">
-      <DependentUpon>MyContextCFView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Pallet\PalletCollectionView.xaml.cs">
-      <DependentUpon>PalletCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Pallet\PalletView.xaml.cs">
-      <DependentUpon>PalletView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Product\ProductCollectionView.xaml.cs">
-      <DependentUpon>ProductCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\Product\ProductView.xaml.cs">
-      <DependentUpon>ProductView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ExcelManager\DbService.cs" />
     <Compile Include="ExcelManager\ExcelService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -388,58 +291,6 @@
     <Compile Include="View\OracleRelationView.xaml.cs">
       <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
-    <Page Include="DevUI\Views\Bazres\BazresCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Bazres\BazresView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Customer\CustomerCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Customer\CustomerView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Driver\DriverCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Driver\DriverView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\MyContextCFView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Pallet\PalletCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Pallet\PalletView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Product\ProductCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\Product\ProductView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\DriverContainerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -475,19 +326,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Common\CommonResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Common\LayoutSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>LayoutSettings.Designer.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
