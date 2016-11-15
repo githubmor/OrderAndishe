@@ -124,7 +124,7 @@
                 </dxlc:LayoutGroup>-->
             </dxlc:LayoutGroup>
             <Button Content="ذخیره" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="97" Margin="1,26,-56,-26" Command="{Binding SaveSefaresh}" TabIndex="10"/>
-            <TextBox UI:FocusAdvancement.AdvancesByEnterKey="True" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0" TabIndex="9"/>
+            <TextBox UI:FocusAdvancement.AdvancesByEnterKey="True" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0" TabIndex="9"/>
 
         </dxlc:LayoutControl>
         <WrapPanel Margin="0" Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">

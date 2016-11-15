@@ -12,6 +12,7 @@ using System.IO;
 using System.Reflection;
 using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
+using OrdersAndisheh.DevUI.Views;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -483,7 +484,8 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDataUIEdition()
         {
-            
+            DataUIView v = new DataUIView();
+            v.Show();
         }
         
     }

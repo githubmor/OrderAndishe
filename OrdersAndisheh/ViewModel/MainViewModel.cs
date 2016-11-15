@@ -33,6 +33,7 @@ namespace OrdersAndisheh.ViewModel
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
             IsDirty = true;
+            Tarikh = PersianDateTime.Now.ToString(PersianDateTimeFormat.Date);
             //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
             //TODO قفل های بدون اورکل چی شد 
             //TODO تثبیت ارسال چی شد ؟
@@ -118,12 +119,18 @@ namespace OrdersAndisheh.ViewModel
             get { return sefaresh.Tarikh; }
             set
             {
-                //if (value.Length>9)
-                //{
+
+                try
+                {
                     sefaresh.Tarikh = value;
-                //}
-                RaisePropertyChanged(() => Tarikh);
-                IsDirty = true;
+                    RaisePropertyChanged(() => Tarikh);
+                    IsDirty = true;
+                }
+                catch (Exception r)
+                {
+
+                    MessageBox.Show(r.Message.ToString());
+                }
                 //SaveSefaresh.RaiseCanExecuteChanged();
                 //LoadSefaresh.RaiseCanExecuteChanged();
             }
