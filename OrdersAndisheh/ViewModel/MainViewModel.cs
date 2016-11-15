@@ -1,9 +1,10 @@
 ﻿using BL;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.BL;
 using OrdersAndisheh.DBL;
+using OrdersAndisheh.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,7 +20,7 @@ namespace OrdersAndisheh.ViewModel
     public class MainViewModel : ViewModelBase
     {
         ISefareshService ss;
-        bool IsEdit,IsEditItem,CanReport;
+        bool IsEdit,IsEditItem,IsDirty;
         private List<ItemType> enumList;
         public MainViewModel(ISefareshService service)
         {
@@ -31,7 +32,7 @@ namespace OrdersAndisheh.ViewModel
             Goods = ss.LoadGoods();
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
-
+            IsDirty = true;
             //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
             //TODO قفل های بدون اورکل چی شد 
             //TODO تثبیت ارسال چی شد ؟
@@ -56,13 +57,14 @@ namespace OrdersAndisheh.ViewModel
                 sefaresh = ss.LoadSefaresh(tarikh);
                 RaisePropertyChanged(() => Items);
                 IsEdit = true;
-                CanReport = true;
+                IsDirty = false;
                 MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد" ) ;
-                CreateAnbarList.RaiseCanExecuteChanged();
-                CreateBazresLists.RaiseCanExecuteChanged();
-                CreateImensazanList.RaiseCanExecuteChanged();
-                CreateKontrolList.RaiseCanExecuteChanged();
-                CreatListErsal.RaiseCanExecuteChanged();
+                RaisePropertyChanged(() => this.Tarikh);
+                //CreateAnbarList.RaiseCanExecuteChanged();
+                //CreateBazresLists.RaiseCanExecuteChanged();
+                //CreateImensazanList.RaiseCanExecuteChanged();
+                //CreateKontrolList.RaiseCanExecuteChanged();
+                //CreatListErsal.RaiseCanExecuteChanged();
             }
             catch (System.Exception r)
             {
@@ -87,7 +89,7 @@ namespace OrdersAndisheh.ViewModel
                 }
                 
                 RaisePropertyChanged(()=>Tedad);
-                AddNewItem.RaiseCanExecuteChanged();
+                //AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -108,7 +110,7 @@ namespace OrdersAndisheh.ViewModel
                 }
 
                 RaisePropertyChanged(() => Description);
-                AddNewItem.RaiseCanExecuteChanged();
+                //AddNewItem.RaiseCanExecuteChanged();
             }
         }
         public string Tarikh
@@ -121,8 +123,9 @@ namespace OrdersAndisheh.ViewModel
                     sefaresh.Tarikh = value;
                 //}
                 RaisePropertyChanged(() => Tarikh);
-                SaveSefaresh.RaiseCanExecuteChanged();
-                LoadSefaresh.RaiseCanExecuteChanged();
+                IsDirty = true;
+                //SaveSefaresh.RaiseCanExecuteChanged();
+                //LoadSefaresh.RaiseCanExecuteChanged();
             }
         }
 
@@ -164,8 +167,8 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => SelectedDestenation);
                 RaisePropertyChanged(() => Tedad);
                 RaisePropertyChanged(() => Description);
-                AddNewItem.RaiseCanExecuteChanged();
-                DeleteItem.RaiseCanExecuteChanged();
+                //AddNewItem.RaiseCanExecuteChanged();
+                //DeleteItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -181,17 +184,17 @@ namespace OrdersAndisheh.ViewModel
                 }
                 clickedItem = value;
                 IsEditItem = true;
-                CanReport = false;
-                CreateAnbarList.RaiseCanExecuteChanged();
-                CreateBazresLists.RaiseCanExecuteChanged();
-                CreateImensazanList.RaiseCanExecuteChanged();
-                CreateKontrolList.RaiseCanExecuteChanged();
-                CreatListErsal.RaiseCanExecuteChanged();
+                //CanReport = false;
+                //CreateAnbarList.RaiseCanExecuteChanged();
+                //CreateBazresLists.RaiseCanExecuteChanged();
+                //CreateImensazanList.RaiseCanExecuteChanged();
+                //CreateKontrolList.RaiseCanExecuteChanged();
+                //CreatListErsal.RaiseCanExecuteChanged();
             }
         }
 
 
-        public Sefaresh sefaresh { get; set; }
+        private Sefaresh sefaresh { get; set; }
 
         private Customer tempDestenation;
 
@@ -200,18 +203,19 @@ namespace OrdersAndisheh.ViewModel
             get { return (SelecteddItem != null ? SelecteddItem.Customer : null); }
             set
             {
-                if (SelecteddItem != null & value !=null)
+                if (SelecteddItem != null)
                 {
                     SelecteddItem.Customer = value;
                     //SelecteddItem.OrderDetail.Customer_Id = value.Id;
                 }
-                else
+                else if (value != null)
                 {
                     tempDestenation = value;
                 }
+                
                 RaisePropertyChanged(() => SelectedDestenation);
-                ADDDriverDestenation.RaiseCanExecuteChanged();
-                AddNewItem.RaiseCanExecuteChanged();
+                //ADDDriverDestenation.RaiseCanExecuteChanged();
+                //AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -260,7 +264,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => GoodName);
                 RaisePropertyChanged(() => Tedad);
                 RaisePropertyChanged(() => Description);
-                AddNewItem.RaiseCanExecuteChanged();
+                //AddNewItem.RaiseCanExecuteChanged();
 
             }
         }
@@ -280,17 +284,17 @@ namespace OrdersAndisheh.ViewModel
             get { return (SelecteddItem != null ? SelecteddItem.Driver : null); }
             set
             {
-                if (SelecteddItem != null & value != null)
+                if (SelecteddItem != null)
                 {
                     SelecteddItem.Driver = value;
                     //SelecteddItem.OrderDetail.Driver_Id = value.Id;
                 }
-                else
+                else if (value != null)
                 {
                     tempDriver = value;
                 }
                 RaisePropertyChanged(() => SelectedDriver);
-                ADDDriverDestenation.RaiseCanExecuteChanged();
+                //ADDDriverDestenation.RaiseCanExecuteChanged();
             }
         }
 
@@ -328,7 +332,8 @@ namespace OrdersAndisheh.ViewModel
             {
                 Items.Add(SelecteddItem);
             }
-            //RaisePropertyChanged(() => SelecteddItem);
+            IsDirty = true;
+            //IsEdit = true;
             IsEditItem = false;
             SelecteddItem = null;
         }
@@ -402,7 +407,8 @@ namespace OrdersAndisheh.ViewModel
             {
                 item.IsSelected = false;
             }
-            ADDDriverDestenation.RaiseCanExecuteChanged();
+            IsDirty = true;
+            //IsEdit = true;
             SelecteddItem = null;
             
         }
@@ -437,8 +443,9 @@ namespace OrdersAndisheh.ViewModel
                     Items.Remove(Items[i]);
                 }
             }
-            
-            DeleteItem.RaiseCanExecuteChanged();
+
+            IsDirty = false;
+            //IsEdit = true;
             SelecteddItem = null;
 
         }
@@ -472,23 +479,21 @@ namespace OrdersAndisheh.ViewModel
             {
                 if (IsEdit)
                 {
-                    //sefaresh.Items = Items.ToList();
                     ss.UpdateSefaresh(sefaresh);
-                    IsEdit = false;
                     MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ویرایش شد");
                 }
-                else
+                else 
                 {
-                    //sefaresh.Items = Items.ToList();
                     ss.SaveSefaresh(sefaresh);
+                    IsEdit = true;
                     MessageBox.Show("اطلاعات سفارش روز "+Tarikh+" ذخیره شد");
                 }
-                CanReport = true;
-                CreateAnbarList.RaiseCanExecuteChanged();
-                CreateBazresLists.RaiseCanExecuteChanged();
-                CreateImensazanList.RaiseCanExecuteChanged();
-                CreateKontrolList.RaiseCanExecuteChanged();
-                CreatListErsal.RaiseCanExecuteChanged();
+                IsDirty = false;
+                //CreateAnbarList.RaiseCanExecuteChanged();
+                //CreateBazresLists.RaiseCanExecuteChanged();
+                //CreateImensazanList.RaiseCanExecuteChanged();
+                //CreateKontrolList.RaiseCanExecuteChanged();
+                //CreatListErsal.RaiseCanExecuteChanged();
                 
             }
             catch (DbEntityValidationException e)
@@ -509,7 +514,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteSaveSefaresh()
         {
-            return Items.Count > 0 & !string.IsNullOrEmpty(Tarikh);
+            return Items.Count > 0 & !string.IsNullOrEmpty(Tarikh) & IsDirty;
         }
 
         private RelayCommand createBazresList;
@@ -535,7 +540,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreateBazresLists()
         {
-            return CanReport;
+            return !IsDirty;
         }
 
 
@@ -562,7 +567,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreatListErsal()
         {
-            return CanReport;
+            return !IsDirty;
         }
 
         private RelayCommand _myCommand8;
@@ -596,7 +601,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreateAnbarList()
         {
-            return CanReport;
+            return !IsDirty;
         }
 
         private RelayCommand _myCommand9;
@@ -622,7 +627,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreateImensazanList()
         {
-            return CanReport;
+            return !IsDirty;
         }
 
         private RelayCommand _myCommand10;
@@ -657,7 +662,7 @@ namespace OrdersAndisheh.ViewModel
         private bool CanExecuteCreateKontrolList()
         {
             //TODO باید اینجا فقط زمانی اینا فعال باشن که اولا ثبت شده باشد یعنی در حال ویرایش و دوما هیچ تغییر ثبت نشده جدیدی وجود نداشته باشد
-            return CanReport;
+            return !IsDirty;
         }
 
         private RelayCommand _myCommand111;
@@ -677,9 +682,9 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteLoadSefaresh()
         {
-            if (IsEdit)
+            if (IsDirty)
             {
-                DialogResult result = MessageBox.Show("آیا میخواهید راننده را از " ,
+                DialogResult result = MessageBox.Show("آيا مطمئن هستيد ميخواهيد اطلاعات را دوباره بارگذاري كنيد ؟ اطلاعات ذخيره نشده حذف خواهد شد" ,
                             "اطلاع", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
@@ -697,9 +702,37 @@ namespace OrdersAndisheh.ViewModel
             return !string.IsNullOrEmpty(Tarikh) ;
         }
 
+        private RelayCommand _myCommand465;
+
+        /// <summary>
+        /// Gets the SelectDriver.
+        /// </summary>
+        public RelayCommand SelectDriver
+        {
+            get
+            {
+                return _myCommand465 ?? (_myCommand465 = new RelayCommand(
+                    ExecuteSelectDriver,
+                    CanExecuteSelectDriver));
+            }
+        }
+
+        private void ExecuteSelectDriver()
+        {
+            DriverSelectionView v = new DriverSelectionView();
+            Messenger.Default.Send<string>(Tarikh, "ThisSefaresh");
+            v.ShowDialog();
+            LoadThisDateSefaresh(Tarikh);
+        }
+
+        private bool CanExecuteSelectDriver()
+        {
+            return !IsDirty;
+        }
+
         #endregion
 
-
+        
 
         
     }

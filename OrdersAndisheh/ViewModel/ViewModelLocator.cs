@@ -17,6 +17,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using OrdersAndisheh.DBL;
+using System;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -46,14 +47,14 @@ namespace OrdersAndisheh.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<MainViewModel>(Guid.NewGuid().ToString());
             }
         }
         public FirstViewModel First
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<FirstViewModel>();
+                return ServiceLocator.Current.GetInstance<FirstViewModel>(Guid.NewGuid().ToString());
             }
         }
 
@@ -61,7 +62,7 @@ namespace OrdersAndisheh.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<DriverSelectionViewModel>();
+                return ServiceLocator.Current.GetInstance<DriverSelectionViewModel>(Guid.NewGuid().ToString());
             }
         }
 
@@ -69,7 +70,7 @@ namespace OrdersAndisheh.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<OracleRelationViewModel>();
+                return ServiceLocator.Current.GetInstance<OracleRelationViewModel>(Guid.NewGuid().ToString());
             }
         }
         public static void Cleanup()

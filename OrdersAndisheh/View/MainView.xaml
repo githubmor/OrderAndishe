@@ -51,10 +51,15 @@
 
                 <dxg:TableView AllowPerPixelScrolling="True" AllowEditing="False" AutoWidth="True" AllowConditionalFormattingMenu="True">
                     <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition Expression="[Ranande] == ''" ApplyToRow="True" >
+                        <dxg:FormatCondition Expression="[Ranande] == ''" FieldName="Ranande">
                             <dx:Format Background="Aquamarine"  />
                         </dxg:FormatCondition>
-                        <dxg:ColorScaleFormatCondition FieldName="Ranande" PredefinedFormatName="GreenYellowRedColorScale"/>
+                        <dxg:FormatCondition Expression="[Tedad] == 0" FieldName="Tedad">
+                            <dx:Format Background="BurlyWood"  />
+                        </dxg:FormatCondition>
+                        <dxg:FormatCondition Expression="[Maghsad] == ''" FieldName="Maghsad">
+                            <dx:Format Background="#FFF0EB95"  />
+                        </dxg:FormatCondition>
                     </dxg:TableView.FormatConditions>
 
                 </dxg:TableView>
@@ -89,7 +94,7 @@
                                         FindMode="Always" 
                                         IsTextEditable="True" 
                                         AllowDefaultButton="True" 
-                                        ImmediatePopup="True" TabIndex="5"
+                                        ImmediatePopup="True" TabIndex="5" AssignNullValueOnClearingEditText="True"
                                         />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="راننده :">
@@ -102,7 +107,7 @@
                                         FindMode="Always" 
                                         IsTextEditable="True" 
                                         AllowDefaultButton="True" 
-                                        ImmediatePopup="True" TabIndex="6"
+                                        ImmediatePopup="True" TabIndex="6" AssignNullValueOnClearingEditText="True"
                                         />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
@@ -119,19 +124,24 @@
                 </dxlc:LayoutGroup>-->
             </dxlc:LayoutGroup>
             <Button Content="ذخیره" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="97" Margin="1,26,-56,-26" Command="{Binding SaveSefaresh}" TabIndex="10"/>
-            <TextBox UI:FocusAdvancement.AdvancesByEnterKey="True" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=LostFocus,Mode=TwoWay}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0" TabIndex="9"/>
+            <TextBox UI:FocusAdvancement.AdvancesByEnterKey="True" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0" TabIndex="9"/>
 
         </dxlc:LayoutControl>
-        <Button Content="ساخت ليست بازرسان" HorizontalAlignment="Left" Margin="634,10,0,0" Grid.Row="2" 
-                VerticalAlignment="Top" Width="116" Command="{Binding CreateBazresLists, Mode=OneWay}"/>
-        <Button Content="ساخت ليست ارسال" HorizontalAlignment="Left" Margin="513,10,0,0" Grid.Row="2" 
-                VerticalAlignment="Top" Width="116" Command="{Binding CreatListErsal, Mode=OneWay}"/>
-        <Button Content="ساخت ليست کنترل" HorizontalAlignment="Left" Margin="392,10,0,0" Grid.Row="2"
-                VerticalAlignment="Top" Width="116" Command="{Binding CreateKontrolList, Mode=OneWay}"/>
-        <Button Content="ساخت ليست انبار" HorizontalAlignment="Left" Margin="271,10,0,0" Grid.Row="2" 
-                VerticalAlignment="Top" Width="116" Command="{Binding CreateAnbarList, Mode=OneWay}"/>
-        <Button Content="ساخت ليست ایمن سازان" HorizontalAlignment="Left" Margin="150,10,0,0" Grid.Row="2" 
-                VerticalAlignment="Top" Width="116" Command="{Binding CreateImensazanList, Mode=OneWay}"/>
+        <WrapPanel Margin="0" Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">
+            <Button Content="ساخت ليست ایمن سازان" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreateImensazanList, Mode=OneWay}"/>
+            <Button Content="ساخت ليست انبار" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreateAnbarList, Mode=OneWay}"/>
+            <Button Content="ساخت ليست کنترل" HorizontalAlignment="Left"
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreateKontrolList, Mode=OneWay}"/>
+            <Button Content="ساخت ليست ارسال" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreatListErsal, Mode=OneWay}"/>
+            <Button Content="ساخت ليست بازرسان" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreateBazresLists, Mode=OneWay}"/>
+            <Button Content="انتخاب رانندگان" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding SelectDriver, Mode=OneWay}"/>
+
+        </WrapPanel>
 
     </Grid>
 </Window>

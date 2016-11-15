@@ -223,26 +223,35 @@ namespace BL
             db.SaveChanges();
         }
 
-        public List<ItemSefaresh> LoadSefareshItems(string sefareshTarikh)
+        public List<ItemSefaresh> LoadNoDriverSefareshItems(string sefareshTarikh)
         {
             List<ItemSefaresh> mn = new List<ItemSefaresh>();
             var m = db.OrderDetails
                 .Where(p => p.Order.Tarikh == sefareshTarikh)
                 .Include("Customer")
                 .Include("Product")
+                .Include("Driver")
                 .Include("Product.Pallet")
                 .ToList();
             foreach (var item in m)
             {
-                mn.Add(new ItemSefaresh(item));
+                if (item.Driver==null)
+                {
+                    mn.Add(new ItemSefaresh(item));
+                }
             }
 
             return mn;
         }
 
-        public void SaverDriver(Driver p)
+        public void AddDriver(Driver p)
         {
             db.Drivers.Add(p);
+            //db.SaveChanges();
+        }
+
+        public void Save()
+        {
             db.SaveChanges();
         }
     }

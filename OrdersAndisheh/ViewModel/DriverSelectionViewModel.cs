@@ -24,7 +24,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ThisSefaresh(string obj)
         {
-            ErsalItems = new ObservableCollection<ItemSefaresh>(service.LoadSefareshItems(obj));
+            ErsalItems = new ObservableCollection<ItemSefaresh>(service.LoadNoDriverSefareshItems(obj));
 
             var ma = ErsalItems.Select(p => p.Maghsad).Distinct();
 
@@ -96,18 +96,18 @@ namespace OrdersAndisheh.ViewModel
         {
             foreach (var item in DriverViewModels)
             {
-                if (item.SelectedDriver!=null)
-                {
-                    System.Windows.Forms.MessageBox.Show(item.SelectedDriver.Name);
-                }
-                else
+                if (item.SelectedDriver==null)
                 {
                     Driver p = new Driver() { Name = "راننده " + item.DriverNumber, Tol = item.VaznKol, 
                         TempDriver = new TempDriver() { Name = item.DriverNumber.ToString() } };
-                    service.SaverDriver(p);
+                    service.AddDriver(p);
                     item.SelectedDriver = p;
-                    hnhli
+                    
                 }
+
+                item.AssignDriver();
+                service.Save();
+                
                 
             }
             

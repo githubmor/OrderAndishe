@@ -15,8 +15,12 @@ namespace BL
 
         void SaveOracleRelation(System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> OCustomers);
 
-        System.Collections.Generic.List<ItemSefaresh> LoadSefareshItems(string sefareshTarikh);
+        System.Collections.Generic.List<ItemSefaresh> LoadNoDriverSefareshItems(string sefareshTarikh);
 
-        void SaverDriver(OrdersAndisheh.DBL.Driver p);
+        void AddDriver(OrdersAndisheh.DBL.Driver p);
+
+
+
+        void Save();
     }
 }

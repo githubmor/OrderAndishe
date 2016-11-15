@@ -83,6 +83,7 @@ namespace OrdersAndisheh.ViewModel
             set 
             { 
                 myVar = value;
+                
                 RaisePropertyChanged(() => this.SelectedDriver);
             }
         }
@@ -158,6 +159,14 @@ namespace OrdersAndisheh.ViewModel
 
             return chobiPalletCount;
         }
-        //public string ChobiPalletCount { get; set; }
+
+        //براي اينه كه اگه كاربر نخواست سيو كنه الكي تغييرات نره داخل ابجكت
+        public void AssignDriver()
+        {
+            foreach (var item in Mahmole)
+            {
+                item.Driver = SelectedDriver;
+            }
+        }
     }
 }

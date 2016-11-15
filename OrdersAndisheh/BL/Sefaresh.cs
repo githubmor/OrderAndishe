@@ -11,10 +11,11 @@ namespace BL
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Collections.Specialized;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
 
-	public class Sefaresh
+    public class Sefaresh : INotifyPropertyChanged
 	{
         public Sefaresh()
         {
@@ -71,13 +72,16 @@ namespace BL
                     throw new ApplicationException("فرمت تاریخ وارد شده صحیح نمی باشد !");
                 };
                 Order.Tarikh = value;
+                NotifyPropertyChanged("Tarikh");
             }
 		}
 
 		public string Description
 		{
 			get { return Order.Description; }
-            set { Order.Description = value; }
+            set { Order.Description = value;
+            NotifyPropertyChanged("Description");
+            }
         }
 
         public int SefareshId
@@ -105,6 +109,7 @@ namespace BL
                     s.OrderDetail.OrderId = Order.Id;
                     Order.OrderDetails.Add(s.OrderDetail);
                 }
+                NotifyPropertyChanged("Items");
                 //foreach (var item in items)
                 //{
                 //    switch (item.ItemKind)
@@ -163,6 +168,16 @@ namespace BL
         {
             get { return Order.Accepted; }
             set { Order.Accepted = value; } 
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
         }
     }
 }
