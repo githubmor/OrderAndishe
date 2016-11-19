@@ -231,11 +231,12 @@ namespace BL
                 .Include("Customer")
                 .Include("Product")
                 .Include("Driver")
+                .Include("Driver.TempDriver")
                 .Include("Product.Pallet")
                 .ToList();
             foreach (var item in m)
             {
-                if (item.Driver==null)
+                if (item.Driver==null || item.Driver.TempDriver!=null)
                 {
                     mn.Add(new ItemSefaresh(item));
                 }

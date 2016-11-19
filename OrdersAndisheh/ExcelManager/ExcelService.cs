@@ -85,10 +85,10 @@ namespace OrdersAndisheh.ExcelManager
 
                 return cg + "\n" + cc + "\n" + cd + "\n" + cb + "\n" + cp + "\n" + cdy;
             }
-            catch (Exception r)
+            catch (Exception)
             {
                 
-                throw r;
+                throw ;
             }
         }
 

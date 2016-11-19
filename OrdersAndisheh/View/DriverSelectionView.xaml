@@ -10,7 +10,7 @@
             <ColumnDefinition Width="153*"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" Margin="10" Orientation="Vertical">
+        <StackPanel Grid.Column="1"  Orientation="Vertical">
             <Button Content="افزودن راننده جدید" Command="{Binding AddNewContainer }"/>
             <Label Content="لیست ارسال " Margin="0" FlowDirection="RightToLeft"/>
 
@@ -20,6 +20,7 @@
                         <GridViewColumn Header="نام کالا" Width="Auto" DisplayMemberBinding="{Binding Kala}" />
                         <GridViewColumn Header="وزن" Width="Auto" DisplayMemberBinding="{Binding Vazn}" />
                         <GridViewColumn Header="تعداد پالت"  DisplayMemberBinding="{Binding Pallet}" />
+                        <GridViewColumn Header="مقصد"  DisplayMemberBinding="{Binding Maghsad}" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -29,7 +30,7 @@
               ItemsSource="{Binding DriverViewModels}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"
+                    <WrapPanel Orientation="Horizontal" 
                  IsItemsHost="True" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>

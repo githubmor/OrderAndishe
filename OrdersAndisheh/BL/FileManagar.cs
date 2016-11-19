@@ -45,7 +45,7 @@ namespace BL
             }
             var h = new Header();
             h.Tarikh= Tarikh;
-            h.WeekDay= "شنبه";
+            h.WeekDay= PersianDateTime.Parse(Tarikh).DayName;
 
             
 

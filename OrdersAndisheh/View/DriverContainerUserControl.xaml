@@ -14,15 +14,27 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel FlowDirection="RightToLeft" Orientation="Vertical" >
-            <Label  VerticalContentAlignment="Center" VerticalAlignment="Top" >
+            <Label VerticalContentAlignment="Center" VerticalAlignment="Top" x:Name="myLabel">
+                <Label.Content>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} - {1}">
+                                <Binding Path="DriverNumber" />
+                                <Binding Path="Maghased" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Label.Content>
+            </Label>
+            <!--<Label  VerticalContentAlignment="Center" VerticalAlignment="Top" >
                 <Label.Content>
                     <Binding Path="DriverNumber"/>
                 </Label.Content>
                 <Label.ContentStringFormat>
                     {0} راننده
                 </Label.ContentStringFormat>
-            </Label>
-            <ListView Margin="5"  Name="DriverListBox" MinHeight="80" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }"   FlowDirection="RightToLeft">
+            </Label>-->
+            <ListView Margin="5"  Name="DriverListBox" MinHeight="120" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }"   FlowDirection="RightToLeft">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="نام کالا" Width="Auto" DisplayMemberBinding="{Binding Kala}" />
@@ -32,15 +44,21 @@
                 </ListView.View>
             </ListView>
 
-            <!--<ListView x:Name="DriverListBox" 
-                         Margin="2" ItemsSource="{Binding Mahmole ,UpdateSourceTrigger=PropertyChanged }" 
-                      MinHeight="50" MinWidth="60" 
-                         >
-                <ListViewItem Content="sd" />
-            </ListView>-->
-
-
-            <Label Visibility="{Binding VaznKol, Converter={StaticResource converter2}}"  VerticalContentAlignment="Center" VerticalAlignment="Top">
+            <Label VerticalContentAlignment="Center" VerticalAlignment="Top" x:Name="asa">
+                <Label.Content>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} ک- {1} ف- {2} چ- {3} ج">
+                                <Binding Path="VaznKol" />
+                                <Binding Path="FeleziPalletCount" />
+                                <Binding Path="ChobiPalletCount" />
+                                <Binding Path="JaigahCount" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Label.Content>
+            </Label>
+            <!--<Label Visibility="{Binding VaznKol, Converter={StaticResource converter2}}"  VerticalContentAlignment="Center" VerticalAlignment="Top">
                 <Label.Content>
                     <Binding Path="VaznKol"/>
                 </Label.Content>
@@ -71,7 +89,7 @@
                 <Label.ContentStringFormat>
                     {0} جایگاه
                 </Label.ContentStringFormat>
-            </Label>
+            </Label>-->
             <ComboBox ItemsSource="{Binding Drivers}"  SelectedItem="{Binding SelectedDriver,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name"/>
         </StackPanel>
 

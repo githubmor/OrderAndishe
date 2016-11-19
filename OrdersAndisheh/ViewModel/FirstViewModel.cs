@@ -22,9 +22,12 @@ namespace OrdersAndisheh.ViewModel
         ExcelService exService;
         public FirstViewModel()
         {
+            
             ss = new SefareshService();
             Lists = ss.LoadAllSefareshTarikh();
             Messenger.Default.Register<string>(this, "path", getFilePath);
+            
+            
         }
         private void getFilePath(string path)
         {
@@ -74,7 +77,7 @@ namespace OrdersAndisheh.ViewModel
 
         public List<string> Lists
         {
-            get { return lists; }
+            get { return ss.LoadAllSefareshTarikh(); }
             set { lists = value; }
         }
 
@@ -97,8 +100,10 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteNewSefaresh()
         {
+            MessageBox.Show("Test");
             MainView v = new MainView();
-            v.Show();
+            v.ShowDialog();
+            RaisePropertyChanged(() => this.Lists);
         }
 
         private bool CanExecuteNewSefaresh()
@@ -369,7 +374,8 @@ namespace OrdersAndisheh.ViewModel
             {
                 MainView v = new MainView();
                 Messenger.Default.Send<string>(SelectedTarikh, "EditSefaresh");
-                v.Show();
+                v.ShowDialog();
+                RaisePropertyChanged(() => this.Lists);
                 
             }
         }
@@ -399,9 +405,9 @@ namespace OrdersAndisheh.ViewModel
             if (folderDialog.ShowDialog() == DialogResult.OK)
             {
                 string sourcePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string sourceFile = "OrderDb.mdf";
+                string sourceFile = "OrderDbCompact.sdf";
                 string destinationPath = folderDialog.SelectedPath;
-                string destinationFile = "123p.backup";
+                string destinationFile = "BackUp.sdf";
                 string sourceFileName = Path.Combine(sourcePath, sourceFile);
                 string destinationFileName = Path.Combine(destinationPath, destinationFile);
 
@@ -421,6 +427,7 @@ namespace OrdersAndisheh.ViewModel
                     //conn.connect();
                 }
             }
+            
             //// read connectionstring from config file
             //var connectionString = ConfigurationManager.ConnectionStrings["CodeFirstConection"].ConnectionString;
 
@@ -446,6 +453,52 @@ namespace OrdersAndisheh.ViewModel
             //    }
             //}
         }
+
+        private RelayCommand _myCommand65656;
+
+        /// <summary>
+        /// Gets the RestoreDatabase.
+        /// </summary>
+        public RelayCommand RestoreDatabase
+        {
+            get
+            {
+                return _myCommand65656
+                    ?? (_myCommand65656 = new RelayCommand(ExecuteRestoreDatabase));
+            }
+        }
+
+        private void ExecuteRestoreDatabase()
+        {
+            OpenFileDialog  folderDialog = new OpenFileDialog();
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                string destinationPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string destinationFile = "OrderDbCompact.sdf";
+                string sourceFileName = folderDialog.FileName;
+                //string sourceFile = "OrderDbCompactB.sdf";
+                //string sourceFileName = Path.Combine(sourcePath, sourceFile);
+                string destinationFileName = Path.Combine(destinationPath, destinationFile);
+
+                try
+                {
+                    //conn.disconnect();
+                    //ss.Dispose();
+                    File.Copy(sourceFileName, destinationFileName, true);
+                    MessageBox.Show("Database Restored.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    //conn.connect();
+                }
+                RaisePropertyChanged(() => this.Lists);
+            }
+        }
+
 
         private RelayCommand _myCommand565;
 

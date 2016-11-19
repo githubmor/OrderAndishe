@@ -28,6 +28,7 @@ namespace OrdersAndisheh.View
             Messenger.Default.Send<string>(s.SelectedItem.ToString(), "Editsefaresh");
             v.Show();
             
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

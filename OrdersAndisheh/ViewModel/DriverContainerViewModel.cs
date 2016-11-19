@@ -24,6 +24,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.FeleziPalletCount);
                 RaisePropertyChanged(() => this.ChobiPalletCount);
                 RaisePropertyChanged(() => this.JaigahCount);
+                RaisePropertyChanged(() => this.Maghased);
             };
             DriverNumber = position;
             ss = new SefareshService();
@@ -53,6 +54,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.JaigahCount);
                 RaisePropertyChanged(() => this.FeleziPalletCount);
                 RaisePropertyChanged(() => this.ChobiPalletCount);
+                RaisePropertyChanged(() => this.Maghased);
             };
             //DriverNumber = position;
         }
@@ -115,6 +117,32 @@ namespace OrdersAndisheh.ViewModel
         {
            
             return (Math.Ceiling((double)FeleziPalletCount / 2) + ChobiPalletCount).ToString();
+        }
+
+        public string Maghased
+        {
+            get { return MaghasedCal(); }
+        }
+
+        private string MaghasedCal()
+        {
+            string re = "";
+            var o = Mahmole.Select(p => p.Maghsad).Distinct().ToList();
+            for (int i = 0; i < o.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(o[i]))
+                {
+                    re += o[i] + (i+1 < o.Count ? " - " : null);
+                }
+            }
+            //foreach (var item in o)
+            //{
+            //    if (string.IsNullOrEmpty(item))
+            //    {
+            //        re += item + " - ";
+            //    }
+            //}
+            return re;
         }
 
         public int FeleziPalletCount //{ get; set; }

@@ -155,7 +155,7 @@
           <Components isList="true" count="8">
             <HeaderItems_kala Ref="13" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,1.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
@@ -172,7 +172,7 @@
             </HeaderItems_kala>
             <HeaderItems_tedad Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>1.3,0,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
@@ -189,7 +189,7 @@
             </HeaderItems_tedad>
             <HeaderItems_karton Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>2,0,1.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
@@ -205,7 +205,7 @@
             </HeaderItems_karton>
             <HeaderItems_pallet Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>3.2,0,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
@@ -221,7 +221,7 @@
             </HeaderItems_pallet>
             <HeaderItems_maghsad Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>3.7,0,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,11,Bold</Font>
@@ -237,7 +237,7 @@
             </HeaderItems_maghsad>
             <HeaderItems_vazn Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>4.2,0,1.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
@@ -253,7 +253,7 @@
             </HeaderItems_vazn>
             <HeaderItems_Ranande Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>5.4,0,2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
@@ -269,7 +269,7 @@
             </HeaderItems_Ranande>
             <Text8 Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>7.4,0,0.32,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
@@ -294,16 +294,16 @@
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>febeeb78b448498fbfc442ce5bff949c</BusinessObjectGuid>
-          <ClientRectangle>0,2.3,7.72,0.3</ClientRectangle>
+          <ClientRectangle>0,2.3,7.72,0.2</ClientRectangle>
           <Components isList="true" count="8">
             <DataItems_kala Ref="22" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,1.3,0.3</ClientRectangle>
+              <ClientRectangle>0,0,1.3,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>B Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_kala</Name>
@@ -319,11 +319,11 @@
               <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>1.3,0,0.7,0.3</ClientRectangle>
+              <ClientRectangle>1.3,0,0.7,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>B Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_tedad</Name>
@@ -339,11 +339,11 @@
               <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>2,0,1.2,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>B Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_karton</Name>
@@ -359,11 +359,11 @@
               <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.2,0,0.5,0.3</ClientRectangle>
+              <ClientRectangle>3.2,0,0.5,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>B Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_pallet</Name>
@@ -379,11 +379,11 @@
               <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.7,0,0.5,0.3</ClientRectangle>
+              <ClientRectangle>3.7,0,0.5,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>B Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_maghsad</Name>
@@ -399,11 +399,11 @@
               <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.2,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>4.2,0,1.2,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>B Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_vazn</Name>
@@ -419,11 +419,11 @@
               <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.4,0,2,0.3</ClientRectangle>
+              <ClientRectangle>5.4,0,2,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>2  Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
@@ -438,11 +438,11 @@
             <Text7 Ref="29" type="Text" isKey="true">
               <Border>Left, Right;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>7.4,0,0.32,0.3</ClientRectangle>
+              <ClientRectangle>7.4,0,0.32,0.2</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>2  Nazanin,11</Font>
+              <Font>2  Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
@@ -489,10 +489,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/3/2016 9:35:09 AM</ReportChanged>
+  <ReportChanged>11/17/2016 4:59:10 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report.mrt</ReportFile>
-  <ReportGuid>5a3912c736284f40b5f5d581039b7559</ReportGuid>
+  <ReportGuid>49c667851ef64f15b47e6f1b63cc184c</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

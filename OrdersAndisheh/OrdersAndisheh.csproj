@@ -24,13 +24,16 @@
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
+    <MapFileExtensions>false</MapFileExtensions>
+    <UpdateUrl>http://localhost/OrdersAndisheh/</UpdateUrl>
+    <TargetCulture>fa-IR</TargetCulture>
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>27</ApplicationRevision>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>40</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -246,6 +249,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\AlarmManager.cs" />
+    <Compile Include="BL\Container.cs" />
     <Compile Include="BL\FileManagar.cs" />
     <Compile Include="BL\ISefareshService.cs" />
     <Compile Include="BL\ItemSefaresh.cs" />
@@ -491,7 +495,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -507,9 +510,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Content Include="OrderDbCompact.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="OrderDbCompact.sdf" />
     <Content Include="Report\Report.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
