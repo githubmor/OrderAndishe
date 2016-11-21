@@ -14,7 +14,7 @@ namespace OrdersAndisheh.BL
         public Container(List<ItemSefaresh> items,Driver driver)
         {
             this.items = items;
-            this.driver = driver;
+            //this.driver = driver;
         }
 
         private List<ItemSefaresh> _items;

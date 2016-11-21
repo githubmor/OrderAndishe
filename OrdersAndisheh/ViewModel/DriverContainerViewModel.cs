@@ -56,11 +56,13 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.ChobiPalletCount);
                 RaisePropertyChanged(() => this.Maghased);
             };
-            //DriverNumber = position;
+            if (Mahmole[0].Driver!=null)
+            {
+                SelectedDriver = Drivers.Where(o => o.Id == Mahmole[0].Driver.Id).FirstOrDefault();
+            }
         }
 
 
-        //private int myVar;
 
         public List<Driver> Drivers
         {
@@ -68,7 +70,6 @@ namespace OrdersAndisheh.ViewModel
             { 
                 return DriverCal(); 
             }
-            //set { myVar = value; }
         }
 
         private List<Driver> DriverCal()
@@ -85,7 +86,6 @@ namespace OrdersAndisheh.ViewModel
             set 
             { 
                 myVar = value;
-                
                 RaisePropertyChanged(() => this.SelectedDriver);
             }
         }

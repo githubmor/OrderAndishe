@@ -38,5 +38,10 @@ namespace OrdersAndisheh.DBL
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         //public int? TempDriverId { get; set; }
         public virtual TempDriver TempDriver { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("{0}", Name);
+        }
     }
 }

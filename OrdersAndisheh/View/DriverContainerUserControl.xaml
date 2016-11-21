@@ -90,7 +90,8 @@
                     {0} جایگاه
                 </Label.ContentStringFormat>
             </Label>-->
-            <ComboBox ItemsSource="{Binding Drivers}"  SelectedItem="{Binding SelectedDriver,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name"/>
+            
+            <ComboBox ItemsSource="{Binding Drivers}"  SelectedItem="{Binding SelectedDriver,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
         </StackPanel>
 
     </Grid>
