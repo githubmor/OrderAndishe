@@ -726,10 +726,12 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteSelectDriver()
         {
+            DriverSelectionViewModel vm = new DriverSelectionViewModel(ss);
             DriverSelectionView v = new DriverSelectionView();
+            v.DataContext = vm;
             Messenger.Default.Send<string>(Tarikh, "ThisSefaresh");
             v.ShowDialog();
-            LoadThisDateSefaresh(Tarikh);
+            //LoadThisDateSefaresh(Tarikh);
         }
 
         private bool CanExecuteSelectDriver()

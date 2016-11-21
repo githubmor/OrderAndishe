@@ -13,10 +13,11 @@ namespace OrdersAndisheh.ViewModel
     {
         int felaziPalletCount = 0;
         int chobiPalletCount = 0;
-        SefareshService ss;
+        ISefareshService ss;
         List<Driver> driver;
-        public DriverContainerViewModel(int position)
+        public DriverContainerViewModel(ISefareshService _ss,int position)
         {
+            ss = _ss;
             Mahmole = new ObservableCollection<ItemSefaresh>();
             Mahmole.CollectionChanged += (sender, e) =>
             {
@@ -27,7 +28,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.Maghased);
             };
             DriverNumber = position;
-            ss = new SefareshService();
+            //ss = new SefareshService();
             driver = ss.LoadDrivers();
         }
 
@@ -42,10 +43,11 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.DriverNumber);
             }
         }
-        
 
 
-        public DriverContainerViewModel(ObservableCollection<ItemSefaresh> items,int position):this(position)
+
+        public DriverContainerViewModel(ISefareshService _ss,ObservableCollection<ItemSefaresh> items, int position)
+            : this(_ss,position)
         {
             Mahmole = items;
             Mahmole.CollectionChanged += (sender, e) =>
@@ -58,7 +60,7 @@ namespace OrdersAndisheh.ViewModel
             };
             if (Mahmole[0].Driver!=null)
             {
-                SelectedDriver = Drivers.Where(o => o.Id == Mahmole[0].Driver.Id).FirstOrDefault();
+                SelectedDriver = Mahmole[0].Driver;
             }
         }
 

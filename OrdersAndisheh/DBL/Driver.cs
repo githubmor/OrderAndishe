@@ -20,8 +20,10 @@ namespace OrdersAndisheh.DBL
         [Required]
         public string Name { get; set; }
 
+        [StringLength(12)]
         public string Tel1 { get; set; }
 
+        [StringLength(12)]
         public string Tel2 { get; set; }
 
         [StringLength(10)]
@@ -30,18 +32,19 @@ namespace OrdersAndisheh.DBL
         [StringLength(20)]
         public string Car { get; set; }
 
-        public int? Ton { get; set; }
+        
+        public Nullable<short> Ton { get; set; }
 
-        public int? Tol { get; set; }
+        public Nullable<byte> Tol { get; set; }
 
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         //public int? TempDriverId { get; set; }
         public virtual TempDriver TempDriver { get; set; }
 
-        public override string ToString()
-        {
-            return String.Format("{0}", Name);
-        }
+        //public override string ToString()
+        //{
+        //    return String.Format("{0}", Name);
+        //}
     }
 }

@@ -26,7 +26,7 @@ namespace UnitTest
             }
 
 
-            DriverContainerViewModel v = new DriverContainerViewModel(p,1);
+            DriverContainerViewModel v = new DriverContainerViewModel(null,p,1);
 
             Assert.AreEqual(10, v.Mahmole.Count);
             Assert.AreEqual(5, v.ChobiPalletCount);

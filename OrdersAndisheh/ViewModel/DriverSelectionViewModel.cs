@@ -33,7 +33,7 @@ namespace OrdersAndisheh.ViewModel
                 if (!string.IsNullOrEmpty(item))
                 {
                     var pe = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Ranande == item).ToList());
-                    DriverViewModels.Add(new DriverContainerViewModel(pe, pos));
+                    DriverViewModels.Add(new DriverContainerViewModel(service,pe, pos));
                     pos += 1;
                 }
             }
@@ -46,7 +46,7 @@ namespace OrdersAndisheh.ViewModel
                 if (!string.IsNullOrEmpty(item))
                 {
                     var p = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Maghsad == item).ToList());
-                    DriverViewModels.Add(new DriverContainerViewModel(p, pos));
+                    DriverViewModels.Add(new DriverContainerViewModel(service, p, pos));
                     pos += 1;
                 }
             }
@@ -89,7 +89,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewContainer()
         {
-            DriverViewModels.Add(new DriverContainerViewModel(pos));
+            DriverViewModels.Add(new DriverContainerViewModel(service, pos));
             pos += 1;
         }
 
@@ -113,7 +113,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 if (item.SelectedDriver==null)
                 {
-                    Driver p = new Driver() { Name = "راننده " + item.DriverNumber, Tol = item.VaznKol, 
+                    Driver p = new Driver() { Name = "راننده " + item.DriverNumber, Tol = 0, 
                         TempDriver = new TempDriver() { Name = item.DriverNumber.ToString() } };
                     service.AddDriver(p);
                     item.SelectedDriver = p;

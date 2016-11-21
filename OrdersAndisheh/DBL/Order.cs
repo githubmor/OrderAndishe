@@ -15,11 +15,23 @@ namespace OrdersAndisheh.DBL
             OrderDetails = new HashSet<OrderDetail>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         public int Id { get; set; }
+        //{
+        //    get;
+        //    private set;
+        //}
 
         [StringLength(10)]
         public string Tarikh { get; set; }
+        //{
+        //    get { return ;}
+        //    set
+        //    {
+        //        var t = PersianDateTime.Parse(value);
+        //        Id = t.Year + t.Month + t.Day;
+        //    }
+        //}
 
         public bool Accepted { get; set; }
 
