@@ -27,8 +27,8 @@ namespace BL
             }
             OrderDetail = new OrderDetail();
             Product = p;
-            HasOracle = true;
-            ItemKind = ItemType.عادی.ToString();
+            //HasOracle = true;
+            ItemKind = (byte) ItemType.عادی;
         }
 
         public ItemSefaresh(OrderDetail od):this(od.Product)
@@ -119,7 +119,7 @@ namespace BL
             }
         }
 
-		public int Tedad
+		public ushort Tedad
 		{
             get { return OrderDetail.Tedad; }
             set 
@@ -138,19 +138,19 @@ namespace BL
             }
         }
 
-		public int TahvilFrosh
+		public ushort TahvilFrosh
 		{
             get { return OrderDetail.TahvilForosh; }
             set { OrderDetail.TahvilForosh = value; }
 		}
 
-		public bool HasOracle
-		{
-            get { return OrderDetail.HasOracle; }
-            set { OrderDetail.HasOracle = value; }
-		}
+        //public bool HasOracle
+        //{
+        //    get { return OrderDetail.HasOracle; }
+        //    set { OrderDetail.HasOracle = value; }
+        //}
 
-		public string ItemKind
+		public byte ItemKind
 		{
             get { return OrderDetail.ItemType; }
             set { OrderDetail.ItemType = value; }
@@ -221,7 +221,7 @@ namespace BL
 
         private int VaznCalCulate()
         {
-            if (Product.TedadDarPallet > 0 && Tedad % Product.TedadDarPallet == 0)
+            if (Product.TedadDarPallet > 0 & Tedad % Product.TedadDarPallet == 0 & Product.TedadDarPallet!=null)
             {
                 return (int)((Tedad / Product.TedadDarPallet) * Product.Weight);
             }

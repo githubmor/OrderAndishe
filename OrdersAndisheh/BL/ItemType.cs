@@ -11,7 +11,7 @@ namespace BL
 	using System.Linq;
 	using System.Text;
 
-	public enum ItemType : int
+	public enum ItemType : byte
 	{
 		فوری,
 		گواهی,

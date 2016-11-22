@@ -13,10 +13,11 @@ namespace OrdersAndisheh.ViewModel
     {
         int felaziPalletCount = 0;
         int chobiPalletCount = 0;
-        SefareshService ss;
+        ISefareshService ss;
         List<Driver> driver;
-        public DriverContainerViewModel(int position)
+        public DriverContainerViewModel(ISefareshService _ss,int position)
         {
+            ss = _ss;
             Mahmole = new ObservableCollection<ItemSefaresh>();
             Mahmole.CollectionChanged += (sender, e) =>
             {
@@ -27,7 +28,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.Maghased);
             };
             DriverNumber = position;
-            ss = new SefareshService();
+            //ss = new SefareshService();
             driver = ss.LoadDrivers();
         }
 
@@ -42,10 +43,11 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.DriverNumber);
             }
         }
-        
 
 
-        public DriverContainerViewModel(ObservableCollection<ItemSefaresh> items,int position):this(position)
+
+        public DriverContainerViewModel(ISefareshService _ss,ObservableCollection<ItemSefaresh> items, int position)
+            : this(_ss,position)
         {
             Mahmole = items;
             Mahmole.CollectionChanged += (sender, e) =>
@@ -56,11 +58,13 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.ChobiPalletCount);
                 RaisePropertyChanged(() => this.Maghased);
             };
-            //DriverNumber = position;
+            if (Mahmole[0].Driver!=null)
+            {
+                SelectedDriver = Mahmole[0].Driver;
+            }
         }
 
 
-        //private int myVar;
 
         public List<Driver> Drivers
         {
@@ -68,7 +72,6 @@ namespace OrdersAndisheh.ViewModel
             { 
                 return DriverCal(); 
             }
-            //set { myVar = value; }
         }
 
         private List<Driver> DriverCal()
@@ -85,7 +88,6 @@ namespace OrdersAndisheh.ViewModel
             set 
             { 
                 myVar = value;
-                
                 RaisePropertyChanged(() => this.SelectedDriver);
             }
         }

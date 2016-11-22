@@ -10,6 +10,7 @@ namespace OrdersAndisheh.DBL
     public class TempDriver
     {
         public int Id { get; set; }
+        [StringLength(10)]
         public string Name { get; set; }
         public virtual Driver Driver { get; set; }
     }

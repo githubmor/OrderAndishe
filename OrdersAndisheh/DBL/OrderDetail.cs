@@ -12,9 +12,9 @@ namespace OrdersAndisheh.DBL
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public int Tedad { get; set; }
+        public ushort Tedad { get; set; }
 
-        public int TahvilForosh { get; set; }
+        public ushort TahvilForosh { get; set; }
 
         public string Description { get; set; }
 
@@ -28,9 +28,7 @@ namespace OrdersAndisheh.DBL
 
         public int OrderId { get; set; }
 
-        public bool HasOracle { get; set; }
-
-        public string ItemType { get; set; }
+        public byte ItemType { get; set; }
 
         public virtual Customer Customer { get; set; }
 

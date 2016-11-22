@@ -255,6 +255,13 @@ namespace BL
         {
             db.SaveChanges();
         }
+
+        public void DelNoUsedTempDrivers()
+        {
+            //var tempdriver = db.TempDriver.Select(p => p.Driver).Include("").ToList();
+            
+            //var ord = db.OrderDetails.Where(o=>o.Driver_Id=)
+        }
     }
 }
 

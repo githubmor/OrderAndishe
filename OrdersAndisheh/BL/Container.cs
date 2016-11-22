@@ -33,7 +33,7 @@ namespace OrdersAndisheh.BL
             :this()
         {
             this.items = items;
-            this.driver = driver;
+            //this.driver = driver;
         }
 
         private List<ItemSefaresh> _items;

@@ -41,7 +41,7 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
 
         IRepository<CustomerProductRelation, int> IMyContextCFUnitOfWork.CustomerProductRelations
         {
-            get { return GetRepository((CustomerProductRelation x) => x.Id); }
+            get { return GetRepository((CustomerProductRelation x) => x.CustomerId); }
         }
 
         IRepository<Driver, int> IMyContextCFUnitOfWork.Drivers

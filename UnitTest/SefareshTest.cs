@@ -24,16 +24,16 @@ namespace UnitTest
             // اینجا فقط ساخت یک سفارش چک میشود
             ObservableCollection<ItemSefaresh> f = new ObservableCollection<ItemSefaresh>()
             {
-                new ItemSefaresh(p){ItemKind="فوری"},
-                new ItemSefaresh(p){ItemKind="نامشخص"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="عادی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="عادی"},
-                new ItemSefaresh(p){ItemKind="عادی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
+                new ItemSefaresh(p){ItemKind= (byte) ItemType.فوری },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.نامشخص },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.عادی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.عادی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.عادی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
             };
             Sefaresh s = new Sefaresh();
             s.Tarikh = "1395/01/02";
@@ -82,11 +82,11 @@ namespace UnitTest
 
             List<OrderDetail> od = new List<OrderDetail>()
             {
-                new OrderDetail(){Customer_Id=4,ItemType="عادی",Driver_Id=2,HasOracle=false,Id=6,Product=new Product(){Name="d",Code="d"},Tedad=85},
-                new OrderDetail(){Customer_Id=8,ItemType="گواهی",Driver_Id=3,HasOracle=true,Id=2,Product=new Product(){Name="d",Code="d"},Tedad=6},
-                new OrderDetail(){Customer_Id=7,ItemType="عادی",Driver_Id=2,HasOracle=true,Id=1,Product=new Product(){Name="d",Code="d"},Tedad=5},
-                new OrderDetail(){Customer_Id=2,ItemType="فوری",Driver_Id=5,HasOracle=false,Id=3,Product=new Product(){Name="d",Code="d"},Tedad=78},
-                new OrderDetail(){Customer_Id=1,ItemType="عادی",Driver_Id=2,HasOracle=true,Id=4,Product=new Product(){Name="d",Code="d"},Tedad=98},
+                new OrderDetail(){Customer_Id=4,ItemType=(byte) ItemType.عادی,Driver_Id=2,Id=6,Product=new Product(){Name="d",Code="d"},Tedad=85},
+                new OrderDetail(){Customer_Id=8,ItemType=(byte) ItemType.گواهی,Driver_Id=3,Id=2,Product=new Product(){Name="d",Code="d"},Tedad=6},
+                new OrderDetail(){Customer_Id=7,ItemType=(byte) ItemType.عادی,Driver_Id=2,Id=1,Product=new Product(){Name="d",Code="d"},Tedad=5},
+                new OrderDetail(){Customer_Id=2,ItemType=(byte) ItemType.فوری,Driver_Id=5,Id=3,Product=new Product(){Name="d",Code="d"},Tedad=78},
+                new OrderDetail(){Customer_Id=1,ItemType=(byte) ItemType.عادی,Driver_Id=2,Id=4,Product=new Product(){Name="d",Code="d"},Tedad=98},
             };
 
             Sefaresh sef = new Sefaresh(o,od);

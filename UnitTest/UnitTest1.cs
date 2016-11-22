@@ -18,15 +18,17 @@ namespace UnitTest
             {
                 p.Add(new ItemSefaresh(
                     new Product() { Name = "g" + i ,
-                        Pallet= new Pallet(){Vazn=(i%2==0?20:200)}}) 
-                    { Tedad = 10 * i,
+                                    Pallet = new Pallet() { Vazn = (i % 2 == 0 ? (byte)20 : (byte)200) }
+                    })
+                {
+                    Tedad = (ushort)(10 * i),
                       Customer = new Customer() { Name = (i % 2 == 0 ? "c" : "b") }
                     });
                 vazn += p[i].Vazn;
             }
 
 
-            DriverContainerViewModel v = new DriverContainerViewModel(p,1);
+            DriverContainerViewModel v = new DriverContainerViewModel(null,p,1);
 
             Assert.AreEqual(10, v.Mahmole.Count);
             Assert.AreEqual(5, v.ChobiPalletCount);
@@ -38,7 +40,7 @@ namespace UnitTest
                     new Product()
                     {
                         Name = "g",
-                        Pallet = new Pallet() { Vazn = 2000 }
+                        Pallet = new Pallet() { Vazn = (byte) 200 }
                     })
             {
                 Tedad = 10,

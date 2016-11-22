@@ -16,8 +16,8 @@ namespace OrdersAndisheh.DBL
             //Products = new HashSet<Product>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int Id { get; set; }
 
         public bool HasOracle { get; set; }
         public bool HasBarnameDasti { get; set; }
@@ -26,8 +26,13 @@ namespace OrdersAndisheh.DBL
         public bool HasLabelPrint { get; set; }
         public bool HasHamloNaghl { get; set; }
         public bool HasMoshtariASN { get; set; }
+
+        [Key]
+        [Column(Order = 10)]
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
+        [Key]
+        [Column(Order = 20)]
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
     }

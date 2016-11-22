@@ -247,8 +247,8 @@ namespace OrdersAndisheh.ExcelManager
                                 Name = WorkSheet.Cells[row, 1].Text,
                                 Car = WorkSheet.Cells[row, 5].Text ,
                                 Pelak = WorkSheet.Cells[row, 4].Text,
-                                Tel1 = WorkSheet.Cells[row, 2].Text,
-                                Tel2 = WorkSheet.Cells[row, 3].Text,
+                                Tel1 = WorkSheet.Cells[row, 2].Text.Trim(),
+                                Tel2 = WorkSheet.Cells[row, 3].Text.Trim(),
                             });
                     }
 
@@ -353,8 +353,8 @@ namespace OrdersAndisheh.ExcelManager
                         pp.IsImenKala = (int.Parse(WorkSheet.Cells[row, 1].Text) > 15010000);
                         pp.Bazres_Id = GetBazres(WorkSheet.Cells[row, 12].Text);
                         pp.PalletId = GetPallet(WorkSheet.Cells[row, 9].Text);
-                        pp.TedadDarPallet = (WorkSheet.Cells[row, 3].Text == "" ? 0 : int.Parse(WorkSheet.Cells[row, 3].Text));
-                        pp.TedadDarSabad = (WorkSheet.Cells[row, 4].Text == "" ? 0 : int.Parse(WorkSheet.Cells[row, 4].Text));
+                        pp.TedadDarPallet = (WorkSheet.Cells[row, 3].Text == "" ? ushort.Parse("0") : ushort.Parse(WorkSheet.Cells[row, 3].Text));
+                        pp.TedadDarSabad = (WorkSheet.Cells[row, 4].Text == "" ? ushort.Parse("0") : ushort.Parse(WorkSheet.Cells[row, 4].Text));
                         pp.Weight = (WorkSheet.Cells[row, 6].Text == "" ? 0 : double.Parse(WorkSheet.Cells[row, 6].Text));
                         product.Add(pp);
                     }

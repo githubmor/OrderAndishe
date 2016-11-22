@@ -38,7 +38,7 @@ namespace UnitTest
 
             for (int i = 0; i < 5; i++)
             {
-                InDBOrderDetails.Add(new OrderDetail() { Customer = cts[i], Driver = drs[i], Product = pds[i], Tedad = 50 * i });
+                InDBOrderDetails.Add(new OrderDetail() { Customer = cts[i], Driver = drs[i], Product = pds[i], Tedad = (ushort)(50 * i) });
             }
 
             InDBOrder.Add(new Order() { Id = 1, Tarikh = "1395"});

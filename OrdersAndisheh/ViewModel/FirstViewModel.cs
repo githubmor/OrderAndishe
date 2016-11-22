@@ -12,7 +12,6 @@ using System.IO;
 using System.Reflection;
 using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
-using OrdersAndisheh.DevUI.Views;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -100,7 +99,6 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteNewSefaresh()
         {
-            MessageBox.Show("Test");
             MainView v = new MainView();
             v.ShowDialog();
             RaisePropertyChanged(() => this.Lists);
@@ -539,6 +537,25 @@ namespace OrdersAndisheh.ViewModel
         {
             DataUIView v = new DataUIView();
             v.Show();
+        }
+
+        private RelayCommand _myCommand6459653;
+
+        /// <summary>
+        /// Gets the CheckTempDriver.
+        /// </summary>
+        public RelayCommand CheckTempDriver
+        {
+            get
+            {
+                return _myCommand6459653
+                    ?? (_myCommand6459653 = new RelayCommand(ExecuteCheckTempDriver));
+            }
+        }
+
+        private void ExecuteCheckTempDriver()
+        {
+            ss.DelNoUsedTempDrivers();
         }
         
     }

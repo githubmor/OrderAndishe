@@ -26,17 +26,32 @@ namespace OrdersAndisheh.ViewModel
         {
             ErsalItems = new ObservableCollection<ItemSefaresh>(service.LoadNoDriverSefareshItems(obj));
 
-            var ma = ErsalItems.Select(p => p.Maghsad).Distinct();
+            //آیتم هایی که راننده موقت دارند باید در کانتین خود قرار گرفته و راننده آنها انتخاب شود
+            var tempDriver = ErsalItems.Where(t => t.Driver != null).Select(p => p.Ranande).Distinct();
+            foreach (var item in tempDriver)
+            {
+                if (!string.IsNullOrEmpty(item))
+                {
+                    var pe = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Ranande == item).ToList());
+                    DriverViewModels.Add(new DriverContainerViewModel(service,pe, pos));
+                    pos += 1;
+                }
+            }
+
+            //لیست آیتم هایی که راننده موقت ندارند بر اساس مقصد کانتین بندی شوند
+            var ma = ErsalItems.Where(i=>i.Driver==null).Select(p => p.Maghsad).Distinct();
 
             foreach (var item in ma)
             {
                 if (!string.IsNullOrEmpty(item))
                 {
                     var p = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Maghsad == item).ToList());
-                    DriverViewModels.Add(new DriverContainerViewModel(p, pos));
+                    DriverViewModels.Add(new DriverContainerViewModel(service, p, pos));
                     pos += 1;
                 }
             }
+
+
             var ooo = ErsalItems.Where(p=>p.Maghsad!="").ToList();
             for (int i = 0; i < ooo.Count; i++)
             {
@@ -74,7 +89,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAddNewContainer()
         {
-            DriverViewModels.Add(new DriverContainerViewModel(pos));
+            DriverViewModels.Add(new DriverContainerViewModel(service, pos));
             pos += 1;
         }
 
@@ -98,7 +113,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 if (item.SelectedDriver==null)
                 {
-                    Driver p = new Driver() { Name = "راننده " + item.DriverNumber, Tol = item.VaznKol, 
+                    Driver p = new Driver() { Name = "راننده " + item.DriverNumber, Tol = 0, 
                         TempDriver = new TempDriver() { Name = item.DriverNumber.ToString() } };
                     service.AddDriver(p);
                     item.SelectedDriver = p;

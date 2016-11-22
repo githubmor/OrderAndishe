@@ -3,8 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" 
         xmlns:c="clr-namespace:OrdersAndisheh.View"
-        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
-        DataContext="{Binding DriverSel, Source={StaticResource Locator}}">
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="153*"/>

@@ -19,7 +19,7 @@ namespace BL
 
         void AddDriver(OrdersAndisheh.DBL.Driver p);
 
-
+        void DelNoUsedTempDrivers();
 
         void Save();
     }

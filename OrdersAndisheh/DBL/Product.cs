@@ -29,15 +29,15 @@ namespace OrdersAndisheh.DBL
 
         public bool IsImenKala { get; set; }
 
-        
+        [StringLength(150)]
         public string FaniCode { get; set; }
 
-        
+        [StringLength(150)]
         public string CodeJense { get; set; }
 
-        public int? TedadDarPallet { get; set; }
+        public ushort? TedadDarPallet { get; set; }
 
-        public int? TedadDarSabad { get; set; }
+        public ushort? TedadDarSabad { get; set; }
 
         public int PalletId { get; set; }
 
