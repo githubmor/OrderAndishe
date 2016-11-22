@@ -33,9 +33,9 @@ namespace OrdersAndisheh.DBL
         public string Car { get; set; }
 
         
-        public Nullable<short> Ton { get; set; }
+        public short? Ton { get; set; }
 
-        public Nullable<byte> Tol { get; set; }
+        public byte? Tol { get; set; }
 
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

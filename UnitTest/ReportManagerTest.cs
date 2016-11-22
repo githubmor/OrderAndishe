@@ -18,16 +18,16 @@ namespace UnitTest
             // اینجا فقط ساخت یک سفارش چک میشود
             ObservableCollection<ItemSefaresh> f = new ObservableCollection<ItemSefaresh>()
             {
-                new ItemSefaresh(p){ItemKind="فوری"},
-                new ItemSefaresh(p){ItemKind="نامشخص"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="عادی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="عادی"},
-                new ItemSefaresh(p){ItemKind="عادی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
-                new ItemSefaresh(p){ItemKind="گواهی"},
+                new ItemSefaresh(p){ItemKind= (byte) ItemType.فوری },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.نامشخص },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.عادی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.عادی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.عادی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
+                new ItemSefaresh(p){ItemKind=(byte) ItemType.گواهی },
             };
             Sefaresh s = new Sefaresh();
             s.Tarikh = "1395/01/02";

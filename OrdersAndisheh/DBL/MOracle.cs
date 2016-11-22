@@ -16,7 +16,7 @@ namespace OrdersAndisheh.DBL
 
         [StringLength(10)]
         public string MNumber { get; set; }
-
+        [StringLength(500)]
         public string Descrioption { get; set; }
         public virtual OrderDetail OrderDetail { get; set; }
     }

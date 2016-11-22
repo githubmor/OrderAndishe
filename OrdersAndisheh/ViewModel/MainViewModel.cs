@@ -73,11 +73,11 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private int tempTedad;
+        private ushort tempTedad;
 
-        public int Tedad
+        public ushort Tedad
         {
-            get { return (SelecteddItem != null ? SelecteddItem.Tedad : 0); }
+            get { return (SelecteddItem != null ? SelecteddItem.Tedad : ushort.Parse("0")); }
             set 
             {
                 if (SelecteddItem != null)

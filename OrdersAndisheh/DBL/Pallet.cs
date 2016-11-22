@@ -20,7 +20,7 @@ namespace OrdersAndisheh.DBL
         [StringLength(10)]
         public string Name { get; set; }
 
-        public int? Vazn { get; set; }
+        public byte? Vazn { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }
