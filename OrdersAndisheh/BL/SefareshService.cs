@@ -240,6 +240,16 @@ namespace BL
             }
             db.SaveChanges();
         }
+
+        public void DeleteSefaresh(string SelectedTarikh)
+        {
+            var or = db.Orders.Where(p => p.Tarikh == SelectedTarikh).FirstOrDefault();
+            if (or!=null)
+            {
+                db.Orders.Remove(or);
+                db.SaveChanges();
+            }
+        }
     }
 }
 

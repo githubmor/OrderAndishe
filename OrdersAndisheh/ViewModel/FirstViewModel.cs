@@ -539,6 +539,35 @@ namespace OrdersAndisheh.ViewModel
             ExcelBackUp p = new ExcelBackUp(ss);
 
             p.ExportLastSavedSefaresh(SelectedTarikh);
+
+            MessageBox.Show("اطلاعات در فایل اکسل ذخیره شد");
+        }
+
+        private RelayCommand _myCommand56565;
+
+        /// <summary>
+        /// Gets the DelSefaresh.
+        /// </summary>
+        public RelayCommand DelSefaresh
+        {
+            get
+            {
+                return _myCommand56565 ?? (_myCommand56565 = new RelayCommand(
+                    ExecuteDelSefaresh,
+                    CanExecuteDelSefaresh));
+            }
+        }
+
+        private void ExecuteDelSefaresh()
+        {
+            ss.DeleteSefaresh(SelectedTarikh);
+            RaisePropertyChanged(() => this.Lists);
+            MessageBox.Show("اطلاعات سفارش حذف شد");
+        }
+
+        private bool CanExecuteDelSefaresh()
+        {
+            return !string.IsNullOrEmpty(SelectedTarikh);
         }
         
     }
