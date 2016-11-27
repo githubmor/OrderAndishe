@@ -35,9 +35,9 @@ namespace OrdersAndisheh.DBL
         [StringLength(150)]
         public string CodeJense { get; set; }
 
-        public ushort? TedadDarPallet { get; set; }
+        public short? TedadDarPallet { get; set; }
 
-        public ushort? TedadDarSabad { get; set; }
+        public short? TedadDarSabad { get; set; }
 
         public int PalletId { get; set; }
 

@@ -12,9 +12,9 @@ namespace OrdersAndisheh.DBL
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public ushort Tedad { get; set; }
+        public short Tedad { get; set; }
 
-        public ushort TahvilForosh { get; set; }
+        public short TahvilForosh { get; set; }
 
         public string Description { get; set; }
 

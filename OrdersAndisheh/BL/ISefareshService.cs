@@ -19,8 +19,10 @@ namespace BL
 
         void AddDriver(OrdersAndisheh.DBL.Driver p);
 
-        void DelNoUsedTempDrivers();
+        //void DelNoUsedTempDrivers();
 
         void Save();
+
+        void DelNoUsedTempDrivers(System.Collections.Generic.List<OrdersAndisheh.DBL.Driver> TempDriverForDelete);
     }
 }

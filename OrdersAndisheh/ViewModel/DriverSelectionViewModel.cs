@@ -30,12 +30,14 @@ namespace OrdersAndisheh.ViewModel
             var tempDriver = ErsalItems.Where(t => t.Driver != null).Select(p => p.Ranande).Distinct();
             foreach (var item in tempDriver)
             {
-                if (!string.IsNullOrEmpty(item))
-                {
-                    var pe = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Ranande == item).ToList());
-                    DriverViewModels.Add(new DriverContainerViewModel(service,pe, pos));
-                    pos += 1;
-                }
+                //if (!string.IsNullOrEmpty(item))
+                //{
+
+                var pe = new ObservableCollection<ItemSefaresh>(ErsalItems.Where(o => o.Ranande == item).ToList());
+                DriverViewModels.Add(new DriverContainerViewModel(service,pe, pos));
+                pos += 1;
+                
+                //}
             }
 
             //لیست آیتم هایی که راننده موقت ندارند بر اساس مقصد کانتین بندی شوند
@@ -51,6 +53,11 @@ namespace OrdersAndisheh.ViewModel
                 }
             }
 
+            var ooo1 = ErsalItems.Where(p => p.Driver != null).ToList();
+            for (int i = 0; i < ooo1.Count; i++)
+            {
+                ErsalItems.Remove(ooo1[i]);
+            }
 
             var ooo = ErsalItems.Where(p=>p.Maghsad!="").ToList();
             for (int i = 0; i < ooo.Count; i++)
@@ -109,6 +116,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteSaveDrivers()
         {
+            List<Driver> te = new List<Driver>();
             foreach (var item in DriverViewModels)
             {
                 if (item.SelectedDriver==null)
@@ -117,13 +125,15 @@ namespace OrdersAndisheh.ViewModel
                         TempDriver = new TempDriver() { Name = item.DriverNumber.ToString() } };
                     service.AddDriver(p);
                     item.SelectedDriver = p;
-                    
+                }
+                if (item.TempDriverForDel!=null)
+                {
+                    te.Add(item.TempDriverForDel);
                 }
 
                 item.AssignDriver();
                 service.Save();
-                
-                
+                service.DelNoUsedTempDrivers(te);
             }
             
         }

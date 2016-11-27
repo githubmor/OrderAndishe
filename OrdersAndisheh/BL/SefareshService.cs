@@ -26,40 +26,26 @@ namespace BL
         }
 		public void SaveSefaresh(Sefaresh sefaresh)
 		{
-            if (sefaresh.Order != null)
+            try
             {
-                //using (MyContextCF db = new MyContextCF())
-                //{
-                    //AttachToDataBase(sefaresh.Order.OrderDetails.ToList(), db);
+                if (sefaresh.Order != null)
+                {
                     db.Orders.Add(sefaresh.Order);
                     db.SaveChanges();
-                //}
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
 		}
 
-        //private void AttachToDataBase(List<OrderDetail> orderDetails, MyContextCF db)
-        //{
-        //    foreach (var item in orderDetails)
-        //    {
-        //        if (item.Customer != null)
-        //        {
-        //            db.Customers.Attach(item.Customer);
-        //        }
-        //        if (item.Driver != null)
-        //        {
-        //            db.Drivers.Attach(item.Driver);
-        //        }
-        //        db.Pallets.Attach(item.Product.Pallet);
-        //        db.Bazress.Attach(item.Product.Bazre);
-        //        db.Products.Attach(item.Product);
-        //    }
-        //}
+        
 
         public void UpdateSefaresh(Sefaresh sefaresh)
 		{
-            //using (MyContextCF db = new MyContextCF())
-            //{
-                //الان آپدیت که می کنیم همه چی قاطی میشه
+            
             List<OrderDetail> existingItems = db.OrderDetails.
             Where(p => p.OrderId == sefaresh.SefareshId).ToList();
 
@@ -70,26 +56,16 @@ namespace BL
                 newItems.Add(item.OrderDetail);
             }
 
-            //List<OrderDetail> addedItems = newItems.Except(existingItems).ToList();
 
             List<OrderDetail> deletedItems = existingItems.Except(newItems).ToList();
 
-            //List<OrderDetail> modifiedItems = newItems.Except(addedItems).ToList();
-
-            //    //db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
-            //    //db.SaveChanges();
             foreach (var item in deletedItems)
             {
                 db.OrderDetails.Remove(item);
             }
-            //foreach (var item in addedItems)
-            //{
-            //    db.OrderDetails.Add(item);
-            //}
             
 
             db.SaveChanges();
-            //}
             
 		}
 
@@ -158,7 +134,7 @@ namespace BL
         {
             //using (MyContextCF db = new MyContextCF())
             //{
-                return db.Drivers.ToList();
+            return db.Drivers.Include("TempDriver").ToList();
             //}
         }
 
@@ -166,7 +142,7 @@ namespace BL
         {
             //using (MyContextCF db = new MyContextCF())
             //{
-                var pp = db.Products.Include("Pallet").ToList();
+            var pp = db.Products.Include("Pallet").Include("Bazre").ToList();
                 return pp;
             //}
         }
@@ -256,11 +232,13 @@ namespace BL
             db.SaveChanges();
         }
 
-        public void DelNoUsedTempDrivers()
+        public void DelNoUsedTempDrivers(List<Driver> TempDriverForDelete)
         {
-            //var tempdriver = db.TempDriver.Select(p => p.Driver).Include("").ToList();
-            
-            //var ord = db.OrderDetails.Where(o=>o.Driver_Id=)
+            foreach (var item in TempDriverForDelete)
+            {
+                db.Drivers.Remove(item);
+            }
+            db.SaveChanges();
         }
     }
 }
