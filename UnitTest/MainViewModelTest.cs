@@ -38,7 +38,7 @@ namespace UnitTest
 
             for (int i = 0; i < 5; i++)
             {
-                InDBOrderDetails.Add(new OrderDetail() { Customer = cts[i], Driver = drs[i], Product = pds[i], Tedad = (ushort)(50 * i) });
+                InDBOrderDetails.Add(new OrderDetail() { Customer = cts[i], Driver = drs[i], Product = pds[i], Tedad = (short)(50 * i) });
             }
 
             InDBOrder.Add(new Order() { Id = 1, Tarikh = "1395"});
@@ -94,7 +94,7 @@ namespace UnitTest
             Assert.IsNull(vm.SelectedDriver);
             Assert.IsNull(vm.GoodCode);
             Assert.AreEqual("",vm.GoodName);
-            Assert.IsNull(vm.Tarikh);
+            Assert.IsNotNull(vm.Tarikh);
 
             Assert.AreEqual(0,vm.Tedad);
 
@@ -245,7 +245,7 @@ namespace UnitTest
             Assert.AreEqual("1395/05/05", InDBOrder[1].Tarikh);
             Assert.AreEqual(pds[0],InDBOrderDetails[0].Product);
 
-            Assert.IsTrue(vm.SaveSefaresh.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
             Assert.IsTrue(vm.SelectDriver.CanExecute(null));
             Assert.IsTrue(vm.CreateAnbarList.CanExecute(null));
             Assert.IsTrue(vm.CreateBazresLists.CanExecute(null));
@@ -279,7 +279,7 @@ namespace UnitTest
 
             Assert.IsFalse(vm.ADDDriverDestenation.CanExecute(null));
             Assert.IsTrue(vm.AddNewItem.CanExecute(null));
-            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
+            Assert.IsTrue(vm.SaveSefaresh.CanExecute(null));
 
             vm.Tedad = 300;
             vm.SelectedDestenation = cts[4];
@@ -304,7 +304,7 @@ namespace UnitTest
             Assert.AreEqual(vm.Tarikh, "1395");
             Assert.AreEqual(vm.Items.Count, 5);
            
-            Assert.IsTrue(vm.SaveSefaresh.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
             Assert.IsTrue(vm.SelectDriver.CanExecute(null));
             Assert.IsTrue(vm.CreateAnbarList.CanExecute(null));
             Assert.IsTrue(vm.CreateBazresLists.CanExecute(null));
@@ -326,7 +326,7 @@ namespace UnitTest
 
             vm.SaveSefaresh.Execute(null);
 
-            Assert.IsTrue(vm.SaveSefaresh.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
             Assert.IsTrue(vm.SelectDriver.CanExecute(null));
             Assert.IsTrue(vm.CreateAnbarList.CanExecute(null));
             Assert.IsTrue(vm.CreateBazresLists.CanExecute(null));
@@ -344,7 +344,7 @@ namespace UnitTest
             Assert.AreEqual(vm.Tarikh, "1395");
             Assert.AreEqual(vm.Items.Count, 5);
 
-            Assert.IsTrue(vm.SaveSefaresh.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
             Assert.IsTrue(vm.SelectDriver.CanExecute(null));
             Assert.IsTrue(vm.CreateAnbarList.CanExecute(null));
             Assert.IsTrue(vm.CreateBazresLists.CanExecute(null));
@@ -364,7 +364,7 @@ namespace UnitTest
 
             vm.SaveSefaresh.Execute(null);
 
-            Assert.IsTrue(vm.SaveSefaresh.CanExecute(null));
+            Assert.IsFalse(vm.SaveSefaresh.CanExecute(null));
             Assert.IsTrue(vm.SelectDriver.CanExecute(null));
             Assert.IsTrue(vm.CreateAnbarList.CanExecute(null));
             Assert.IsTrue(vm.CreateBazresLists.CanExecute(null));

@@ -14,10 +14,11 @@ namespace OrdersAndisheh.ViewModel
         int felaziPalletCount = 0;
         int chobiPalletCount = 0;
         ISefareshService ss;
-        List<Driver> driver;
+        List<Driver> driver= new List<Driver>();
         public DriverContainerViewModel(ISefareshService _ss,int position)
         {
             ss = _ss;
+            //TempDriverForDel = new TempDriver();
             Mahmole = new ObservableCollection<ItemSefaresh>();
             Mahmole.CollectionChanged += (sender, e) =>
             {
@@ -86,12 +87,27 @@ namespace OrdersAndisheh.ViewModel
         {
             get { return myVar; }
             set 
-            { 
+            {
+                if (myVar!=null)
+                {
+                    if (myVar.TempDriver!=null)
+                    {
+                        TempDriverForDel = myVar;
+                    }  
+                }
+                if (value.TempDriver!=null)
+                {
+                    if (value == TempDriverForDel)
+                    {
+                        TempDriverForDel = null;
+                    }
+                }
                 myVar = value;
                 RaisePropertyChanged(() => this.SelectedDriver);
             }
         }
-        
+
+        public Driver TempDriverForDel { get; set; }
 
         public ObservableCollection<ItemSefaresh> Mahmole { get; set; }
 

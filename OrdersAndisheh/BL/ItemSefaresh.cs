@@ -119,7 +119,7 @@ namespace BL
             }
         }
 
-		public ushort Tedad
+		public short Tedad
 		{
             get { return OrderDetail.Tedad; }
             set 
@@ -138,7 +138,7 @@ namespace BL
             }
         }
 
-		public ushort TahvilFrosh
+		public short TahvilFrosh
 		{
             get { return OrderDetail.TahvilForosh; }
             set { OrderDetail.TahvilForosh = value; }
@@ -221,7 +221,7 @@ namespace BL
 
         private int VaznCalCulate()
         {
-            if (Product.TedadDarPallet > 0 & Tedad % Product.TedadDarPallet == 0 & Product.TedadDarPallet!=null)
+            if (Product.TedadDarPallet > 0 && (Tedad % Product.TedadDarPallet) == 0 & Product.TedadDarPallet!=null)
             {
                 return (int)((Tedad / Product.TedadDarPallet) * Product.Weight);
             }

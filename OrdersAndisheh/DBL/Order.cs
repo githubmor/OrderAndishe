@@ -16,15 +16,15 @@ namespace OrdersAndisheh.DBL
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int FullName
-        {
-            get { return calId(); }
-            private set
-            {
-                //Just need this here to trick EF
-            }
-        }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        //public int FullName
+        //{
+        //    get { return calId(); }
+        //    private set
+        //    {
+        //        //Just need this here to trick EF
+        //    }
+        //}
         
 
         [StringLength(10)]
@@ -33,19 +33,19 @@ namespace OrdersAndisheh.DBL
         public string Description { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        private int calId()
-        {
-            if (!string.IsNullOrEmpty(Tarikh))
-            {
-                var p = PersianDateTime.Parse(Tarikh);
-                return (p.Year * 10000) + (p.Month * 100) + (p.Day);
-            }
-            else
-            {
-                return 0;
-            }
+        //private int calId()
+        //{
+        //    if (!string.IsNullOrEmpty(Tarikh))
+        //    {
+        //        var p = PersianDateTime.Parse(Tarikh);
+        //        return (p.Year * 10000) + (p.Month * 100) + (p.Day);
+        //    }
+        //    else
+        //    {
+        //        return 0;
+        //    }
             
             
-        }
+        //}
     }
 }

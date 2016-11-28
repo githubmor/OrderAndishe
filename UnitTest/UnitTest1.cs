@@ -21,7 +21,7 @@ namespace UnitTest
                                     Pallet = new Pallet() { Vazn = (i % 2 == 0 ? (byte)20 : (byte)200) }
                     })
                 {
-                    Tedad = (ushort)(10 * i),
+                    Tedad = (short)(10 * i),
                       Customer = new Customer() { Name = (i % 2 == 0 ? "c" : "b") }
                     });
                 vazn += p[i].Vazn;

@@ -91,7 +91,7 @@
                 </Label.ContentStringFormat>
             </Label>-->
             
-            <ComboBox ItemsSource="{Binding Drivers}"  SelectedItem="{Binding SelectedDriver,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+            <ComboBox ItemsSource="{Binding Drivers}" DisplayMemberPath="Name"  SelectedItem="{Binding SelectedDriver,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
         </StackPanel>
 
     </Grid>

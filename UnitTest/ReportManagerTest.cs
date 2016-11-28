@@ -13,7 +13,7 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod1()
         {
-            Product p = new Product() { Code = "656", Name = "hghg" };
+            Product p = new Product() { Code = "656", Name = "hghg", Bazre = new Bazres() {Name="SADASD" } };
             //باید یادمان باشد ایتم سفارش اینجا چک نمیشود - نحوه ذخیره سازی هم اینجا چک نمی شود
             // اینجا فقط ساخت یک سفارش چک میشود
             ObservableCollection<ItemSefaresh> f = new ObservableCollection<ItemSefaresh>()

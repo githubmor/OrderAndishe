@@ -73,11 +73,11 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private ushort tempTedad;
+        private short tempTedad;
 
-        public ushort Tedad
+        public short Tedad
         {
-            get { return (SelecteddItem != null ? SelecteddItem.Tedad : ushort.Parse("0")); }
+            get { return (SelecteddItem != null ? SelecteddItem.Tedad : short.Parse("0")); }
             set 
             {
                 if (SelecteddItem != null)
@@ -250,8 +250,14 @@ namespace OrdersAndisheh.ViewModel
                     }
                     if (tempDriver != null)
                     {
+                        //if (SelecteddItem.Driver != null)
+                        //{
+                        //    if (SelecteddItem.Driver.TempDriver != null)
+                        //    {
+                        //        TempDriverForDelete.Add(SelecteddItem.Driver);
+                        //    }
+                        //}
                         SelecteddItem.Driver = tempDriver;
-                        //SelecteddItem.OrderDetail.Driver_Id = tempDriver.Id;
                     }
                     if (tempTedad > 0)
                     {
@@ -281,8 +287,8 @@ namespace OrdersAndisheh.ViewModel
         {
             get { return (SelecteddItem != null ? SelecteddItem.Kala : ""); }
         }
-        
 
+        List<Driver> TempDriverForDelete = new List<Driver>();
 
         private Driver tempDriver;
 
@@ -291,17 +297,27 @@ namespace OrdersAndisheh.ViewModel
             get { return (SelecteddItem != null ? SelecteddItem.Driver : null); }
             set
             {
+                
                 if (SelecteddItem != null)
                 {
+                    if (SelecteddItem.Driver!=null)
+                    {
+                        if (SelecteddItem.Driver.TempDriver!=null)
+                        {
+                            TempDriverForDelete.Add(SelecteddItem.Driver);
+                        }
+                    }
                     SelecteddItem.Driver = value;
-                    //SelecteddItem.OrderDetail.Driver_Id = value.Id;
                 }
                 else if (value != null)
                 {
+                    if (value.TempDriver != null)//اگر راننده موقت انتخاب شد ببینه نگذاشته باشه برای حذف
+                    {
+                        TempDriverForDelete.Remove(value);
+                    }
                     tempDriver = value;
                 }
                 RaisePropertyChanged(() => SelectedDriver);
-                //ADDDriverDestenation.RaiseCanExecuteChanged();
             }
         }
 
@@ -495,6 +511,7 @@ namespace OrdersAndisheh.ViewModel
                     IsEdit = true;
                     MessageBox.Show("اطلاعات سفارش روز "+Tarikh+" ذخیره شد");
                 }
+                ss.DelNoUsedTempDrivers(TempDriverForDelete);
                 IsDirty = false;
                 //CreateAnbarList.RaiseCanExecuteChanged();
                 //CreateBazresLists.RaiseCanExecuteChanged();

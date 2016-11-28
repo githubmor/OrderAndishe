@@ -90,9 +90,9 @@ namespace OrdersAndisheh.DBL
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<TempDriver>()
-                .HasRequired(e => e.Driver)
-                .WithOptional(e => e.TempDriver)
+            modelBuilder.Entity<Driver>()
+                .HasOptional(e => e.TempDriver)
+                .WithRequired(e => e.Driver)
                 .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<CustomerProductRelation>()

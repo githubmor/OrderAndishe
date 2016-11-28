@@ -19,6 +19,7 @@
             <ListView 
                 HorizontalAlignment="Right" Width="200" 
                 ItemsSource="{Binding Lists}" 
+                SelectedItem="{Binding SelectedTarikh}"
                 VerticalContentAlignment="Stretch" MouseDoubleClick="ListView_MouseDoubleClick">
                 
             </ListView>
@@ -26,6 +27,8 @@
         <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" >
             <Button Content="سفارش جدید" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Command="{Binding NewSefaresh, Mode=OneWay}" />
             <Button Content="بک آپ گیری" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding BackUpDatabase, Mode=OneWay}" />
+            <Button Content="بک آپ گیری اکسل" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding BackUpAsExcel, Mode=OneWay}" />
+            <Button Content="حذف سفارش" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding DelSefaresh, Mode=OneWay}" />
             <Button Content="بازیابی بک آپ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding RestoreDatabase, Mode=OneWay}" />
             <Button Content="به روز رسانی اطلاعات" Click="Button_Click" />
             <Label Content="{Binding FilePath}"/>

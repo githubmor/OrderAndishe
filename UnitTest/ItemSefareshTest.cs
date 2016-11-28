@@ -26,7 +26,7 @@ namespace UnitTest
             Assert.AreEqual(p.Code, i.CodeKala);
             Assert.AreEqual(p.Name, i.Kala);
             //Assert.IsTrue(i.HasOracle);
-            Assert.AreEqual("عادی", i.ItemKind);
+            Assert.AreEqual((byte) ItemType.عادی, i.ItemKind);
             Assert.AreEqual(0,i.TahvilFrosh);
             Assert.AreEqual(0,i.Tedad);
 
@@ -47,11 +47,11 @@ namespace UnitTest
             Assert.AreEqual(d, i.OrderDetail.Driver);
             Assert.AreEqual(p, i.OrderDetail.Product);
             //Assert.IsFalse(i.OrderDetail.HasOracle);
-            Assert.AreEqual("گواهی", i.OrderDetail.ItemType);
+            Assert.AreEqual((byte) ItemType.گواهی, i.OrderDetail.ItemType);
             Assert.AreEqual(654, i.OrderDetail.TahvilForosh);
             Assert.AreEqual(6500, i.OrderDetail.Tedad);
             //Assert.IsFalse(i.HasOracle);
-            Assert.AreEqual(ItemType.گواهی.ToString(), i.ItemKind);
+            Assert.AreEqual((byte)ItemType.گواهی, i.ItemKind);
             Assert.AreEqual(654,i.TahvilFrosh);
             Assert.AreEqual(6500,i.Tedad);
             
@@ -74,7 +74,7 @@ namespace UnitTest
             //o.HasOracle = true;
             o.ItemType = (byte) ItemType.عادی;
             o.TahvilForosh = 56;
-            o.Tedad = 48522;
+            o.Tedad = Convert.ToInt16(48522);
 
             ItemSefaresh i = new ItemSefaresh(o);
 
@@ -87,7 +87,7 @@ namespace UnitTest
             Assert.AreEqual(p.Code, i.CodeKala);
             Assert.AreEqual(p.Name, i.Kala);
             //Assert.IsTrue(i.HasOracle);
-            Assert.AreEqual("عادی", i.ItemKind);
+            Assert.AreEqual((byte) ItemType.عادی, i.ItemKind);
             Assert.AreEqual(o.TahvilForosh,i.TahvilFrosh);
             Assert.AreEqual(o.Tedad,i.Tedad);
 

@@ -1,6 +1,6 @@
 ﻿using BL;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.View;
 using System;
@@ -380,7 +380,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteEditSefaresh()
         {
-            return true;
+            return !string.IsNullOrEmpty(SelectedTarikh);
         }
 
         private RelayCommand _myCommand45;
@@ -425,31 +425,7 @@ namespace OrdersAndisheh.ViewModel
                     //conn.connect();
                 }
             }
-            
-            //// read connectionstring from config file
-            //var connectionString = ConfigurationManager.ConnectionStrings["CodeFirstConection"].ConnectionString;
 
-            //// read backup folder from config file ("C:/temp/")
-            //var backupFolder = ConfigurationManager.AppSettings["BackupFolder"];
-
-            //var sqlConStrBuilder = new SqlConnectionStringBuilder(connectionString);
-
-            //// set backupfilename (you will get something like: "C:/temp/MyDatabase-2013-12-07.bak")
-            //var backupFileName = String.Format("{0}{1}-{2}.bak",
-            //    backupFolder, "b",
-            //    DateTime.Now.ToString("yyyy-MM-dd"));
-
-            //using (var connection = new SqlConnection(sqlConStrBuilder.ConnectionString))
-            //{
-            //    var query = String.Format("BACKUP DATABASE {0} TO DISK='{1}'",
-            //        sqlConStrBuilder.AttachDBFilename, backupFileName);
-
-            //    using (var command = new SqlCommand(query, connection))
-            //    {
-            //        connection.Open();
-            //        command.ExecuteNonQuery();
-            //    }
-            //}
         }
 
         private RelayCommand _myCommand65656;
@@ -544,18 +520,54 @@ namespace OrdersAndisheh.ViewModel
         /// <summary>
         /// Gets the CheckTempDriver.
         /// </summary>
-        public RelayCommand CheckTempDriver
+        public RelayCommand BackUpAsExcel
         {
             get
             {
                 return _myCommand6459653
-                    ?? (_myCommand6459653 = new RelayCommand(ExecuteCheckTempDriver));
+                    ?? (_myCommand6459653 = new RelayCommand(ExecuteCheckTempDriver, CanExecuteCheckTempDriver));
             }
+        }
+
+        private bool CanExecuteCheckTempDriver()
+        {
+            return !string.IsNullOrEmpty(SelectedTarikh);
         }
 
         private void ExecuteCheckTempDriver()
         {
-            ss.DelNoUsedTempDrivers();
+            ExcelBackUp p = new ExcelBackUp(ss);
+
+            p.ExportLastSavedSefaresh(SelectedTarikh);
+
+            MessageBox.Show("اطلاعات در فایل اکسل ذخیره شد");
+        }
+
+        private RelayCommand _myCommand56565;
+
+        /// <summary>
+        /// Gets the DelSefaresh.
+        /// </summary>
+        public RelayCommand DelSefaresh
+        {
+            get
+            {
+                return _myCommand56565 ?? (_myCommand56565 = new RelayCommand(
+                    ExecuteDelSefaresh,
+                    CanExecuteDelSefaresh));
+            }
+        }
+
+        private void ExecuteDelSefaresh()
+        {
+            ss.DeleteSefaresh(SelectedTarikh);
+            RaisePropertyChanged(() => this.Lists);
+            MessageBox.Show("اطلاعات سفارش حذف شد");
+        }
+
+        private bool CanExecuteDelSefaresh()
+        {
+            return !string.IsNullOrEmpty(SelectedTarikh);
         }
         
     }
