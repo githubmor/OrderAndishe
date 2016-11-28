@@ -26,23 +26,23 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
 
     <DockPanel>
         <dxwui:AppBar DockPanel.Dock="Bottom" HideMode="AlwaysVisible">
-            <dxwui:AppBarButton Label="ذخیره" Command="{Binding SaveCommand}" Glyph="{dx:DXImageGrayscale Image=Save_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
-            <dxwui:AppBarButton Label="ذخیره و بستن" Command="{Binding SaveAndCloseCommand}" Glyph="{dx:DXImageGrayscale Image=SaveAndClose_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
-            <dxwui:AppBarButton Label="ذخیره و جدید" Command="{Binding SaveAndNewCommand}" Glyph="{dx:DXImageGrayscale Image=SaveAndNew_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
-            <dxwui:AppBarButton Label="بازسازی" Command="{Binding ResetCommand}" Glyph="{dx:DXImageGrayscale Image=Reset_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
-            <dxwui:AppBarButton Label="حذف" Command="{Binding DeleteCommand}" Glyph="{dx:DXImageGrayscale Image=Delete_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Save" Command="{Binding SaveCommand}" Glyph="{dx:DXImageGrayscale Image=Save_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Save And Close" Command="{Binding SaveAndCloseCommand}" Glyph="{dx:DXImageGrayscale Image=SaveAndClose_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Save And New" Command="{Binding SaveAndNewCommand}" Glyph="{dx:DXImageGrayscale Image=SaveAndNew_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Reset Changes" Command="{Binding ResetCommand}" Glyph="{dx:DXImageGrayscale Image=Reset_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
+            <dxwui:AppBarButton Label="Delete" Command="{Binding DeleteCommand}" Glyph="{dx:DXImageGrayscale Image=Delete_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
         </dxwui:AppBar>
         <dxlc:LayoutControl Orientation="Vertical" Padding="67,0,43,0" Margin="0,0,0,16">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand Event="{x:Static Binding.SourceUpdatedEvent}" Command="{Binding UpdateCommand}" />
             </dxmvvm:Interaction.Behaviors>
-            <dxlc:LayoutItem Label="شناسه" Name="layoutItemId" >
+            <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
                 <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
             </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="کد کالا" IsRequired="True" Name="layoutItemCode" >
+            <dxlc:LayoutItem Label="Code" IsRequired="True" Name="layoutItemCode" >
                 <dxe:TextEdit EditValue="{Binding Entity.Code, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="8" />
             </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="نام کالا" IsRequired="True" Name="layoutItemName" >
+            <dxlc:LayoutItem Label="Name" IsRequired="True" Name="layoutItemName" >
                 <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="100" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Weight" Name="layoutItemWeight" >
@@ -52,16 +52,16 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
                 <dxe:CheckEdit EditValue="{Binding Entity.IsImenKala, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Fani Code" Name="layoutItemFaniCode" >
-                <dxe:TextEdit EditValue="{Binding Entity.FaniCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+                <dxe:TextEdit EditValue="{Binding Entity.FaniCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="150" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Code Jense" Name="layoutItemCodeJense" >
-                <dxe:TextEdit EditValue="{Binding Entity.CodeJense, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+                <dxe:TextEdit EditValue="{Binding Entity.CodeJense, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="150" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Tedad Dar Pallet" Name="layoutItemTedadDarPallet" >
-                <dxe:TextEdit EditValue="{Binding Entity.TedadDarPallet, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int32" AllowNullInput="True" />
+                <dxe:TextEdit EditValue="{Binding Entity.TedadDarPallet, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int16" AllowNullInput="True" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Tedad Dar Sabad" Name="layoutItemTedadDarSabad" >
-                <dxe:TextEdit EditValue="{Binding Entity.TedadDarSabad, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int32" AllowNullInput="True" />
+                <dxe:TextEdit EditValue="{Binding Entity.TedadDarSabad, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int16" AllowNullInput="True" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Bazre" Name="layoutItemBazre" >
                 <dxg:LookUpEdit EditValue="{Binding Entity.Bazres_Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpBazress.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
@@ -85,15 +85,7 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
 
                 <dxlc:LayoutGroup DataContext="{Binding ProductRelationsDetails}" dxlc:LayoutControl.TabHeader="Relations">
                     <dxg:GridControl Name="RelationsGrid" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" ShowLoadingPanel="{Binding IsLoading}">
-                        <dxmvvm:Interaction.Behaviors>
-                            <dxmvvm:EventToCommand PassEventArgsToCommand="True" Command="{Binding EditCommand}" EventName="MouseDoubleClick">
-                                <dxmvvm:EventToCommand.EventArgsConverter>
-                                    <dx:EventArgsToDataRowConverter/>
-                                </dxmvvm:EventToCommand.EventArgsConverter>
-                            </dxmvvm:EventToCommand>
-                        </dxmvvm:Interaction.Behaviors>
                         <dxg:GridControl.Columns>
-                            <dxg:GridColumn IsSmart="True" FieldName="Id" />
                             <dxg:GridColumn IsSmart="True" FieldName="HasOracle" />
                             <dxg:GridColumn IsSmart="True" FieldName="HasBarnameDasti" />
                             <dxg:GridColumn IsSmart="True" FieldName="HasBarchasb" />
@@ -113,19 +105,13 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
                         <dxg:GridControl.View>
                             <dxg:TableView AllowEditing="False" ShowFixedTotalSummary="True" AllowPerPixelScrolling="True" ShowGroupPanel="False" ShowIndicator="False">
                                 <dxg:TableView.RowCellMenuCustomizations>
-                                    <dxb:BarButtonItem Content="New" Command="{Binding View.DataContext.NewCommand}" Glyph="{dx:DXImageGrayscale Image=New_16x16.png}" />
-                                    <dxb:BarButtonItem Content="Edit" Command="{Binding View.DataContext.EditCommand}" CommandParameter="{Binding Row.Row}" Glyph="{dx:DXImageGrayscale Image=Edit_16x16.png}" />
-                                    <dxb:BarButtonItem Content="Delete" Command="{Binding View.DataContext.DeleteCommand}" CommandParameter="{Binding Row.Row}" Glyph="{dx:DXImageGrayscale Image=Delete_16x16.png}" />
                                     <dxb:BarButtonItem Content="Refresh" Command="{Binding View.DataContext.RefreshCommand}" Glyph="{dx:DXImageGrayscale Image=Refresh_16x16.png}" />
                                 </dxg:TableView.RowCellMenuCustomizations>
                             </dxg:TableView>
                         </dxg:GridControl.View>
                     </dxg:GridControl>
                     <dxlc:LayoutGroup Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="100">
-                        <Button Content="جدید" Command="{Binding NewCommand}" />
-                        <Button Content="ویرایش" Command="{Binding EditCommand}" CommandParameter="{Binding SelectedEntity}" />
-                        <Button Content="حذف" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedEntity}" />
-                        <Button Content="بازسازی" Command="{Binding RefreshCommand}" />
+                        <Button Content="Refresh" Command="{Binding RefreshCommand}" />
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
             </dxlc:LayoutGroup>

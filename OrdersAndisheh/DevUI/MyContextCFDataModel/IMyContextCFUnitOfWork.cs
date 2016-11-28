@@ -35,7 +35,7 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         /// <summary>
         /// The CustomerProductRelation entities repository.
         /// </summary>
-        IRepository<CustomerProductRelation, int> CustomerProductRelations { get; }
+        IReadOnlyRepository<CustomerProductRelation> CustomerProductRelations { get; }
 
         /// <summary>
         /// The Driver entities repository.

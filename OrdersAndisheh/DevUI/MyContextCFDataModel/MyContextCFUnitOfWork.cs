@@ -37,9 +37,9 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
             get { return GetRepository(x => x.Set<Customer>(), x => x.Id); }
         }
 
-        IRepository<CustomerProductRelation, int> IMyContextCFUnitOfWork.CustomerProductRelations
+        IReadOnlyRepository<CustomerProductRelation> IMyContextCFUnitOfWork.CustomerProductRelations
         {
-            get { return GetRepository(x => x.Set<CustomerProductRelation>(), x => x.CustomerId); }
+            get { return GetReadOnlyRepository(x => x.Set<CustomerProductRelation>()); }
         }
 
         IRepository<Driver, int> IMyContextCFUnitOfWork.Drivers

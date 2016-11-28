@@ -17,7 +17,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
     public partial class MyContextCFViewModel : DocumentsViewModel<MyContextCFModuleDescription, IMyContextCFUnitOfWork>
     {
 
-        const string TablesGroup = "داده ها";
+        const string TablesGroup = "Tables";
 
         const string ViewsGroup = "Views";
         INavigationService NavigationService { get { return this.GetService<INavigationService>(); } }
@@ -42,12 +42,12 @@ namespace OrdersAndisheh.DevUI.ViewModels
         protected override MyContextCFModuleDescription[] CreateModules()
         {
             return new MyContextCFModuleDescription[] {
-                new MyContextCFModuleDescription("بازرسان", "BazresCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bazress)),
-                new MyContextCFModuleDescription("کالا ها", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),
-                new MyContextCFModuleDescription("مقاصد", "CustomerCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Customers)),
-                new MyContextCFModuleDescription("ارتباط مشتری کالا", "CustomerProductRelationCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.CustomerProductRelations)),
-                new MyContextCFModuleDescription("رانندگان", "DriverCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Drivers)),
-                new MyContextCFModuleDescription("پالت ها", "PalletCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Pallets)),
+                new MyContextCFModuleDescription("Bazress", "BazresCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bazress)),
+                new MyContextCFModuleDescription("Products", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),
+                new MyContextCFModuleDescription("Customers", "CustomerCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Customers)),
+                new MyContextCFModuleDescription("Customer Product Relations", "CustomerProductRelationCollectionView", TablesGroup),
+                new MyContextCFModuleDescription("Drivers", "DriverCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Drivers)),
+                new MyContextCFModuleDescription("Pallets", "PalletCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Pallets)),
 			};
         }
 

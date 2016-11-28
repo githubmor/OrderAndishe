@@ -43,10 +43,10 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
                 <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Tel1" Name="layoutItemTel1" >
-                <dxe:TextEdit EditValue="{Binding Entity.Tel1, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+                <dxe:TextEdit EditValue="{Binding Entity.Tel1, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="12" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Tel2" Name="layoutItemTel2" >
-                <dxe:TextEdit EditValue="{Binding Entity.Tel2, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+                <dxe:TextEdit EditValue="{Binding Entity.Tel2, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="12" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Pelak" Name="layoutItemPelak" >
                 <dxe:TextEdit EditValue="{Binding Entity.Pelak, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="10" />
@@ -55,10 +55,10 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
                 <dxe:TextEdit EditValue="{Binding Entity.Car, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="20" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Ton" Name="layoutItemTon" >
-                <dxe:TextEdit EditValue="{Binding Entity.Ton, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int32" AllowNullInput="True" />
+                <dxe:TextEdit EditValue="{Binding Entity.Ton, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int16" AllowNullInput="True" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Tol" Name="layoutItemTol" >
-                <dxe:TextEdit EditValue="{Binding Entity.Tol, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int32" AllowNullInput="True" />
+                <dxe:TextEdit EditValue="{Binding Entity.Tol, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Byte" AllowNullInput="True" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Temp Driver" Name="layoutItemTempDriver" >
                 <dxe:TextEdit EditValue="{Binding Entity.TempDriver.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" IsReadOnly="True" />

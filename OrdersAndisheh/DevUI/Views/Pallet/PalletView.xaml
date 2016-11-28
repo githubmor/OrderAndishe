@@ -43,7 +43,7 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
                 <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="10" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Vazn" Name="layoutItemVazn" >
-                <dxe:TextEdit EditValue="{Binding Entity.Vazn, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int32" AllowNullInput="True" />
+                <dxe:TextEdit EditValue="{Binding Entity.Vazn, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Byte" AllowNullInput="True" />
             </dxlc:LayoutItem>
             <dxlc:LayoutGroup View="Tabs" MinHeight="300">
 

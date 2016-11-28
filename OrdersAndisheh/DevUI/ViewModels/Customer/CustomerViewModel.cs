@@ -41,9 +41,9 @@ namespace OrdersAndisheh.DevUI.ViewModels
         /// <summary>
         /// The view model for the CustomerRelations detail collection.
         /// </summary>
-        public CollectionViewModel<CustomerProductRelation, int, IMyContextCFUnitOfWork> CustomerRelationsDetails
+        public ReadOnlyCollectionViewModel<CustomerProductRelation, IMyContextCFUnitOfWork> CustomerRelationsDetails
         {
-            get { return GetDetailsCollectionViewModel((CustomerViewModel x) => x.CustomerRelationsDetails, x => x.CustomerProductRelations, x => x.CustomerId, (x, key) => x.CustomerId = key); }
+            get { return GetReadOnlyDetailsCollectionViewModel((CustomerViewModel x) => x.CustomerRelationsDetails, x => x.CustomerProductRelations, x => x.CustomerId); }
         }
     }
 }

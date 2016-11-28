@@ -257,7 +257,11 @@
     <Compile Include="BL\ReportRow.cs" />
     <Compile Include="BL\Sefaresh.cs" />
     <Compile Include="BL\SefareshService.cs" />
-    <Compile Include="Common\CommonResources.Designer.cs" />
+    <Compile Include="Common\CommonResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Common\DataModel\DbExceptions.cs" />
     <Compile Include="Common\DataModel\DesignTime\DesignTimeInstantFeedbackSource.cs" />
     <Compile Include="Common\DataModel\DesignTime\DesignTimeReadOnlyRepository.cs" />
@@ -275,7 +279,11 @@
     <Compile Include="Common\DataModel\IRepository.cs" />
     <Compile Include="Common\DataModel\IUnitOfWork.cs" />
     <Compile Include="Common\DataModel\UnitOfWorkBase.cs" />
-    <Compile Include="Common\LayoutSettings.Designer.cs" />
+    <Compile Include="Common\LayoutSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>LayoutSettings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Common\Utils\DbExtensions.cs" />
     <Compile Include="Common\Utils\ExpressionHelper.cs" />
     <Compile Include="Common\ViewModel\CollectionViewModel.cs" />
@@ -308,7 +316,6 @@
     <Compile Include="DevUI\ViewModels\Bazres\BazresCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Bazres\BazresViewModel.cs" />
     <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Customer\CustomerCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Customer\CustomerViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Driver\DriverCollectionViewModel.cs" />
@@ -326,9 +333,6 @@
     </Compile>
     <Compile Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml.cs">
       <DependentUpon>CustomerProductRelationCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationView.xaml.cs">
-      <DependentUpon>CustomerProductRelationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\Customer\CustomerCollectionView.xaml.cs">
       <DependentUpon>CustomerCollectionView.xaml</DependentUpon>
@@ -401,10 +405,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -483,12 +483,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Common\CommonResources.resx" />
+    <EmbeddedResource Include="Common\CommonResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Common\LayoutSettings.settings" />
+    <None Include="Common\LayoutSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>LayoutSettings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

@@ -22,7 +22,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 	xmlns:pfdata="clr-namespace:System.Windows.Data;assembly=PresentationFramework"
     mc:Ignorable="d"
 	dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
-    d:DesignHeight="600" d:DesignWidth="800" DataContext="{dxmvvm:ViewModelSource viewmodel:MyContextCFViewModel}" FlowDirection="RightToLeft">
+    d:DesignHeight="600" d:DesignWidth="800" DataContext="{dxmvvm:ViewModelSource viewmodel:MyContextCFViewModel}">
     <UserControl.Resources>
         <dxmvvm:ObjectToObjectConverter x:Key="TileColorConverter">
             <dxmvvm:MapItem Source="0" Target="#FF00879C" />
