@@ -525,16 +525,16 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return _myCommand6459653
-                    ?? (_myCommand6459653 = new RelayCommand(ExecuteCheckTempDriver, CanExecuteCheckTempDriver));
+                    ?? (_myCommand6459653 = new RelayCommand(ExecuteBackUpAsExcel, CanExecuteBackUpAsExcel));
             }
         }
 
-        private bool CanExecuteCheckTempDriver()
+        private bool CanExecuteBackUpAsExcel()
         {
             return !string.IsNullOrEmpty(SelectedTarikh);
         }
 
-        private void ExecuteCheckTempDriver()
+        private void ExecuteBackUpAsExcel()
         {
             ExcelBackUp p = new ExcelBackUp(ss);
 

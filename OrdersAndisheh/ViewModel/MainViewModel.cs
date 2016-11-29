@@ -646,7 +646,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteCreateImensazanList()
         {
              ReportManager rp = new ReportManager(sefaresh);
-            rp.CreatImenSazanReportOnDeskTop();
+             rp.CreatImenSazanReportOnDeskTop();
         }
 
         private bool CanExecuteCreateImensazanList()

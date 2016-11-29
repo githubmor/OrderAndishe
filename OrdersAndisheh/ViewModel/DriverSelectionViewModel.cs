@@ -132,9 +132,11 @@ namespace OrdersAndisheh.ViewModel
                 }
 
                 item.AssignDriver();
+                
                 service.Save();
-                service.DelNoUsedTempDrivers(te);
+                
             }
+            service.DelNoUsedTempDrivers(te);
             
         }
        

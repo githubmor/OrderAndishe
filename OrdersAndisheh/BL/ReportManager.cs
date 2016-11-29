@@ -1,5 +1,7 @@
 ﻿using BL;
 using OrdersAndisheh.DBL;
+using OrdersAndisheh.View;
+using OrdersAndisheh.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +40,8 @@ namespace OrdersAndisheh.BL
                 {
                     reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
                 }
-                FileManagar fg = new FileManagar(reportRows,sefaresh.Tarikh);
+
+                FileManagar fg = NewMethod(reportRows);
                 if (name == "فهامه")
                 {
                     fg.CreatDocFile(name);
@@ -52,6 +55,18 @@ namespace OrdersAndisheh.BL
 
         }
 
+        private FileManagar NewMethod(List<ReportRow> reportRows)
+        {
+            ReportPreviewViewModel vm = new ReportPreviewViewModel(reportRows);
+            ReportPerviewView v = new ReportPerviewView();
+            v.DataContext = vm;
+            v.ShowDialog();
+
+
+            FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
+            return fg;
+        }
+
         public void CreatAnbarReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -60,8 +75,8 @@ namespace OrdersAndisheh.BL
             {
                 reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
             }
-            
-            FileManagar fg = new FileManagar(reportRows,sefaresh.Tarikh);
+
+            FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("Anbar");
            
         }
@@ -74,7 +89,7 @@ namespace OrdersAndisheh.BL
             {
                 reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
             }
-            FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
+            FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("ImenSazan");
         }
 
@@ -85,7 +100,7 @@ namespace OrdersAndisheh.BL
             {
                 reportRows.Add(new ReportRow() { Kala = b.Kala, Maghsad = b.Maghsad, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : "") ,Karton = b.CodeKala}); //TODO اینو باید بعدا حذف کنیم 
             }
-            FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
+            FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("Kontrol");
         }
 
@@ -117,7 +132,7 @@ namespace OrdersAndisheh.BL
                 
                 
             }
-            FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
+            FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("Ersal");
         }
 

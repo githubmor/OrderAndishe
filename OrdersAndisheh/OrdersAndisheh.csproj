@@ -254,6 +254,7 @@
     <Compile Include="BL\ItemSefaresh.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\ReportManager.cs" />
+    <Compile Include="BL\ReportPreviewView.cs" />
     <Compile Include="BL\ReportRow.cs" />
     <Compile Include="BL\Sefaresh.cs" />
     <Compile Include="BL\SefareshService.cs" />
@@ -370,9 +371,17 @@
     <Compile Include="ViewModel\FirstViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
+    <Compile Include="ViewModel\ReportPreviewViewModel.cs" />
+    <Compile Include="ViewModel\ReportRowViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\DataUIView.xaml.cs">
       <DependentUpon>DataUIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportPerviewView.xaml.cs">
+      <DependentUpon>ReportPerviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportRowUserControl.xaml.cs">
+      <DependentUpon>ReportRowUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ZeroVisibleConvertor.cs" />
     <Compile Include="View\ColorValueConvertor.cs" />
@@ -468,6 +477,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ReportPerviewView.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportRowUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -487,7 +504,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -44,18 +44,18 @@ namespace OrdersAndisheh.ExcelManager
                     {
                         ExcelWorksheet ws = package.Workbook.Worksheets[1];
                         var t = sefaresh.Items;
-                        for (int i = 1; i < t.Count; i++)
+                        for (int i = 0; i < t.Count; i++)
                         {
-                            ws.Cells[i + 1, 1].Value = t[i].CodeKala;
-                            ws.Cells[i + 1, 2].Value = t[i].Tedad.ToString();
-                            ws.Cells[i + 1, 3].Value = t[i].Kala;
-                            ws.Cells[i + 1, 4].Value = t[i].Pallet.ToString();
-                            ws.Cells[i + 1, 5].Value = t[i].Karton.ToString();
-                            ws.Cells[i + 1, 7].Value = t[i].Vazn.ToString();
-                            ws.Cells[i + 1, 8].Value = t[i].BazresName;
-                            ws.Cells[i + 1, 9].Value = t[i].Maghsad;
-                            ws.Cells[i + 1, 10].Value = t[i].Ranande;
-                            ws.Cells[i + 1, 11].Value = t[i].TahvilFrosh.ToString();
+                            ws.Cells[i + 2, 1].Value = t[i].CodeKala;
+                            ws.Cells[i + 2, 2].Value = t[i].Tedad.ToString();
+                            ws.Cells[i + 2, 3].Value = t[i].Kala;
+                            ws.Cells[i + 2, 4].Value = t[i].Pallet.ToString();
+                            ws.Cells[i + 2, 5].Value = t[i].Karton.ToString();
+                            ws.Cells[i + 2, 7].Value = t[i].Vazn.ToString();
+                            ws.Cells[i + 2, 8].Value = t[i].BazresName;
+                            ws.Cells[i + 2, 9].Value = t[i].Maghsad;
+                            ws.Cells[i + 2, 10].Value = t[i].Ranande;
+                            ws.Cells[i + 2, 11].Value = t[i].TahvilFrosh.ToString();
                         }
                         package.Save();
                     }

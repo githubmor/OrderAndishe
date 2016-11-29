@@ -25,22 +25,23 @@
             </ListView>
             <Button Content="ذخیره" Command="{Binding SaveDrivers}"/>
         </StackPanel>
-        <ItemsControl Grid.Column="0"
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl Grid.Column="0"
               ItemsSource="{Binding DriverViewModels}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" 
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" 
                  IsItemsHost="True" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="x:Type c:DriverContainerViewModel">
-                    <c:DriverContainerUserControl 
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="x:Type c:DriverContainerViewModel">
+                        <c:DriverContainerUserControl 
                          />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 
 
