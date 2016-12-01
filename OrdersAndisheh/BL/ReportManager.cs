@@ -4,6 +4,7 @@ using OrdersAndisheh.View;
 using OrdersAndisheh.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +71,7 @@ namespace OrdersAndisheh.BL
         public void CreatAnbarReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
-            sefaresh.Items.OrderBy(o => o.Ranande).OrderBy(p => p.Maghsad).ToList();
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ThenBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
                 reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
@@ -96,9 +97,10 @@ namespace OrdersAndisheh.BL
         public void CreatKontrolReportOnDeskTop()
         {
             List<ReportRow> reportRows = new List<ReportRow>();
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Maghsad = b.Maghsad, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : "") ,Karton = b.CodeKala}); //TODO اینو باید بعدا حذف کنیم 
+                reportRows.Add(new ReportRow() { Kala = b.Kala, Maghsad = b.Maghsad });
             }
             FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("Kontrol");

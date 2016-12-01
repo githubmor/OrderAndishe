@@ -3,13 +3,46 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:c="clr-namespace:OrdersAndisheh.View"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
         HorizontalAlignment="Right" VerticalAlignment="Top">
 
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
+                          ItemsSource="{Binding ReportItems}" 
+                          SelectedItem="{Binding ClickedItem}"
+                          SelectionMode="Row"
+                            >
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn AllowEditing="True" FieldName="IsSelected" Header="انتخاب"/>
+                <dxg:GridColumn FieldName="Kala" Header="کالا" />
+                <dxg:GridColumn FieldName="Tedad" Header="تعداد" />
+                <dxg:GridColumn FieldName="Maghsad" Header="مقصد"/>
+                <dxg:GridColumn FieldName="Ranande" Header="راننده" />
+            </dxg:GridControl.Columns>
+            <!--<dxg:GridControl.View>
+
+                <dxg:TableView AllowPerPixelScrolling="True" AllowEditing="False" AutoWidth="True" AllowConditionalFormattingMenu="True">
+                    <dxg:TableView.FormatConditions>
+                        <dxg:FormatCondition Expression="[Ranande] == ''" FieldName="Ranande">
+                            <dx:Format Background="Aquamarine"  />
+                        </dxg:FormatCondition>
+                        <dxg:FormatCondition Expression="[Tedad] == 0" FieldName="Tedad">
+                            <dx:Format Background="BurlyWood"  />
+                        </dxg:FormatCondition>
+                        <dxg:FormatCondition Expression="[Maghsad] == ''" FieldName="Maghsad">
+                            <dx:Format Background="#FFF0EB95"  />
+                        </dxg:FormatCondition>
+                    </dxg:TableView.FormatConditions>
+
+                </dxg:TableView>
+            </dxg:GridControl.View>-->
+        </dxg:GridControl>
+        <!--<ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl 
               ItemsSource="{Binding ReportItems}"  VerticalAlignment="Top">
             <ItemsControl.ItemsPanel>
@@ -27,6 +60,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        </ScrollViewer>
+        </ScrollViewer>-->
     </Grid>
 </Window>

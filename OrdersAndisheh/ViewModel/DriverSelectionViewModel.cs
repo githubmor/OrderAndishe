@@ -121,7 +121,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 if (item.SelectedDriver==null)
                 {
-                    Driver p = new Driver() { Name = "راننده " + item.DriverNumber, Tol = 0, 
+                    Driver p = new Driver() { Name = getDriverName(item.VaznKol,item.JaigahCount) + item.DriverNumber, Tol = 0, 
                         TempDriver = new TempDriver() { Name = item.DriverNumber.ToString() } };
                     service.AddDriver(p);
                     item.SelectedDriver = p;
@@ -138,6 +138,35 @@ namespace OrdersAndisheh.ViewModel
             }
             service.DelNoUsedTempDrivers(te);
             
+        }
+
+        private string getDriverName(int vaznBar,string jaigah)
+        {
+            int jaigahcount = int.Parse(jaigah);
+            if (vaznBar<2000 & jaigahcount<2)
+            {
+                return "نیسان ";
+            }
+            else if (vaznBar < 3200 & jaigahcount<6)
+            {
+                return "مینی خاور ";
+            }
+            else if (vaznBar < 4200 & jaigahcount < 8)
+            {
+                return "مینی خاور ";
+            }
+            else if (vaznBar < 5700 & jaigahcount < 8)
+            {
+                return "911 ";
+            }
+            else if (vaznBar < 10000 & jaigahcount < 8)
+            {
+                return "تک ";
+            }
+            else
+            {
+                return "ماشین ";
+            }
         }
        
     }

@@ -30,15 +30,15 @@ namespace BL
 		public virtual void CreatFile(string fileName)
 		{
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            //using (FolderBrowserDialog dlg = new FolderBrowserDialog())
-            //{
-            //    dlg.Description = "Select a folder";
-            //    if (dlg.ShowDialog() == DialogResult.OK)
-            //    {
-            //        MessageBox.Show("You selected: " + dlg.SelectedPath);
-            //        path = dlg.SelectedPath;
-            //    }
-            //}
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select a folder";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    //MessageBox.Show("You selected: " + dlg.SelectedPath);
+                    path = dlg.SelectedPath;
+                }
+            }
             if (string.IsNullOrEmpty(fileName))
             {
                 fileName = "Report";
@@ -61,15 +61,15 @@ namespace BL
         public virtual void CreatDocFile(string fileName)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            //using (FolderBrowserDialog dlg = new FolderBrowserDialog())
-            //{
-            //    dlg.Description = "Select a folder";
-            //    if (dlg.ShowDialog() == DialogResult.OK)
-            //    {
-            //        MessageBox.Show("You selected: " + dlg.SelectedPath);
-            //        path = dlg.SelectedPath;
-            //    }
-            //}
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select a folder";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    //MessageBox.Show("You selected: " + dlg.SelectedPath);
+                    path = dlg.SelectedPath;
+                }
+            }
             if (string.IsNullOrEmpty(fileName))
             {
                 fileName = "Report";
