@@ -50,13 +50,13 @@ namespace OrdersAndisheh.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>(Guid.NewGuid().ToString());
             }
         }
-        public FirstViewModel First
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<FirstViewModel>(Guid.NewGuid().ToString());
-            }
-        }
+        //public FirstViewModel First
+        //{
+        //    get
+        //    {
+        //        return ServiceLocator.Current.GetInstance<FirstViewModel>(Guid.NewGuid().ToString());
+        //    }
+        //}
 
 
         public TahvilforoshViewModel Tahvilforosh

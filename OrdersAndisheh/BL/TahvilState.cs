@@ -7,11 +7,11 @@
 namespace BL
 {
 
-    public enum ItemType : byte
+    public enum TahvilState : byte
 	{
-		فوری,
-		گواهی,
-		نامشخص,
-		عادی,
+		OK,
+		NoSefareshItem,
+		TedadError,
+		MaghsadErros,
 	}
 }

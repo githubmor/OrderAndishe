@@ -247,12 +247,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\AlarmManager.cs" />
+    <Compile Include="BL\ItemType.cs" />
+    <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />
     <Compile Include="BL\ContainerManager.cs" />
+    <Compile Include="BL\ExcelImportService.cs" />
     <Compile Include="BL\FileManagar.cs" />
     <Compile Include="BL\ISefareshService.cs" />
     <Compile Include="BL\ItemSefaresh.cs" />
-    <Compile Include="BL\ItemType.cs" />
+    <Compile Include="BL\TahvilState.cs" />
     <Compile Include="BL\ReportManager.cs" />
     <Compile Include="BL\ReportRow.cs" />
     <Compile Include="BL\Sefaresh.cs" />

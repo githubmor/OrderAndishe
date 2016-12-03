@@ -17,6 +17,7 @@ namespace OrdersAndisheh.View
         public FirstView()
         {
             InitializeComponent();
+            this.DataContext = new FirstViewModel();
         }
 
         private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)

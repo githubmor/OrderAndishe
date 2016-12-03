@@ -1,6 +1,8 @@
 ﻿using BL;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
+using OrdersAndisheh.BL;
 using OrdersAndisheh.ExcelManager;
 using System;
 using System.Collections.Generic;
@@ -16,9 +18,16 @@ namespace OrdersAndisheh.ViewModel
     {
         ISefareshService ss;
         ExcelService exService;
+        Sefaresh sefaresh;
         public TahvilforoshViewModel(ISefareshService service)
         {
             ss = service;
+            Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);
+        }
+
+        private void ThisSefaresh(string obj)
+        {
+            sefaresh = ss.LoadSefaresh(obj);
         }
 
         private string file;
@@ -26,7 +35,11 @@ namespace OrdersAndisheh.ViewModel
         public string FilePath
         {
             get { return file; }
-            private set { file = value; }
+            private set 
+            { 
+                file = value;
+                RaisePropertyChanged(() => FilePath);
+            }
         }
 
         private ObservableCollection<TahvilItem> myVar;
@@ -37,9 +50,11 @@ namespace OrdersAndisheh.ViewModel
             set 
             {
                 myVar = value;
+                RaisePropertyChanged(() => ErsalListForTahvilFrosh);
             }
         }
-        
+
+        public List<string> Errors { get; set; }
 
 
 
@@ -69,25 +84,38 @@ namespace OrdersAndisheh.ViewModel
                     openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
                     openFileDialog1.FilterIndex = 1;
                     FilePath = openFileDialog1.FileName;
-                    DbService dbService = new DbService();
-                    exService = new ExcelService(FilePath, dbService);
-                    
+                    CalculateData();
                 }
             }
         }
 
+        private void CalculateData()
+        {
+            ExcelImportService eis = new ExcelImportService(ss,FilePath);
+            ErsalListForTahvilFrosh = eis.GetTahvilfroshData();
+            CalculateSefareshWithData();
+        }
         private bool CanExecuteGetFile()
         {
             return true;
         }
-    }
 
-     public class TahvilItem
-    {
-        public string KalaName { get; set; }
-        public int Tedad { get; set; }
-        public int TahvilFroshNum { get; set; }
-        public string Maghsad { get; set; }
+        private void CalculateSefareshWithData()
+        {
+            var tar = ErsalListForTahvilFrosh.Select(p => p.TarikhSanad).Distinct();
+            if (tar.Count()>0)
+            {
+                Errors.Add("فایل شامل اسناد بیش ");
+            }
+
+            if (sefaresh.Tarikh)
+            {
+                
+            }
+        }
+
         
     }
+
+    
 }

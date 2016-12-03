@@ -587,7 +587,8 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteSetTahvilfrosh()
         {
-            
+            TahvilfroshView v = new TahvilfroshView();
+            v.Show();
         }
 
         private bool CanExecuteSetTahvilfrosh()

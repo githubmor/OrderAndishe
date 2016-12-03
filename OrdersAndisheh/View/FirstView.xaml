@@ -5,7 +5,7 @@
         
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
-        DataContext="{Binding First, Source={StaticResource Locator}}">
+        >
     <!--xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"-->
     <Window.Resources>
         <ResourceDictionary>
