@@ -12,7 +12,7 @@
         HorizontalAlignment="Right" VerticalAlignment="Top">
 
     <Grid>
-        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
+        <!--<dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding ReportItems}" 
                           SelectedItem="{Binding ClickedItem}"
                           SelectionMode="Row"
@@ -23,7 +23,7 @@
                 <dxg:GridColumn FieldName="Tedad" Header="تعداد" />
                 <dxg:GridColumn FieldName="Maghsad" Header="مقصد"/>
                 <dxg:GridColumn FieldName="Ranande" Header="راننده" />
-            </dxg:GridControl.Columns>
+            </dxg:GridControl.Columns>-->
             <!--<dxg:GridControl.View>
 
                 <dxg:TableView AllowPerPixelScrolling="True" AllowEditing="False" AutoWidth="True" AllowConditionalFormattingMenu="True">
@@ -41,8 +41,8 @@
 
                 </dxg:TableView>
             </dxg:GridControl.View>-->
-        </dxg:GridControl>
-        <!--<ScrollViewer VerticalScrollBarVisibility="Auto">
+        <!--</dxg:GridControl>-->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl 
               ItemsSource="{Binding ReportItems}"  VerticalAlignment="Top">
             <ItemsControl.ItemsPanel>
@@ -60,6 +60,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        </ScrollViewer>-->
+        </ScrollViewer>
     </Grid>
 </Window>

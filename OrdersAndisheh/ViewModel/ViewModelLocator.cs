@@ -36,11 +36,11 @@ namespace OrdersAndisheh.ViewModel
 
             
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<FirstViewModel>();
+            //SimpleIoc.Default.Register<FirstViewModel>();
             //SimpleIoc.Default.Register<DriverSelectionViewModel>();
             SimpleIoc.Default.Register<OracleRelationViewModel>();
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
-            
+            SimpleIoc.Default.Register<TahvilforoshViewModel>();
         }
 
         public MainViewModel Main
@@ -58,6 +58,14 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
+
+        public TahvilforoshViewModel Tahvilforosh
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TahvilforoshViewModel>(Guid.NewGuid().ToString());
+            }
+        }
         //public DriverSelectionViewModel DriverSel
         //{
         //    get

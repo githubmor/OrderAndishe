@@ -13,7 +13,7 @@ namespace BL
 
 	public class ReportRow
 	{
-        
+        public int Position { get; set; }
         public string Kala { get; set; }
         public string Tedad { get; set; }
         public string Karton { get; set; }

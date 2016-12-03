@@ -23,7 +23,7 @@ namespace OrdersAndisheh.ViewModel
         {
             
             ss = new SefareshService();
-            Lists = ss.LoadAllSefareshTarikh();
+            Lists = ss.LoadAllNOAcceptedSefareshTarikh();
             Messenger.Default.Register<string>(this, "path", getFilePath);
             
             
@@ -76,7 +76,7 @@ namespace OrdersAndisheh.ViewModel
 
         public List<string> Lists
         {
-            get { return ss.LoadAllSefareshTarikh(); }
+            get { return ss.LoadAllNOAcceptedSefareshTarikh(); }
             set { lists = value; }
         }
 
@@ -568,6 +568,31 @@ namespace OrdersAndisheh.ViewModel
         private bool CanExecuteDelSefaresh()
         {
             return !string.IsNullOrEmpty(SelectedTarikh);
+        }
+
+        private RelayCommand _myCommand5252656;
+
+        /// <summary>
+        /// Gets the SetTahvilfrosh.
+        /// </summary>
+        public RelayCommand SetTahvilfrosh
+        {
+            get
+            {
+                return _myCommand5252656 ?? (_myCommand5252656 = new RelayCommand(
+                    ExecuteSetTahvilfrosh,
+                    CanExecuteSetTahvilfrosh));
+            }
+        }
+
+        private void ExecuteSetTahvilfrosh()
+        {
+            
+        }
+
+        private bool CanExecuteSetTahvilfrosh()
+        {
+            return true;
         }
         
     }

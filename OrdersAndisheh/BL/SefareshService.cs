@@ -156,11 +156,11 @@ namespace BL
             //}
         }
 
-        public List<string> LoadAllSefareshTarikh()
+        public List<string> LoadAllNOAcceptedSefareshTarikh()
         {
             //using (MyContextCF db = new MyContextCF())
             //{
-                return db.Orders.Select(p=>p.Tarikh).ToList();
+                return db.Orders.Where(p=>!p.Accepted).Select(p=>p.Tarikh).ToList();
             //}
         }
 

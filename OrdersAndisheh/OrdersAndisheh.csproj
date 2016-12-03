@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>51</ApplicationRevision>
+    <ApplicationRevision>58</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -254,7 +254,6 @@
     <Compile Include="BL\ItemSefaresh.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\ReportManager.cs" />
-    <Compile Include="BL\ReportPreviewView.cs" />
     <Compile Include="BL\ReportRow.cs" />
     <Compile Include="BL\Sefaresh.cs" />
     <Compile Include="BL\SefareshService.cs" />
@@ -373,6 +372,7 @@
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\ReportPreviewViewModel.cs" />
     <Compile Include="ViewModel\ReportRowViewModel.cs" />
+    <Compile Include="ViewModel\TahvilforoshViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\DataUIView.xaml.cs">
       <DependentUpon>DataUIView.xaml</DependentUpon>
@@ -382,6 +382,9 @@
     </Compile>
     <Compile Include="View\ReportRowUserControl.xaml.cs">
       <DependentUpon>ReportRowUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TahvilfroshView.xaml.cs">
+      <DependentUpon>TahvilfroshView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ZeroVisibleConvertor.cs" />
     <Compile Include="View\ColorValueConvertor.cs" />
@@ -482,6 +485,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ReportRowUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TahvilfroshView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

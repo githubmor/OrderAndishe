@@ -26,7 +26,7 @@ namespace OrdersAndisheh.BL
                 throw new ApplicationException("سفارش نمیتواند بدون آیتم باشد");
             }
             this.sefaresh = sefaresh;
-            this.sefaresh.Items.OrderBy(p => p.Maghsad).ToList();
+            this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
         }
 
        
@@ -35,11 +35,14 @@ namespace OrdersAndisheh.BL
             var bazres = sefaresh.Items.Select(p => p.BazresName).Distinct();
             foreach (var name in bazres)
             {
+                int pos = 0;
                 List<ReportRow> reportRows = new List<ReportRow>();
                 var allBazres = sefaresh.Items.Where(p=>p.BazresName==name).ToList();
                 foreach (var b in allBazres)
                 {
-                    reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
+                    reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, 
+                        Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
+                    pos += 1;
                 }
 
                 FileManagar fg = NewMethod(reportRows);
@@ -64,17 +67,24 @@ namespace OrdersAndisheh.BL
             v.ShowDialog();
 
 
-            FileManagar fg = new FileManagar(reportRows, sefaresh.Tarikh);
+            FileManagar fg = new FileManagar(vm.reportRows, sefaresh.Tarikh);
             return fg;
         }
 
         public void CreatAnbarReportOnDeskTop()
         {
+            int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ThenBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
+                pos += 1;
             }
 
             FileManagar fg = NewMethod(reportRows);
@@ -84,11 +94,18 @@ namespace OrdersAndisheh.BL
 
         public void CreatImenSazanReportOnDeskTop()
         {
+            int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
             var ImenKalas = sefaresh.Items.Where(p => p.IsImenKala).ToList();
             foreach (var b in ImenKalas)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Maghsad = b.Maghsad });
+                pos += 1;
             }
             FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("ImenSazan");
@@ -96,11 +113,13 @@ namespace OrdersAndisheh.BL
 
         public void CreatKontrolReportOnDeskTop()
         {
+            int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Kala = b.Kala, Maghsad = b.Maghsad });
+                reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, Maghsad = b.Maghsad });
+                pos += 1;
             }
             FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("Kontrol");
@@ -108,32 +127,38 @@ namespace OrdersAndisheh.BL
 
         public void CreatListErsalReportOnDeskTop()
         {
+            int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
             string lastDriver = "";//, lastDes = "";
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ThenBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
                 if (lastDriver!="")
                 {
                     if ( b.Ranande!=lastDriver)
                     {
-                        reportRows.Add(new ReportRow() { Kala = "khali" });
+                        reportRows.Add(new ReportRow() { Position = pos, Kala = "khali" });
+                        pos += 1;
                     }
                 }
                 reportRows.Add(new ReportRow() 
                 { 
+                    Position = pos,
                     Kala = b.Kala, 
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), 
                     Karton = b.Karton.ToString(), 
                     Pallet = b.Pallet.ToString(), 
-                    Vazn = (b.Vazn > 0 ? b.Vazn.ToString() : ""), 
                     Maghsad = b.Maghsad, 
                     Ranande = b.Ranande 
                 });
+                pos += 1;
                 //lastDes = b.Maghsad;
                 lastDriver = b.Ranande;
                 
                 
             }
+
+
             FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("Ersal");
         }

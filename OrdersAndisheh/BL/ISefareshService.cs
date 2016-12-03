@@ -1,28 +1,32 @@
-﻿using System;
+﻿using OrdersAndisheh.DBL;
+using System;
+using System.Collections.Generic;
 namespace BL
 {
     public interface ISefareshService
     {
         void AcceptSefaresh(BL.Sefaresh sefaresh);
-        System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> LoadDestinations();
-        System.Collections.Generic.List<OrdersAndisheh.DBL.Driver> LoadDrivers();
-        System.Collections.Generic.List<OrdersAndisheh.DBL.Product> LoadGoods();
-        BL.Sefaresh LoadSefaresh(string tarikh);
-        void SaveSefaresh(BL.Sefaresh sefaresh);
-        void UnAcceptSefaresh(BL.Sefaresh sefaresh);
-        void UpdateSefaresh(BL.Sefaresh sefaresh);
-        System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> LoadOracleCustomer();
+        List<Customer> LoadDestinations();
+        List<Driver> LoadDrivers();
+        List<Product> LoadGoods();
+        Sefaresh LoadSefaresh(string tarikh);
+        void SaveSefaresh(Sefaresh sefaresh);
+        void UnAcceptSefaresh(Sefaresh sefaresh);
+        void UpdateSefaresh(Sefaresh sefaresh);
+        List<Customer> LoadOracleCustomer();
 
-        void SaveOracleRelation(System.Collections.Generic.List<OrdersAndisheh.DBL.Customer> OCustomers);
+        void SaveOracleRelation(List<OrdersAndisheh.DBL.Customer> OCustomers);
 
-        System.Collections.Generic.List<ItemSefaresh> LoadNoDriverSefareshItems(string sefareshTarikh);
+        List<ItemSefaresh> LoadNoDriverSefareshItems(string sefareshTarikh);
 
         void AddDriver(OrdersAndisheh.DBL.Driver p);
 
         //void DelNoUsedTempDrivers();
 
         void Save();
+        void DeleteSefaresh(string SelectedTarikh);
+        void DelNoUsedTempDrivers(List<Driver> TempDriverForDelete);
 
-        void DelNoUsedTempDrivers(System.Collections.Generic.List<OrdersAndisheh.DBL.Driver> TempDriverForDelete);
+        List<string> LoadAllNOAcceptedSefareshTarikh();
     }
 }

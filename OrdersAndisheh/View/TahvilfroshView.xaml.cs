@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace OrdersAndisheh.View
 {
     /// <summary>
-    /// Interaction logic for ReportRowUserControl.xaml
+    /// Interaction logic for TahvilfroshView.xaml
     /// </summary>
-    public partial class ReportRowUserControl : UserControl
+    public partial class TahvilfroshView : Window
     {
-        public ReportRowUserControl()
+        public TahvilfroshView()
         {
             InitializeComponent();
         }
-
-       
     }
 }

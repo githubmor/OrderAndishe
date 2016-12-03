@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="500" FlowDirection="RightToLeft" >
+             d:DesignHeight="100" d:DesignWidth="600" FlowDirection="RightToLeft" >
     <Grid>
         <StackPanel  HorizontalAlignment="Left"  Orientation="Horizontal" VerticalAlignment="Top"  >
             <Label Margin="5" IsEnabled="False"  Content="{Binding Kala}" MinWidth="200"/>
             <TextBox Margin="5" MinWidth="80" Height="23" TextWrapping="Wrap" Text="{Binding Tedad}"/>
             <TextBox Margin="5" MinWidth="80" Height="23" TextWrapping="Wrap" Text="{Binding Maghsad}"/>
             <TextBox Margin="5" MinWidth="80" Height="23" TextWrapping="Wrap" Text="{Binding Ranande}"/>
+            <Button Content="Del" Command="{Binding  DelRow}"  />
         </StackPanel>
 
     </Grid>

@@ -293,17 +293,17 @@
         <Data Ref="21" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>febeeb78b448498fbfc442ce5bff949c</BusinessObjectGuid>
-          <ClientRectangle>0,2,7.72,0.25</ClientRectangle>
+          <ClientRectangle>0,2,7.72,0.22</ClientRectangle>
           <Components isList="true" count="8">
             <DataItems_kala Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,1.3,0.25</ClientRectangle>
+              <ClientRectangle>0,0,1.3,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_kala</Name>
@@ -319,11 +319,11 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>1.3,0,0.7,0.25</ClientRectangle>
+              <ClientRectangle>1.3,0,0.7,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_tedad</Name>
@@ -339,11 +339,11 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2,0,1.2,0.25</ClientRectangle>
+              <ClientRectangle>2,0,1.2,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_karton</Name>
@@ -359,11 +359,11 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.2,0,0.5,0.25</ClientRectangle>
+              <ClientRectangle>3.2,0,0.5,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_pallet</Name>
@@ -379,11 +379,11 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.7,0,0.5,0.25</ClientRectangle>
+              <ClientRectangle>3.7,0,0.5,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_maghsad</Name>
@@ -399,11 +399,11 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.2,0,1.2,0.25</ClientRectangle>
+              <ClientRectangle>4.2,0,1.2,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_vazn</Name>
@@ -418,11 +418,11 @@
             <DataItems_Ranande Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.4,0,2,0.25</ClientRectangle>
+              <ClientRectangle>5.4,0,2,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
               <Page isRef="4" />
@@ -437,11 +437,11 @@
             <Text7 Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>7.4,0,0.32,0.25</ClientRectangle>
+              <ClientRectangle>7.4,0,0.32,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
-              <Font>Tahoma,9.5</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
@@ -489,10 +489,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/1/2016 3:00:02 PM</ReportChanged>
+  <ReportChanged>12/3/2016 2:39:53 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report.mrt</ReportFile>
-  <ReportGuid>158d1fc754ca42d9988c9bfcd07de0fd</ReportGuid>
+  <ReportGuid>522a4a6b4b0d43029f18e7f07defe7b2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
