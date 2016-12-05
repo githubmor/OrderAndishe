@@ -110,6 +110,25 @@ namespace OrdersAndisheh.BL
             FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("ImenSazan");
         }
+        public void CreatAndishehReportOnDeskTop()
+        {
+            int pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            var ImenKalas = sefaresh.Items.Where(p => !p.IsImenKala).ToList();
+            foreach (var b in ImenKalas)
+            {
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Maghsad = b.Maghsad
+                });
+                pos += 1;
+            }
+            FileManagar fg = NewMethod(reportRows);
+            fg.CreatFile("Andisheh");
+        }
 
         public void CreatKontrolReportOnDeskTop()
         {

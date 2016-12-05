@@ -654,6 +654,46 @@ namespace OrdersAndisheh.ViewModel
             return !IsDirty;
         }
 
+
+
+
+
+
+
+        private RelayCommand _myCommand79;
+
+        /// <summary>
+        /// Gets the CreateAndishehList.
+        /// </summary>
+        public RelayCommand CreateAndishehList
+        {
+            get
+            {
+                return _myCommand79 ?? (_myCommand79 = new RelayCommand(
+                    ExecuteCreateAndishehList,
+                    CanExecuteCreateAndishehList));
+            }
+        }
+
+        private void ExecuteCreateAndishehList()
+        {
+            ReportManager rp = new ReportManager(sefaresh);
+            rp.CreatAndishehReportOnDeskTop();
+        }
+
+        private bool CanExecuteCreateAndishehList()
+        {
+            return !IsDirty;
+        }
+
+
+
+
+
+
+
+
+
         private RelayCommand _myCommand10;
 
         /// <summary>

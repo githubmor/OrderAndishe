@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using DevExpress.Xpf.Grid;
+using GalaSoft.MvvmLight.Messaging;
+using System.Windows;
 
 namespace OrdersAndisheh.View
 {
@@ -7,14 +9,15 @@ namespace OrdersAndisheh.View
     /// </summary>
     public partial class MainView : Window
     {
-        /// <summary>
-        /// Initializes a new instance of the MainView class.
-        /// </summary>
         public MainView()
         {
-            InitializeComponent();
-            
-            
+            InitializeComponent();       
+        }
+
+        private void gg_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //GridControl s = (GridControl)sender;
+            //Messenger.Default.Send<string>(s.SelectedItem.ToString(), "SelectedItem");
         }
 
        

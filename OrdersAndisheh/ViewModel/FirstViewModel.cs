@@ -588,6 +588,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteSetTahvilfrosh()
         {
             TahvilfroshView v = new TahvilfroshView();
+            Messenger.Default.Send<string>(SelectedTarikh, "sefareshForTahvilSet");
             v.Show();
         }
 

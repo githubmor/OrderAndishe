@@ -37,25 +37,26 @@ namespace BL
                 {
                     //MessageBox.Show("You selected: " + dlg.SelectedPath);
                     path = dlg.SelectedPath;
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        fileName = "Report";
+                    }
+                    var h = new Header();
+                    h.Tarikh = Tarikh;
+                    h.WeekDay = PersianDateTime.Parse(Tarikh).DayName;
+
+
+
+                    StiReport mainreport = new StiReport();
+                    mainreport.RegBusinessObject("Sefaresh", h);
+                    mainreport.RegBusinessObject("Items", ReportRows);
+                    mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
+                    mainreport.Render();
+                    mainreport.Show();
+                    mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
                 }
             }
-            if (string.IsNullOrEmpty(fileName))
-            {
-                fileName = "Report";
-            }
-            var h = new Header();
-            h.Tarikh= Tarikh;
-            h.WeekDay= PersianDateTime.Parse(Tarikh).DayName;
-
             
-
-            StiReport mainreport = new StiReport();
-            mainreport.RegBusinessObject("Sefaresh", h);
-            mainreport.RegBusinessObject("Items", ReportRows);
-            mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
-            mainreport.Render();
-            mainreport.Show();
-            mainreport.ExportDocument(StiExportFormat.Pdf, path +"\\"+fileName+".pdf");
 		}
 
         public virtual void CreatDocFile(string fileName)
@@ -68,25 +69,26 @@ namespace BL
                 {
                     //MessageBox.Show("You selected: " + dlg.SelectedPath);
                     path = dlg.SelectedPath;
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        fileName = "Report";
+                    }
+                    var h = new Header();
+                    h.Tarikh = Tarikh;
+                    h.WeekDay = PersianDateTime.Parse(Tarikh).DayName;
+
+
+
+                    StiReport mainreport = new StiReport();
+                    mainreport.RegBusinessObject("Sefaresh", h);
+                    mainreport.RegBusinessObject("Items", ReportRows);
+                    mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
+                    mainreport.Render();
+                    mainreport.Show();
+                    mainreport.ExportDocument(StiExportFormat.RtfWinWord, path + "\\" + fileName + ".doc");
                 }
             }
-            if (string.IsNullOrEmpty(fileName))
-            {
-                fileName = "Report";
-            }
-            var h = new Header();
-            h.Tarikh = Tarikh;
-            h.WeekDay = "شنبه";
-
-
-
-            StiReport mainreport = new StiReport();
-            mainreport.RegBusinessObject("Sefaresh", h);
-            mainreport.RegBusinessObject("Items", ReportRows);
-            mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
-            mainreport.Render();
-            mainreport.Show();
-            mainreport.ExportDocument(StiExportFormat.RtfWinWord, path + "\\" + fileName + ".doc");
+            
         }
         
         

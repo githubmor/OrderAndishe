@@ -17,17 +17,22 @@ namespace OrdersAndisheh.ViewModel
     public class TahvilforoshViewModel : ViewModelBase
     {
         ISefareshService ss;
-        ExcelService exService;
+        //ExcelService exService;
         Sefaresh sefaresh;
         public TahvilforoshViewModel(ISefareshService service)
         {
             ss = service;
-            Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);
+            sefaresh = new Sefaresh();
+            Errors = new List<string>();
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>();
+            TahvilFroshs = new ObservableCollection<TahvilItem>();
+            Messenger.Default.Register<string>(this, "sefareshForTahvilSet", ThisSefaresh);
         }
 
         private void ThisSefaresh(string obj)
         {
             sefaresh = ss.LoadSefaresh(obj);
+            RaisePropertyChanged(() => this.ErsalListForTahvilFrosh);
         }
 
         private string file;
@@ -42,16 +47,17 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private ObservableCollection<TahvilItem> myVar;
+        private ObservableCollection<TahvilItem> TahvilFroshs;
+        //private ObservableCollection<ItemSefaresh> myVar;
 
-        public ObservableCollection<TahvilItem> ErsalListForTahvilFrosh
+        public ObservableCollection<ItemSefaresh> ErsalListForTahvilFrosh
         {
-            get { return myVar; }
-            set 
-            {
-                myVar = value;
-                RaisePropertyChanged(() => ErsalListForTahvilFrosh);
-            }
+            get { return sefaresh.Items; }
+            //set 
+            //{
+            //    myVar = value;
+            //    RaisePropertyChanged(() => ErsalListForTahvilFrosh);
+            //}
         }
 
         public List<string> Errors { get; set; }
@@ -92,7 +98,7 @@ namespace OrdersAndisheh.ViewModel
         private void CalculateData()
         {
             ExcelImportService eis = new ExcelImportService(ss,FilePath);
-            ErsalListForTahvilFrosh = eis.GetTahvilfroshData();
+            TahvilFroshs = eis.GetTahvilfroshData();
             CalculateSefareshWithData();
         }
         private bool CanExecuteGetFile()
@@ -102,18 +108,121 @@ namespace OrdersAndisheh.ViewModel
 
         private void CalculateSefareshWithData()
         {
-            var tar = ErsalListForTahvilFrosh.Select(p => p.TarikhSanad).Distinct();
-            if (tar.Count()>0)
+            List<string> tar = TahvilFroshs.Select(p => p.TarikhSanad).Distinct().ToList();
+            string tarikhha = "";
+            
+            //bool HasTarikhmorThanOne= false;
+            
+            if (tar.Count()>1)
             {
-                Errors.Add("فایل شامل اسناد بیش ");
+                for (int i = 0; i < tar.Count(); i++)
+                {
+                    tarikhha += tar[i] + "-";
+                }
+                string rr = "فایل شامل اسناد بیش از یک تاریخ می باشد " + tarikhha;
+                //for (int i = 0; i < tar.Count(); i++)
+                //{
+                //    rr += tar[i] + "-";
+                //}
+                Errors.Add(rr);
+                //HasTarikhmorThanOne = true;
             }
 
-            if (sefaresh.Tarikh)
+            foreach (var item in sefaresh.Items)
             {
                 
+                var findedTahvilFrishes = TahvilFroshs
+                    .Where(o => o.CodeKala == item.CodeKala)
+                    .Where(t => t.Tedad == item.Tedad)
+                    .ToList();
+                
+                if (findedTahvilFrishes.Count == 0)
+                {
+                    Errors.Add("برای کالای " +item.Kala + " ارسالی به " + item.Maghsad + " تحویل فروشی ثبت نشده");
+                }
+                else if(findedTahvilFrishes.Count>1)
+                {
+                    //string tahvilha_tarikh = "";
+                    //foreach (var yt in tr)
+                    //{
+                    //    tahvilha_tarikh += yt.TarikhSanad + " - " + yt.TahvilFroshNum;
+                    //}
+                    var po = findedTahvilFrishes.Select(pd => pd.TarikhSanad).Distinct();
+
+                    if (po.Count()>1)
+                    {
+                        string defd = "برای کالای " + item.Kala
+                        + " ارسالی به " + item.Maghsad + " "
+                        + findedTahvilFrishes.Count + " تحویل فروش داریم ";
+                        
+
+                        foreach (var we in findedTahvilFrishes)
+                        {
+                            defd += we.TahvilFroshNum + "(" + we.TarikhSanad + ")" + "-";
+                            we.IsOk = true;
+                        }
+
+                        Errors.Add(defd);
+                    }
+                    else
+                    {
+                        string defd = "برای کالای " + item.Kala
+                        + " ارسالی به " + item.Maghsad + " "
+                        + findedTahvilFrishes.Count + " تحویل فروش داریم ";
+
+                        foreach (var we in findedTahvilFrishes)
+                        {
+                            defd += we.TahvilFroshNum + "-";
+                            we.IsOk = true;
+                        }
+
+                        Errors.Add(defd);
+                    }
+                    
+                }
+                else //if(!HasTarikhmorThanOne)
+                {
+                    item.TahvilFrosh = findedTahvilFrishes[0].TahvilFroshNum;
+                    findedTahvilFrishes[0].IsOk = true;
+                }
+                //else
+                //{
+                //    Errors.Add("برای کالای " + item.Kala + " ارسالی به " + item.Maghsad + " " + findedTahvilFrishes.Count + " تحویل فروش داریم ");
+                //}
+
+                
+            }
+            var nuy = TahvilFroshs.Where(isa => !isa.IsOk).ToList();
+            foreach (var de in nuy)
+            {
+                Errors.Add("برای تحویل فروش " +
+                    de.TahvilFroshNum + " کالای " +
+                    de.KalaName + " به تعداد " +
+                    de.Tedad + " آیتمی در سفارش وجود ندارد");
+            }
+
+            RaisePropertyChanged(() => Errors);
+        }
+
+        private RelayCommand _myCommand145;
+
+        /// <summary>
+        /// Gets the SaveTahvilFrosh.
+        /// </summary>
+        public RelayCommand SaveTahvilFrosh
+        {
+            get
+            {
+                return _myCommand145
+                    ?? (_myCommand145 = new RelayCommand(ExecuteSaveTahvilFrosh));
             }
         }
 
+        private void ExecuteSaveTahvilFrosh()
+        {
+            MessageBox.Show(sefaresh.Items.Count.ToString());
+            ss.Save();
+        }
         
     }
 

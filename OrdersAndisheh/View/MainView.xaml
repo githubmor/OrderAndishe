@@ -28,8 +28,7 @@
         <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
                           SelectedItem="{Binding ClickedItem}"
-                          SelectionMode="Row"
-                            >
+                          SelectionMode="Row" MouseDoubleClick="gg_MouseDoubleClick">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn AllowEditing="True" FieldName="IsSelected" Header="انتخاب"/>
                 <dxg:GridColumn FieldName="Kala" Header="کالا" />
@@ -130,6 +129,8 @@
         <WrapPanel Margin="0" Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">
             <Button Content="ساخت ليست ایمن سازان" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding CreateImensazanList, Mode=OneWay}"/>
+            <Button Content="ساخت ليست اندیشه" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreateAndishehList, Mode=OneWay}"/>
             <Button Content="ساخت ليست انبار" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding CreateAnbarList, Mode=OneWay}"/>
             <Button Content="ساخت ليست کنترل" HorizontalAlignment="Left"
