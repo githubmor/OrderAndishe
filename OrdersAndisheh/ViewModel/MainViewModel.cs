@@ -8,11 +8,9 @@ using OrdersAndisheh.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Input;
 
 
 namespace OrdersAndisheh.ViewModel
@@ -37,16 +35,9 @@ namespace OrdersAndisheh.ViewModel
             //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
             //TODO قفل های بدون اورکل چی شد 
             //TODO تثبیت ارسال چی شد ؟
-            //TODO ثبت تحویل فروش از روی خروجی برهان و ایرور هایی که باید بدهد
-            //TODO چرا در پی دی اف حروف انگلیسی رو بصورت جعبه نشان میدهد
-            //TODO رنگ بندی کردن لیست ارسال داخل خود نرم افزار
-            //TODO حذف سفارش یک روز 
             //TODO
             //TODO
             //TODO
-
-
-            //LoadThisDateSefaresh("1395/07/22");
         }
 
         
@@ -61,11 +52,8 @@ namespace OrdersAndisheh.ViewModel
                 IsDirty = false;
                 MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد" ) ;
                 RaisePropertyChanged(() => this.Tarikh);
-                //CreateAnbarList.RaiseCanExecuteChanged();
-                //CreateBazresLists.RaiseCanExecuteChanged();
-                //CreateImensazanList.RaiseCanExecuteChanged();
-                //CreateKontrolList.RaiseCanExecuteChanged();
-                //CreatListErsal.RaiseCanExecuteChanged();
+                RaisePropertyChanged(() => this.DriversVazn);
+                RaisePropertyChanged(() => this.MaghsadVazn);
             }
             catch (System.Exception r)
             {
@@ -114,6 +102,50 @@ namespace OrdersAndisheh.ViewModel
                 //AddNewItem.RaiseCanExecuteChanged();
             }
         }
+
+        public string DriversVazn 
+        {
+            get 
+            {
+                var drss = Items.Select(o => o.Ranande).Distinct();
+                string ft = "";
+                foreach (var item in drss)
+                {
+                    ft += item + " : ";
+                    int sum = 0;
+                    var yu =  Items.Where(ik=>ik.Ranande==item).ToList();
+                    foreach (var wew in yu)
+                    {
+                        sum += wew.Vazn;
+                    }
+                    ft += sum + " - ";
+                    
+                }    
+                return ft;
+            } 
+        }
+        public string MaghsadVazn //{ get; set; }
+        {
+            get
+            {
+                var drss = Items.Select(o => o.Maghsad).Distinct();
+                string ft = "";
+                foreach (var item in drss)
+                {
+                    ft += item + " : ";
+                    int sum = 0;
+                    var yu = Items.Where(ik => ik.Maghsad == item).ToList();
+                    foreach (var wew in yu)
+                    {
+                        sum += wew.Vazn;
+                    }
+                    ft += sum + " - ";
+
+                }
+                return ft;
+            }
+        }
+
         public string Tarikh
         {
             get { return sefaresh.Tarikh; }
@@ -359,6 +391,8 @@ namespace OrdersAndisheh.ViewModel
             //IsEdit = true;
             IsEditItem = false;
             SelecteddItem = null;
+            RaisePropertyChanged(() => this.DriversVazn);
+            RaisePropertyChanged(() => this.MaghsadVazn);
         }
 
         private bool CanExecuteAddNewItem()
@@ -433,6 +467,8 @@ namespace OrdersAndisheh.ViewModel
             IsDirty = true;
             //IsEdit = true;
             SelecteddItem = null;
+            RaisePropertyChanged(() => this.DriversVazn);
+            RaisePropertyChanged(() => this.MaghsadVazn);
             
         }
 
@@ -467,9 +503,10 @@ namespace OrdersAndisheh.ViewModel
                 }
             }
 
-            IsDirty = false;
-            //IsEdit = true;
+            IsDirty = true;
             SelecteddItem = null;
+            RaisePropertyChanged(() => this.DriversVazn);
+            RaisePropertyChanged(() => this.MaghsadVazn);
 
         }
 
@@ -513,12 +550,9 @@ namespace OrdersAndisheh.ViewModel
                 }
                 ss.DelNoUsedTempDrivers(TempDriverForDelete);
                 IsDirty = false;
-                //CreateAnbarList.RaiseCanExecuteChanged();
-                //CreateBazresLists.RaiseCanExecuteChanged();
-                //CreateImensazanList.RaiseCanExecuteChanged();
-                //CreateKontrolList.RaiseCanExecuteChanged();
-                //CreatListErsal.RaiseCanExecuteChanged();
-                
+                SelecteddItem = null;
+                RaisePropertyChanged(() => this.DriversVazn);
+                RaisePropertyChanged(() => this.MaghsadVazn);
             }
             catch (DbEntityValidationException e)
             {
@@ -533,6 +567,10 @@ namespace OrdersAndisheh.ViewModel
                     }
                 }
                 throw;
+            }
+            catch(Exception r)
+            {
+                MessageBox.Show(r.Message.ToString());
             }
         }
 
@@ -759,6 +797,8 @@ namespace OrdersAndisheh.ViewModel
             {
                 this.LoadThisDateSefaresh(Tarikh);
             }
+            RaisePropertyChanged(() => this.DriversVazn);
+            RaisePropertyChanged(() => this.MaghsadVazn);
         }
 
         private bool CanExecuteLoadSefaresh()

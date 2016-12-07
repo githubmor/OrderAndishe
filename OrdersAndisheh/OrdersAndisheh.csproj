@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationRevision>63</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -247,6 +247,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\AlarmManager.cs" />
+    <Compile Include="BL\CheckSefaresh.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />
@@ -529,6 +530,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Images\nok.jpg" />
+    <Resource Include="Images\ok.jpg" />
     <Content Include="Report\Report.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

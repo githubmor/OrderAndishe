@@ -108,90 +108,133 @@ namespace OrdersAndisheh.ViewModel
 
         private void CalculateSefareshWithData()
         {
-            List<string> tar = TahvilFroshs.Select(p => p.TarikhSanad).Distinct().ToList();
-            string tarikhha = "";
-            
-            //bool HasTarikhmorThanOne= false;
-            
-            if (tar.Count()>1)
-            {
-                for (int i = 0; i < tar.Count(); i++)
-                {
-                    tarikhha += tar[i] + "-";
-                }
-                string rr = "فایل شامل اسناد بیش از یک تاریخ می باشد " + tarikhha;
-                //for (int i = 0; i < tar.Count(); i++)
-                //{
-                //    rr += tar[i] + "-";
-                //}
-                Errors.Add(rr);
-                //HasTarikhmorThanOne = true;
-            }
+            CheckMoreThanOneTarikh();
 
-            foreach (var item in sefaresh.Items)
+            foreach (var sefaresh_item in sefaresh.Items)
             {
                 
-                var findedTahvilFrishes = TahvilFroshs
-                    .Where(o => o.CodeKala == item.CodeKala)
-                    .Where(t => t.Tedad == item.Tedad)
+                var finded_TF_FromCodeTedad = TahvilFroshs
+                    .Where(o => o.CodeKala == sefaresh_item.CodeKala)
+                    .Where(t => t.Tedad == sefaresh_item.Tedad)
                     .ToList();
                 
-                if (findedTahvilFrishes.Count == 0)
+                if (finded_TF_FromCodeTedad.Count == 0)
                 {
-                    Errors.Add("برای کالای " +item.Kala + " ارسالی به " + item.Maghsad + " تحویل فروشی ثبت نشده");
+                    Errors.Add("برای کالای "
+                        +sefaresh_item.Kala + " ارسالی به " 
+                        + sefaresh_item.Maghsad + " تحویل فروشی ثبت نشده");
+                    sefaresh_item.TahvilFrosh = -1;//برای اینکه بدونیم اینا تحویل فروش نداشت نه اینکه دو تا داشت
                 }
-                else if(findedTahvilFrishes.Count>1)
+                //else if (finded_TF_FromCodeTedad.Count > 1)
+                //{
+                //    var po = finded_TF_FromCodeTedad.Select(pd => pd.TarikhSanad).Distinct();
+
+                //    if (po.Count() > 1)
+                //    {
+                //        string defd = "برای کالای " + sefaresh_item.Kala
+                //        + " ارسالی به " + sefaresh_item.Maghsad + " "
+                //        + finded_TF_FromCodeTedad.Count + " تحویل فروش داریم ";
+
+
+                //        foreach (var we in finded_TF_FromCodeTedad)
+                //        {
+                //            defd += we.TahvilFroshNum + "(" + we.TarikhSanad + ")" + "-";
+                //            we.IsOk = true;
+                //        }
+
+                //        Errors.Add(defd);
+                //    }
+                //    else
+                //    {
+                //        string defd = "برای کالای " + sefaresh_item.Kala
+                //        + " ارسالی به " + sefaresh_item.Maghsad + " "
+                //        + finded_TF_FromCodeTedad.Count + " تحویل فروش داریم ";
+
+                //        foreach (var we in finded_TF_FromCodeTedad)
+                //        {
+                //            defd += we.TahvilFroshNum + "-";
+                //            we.IsOk = true;
+                //        }
+
+                //        Errors.Add(defd);
+                //    }
+
+                //}
+                else if (finded_TF_FromCodeTedad.Count == 1)
                 {
-                    //string tahvilha_tarikh = "";
-                    //foreach (var yt in tr)
-                    //{
-                    //    tahvilha_tarikh += yt.TarikhSanad + " - " + yt.TahvilFroshNum;
-                    //}
-                    var po = findedTahvilFrishes.Select(pd => pd.TarikhSanad).Distinct();
-
-                    if (po.Count()>1)
-                    {
-                        string defd = "برای کالای " + item.Kala
-                        + " ارسالی به " + item.Maghsad + " "
-                        + findedTahvilFrishes.Count + " تحویل فروش داریم ";
-                        
-
-                        foreach (var we in findedTahvilFrishes)
-                        {
-                            defd += we.TahvilFroshNum + "(" + we.TarikhSanad + ")" + "-";
-                            we.IsOk = true;
-                        }
-
-                        Errors.Add(defd);
-                    }
-                    else
-                    {
-                        string defd = "برای کالای " + item.Kala
-                        + " ارسالی به " + item.Maghsad + " "
-                        + findedTahvilFrishes.Count + " تحویل فروش داریم ";
-
-                        foreach (var we in findedTahvilFrishes)
-                        {
-                            defd += we.TahvilFroshNum + "-";
-                            we.IsOk = true;
-                        }
-
-                        Errors.Add(defd);
-                    }
-                    
-                }
-                else //if(!HasTarikhmorThanOne)
-                {
-                    item.TahvilFrosh = findedTahvilFrishes[0].TahvilFroshNum;
-                    findedTahvilFrishes[0].IsOk = true;
+                    sefaresh_item.TahvilFrosh = finded_TF_FromCodeTedad[0].TahvilFroshNum;
+                    finded_TF_FromCodeTedad[0].IsOk = true;
                 }
                 //else
                 //{
                 //    Errors.Add("برای کالای " + item.Kala + " ارسالی به " + item.Maghsad + " " + findedTahvilFrishes.Count + " تحویل فروش داریم ");
                 //}
-
-                
             }
+
+            //سفارش هایی که هنوز تحویل فروش نگرفتن رو میگیریم
+            var sefareshItemMoreThanOneTahvil = sefaresh.Items.Where(t => t.TahvilFrosh == 0).ToList();
+
+            foreach (var itemi in sefareshItemMoreThanOneTahvil)
+            {
+                //سفارش هایی که با این سفارش هم راننده و هم مقصد هستن ، شماره تحویل فروش هاش رو میاریم
+                var pofd = sefaresh.Items
+                    .Where(iu => iu.Ranande == itemi.Ranande)
+                    .Where(tt => tt.Maghsad == itemi.Maghsad)
+                    .Where(tt => tt.IsImenKala == itemi.IsImenKala)
+                    .Where(p => p.TahvilFrosh > 0);
+                var y = pofd.Select(t => t.TahvilFrosh).Distinct();
+                if (y.Count()==1)
+                {
+                    var sad = TahvilFroshs
+                            .Where(te => !te.IsOk)
+                            .Where(hd => hd.Tedad == itemi.Tedad)
+                            .Where(hd => hd.CodeKala == itemi.CodeKala)
+                            .Where(zx=>zx.TahvilFroshNum==y.First())
+                            .FirstOrDefault();
+                    //چک میکنیم این شماره تحویل فروش تو لیست اوکی نشده های تحویل فروش هست یا نه
+                    if (sad != null)
+                    {
+                        // اگر بود این شماره رو میدیم به آیتم
+                        itemi.TahvilFrosh = y.First();
+                        sad.IsOk = true;
+                    }
+                }
+                else if (y.Count() > 1)
+                {
+                     string defd = "برای کالای " + itemi.Kala
+                        + " ارسالی به " + itemi.Maghsad + " "
+                        + y.Count() + " تحویل فروش داریم ";
+
+
+                     foreach (var ss in y)
+                     {
+                         defd += y + "-";
+                     }
+
+                     Errors.Add(defd);
+                }
+                //foreach (var sde in y)
+                //{
+                //    if (sde > 0)
+                //    {
+                //        var sad = TahvilFroshs
+                //            .Where(te => !te.IsOk)
+                //            .Where(hj => hj.TahvilFroshNum == sde)
+                //            .Where(hd=>hd.Maghsad==itemi.Maghsad)
+                //            .Where(hd => hd.CodeKala == itemi.CodeKala)
+                //            .FirstOrDefault();
+                //        //چک میکنیم این شماره تحویل فروش تو لیست اوکی نشده های تحویل فروش هست یا نه
+                //        if (sad != null)
+                //        {
+                //            // اگر بود این شماره رو میدیم به آیتم
+                //            itemi.TahvilFrosh = sad.TahvilFroshNum;
+                //            sad.IsOk = true;
+                //        }
+                //    }
+                //}
+            }
+            
+
             var nuy = TahvilFroshs.Where(isa => !isa.IsOk).ToList();
             foreach (var de in nuy)
             {
@@ -202,6 +245,26 @@ namespace OrdersAndisheh.ViewModel
             }
 
             RaisePropertyChanged(() => Errors);
+        }
+
+
+
+        private void CheckMoreThanOneTarikh()
+        {
+            List<string> tar = TahvilFroshs.Select(p => p.TarikhSanad).Distinct().ToList();
+            string tarikhha = "";
+            string rr = "";
+            if (tar.Count() > 1)
+            {
+                for (int i = 0; i < tar.Count(); i++)
+                {
+                    tarikhha += tar[i] + "-";
+                }
+                rr = "فایل شامل اسناد بیش از یک تاریخ می باشد " + tarikhha;
+                Errors.Add(rr);
+            }
+
+            
         }
 
         private RelayCommand _myCommand145;

@@ -36,7 +36,7 @@ namespace OrdersAndisheh.BL
                 TahvilItem s = new TahvilItem();
                 s.KalaName = WorkSheet.Cells[row, 5].Text;
                 s.CodeKala = WorkSheet.Cells[row, 4].Text;
-                s.Maghsad = WorkSheet.Cells[row, 2].Text;
+                s.TarafeMoghabel = WorkSheet.Cells[row, 2].Text;
                 s.TahvilFroshNum = short.Parse(WorkSheet.Cells[row, 3].Text);
                 s.Tedad = Math.Abs(WorkSheet.Cells[row, 6].Text!=""?int.Parse(WorkSheet.Cells[row, 6].Text):0);
                 s.TarikhSanad = WorkSheet.Cells[row, 12].Text;

@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
+using OrdersAndisheh.BL;
 using OrdersAndisheh.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,13 +23,13 @@ namespace OrdersAndisheh.View
 
         private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            ListView s = (ListView)sender;
-            //System.Windows.Forms.MessageBox.Show(s.SelectedItem.ToString());
+            DataGrid s = (DataGrid)sender;
+            CheckSefaresh ss = (CheckSefaresh)s.SelectedItem;
 
             MainView v = new MainView();
-            Messenger.Default.Send<string>(s.SelectedItem.ToString(), "Editsefaresh");
-            v.Show();
-            
+            Messenger.Default.Send<string>(ss.TarikhSefaresh, "Editsefaresh");
+            v.ShowDialog();
+            Messenger.Default.Send<string>("", "Reload");
             
         }
 

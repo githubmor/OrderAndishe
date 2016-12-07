@@ -12,7 +12,7 @@
     x:Class="OrdersAndisheh.View.MainView"
     xmlns:UI="clr-namespace:OrdersAndisheh.View" 
         mc:Ignorable="d ignore"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        DataContext="{Binding Main, Source={StaticResource Locator}}" >
     <Window.InputBindings>
         <KeyBinding Command="{Binding LoadSefaresh, Mode=OneWay}" 
                 Key="F7" 
@@ -21,9 +21,10 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="332*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
         <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
@@ -126,7 +127,8 @@
             <TextBox UI:FocusAdvancement.AdvancesByEnterKey="True" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0" TabIndex="9"/>
 
         </dxlc:LayoutControl>
-        <WrapPanel Margin="0" Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">
+
+        <WrapPanel  Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
             <Button Content="ساخت ليست ایمن سازان" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding CreateImensazanList, Mode=OneWay}"/>
             <Button Content="ساخت ليست اندیشه" HorizontalAlignment="Left" 
@@ -143,6 +145,10 @@
         		VerticalAlignment="Top" Width="116" Command="{Binding SelectDriver, Mode=OneWay}"/>
 
         </WrapPanel>
+        <StackPanel  Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
+            <Label Content="{Binding DriversVazn}" />
+            <Label Content="{Binding MaghsadVazn}" />
+        </StackPanel>
 
     </Grid>
 </Window>

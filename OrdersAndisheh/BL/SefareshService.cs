@@ -11,6 +11,7 @@ namespace BL
 	using System.Collections.Generic;
 	using System.Linq;
     using OrdersAndisheh.DBL;
+    using OrdersAndisheh.BL;
 
 
     /// <summary>
@@ -250,6 +251,24 @@ namespace BL
                 db.Orders.Remove(or);
                 db.SaveChanges();
             }
+        }
+
+        public List<CheckSefaresh> LoadCheckSefareshs()
+        {
+            List<CheckSefaresh> sd = new List<CheckSefaresh>();
+            var p = db.Orders
+                .Include("OrderDetails.Customer")
+                .Include("OrderDetails.Driver")
+                .Include("OrderDetails.Driver.TempDriver")
+                .Include("OrderDetails.Product")
+                .OrderBy(o => o.Id)
+                .ToList();
+            foreach (var item in p)
+            {
+                sd.Add(new CheckSefaresh(new Sefaresh(item, item.OrderDetails.ToList())));
+            }
+            return sd;
+
         }
     }
 }
