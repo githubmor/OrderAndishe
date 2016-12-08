@@ -119,6 +119,7 @@ namespace BL
                     .Include("Product.Bazre")
                     .OrderBy(o => o.Driver_Id)
                     .ThenBy(o => o.Customer_Id)
+                    .ThenBy(s=>s.Product.Code)
                     .ToList();
 
                 //t.OrderDetails = to;
@@ -136,7 +137,7 @@ namespace BL
         {
             //using (MyContextCF db = new MyContextCF())
             //{
-            return db.Drivers.Include("TempDriver").ToList();
+            return db.Drivers.Include("TempDriver").OrderBy(o=>o.Car).ThenBy(j=>j.Name).ToList();
             //}
         }
 
@@ -153,7 +154,7 @@ namespace BL
         {
             //using (MyContextCF db = new MyContextCF())
             //{
-                return db.Customers.ToList();
+            return db.Customers.OrderBy(o => o.Name).ToList();
             //}
         }
 

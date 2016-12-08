@@ -17,13 +17,15 @@ namespace OrdersAndisheh.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        ISefareshService ss;
+        SefareshService ss;
         bool IsEdit,IsEditItem,IsDirty;
         private List<ItemType> enumList;
+        static bool isRegistered = false;
         public MainViewModel(ISefareshService service)
         {
-            ss = service;
-            Messenger.Default.Register<string>(this,"Editsefaresh",LoadThisDateSefaresh);
+            ss = new SefareshService();
+            
+            
 
             sefaresh = new Sefaresh();
             Drivers = ss.LoadDrivers();
@@ -32,6 +34,11 @@ namespace OrdersAndisheh.ViewModel
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
             IsDirty = true;
             Tarikh = PersianDateTime.Now.ToString(PersianDateTimeFormat.Date);
+            //if (!isRegistered)
+            //{
+                Messenger.Default.Register<string>(this, "Editsefaresh", LoadThisDateSefaresh);
+                //isRegistered = true;
+            //}
             //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
             //TODO قفل های بدون اورکل چی شد 
             //TODO تثبیت ارسال چی شد ؟
@@ -50,7 +57,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => Items);
                 IsEdit = true;
                 IsDirty = false;
-                MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد" ) ;
+                //MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد");
                 RaisePropertyChanged(() => this.Tarikh);
                 RaisePropertyChanged(() => this.DriversVazn);
                 RaisePropertyChanged(() => this.MaghsadVazn);
@@ -99,7 +106,6 @@ namespace OrdersAndisheh.ViewModel
                 }
 
                 RaisePropertyChanged(() => Description);
-                //AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -124,7 +130,7 @@ namespace OrdersAndisheh.ViewModel
                 return ft;
             } 
         }
-        public string MaghsadVazn //{ get; set; }
+        public string MaghsadVazn
         {
             get
             {
@@ -163,8 +169,6 @@ namespace OrdersAndisheh.ViewModel
 
                     MessageBox.Show(r.Message.ToString());
                 }
-                //SaveSefaresh.RaiseCanExecuteChanged();
-                //LoadSefaresh.RaiseCanExecuteChanged();
             }
         }
 
@@ -217,10 +221,10 @@ namespace OrdersAndisheh.ViewModel
             get { return clickedItem; }
             set
             {
-                if (value!=null)
-                {
+                //if (value!=null)
+                //{
                     SelecteddItem = value;
-                }
+                //}
                 clickedItem = value;
                 IsEditItem = true;
                 //CanReport = false;
@@ -302,7 +306,7 @@ namespace OrdersAndisheh.ViewModel
                 }
                 else
                 {
-                    SelecteddItem = null;
+                    ClickedItem = null;
                 }
                 
                 RaisePropertyChanged(() => GoodCode);
@@ -375,9 +379,9 @@ namespace OrdersAndisheh.ViewModel
             {
                 Items.Add(SelecteddItem);
             }
-            else if (ClickedItem!=null)
+            else if (ClickedItem != null)
             {
-                if (GoodCode!=ClickedItem.CodeKala)
+                if (GoodCode != ClickedItem.CodeKala)
                 {
                     Items.Remove(Items.Where(p => p.CodeKala == ClickedItem.CodeKala).FirstOrDefault());
                     Items.Add(SelecteddItem);
@@ -390,7 +394,7 @@ namespace OrdersAndisheh.ViewModel
             IsDirty = true;
             //IsEdit = true;
             IsEditItem = false;
-            SelecteddItem = null;
+            ClickedItem = null;
             RaisePropertyChanged(() => this.DriversVazn);
             RaisePropertyChanged(() => this.MaghsadVazn);
         }
@@ -466,7 +470,7 @@ namespace OrdersAndisheh.ViewModel
             }
             IsDirty = true;
             //IsEdit = true;
-            SelecteddItem = null;
+            ClickedItem = null;
             RaisePropertyChanged(() => this.DriversVazn);
             RaisePropertyChanged(() => this.MaghsadVazn);
             
@@ -494,17 +498,10 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDelItem()
         {
+            Items.RemoveAll(p => p.IsSelected);
            
-            for (int i = 0; i < Items.Count; i++)
-            {
-                if (Items[i].IsSelected)
-                {
-                    Items.Remove(Items[i]);
-                }
-            }
-
             IsDirty = true;
-            SelecteddItem = null;
+            ClickedItem = null;
             RaisePropertyChanged(() => this.DriversVazn);
             RaisePropertyChanged(() => this.MaghsadVazn);
 
@@ -550,7 +547,7 @@ namespace OrdersAndisheh.ViewModel
                 }
                 ss.DelNoUsedTempDrivers(TempDriverForDelete);
                 IsDirty = false;
-                SelecteddItem = null;
+                ClickedItem = null;
                 RaisePropertyChanged(() => this.DriversVazn);
                 RaisePropertyChanged(() => this.MaghsadVazn);
             }
@@ -841,5 +838,20 @@ namespace OrdersAndisheh.ViewModel
         
 
         
+    }
+
+    public static class ObservableCollectionExtensions
+    {
+        public static void RemoveAll<T>(this ObservableCollection<T> collection,
+                                                           Func<T, bool> condition)
+        {
+            for (int i = collection.Count - 1; i >= 0; i--)
+            {
+                if (condition(collection[i]))
+                {
+                    collection.RemoveAt(i);
+                }
+            }
+        }
     }
 }

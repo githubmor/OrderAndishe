@@ -16,8 +16,9 @@ namespace OrdersAndisheh.View
 
         private void gg_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //GridControl s = (GridControl)sender;
+            GridControl s = (GridControl)sender;
             //Messenger.Default.Send<string>(s.SelectedItem.ToString(), "SelectedItem");
+            System.Windows.Forms.MessageBox.Show(s.SelectedItem.ToString());
         }
 
        

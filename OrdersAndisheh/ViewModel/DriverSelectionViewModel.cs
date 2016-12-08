@@ -12,9 +12,9 @@ namespace OrdersAndisheh.ViewModel
     
     public class DriverSelectionViewModel : ViewModelBase
     {
-        ISefareshService service;
+        SefareshService service;
         int pos = 1;
-        public DriverSelectionViewModel(ISefareshService _s)
+        public DriverSelectionViewModel(SefareshService _s)
         {
             service = _s;
             ErsalItems = new ObservableCollection<ItemSefaresh>();

@@ -97,9 +97,17 @@ namespace OrdersAndisheh.ViewModel
 
         private void CalculateData()
         {
-            ExcelImportService eis = new ExcelImportService(ss,FilePath);
-            TahvilFroshs = eis.GetTahvilfroshData();
-            CalculateSefareshWithData();
+            try
+            {
+                ExcelImportService eis = new ExcelImportService(ss, FilePath);
+                TahvilFroshs = eis.GetTahvilfroshData();
+                CalculateSefareshWithData();
+            }
+            catch (Exception ree)
+            {
+
+                MessageBox.Show(ree.Message.ToString());
+            }
         }
         private bool CanExecuteGetFile()
         {
@@ -125,50 +133,11 @@ namespace OrdersAndisheh.ViewModel
                         + sefaresh_item.Maghsad + " تحویل فروشی ثبت نشده");
                     sefaresh_item.TahvilFrosh = -1;//برای اینکه بدونیم اینا تحویل فروش نداشت نه اینکه دو تا داشت
                 }
-                //else if (finded_TF_FromCodeTedad.Count > 1)
-                //{
-                //    var po = finded_TF_FromCodeTedad.Select(pd => pd.TarikhSanad).Distinct();
-
-                //    if (po.Count() > 1)
-                //    {
-                //        string defd = "برای کالای " + sefaresh_item.Kala
-                //        + " ارسالی به " + sefaresh_item.Maghsad + " "
-                //        + finded_TF_FromCodeTedad.Count + " تحویل فروش داریم ";
-
-
-                //        foreach (var we in finded_TF_FromCodeTedad)
-                //        {
-                //            defd += we.TahvilFroshNum + "(" + we.TarikhSanad + ")" + "-";
-                //            we.IsOk = true;
-                //        }
-
-                //        Errors.Add(defd);
-                //    }
-                //    else
-                //    {
-                //        string defd = "برای کالای " + sefaresh_item.Kala
-                //        + " ارسالی به " + sefaresh_item.Maghsad + " "
-                //        + finded_TF_FromCodeTedad.Count + " تحویل فروش داریم ";
-
-                //        foreach (var we in finded_TF_FromCodeTedad)
-                //        {
-                //            defd += we.TahvilFroshNum + "-";
-                //            we.IsOk = true;
-                //        }
-
-                //        Errors.Add(defd);
-                //    }
-
-                //}
                 else if (finded_TF_FromCodeTedad.Count == 1)
                 {
                     sefaresh_item.TahvilFrosh = finded_TF_FromCodeTedad[0].TahvilFroshNum;
                     finded_TF_FromCodeTedad[0].IsOk = true;
                 }
-                //else
-                //{
-                //    Errors.Add("برای کالای " + item.Kala + " ارسالی به " + item.Maghsad + " " + findedTahvilFrishes.Count + " تحویل فروش داریم ");
-                //}
             }
 
             //سفارش هایی که هنوز تحویل فروش نگرفتن رو میگیریم
