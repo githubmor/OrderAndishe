@@ -137,7 +137,7 @@ namespace BL
         {
             //using (MyContextCF db = new MyContextCF())
             //{
-            return db.Drivers.Include("TempDriver").OrderBy(o=>o.Car).ThenBy(j=>j.Name).ToList();
+            return db.Drivers.Include("TempDriver").OrderBy(j => j.Name).ToList();
             //}
         }
 
