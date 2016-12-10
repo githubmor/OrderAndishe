@@ -24,7 +24,6 @@ namespace OrdersAndisheh.ViewModel
         {
             
             ss = new SefareshService();
-            //Lists = ss.LoadAllNOAcceptedSefareshTarikh();
             Messenger.Default.Register<string>(this, "path", getFilePath);
             Messenger.Default.Register<string>(this, "Reload", ReloadList);
             

@@ -20,7 +20,7 @@ namespace OrdersAndisheh.ViewModel
         SefareshService ss;
         bool IsEdit,IsEditItem,IsDirty;
         private List<ItemType> enumList;
-        static bool isRegistered = false;
+        //static bool isRegistered = false;
         public MainViewModel(ISefareshService service)
         {
             ss = new SefareshService();
@@ -835,8 +835,46 @@ namespace OrdersAndisheh.ViewModel
 
         #endregion
 
-        
 
+        private RelayCommand _myCommand74656;
+
+        /// <summary>
+        /// Gets the ShowGoods.
+        /// </summary>
+        public RelayCommand ShowGoods
+        {
+            get
+            {
+                return _myCommand74656
+                    ?? (_myCommand74656 = new RelayCommand(ExecuteShowGoods));
+            }
+        }
+
+        private void ExecuteShowGoods()
+        {
+            ProductsView p = new ProductsView();
+            p.ShowDialog();
+        }
+
+        private RelayCommand _myCommand746567;
+
+        /// <summary>
+        /// Gets the ShowDrivers.
+        /// </summary>
+        public RelayCommand ShowDrivers
+        {
+            get
+            {
+                return _myCommand746567
+                    ?? (_myCommand746567 = new RelayCommand(ExecuteShowDrivers));
+            }
+        }
+
+        private void ExecuteShowDrivers()
+        {
+            DriversView p = new DriversView();
+            p.ShowDialog();
+        }
         
     }
 

@@ -141,47 +141,104 @@ namespace OrdersAndisheh.ViewModel
             }
 
             //سفارش هایی که هنوز تحویل فروش نگرفتن رو میگیریم
-            var sefareshItemMoreThanOneTahvil = sefaresh.Items.Where(t => t.TahvilFrosh == 0).ToList();
+            var itemsNoTahvilFrosh = sefaresh.Items.Where(t => t.TahvilFrosh == 0).ToList();
 
-            foreach (var itemi in sefareshItemMoreThanOneTahvil)
+            foreach (var item in itemsNoTahvilFrosh)
             {
-                //سفارش هایی که با این سفارش هم راننده و هم مقصد هستن ، شماره تحویل فروش هاش رو میاریم
-                var pofd = sefaresh.Items
-                    .Where(iu => iu.Ranande == itemi.Ranande)
-                    .Where(tt => tt.Maghsad == itemi.Maghsad)
-                    .Where(tt => tt.IsImenKala == itemi.IsImenKala)
-                    .Where(p => p.TahvilFrosh > 0);
-                var y = pofd.Select(t => t.TahvilFrosh).Distinct();
-                if (y.Count()==1)
+                //اگر کد میخواند ولی تعداد نمی خواند
+                var ghy = TahvilFroshs.Where(h => h.CodeKala == item.CodeKala).Where(d => !d.IsOk).ToList();
+                if (ghy.Count==1)
                 {
-                    var sad = TahvilFroshs
-                            .Where(te => !te.IsOk)
-                            .Where(hd => hd.Tedad == itemi.Tedad)
-                            .Where(hd => hd.CodeKala == itemi.CodeKala)
-                            .Where(zx=>zx.TahvilFroshNum==y.First())
-                            .FirstOrDefault();
-                    //چک میکنیم این شماره تحویل فروش تو لیست اوکی نشده های تحویل فروش هست یا نه
-                    if (sad != null)
+                    if (item.Tedad!=ghy[0].Tedad)
                     {
-                        // اگر بود این شماره رو میدیم به آیتم
-                        itemi.TahvilFrosh = y.First();
-                        sad.IsOk = true;
+                        Errors.Add("احتمالا تعداد کالای " + item.Kala + " بجای " + item.Tedad + " عدد " + ghy[0].Tedad + " عدد در تحویل فروش ثبت شده است");
+                        ghy[0].TahvilFroshNum = -1;
                     }
                 }
-                else if (y.Count() > 1)
-                {
-                     string defd = "برای کالای " + itemi.Kala
-                        + " ارسالی به " + itemi.Maghsad + " "
-                        + y.Count() + " تحویل فروش داریم ";
 
-
-                     foreach (var ss in y)
-                     {
-                         defd += y + "-";
-                     }
-
-                     Errors.Add(defd);
+                //شماره تحویل فروش هایی که با این  ایتم هم مقصد و هم راننده هستند
+                var tahvilnumbers = sefaresh.Items
+                    .Where(t => t.TahvilFrosh > 0)
+                    .Where(y => y.Maghsad == item.Maghsad)
+                    .Where(k => k.Ranande == item.Ranande)
+                    .Select(i => i.TahvilFrosh)
+                    .Distinct();
+                //چون اگر صفر یا بیشتر از یک باشد هیچ کاری نمی توانیم بکنیم
+                if (tahvilnumbers.Count()==1)
+                {sdfsdf
+                    item.TahvilFrosh = tahvilnumbers.First();
+                    var oi = TahvilFroshs
+                        .Where(u => u.CodeKala == item.CodeKala)
+                        .Where(y => y.TahvilFroshNum == tahvilnumbers.First())
+                        .First();
+                    oi.IsOk = true;
                 }
+                //else
+                //{
+                //    string defd = "برای کالای " + item.Kala
+                //        + " ارسالی به " + item.Maghsad + " "
+                //        + tahvilnumbers.Count() + " تحویل فروش داریم ";
+                //    foreach (var ss in tahvilnumbers)
+                //    {
+                //        defd += tahvilnumbers + "-";
+
+                //    }
+
+                //    Errors.Add(defd);
+                //}
+            }
+
+
+            //foreach (var itemi in sefareshItemMoreThanOneTahvil)
+            //{
+            //    //اگر کد میخواند ولی تعداد نمی خواند
+            //    var ghy = TahvilFroshs.Where(h => h.CodeKala == itemi.CodeKala).Where(d => !d.IsOk).ToList();
+            //    if (ghy.Count==1)
+            //    {
+            //        if (itemi.Tedad!=ghy[0].Tedad)
+            //        {
+            //            Errors.Add("احتمالا تعداد کالای " + itemi.Kala + " بجای " + itemi.Tedad + " عدد " + ghy[0].Tedad + " عدد در تحویل فروش ثبت شده است");
+            //            ghy[0].TahvilFroshNum = -1;
+            //        }
+            //    }
+            //    //سفارش هایی که با این سفارش هم راننده و هم مقصد هستن ، شماره تحویل فروش هاش رو میاریم
+            //    var pofd = sefaresh.Items
+            //        .Where(iu => iu.Ranande == itemi.Ranande)
+            //        .Where(tt => tt.Maghsad == itemi.Maghsad)
+            //        .Where(tt => tt.IsImenKala == itemi.IsImenKala)
+            //        .Where(p => p.TahvilFrosh > 0);
+            //    var y = pofd.Select(t => t.TahvilFrosh).Distinct();
+            //    if (y.Count()==1)
+            //    {
+            //        var sad = TahvilFroshs
+            //                .Where(te => !te.IsOk)
+            //                .Where(hd => hd.Tedad == itemi.Tedad)
+            //                .Where(hd => hd.CodeKala == itemi.CodeKala)
+            //                .Where(zx=>zx.TahvilFroshNum==y.First())
+            //                .FirstOrDefault();
+            //        //چک میکنیم این شماره تحویل فروش تو لیست اوکی نشده های تحویل فروش هست یا نه
+            //        if (sad != null)
+            //        {
+            //            // اگر بود این شماره رو میدیم به آیتم
+            //            itemi.TahvilFrosh = y.First();
+            //            sad.IsOk = true;
+            //        }
+            //    }
+            //    else if (y.Count() > 1)
+            //    {
+            //         string defd = "برای کالای " + itemi.Kala
+            //            + " ارسالی به " + itemi.Maghsad + " "
+            //            + y.Count() + " تحویل فروش داریم ";
+
+
+            //         foreach (var ss in y)
+            //         {
+            //             defd += y + "-";
+                         
+            //         }
+
+            //         Errors.Add(defd);
+            //    }
                 //foreach (var sde in y)
                 //{
                 //    if (sde > 0)
@@ -201,10 +258,10 @@ namespace OrdersAndisheh.ViewModel
                 //        }
                 //    }
                 //}
-            }
+            //}
             
 
-            var nuy = TahvilFroshs.Where(isa => !isa.IsOk).ToList();
+            var nuy = TahvilFroshs.Where(isa => !isa.IsOk).Where(o=>o.TahvilFroshNum!=-1).ToList();
             foreach (var de in nuy)
             {
                 Errors.Add("برای تحویل فروش " +
