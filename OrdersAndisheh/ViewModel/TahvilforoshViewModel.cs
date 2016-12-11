@@ -165,13 +165,17 @@ namespace OrdersAndisheh.ViewModel
                     .Distinct();
                 //چون اگر صفر یا بیشتر از یک باشد هیچ کاری نمی توانیم بکنیم
                 if (tahvilnumbers.Count()==1)
-                {sdfsdf
+                {
                     item.TahvilFrosh = tahvilnumbers.First();
                     var oi = TahvilFroshs
                         .Where(u => u.CodeKala == item.CodeKala)
                         .Where(y => y.TahvilFroshNum == tahvilnumbers.First())
-                        .First();
-                    oi.IsOk = true;
+                        .FirstOrDefault();
+                    if (oi!=null)
+                    {
+                        oi.IsOk = true;
+                    }
+                    
                 }
                 //else
                 //{
