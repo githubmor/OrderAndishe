@@ -24,7 +24,8 @@ namespace OrdersAndisheh.ViewModel
 
         private void ThisSefaresh(string obj)
         {
-            ErsalItems = new ObservableCollection<ItemSefaresh>(service.LoadNoDriverSefareshItems(obj));
+            ErsalItems = new ObservableCollection<ItemSefaresh>(service.LoadNoDriverSefareshItems(obj)
+                .Where(p => p.ItemKind != (byte)ItemType.ارسال));
 
             //آیتم هایی که راننده موقت دارند باید در کانتین خود قرار گرفته و راننده آنها انتخاب شود
             var tempDriver = ErsalItems.Where(t => t.Driver != null).Select(p => p.Ranande).Distinct();

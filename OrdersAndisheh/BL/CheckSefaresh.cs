@@ -21,6 +21,15 @@ namespace OrdersAndisheh.BL
             NotifyPropertyChanged("HasItemWithNoTahvilFrosh");
         }
 
+        //private Sefaresh myVar;
+
+        public Sefaresh Sefaresh
+        {
+            get { return sefaresh; }
+            set { sefaresh = value; }
+        }
+        
+
         public string TarikhSefaresh
         {
             get { return sefaresh.Tarikh; }

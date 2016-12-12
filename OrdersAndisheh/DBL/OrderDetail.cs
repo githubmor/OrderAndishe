@@ -19,6 +19,7 @@ namespace OrdersAndisheh.DBL
         public string Description { get; set; }
 
         public int ProductId { get; set; }
+        public int TedadPallet { get; set; }
 
 
         public int? Customer_Id { get; set; }

@@ -21,17 +21,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <!--<StackPanel  Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="3" >
-            <Label Content="لیست سفارشات ثبت شده ، تثبیت نشده" HorizontalAlignment="Stretch"
-                   VerticalAlignment="Stretch"  />
-            <ListView 
-                HorizontalAlignment="Stretch" 
-                ItemsSource="{Binding Lists}" 
-                SelectedItem="{Binding SelectedTarikh}"
-                VerticalAlignment="Stretch" MouseDoubleClick="ListView_MouseDoubleClick">
-
-            </ListView>
-        </StackPanel>-->
+       
         <StackPanel  Orientation="Vertical" HorizontalAlignment="Stretch" >
             <Button Content="سفارش جدید" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Command="{Binding NewSefaresh, Mode=OneWay}" />
             <Button Content="بک آپ گیری" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding BackUpDatabase, Mode=OneWay}" />
@@ -54,6 +44,7 @@
         </StackPanel>
         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Button Content="ثبت تحویل فروش" Command="{Binding SetTahvilfrosh}"/>
+            <Button Content="تثبیت سفارش" Command="{Binding AcceptSefaresh}"/>
         </StackPanel>
         <DataGrid SelectedItem="{Binding SelectedTarikh}" MouseDoubleClick="ListView_MouseDoubleClick" ItemsSource="{Binding CheckSefareshs}" AutoGenerateColumns="False" Grid.Column="2" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
             <DataGrid.Columns>

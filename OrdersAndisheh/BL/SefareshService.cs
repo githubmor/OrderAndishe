@@ -70,21 +70,11 @@ namespace BL
             
 		}
 
-        public virtual void AcceptSefaresh(Sefaresh sefaresh)
+        public virtual void AcceptSefaresh(string tarikhsefaresh)
 		{
-            if (sefaresh.Items==null)
-            {
-                throw new ApplicationException("آیتم ها سفارش نهای میباشد");
-            }
-            foreach (var item in sefaresh.Items)
-            {
-                if (item.Maghsad==""|item.Ranande==""|item.Tedad>0)
-                {
-                    throw new ApplicationException("اطلاعات مناسب وارد نشده");
-                }
-            }
-            sefaresh.Accepted = true;
-            this.UpdateSefaresh(sefaresh);
+            var o = db.Orders.Where(u => u.Tarikh == tarikhsefaresh).FirstOrDefault();
+            o.Accepted = true;
+            db.SaveChanges();
 		}
 
         public virtual void UnAcceptSefaresh(Sefaresh sefaresh)
@@ -263,6 +253,7 @@ namespace BL
                 .Include("OrderDetails.Driver.TempDriver")
                 .Include("OrderDetails.Product")
                 .OrderBy(o => o.Id)
+                .Where(i=>!i.Accepted)
                 .ToList();
             foreach (var item in p)
             {

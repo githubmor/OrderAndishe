@@ -178,7 +178,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 if (item.Product.Pallet.Vazn > 30)
                 {
-                    felaziPalletCount += int.Parse(item.Pallet);
+                    felaziPalletCount += item.PalletCount;
                 }
             }
 
@@ -199,7 +199,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 if (item.Product.Pallet.Vazn < 30)
                 {
-                    chobiPalletCount += int.Parse(item.Pallet);
+                    chobiPalletCount += item.PalletCount;
                 }
             }
 

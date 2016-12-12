@@ -16,6 +16,7 @@ using OrdersAndisheh.BL;
 
 namespace OrdersAndisheh.ViewModel
 {
+    
     public class FirstViewModel : ViewModelBase
     {
         SefareshService ss;
@@ -607,7 +608,37 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteSetTahvilfrosh()
         {
-            return true;
+            return SelectedTarikh != null;
+        }
+
+        private RelayCommand _myCommand43556111;
+
+        /// <summary>
+        /// Gets the AcceptSefaresh.
+        /// </summary>
+        public RelayCommand AcceptSefaresh
+        {
+            get
+            {
+                return _myCommand43556111 ?? (_myCommand43556111 = new RelayCommand(
+                    ExecuteAcceptSefaresh,
+                    CanExecuteAcceptSefaresh));
+            }
+        }
+
+        private void ExecuteAcceptSefaresh()
+        {
+            ss.AcceptSefaresh(SelectedTarikh.TarikhSefaresh);
+            RaisePropertyChanged(() => this.CheckSefareshs);
+        }
+
+        private bool CanExecuteAcceptSefaresh()
+        {
+            return SelectedTarikh != null &&
+                SelectedTarikh.HasItemWithNoMaghsad &
+                SelectedTarikh.HasItemWithNoRanande &
+                SelectedTarikh.HasItemWithNoTahvilFrosh &
+                SelectedTarikh.HasItemWithNoTedad;
         }
         
     }

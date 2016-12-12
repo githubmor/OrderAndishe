@@ -5,7 +5,7 @@ namespace BL
 {
     public interface ISefareshService
     {
-        void AcceptSefaresh(BL.Sefaresh sefaresh);
+        void AcceptSefaresh(string tarikhsefaresh);
         List<Customer> LoadDestinations();
         List<Driver> LoadDrivers();
         List<Product> LoadGoods();

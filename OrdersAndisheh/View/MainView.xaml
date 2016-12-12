@@ -35,7 +35,7 @@
                 <dxg:GridColumn FieldName="Kala" Header="کالا" />
                 <dxg:GridColumn FieldName="Tedad" Header="تعداد" />
                 <dxg:GridColumn FieldName="Karton" Header="کارتن" />
-                <dxg:GridColumn FieldName="Pallet" Header="پالت"/>
+                <dxg:GridColumn FieldName="PalletCount" Header="پالت"/>
                 <dxg:GridColumn FieldName="Maghsad" Header="مقصد"/>
                 <dxg:GridColumn FieldName="Vazn" Header="وزن"/>
                 <dxg:GridColumn FieldName="Ranande" Header="راننده" />
@@ -77,14 +77,18 @@
                     <dxlc:LayoutItem Label="تعداد :" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding Tedad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="2"/>
                     </dxlc:LayoutItem>
+                    
                     <dxlc:LayoutItem Label="توضیحات :">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="3" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="10" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
                         <Button UI:EventFocusAttachment.ElementToFocus="{Binding ElementName=code}" Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding AddNewItem, Mode=OneWay}" TabIndex="4"/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
                 <dxlc:LayoutGroup>
+                    <dxlc:LayoutItem Label="تعداد پالت :" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding PalletCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="12"/>
+                    </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="مقصد :">
                         <dxg:LookUpEdit ItemsSource="{Binding Destinations}" SelectedItem="{Binding SelectedDestenation}" 
                                         ValueMember="Id" DisplayMember="Name"

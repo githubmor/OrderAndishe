@@ -34,11 +34,7 @@ namespace OrdersAndisheh.ViewModel
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
             IsDirty = true;
             Tarikh = PersianDateTime.Now.ToString(PersianDateTimeFormat.Date);
-            //if (!isRegistered)
-            //{
-                Messenger.Default.Register<string>(this, "Editsefaresh", LoadThisDateSefaresh);
-                //isRegistered = true;
-            //}
+            Messenger.Default.Register<string>(this, "Editsefaresh", LoadThisDateSefaresh);
             //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
             //TODO قفل های بدون اورکل چی شد 
             //TODO تثبیت ارسال چی شد ؟
@@ -85,7 +81,27 @@ namespace OrdersAndisheh.ViewModel
                 }
                 
                 RaisePropertyChanged(()=>Tedad);
-                //AddNewItem.RaiseCanExecuteChanged();
+                RaisePropertyChanged(() => PalletCount);
+            }
+        }
+
+        private int tempPalletCount;
+
+        public int PalletCount
+        {
+            get { return (SelecteddItem != null ? SelecteddItem.PalletCount : 0); }
+            set
+            {
+                if (SelecteddItem != null)
+                {
+                    SelecteddItem.PalletCount = value;
+                }
+                else
+                {
+                    tempPalletCount = value;
+                }
+
+                RaisePropertyChanged(() => PalletCount);
             }
         }
 
@@ -209,9 +225,8 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => SelectedDriver);
                 RaisePropertyChanged(() => SelectedDestenation);
                 RaisePropertyChanged(() => Tedad);
+                RaisePropertyChanged(() => PalletCount);
                 RaisePropertyChanged(() => Description);
-                //AddNewItem.RaiseCanExecuteChanged();
-                //DeleteItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -221,18 +236,9 @@ namespace OrdersAndisheh.ViewModel
             get { return clickedItem; }
             set
             {
-                //if (value!=null)
-                //{
-                    SelecteddItem = value;
-                //}
+                SelecteddItem = value;
                 clickedItem = value;
                 IsEditItem = true;
-                //CanReport = false;
-                //CreateAnbarList.RaiseCanExecuteChanged();
-                //CreateBazresLists.RaiseCanExecuteChanged();
-                //CreateImensazanList.RaiseCanExecuteChanged();
-                //CreateKontrolList.RaiseCanExecuteChanged();
-                //CreatListErsal.RaiseCanExecuteChanged();
             }
         }
 
@@ -249,7 +255,6 @@ namespace OrdersAndisheh.ViewModel
                 if (SelecteddItem != null)
                 {
                     SelecteddItem.Customer = value;
-                    //SelecteddItem.OrderDetail.Customer_Id = value.Id;
                 }
                 else if (value != null)
                 {
@@ -257,8 +262,6 @@ namespace OrdersAndisheh.ViewModel
                 }
                 
                 RaisePropertyChanged(() => SelectedDestenation);
-                //ADDDriverDestenation.RaiseCanExecuteChanged();
-                //AddNewItem.RaiseCanExecuteChanged();
             }
         }
 
@@ -276,28 +279,20 @@ namespace OrdersAndisheh.ViewModel
                     {
                         //باید تفاوتی بین ویرایش یک آیتم و ساخت آیتم جدید قایل شد
                         SelecteddItem = new ItemSefaresh(gg);
-                        //SelecteddItem.OrderDetail.ProductId = gg.Id;
-                        //IsEditItem = false;
+                        RaisePropertyChanged(() => this.PalletCount);
                     }
                     if (tempDestenation != null)
                     {
                         SelecteddItem.Customer = tempDestenation;
-                        //SelecteddItem.OrderDetail.Customer_Id = tempDestenation.Id;
                     }
                     if (tempDriver != null)
                     {
-                        //if (SelecteddItem.Driver != null)
-                        //{
-                        //    if (SelecteddItem.Driver.TempDriver != null)
-                        //    {
-                        //        TempDriverForDelete.Add(SelecteddItem.Driver);
-                        //    }
-                        //}
                         SelecteddItem.Driver = tempDriver;
                     }
                     if (tempTedad > 0)
                     {
                         SelecteddItem.Tedad = tempTedad;
+                        RaisePropertyChanged(() => this.PalletCount);
                     }
                     if (!string.IsNullOrEmpty(tempDes))
                     {
@@ -312,8 +307,8 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => GoodCode);
                 RaisePropertyChanged(() => GoodName);
                 RaisePropertyChanged(() => Tedad);
+                RaisePropertyChanged(() => this.PalletCount);
                 RaisePropertyChanged(() => Description);
-                //AddNewItem.RaiseCanExecuteChanged();
 
             }
         }
@@ -421,45 +416,60 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteADDDriverDestenation()
         {
+            string lastMaghsadChanged = "";
+            string lastRanandeChanged = "";
+            string _newMaghsad = (SelectedDestenation != null ? SelectedDestenation.Name : "تهی");
+            string _newRanande = (SelectedDriver != null ? SelectedDriver.Name : "تهی");
             foreach (var item in Items.Where(p => p.IsSelected))
             {
-                if (SelectedDestenation != null)
+                if (string.IsNullOrEmpty(item.Maghsad))
                 {
-                    if (string.IsNullOrEmpty(item.Maghsad))
-                    {
-                        item.Customer = SelectedDestenation;
-                    }
-                    else if(item.Maghsad != SelectedDestenation.Name)
+                    item.Customer = SelectedDestenation;
+                }
+                else if (item.Maghsad != _newMaghsad)
+                {
+                    //اگر بازم میخواد همون سوال قبلی رو بپرسه دیگه تکرار نمیشه
+                    if (item.Maghsad != lastMaghsadChanged)
                     {
                         DialogResult result = MessageBox.Show("آیا میخواهید مقصد را از " +
-                            item.Maghsad + " به " + SelectedDestenation.Name + " تغییر دهید ؟",
+                            item.Maghsad + " به " + _newMaghsad + " تغییر دهید ؟",
                             "اخطار", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
+                            lastMaghsadChanged = item.Maghsad;
                             item.Customer = SelectedDestenation;
                         }
-
-
                     }
+                    else
+                    {
+                        lastMaghsadChanged = item.Maghsad;
+                        item.Customer = SelectedDestenation;
+                    }
+                        
                 }
 
-                if (SelectedDriver != null)
+                
+                if (string.IsNullOrEmpty(item.Ranande))
                 {
-                    if (string.IsNullOrEmpty(item.Ranande))
-                    {
-                        item.Driver = SelectedDriver;
-                    }
-                    else if (item.Ranande != SelectedDriver.Name)
+                    item.Driver = SelectedDriver;
+                }
+                else if (item.Ranande != _newRanande)
+                {
+                    if (item.Ranande != lastRanandeChanged)
                     {
                         DialogResult result = MessageBox.Show("آیا میخواهید راننده را از " +
-                            item.Ranande + " به " + SelectedDriver.Name + " تغییر دهید ؟",
+                            item.Ranande + " به " + _newRanande + " تغییر دهید ؟",
                             "اخطار", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
+                            lastRanandeChanged = item.Ranande;
                             item.Driver = SelectedDriver;
                         }
-
-
+                    }
+                    else
+                    {
+                        lastRanandeChanged = item.Ranande;
+                        item.Driver = SelectedDriver;
                     }
                 }
 

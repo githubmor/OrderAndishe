@@ -49,7 +49,7 @@ namespace OrdersAndisheh.ExcelManager
                             ws.Cells[i + 2, 1].Value = t[i].CodeKala;
                             ws.Cells[i + 2, 2].Value = t[i].Tedad.ToString();
                             ws.Cells[i + 2, 3].Value = t[i].Kala;
-                            ws.Cells[i + 2, 4].Value = t[i].Pallet.ToString();
+                            ws.Cells[i + 2, 4].Value = t[i].PalletCount.ToString();
                             ws.Cells[i + 2, 5].Value = t[i].Karton.ToString();
                             ws.Cells[i + 2, 7].Value = t[i].Vazn.ToString();
                             ws.Cells[i + 2, 8].Value = t[i].BazresName;

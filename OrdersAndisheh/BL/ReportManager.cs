@@ -41,7 +41,8 @@ namespace OrdersAndisheh.BL
                 foreach (var b in allBazres)
                 {
                     reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, 
-                        Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad });
+                        Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad
+                        ,Ranande=(b.ItemKind==(byte)ItemType.فوری?"فوری":"")});
                     pos += 1;
                 }
 
@@ -75,7 +76,7 @@ namespace OrdersAndisheh.BL
         {
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ThenBy(p => p.Maghsad).ToList());
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
                 reportRows.Add(new ReportRow()
@@ -83,7 +84,10 @@ namespace OrdersAndisheh.BL
                     Position = pos,
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
-                    Karton = b.Karton.ToString(), Pallet = b.Pallet.ToString(), Maghsad = b.Maghsad, Ranande = b.Ranande });
+                    Karton = b.Karton.ToString(), Pallet = b.PalletCount.ToString(), Maghsad = b.Maghsad
+                    ,Ranande = (b.ItemKind!=(byte)ItemType.ارسال & b.ItemKind!=(byte)ItemType.عادی ?
+                    GetEnumValue<ItemType>(b.ItemKind).ToString():"")
+                });
                 pos += 1;
             }
 
@@ -104,7 +108,9 @@ namespace OrdersAndisheh.BL
                     Position = pos,
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
-                    Maghsad = b.Maghsad });
+                    Maghsad = b.Maghsad ,
+                    Ranande = GetEnumValue<ItemType>(b.ItemKind).ToString()
+                });
                 pos += 1;
             }
             FileManagar fg = NewMethod(reportRows);
@@ -122,7 +128,8 @@ namespace OrdersAndisheh.BL
                     Position = pos,
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
-                    Maghsad = b.Maghsad
+                    Maghsad = b.Maghsad,
+                    Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : "")
                 });
                 pos += 1;
             }
@@ -137,7 +144,9 @@ namespace OrdersAndisheh.BL
             sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, Maghsad = b.Maghsad });
+                reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, Maghsad = b.Maghsad
+                    ,Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : "")
+                });
                 pos += 1;
             }
             FileManagar fg = NewMethod(reportRows);
@@ -166,7 +175,7 @@ namespace OrdersAndisheh.BL
                     Kala = b.Kala, 
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), 
                     Karton = b.Karton.ToString(), 
-                    Pallet = b.Pallet.ToString(), 
+                    Pallet = b.PalletCount.ToString(), 
                     Maghsad = b.Maghsad, 
                     Ranande = b.Ranande 
                 });
@@ -182,6 +191,24 @@ namespace OrdersAndisheh.BL
             fg.CreatFile("Ersal");
         }
 
+        public T GetEnumValue<T>(byte intValue) where T : struct, IConvertible
+        {
+            if (!typeof(T).IsEnum)
+            {
+                throw new Exception("T must be an Enumeration type.");
+            }
+            T val = ((T[])Enum.GetValues(typeof(T)))[0];
+
+            foreach (T enumValue in (T[])Enum.GetValues(typeof(T)))
+            {
+                if (Convert.ToByte(enumValue).Equals(intValue))
+                {
+                    val = enumValue;
+                    break;
+                }
+            }
+            return val;
+        }
         
     }
 }

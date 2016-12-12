@@ -27,7 +27,7 @@ namespace BL
             }
             OrderDetail = new OrderDetail();
             Product = p;
-            //HasOracle = true;
+            PalletCount = PalletCalCulate();
             ItemKind = (byte) ItemType.عادی;
         }
 
@@ -86,6 +86,7 @@ namespace BL
             set 
             { 
                 OrderDetail.Product = value;
+                PalletCount = PalletCalCulate();
                 NotifyPropertyChanged("Kala");
                 NotifyPropertyChanged("CodeKala");
             }
@@ -124,8 +125,11 @@ namespace BL
             get { return OrderDetail.Tedad; }
             set 
             { 
+
                 OrderDetail.Tedad = value;
+                PalletCount = PalletCalCulate();
                 NotifyPropertyChanged("Tedad");
+                NotifyPropertyChanged("Vazn");
             }
 		}
         public string Des
@@ -144,12 +148,7 @@ namespace BL
             set { OrderDetail.TahvilForosh = value; }
 		}
 
-        //public bool HasOracle
-        //{
-        //    get { return OrderDetail.HasOracle; }
-        //    set { OrderDetail.HasOracle = value; }
-        //}
-
+        
 		public byte ItemKind
 		{
             get { return OrderDetail.ItemType; }
@@ -183,12 +182,20 @@ namespace BL
             }
             
         }
-        public string Pallet //{ get; set; }
+
+        
+        public int PalletCount //{ get; set; }
         {
-            get { return PalletCalCulate(); }
+            get { return OrderDetail.TedadPallet; }
+            set 
+            { 
+                OrderDetail.TedadPallet = value;
+                NotifyPropertyChanged("PalletCount");
+                NotifyPropertyChanged("Vazn");
+            }
         }
 
-        private string PalletCalCulate()
+        private int PalletCalCulate()
         {
             if (Tedad > Product.TedadDarPallet)
             {
@@ -196,22 +203,22 @@ namespace BL
                 {
                     if (Tedad % Product.TedadDarPallet == 0)
                     {
-                        return (Tedad / Product.TedadDarPallet).ToString();
+                        return (Tedad /(int) Product.TedadDarPallet);
                     }
                     else
                     {
-                        return ((Tedad / Product.TedadDarPallet) + 1).ToString();
+                        return ((Tedad / (int)Product.TedadDarPallet) + 1);
                     }
                 }
                 else
                 {
-                    return "1";
+                    return 1;
                 }
                 
             }
             else
             {
-                return "1";
+                return 1;
             }
         }
         public int Vazn //{ get; set; }
@@ -221,26 +228,56 @@ namespace BL
 
         private int VaznCalCulate()
         {
-            if (Product.TedadDarPallet > 0 && (Tedad % Product.TedadDarPallet) == 0 & Product.TedadDarPallet!=null)
-            {
-                return (int)((Tedad / Product.TedadDarPallet) * Product.Weight);
-            }
-            else
-            {
-                double OneProductWeight;
-                if (Product.Weight!=null)
+            
+                if (PalletCount > 0 )
                 {
-                    int p = (int)Product.Weight - (int)Product.Pallet.Vazn;
+                    return (int)(PalletCount * Product.Weight);
+                }
+                else//بدون پالت
+                {
+                    if (Product.TedadDarPallet > 0 & Product.TedadDarPallet != null)
+                    {
+                        double OneProductWeight;
+                        if (Product.Weight != null)
+                        {
+                            int p = (int)Product.Weight - (int)Product.Pallet.Vazn;
 
-                    OneProductWeight = (double)(p / (double)Product.TedadDarPallet);
+                            OneProductWeight = (double)(p / (double)Product.TedadDarPallet);
+                        }
+                        else
+                        {
+                            OneProductWeight = 0;
+                        }
+
+                        return (int)(Tedad * OneProductWeight); //+ PalletCount * (Product.Pallet.Vazn != null ? (int)Product.Pallet.Vazn : 0);
+                    }
+                    else
+                    {
+                        return (int)Product.Weight;
+                    }
+
                 }
-                else
-                {
-                    OneProductWeight = 0;
-                }
+            
+            //if (Product.TedadDarPallet > 0 && (Tedad % Product.TedadDarPallet) == 0 & Product.TedadDarPallet!=null)
+            //{
+            //    return (int)((Tedad / Product.TedadDarPallet) * Product.Weight);
+            //}
+            //else
+            //{
+            //    double OneProductWeight;
+            //    if (Product.Weight!=null)
+            //    {
+            //        int p = (int)Product.Weight - (int)Product.Pallet.Vazn;
+
+            //        OneProductWeight = (double)(p / (double)Product.TedadDarPallet);
+            //    }
+            //    else
+            //    {
+            //        OneProductWeight = 0;
+            //    }
                 
-                return (int)(Tedad * OneProductWeight) + int.Parse(PalletCalCulate())*(Product.Pallet.Vazn!=null?(int)Product.Pallet.Vazn:0);
-            }
+            //    return (int)(Tedad * OneProductWeight) + PalletCount*(Product.Pallet.Vazn!=null?(int)Product.Pallet.Vazn:0);
+            //}
         }
         public bool IsImenKala 
         {
