@@ -136,7 +136,8 @@ namespace OrdersAndisheh.ViewModel
                 var tahvil = CheckBySameTahvilNumber(sefaresh_item,
                     sefaresh.Items.Where(p=>p.Maghsad==sefaresh_item.Maghsad)
                     .Where(o=>o.Ranande==sefaresh_item.Ranande)
-                    .Where(p=>p.TahvilFrosh>0)
+                    .Where(u => u.IsImenKala == sefaresh_item.IsImenKala)
+                    .Where(p=>p.TahvilFrosh>0).Select(p=>p.TahvilFrosh).Distinct()
                     .ToList(),
                     TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
                 sefaresh_item.TahvilFrosh = tahvil;
@@ -287,7 +288,7 @@ namespace OrdersAndisheh.ViewModel
             //}
             
 
-            var nuy = TahvilFroshs.Where(isa => !isa.IsOk).Where(o=>o.TahvilFroshNum!=-1).ToList();
+            var nuy = TahvilFroshs.Where(isa => !isa.IsOk).ToList();
             foreach (var de in nuy)
             {
                 Errors.Add("برای تحویل فروش " +
@@ -299,14 +300,24 @@ namespace OrdersAndisheh.ViewModel
             RaisePropertyChanged(() => Errors);
         }
 
-        private short CheckBySameTahvilNumber(ItemSefaresh item, List<ItemSefaresh> itemsWithSameMDAndTahvilOk,
+        private short CheckBySameTahvilNumber(ItemSefaresh item, List<short> itemsWithSameMDIAndTahvilOk,
             List<TahvilItem> tahvilsWithSameItemCode)
         {
-            //ممکنه تحویل فروش ها دارای چند شماره باشه
-            foreach (var ismd in itemsWithSameMDAndTahvilOk)
+            short t = 0;
+            foreach (var ismd in itemsWithSameMDIAndTahvilOk)
             {
-                
+                var y = tahvilsWithSameItemCode.Where(p => p.TahvilFroshNum == ismd).ToList();
+                if (y.Count == 1)
+                {
+                    y.First().IsOk = true;
+                    t = y.First().TahvilFroshNum;
+                }
+                else
+                {
+                    t = 0;
+                }
             }
+            return t;
         }
 
         private short CheckByTedadKala(ItemSefaresh item, List<TahvilItem> tahvilsWithSameItemCode)
