@@ -117,80 +117,102 @@ namespace OrdersAndisheh.ViewModel
         private void CalculateSefareshWithData()
         {
             CheckMoreThanOneTarikh();
-
+            
             foreach (var sefaresh_item in sefaresh.Items)
             {
-                
-                var finded_TF_FromCodeTedad = TahvilFroshs
-                    .Where(o => o.CodeKala == sefaresh_item.CodeKala)
-                    .Where(t => t.Tedad == sefaresh_item.Tedad)
-                    .ToList();
-                
-                if (finded_TF_FromCodeTedad.Count == 0)
-                {
-                    Errors.Add("برای کالای "
-                        +sefaresh_item.Kala + " ارسالی به " 
-                        + sefaresh_item.Maghsad + " تحویل فروشی ثبت نشده");
-                    sefaresh_item.TahvilFrosh = -1;//برای اینکه بدونیم اینا تحویل فروش نداشت نه اینکه دو تا داشت
-                }
-                else if (finded_TF_FromCodeTedad.Count == 1)
-                {
-                    sefaresh_item.TahvilFrosh = finded_TF_FromCodeTedad[0].TahvilFroshNum;
-                    finded_TF_FromCodeTedad[0].IsOk = true;
-                }
+                var tahvil = CheckByCodeKala(sefaresh_item, 
+                    TahvilFroshs.Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
+                sefaresh_item.TahvilFrosh = tahvil;
             }
+
+            foreach (var sefaresh_item in sefaresh.Items.Where(i=>i.TahvilFrosh>0).ToList())
+            {
+                var tahvil = CheckByTedadKala(sefaresh_item, 
+                    TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
+                sefaresh_item.TahvilFrosh = tahvil;
+            }
+            foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh > 0).ToList())
+            {
+                var tahvil = CheckBySameTahvilNumber(sefaresh_item,
+                    sefaresh.Items.Where(p=>p.Maghsad==sefaresh_item.Maghsad)
+                    .Where(o=>o.Ranande==sefaresh_item.Ranande)
+                    .Where(p=>p.TahvilFrosh>0)
+                    .ToList(),
+                    TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
+                sefaresh_item.TahvilFrosh = tahvil;
+            }
+                //var finded_TF_FromCodeTedad = TahvilFroshs
+                //    .Where(o => o.CodeKala == sefaresh_item.CodeKala)
+                //    .Where(t => t.Tedad == sefaresh_item.Tedad)
+                //    .ToList();
+                
+                //if (finded_TF_FromCodeTedad.Count == 0)
+                //{
+                //    Errors.Add("برای کالای "
+                //        +sefaresh_item.Kala + " ارسالی به " 
+                //        + sefaresh_item.Maghsad + " تحویل فروشی ثبت نشده");
+                //    sefaresh_item.TahvilFrosh = -1;//برای اینکه بدونیم اینا تحویل فروش نداشت نه اینکه دو تا داشت
+                //}
+                //else if (finded_TF_FromCodeTedad.Count == 1)
+                //{
+                //    sefaresh_item.TahvilFrosh = finded_TF_FromCodeTedad[0].TahvilFroshNum;
+                //    finded_TF_FromCodeTedad[0].IsOk = true;
+                //}
 
             //سفارش هایی که هنوز تحویل فروش نگرفتن رو میگیریم
-            var itemsNoTahvilFrosh = sefaresh.Items.Where(t => t.TahvilFrosh == 0).ToList();
+            //var itemsNoTahvilFrosh = sefaresh.Items.Where(t => t.TahvilFrosh == 0).ToList();
 
-            foreach (var item in itemsNoTahvilFrosh)
-            {
-                //اگر کد میخواند ولی تعداد نمی خواند
-                var ghy = TahvilFroshs.Where(h => h.CodeKala == item.CodeKala).Where(d => !d.IsOk).ToList();
-                if (ghy.Count==1)
-                {
-                    if (item.Tedad!=ghy[0].Tedad)
-                    {
-                        Errors.Add("احتمالا تعداد کالای " + item.Kala + " بجای " + item.Tedad + " عدد " + ghy[0].Tedad + " عدد در تحویل فروش ثبت شده است");
-                        ghy[0].TahvilFroshNum = -1;
-                    }
-                }
+            //foreach (var item in itemsNoTahvilFrosh)
+            //{
+            //    //اگر کد میخواند ولی تعداد نمی خواند
+            //    var ghy = TahvilFroshs.Where(h => h.CodeKala == item.CodeKala).Where(d => !d.IsOk).ToList();
+            //    if (ghy.Count==1)
+            //    {
+            //        if (item.Tedad!=ghy[0].Tedad)
+            //        {
+            //            Errors.Add("احتمالا تعداد کالای " +
+            //                item.Kala + " بجای " + item.Tedad + " عدد " +
+            //                ghy[0].Tedad + " عدد در تحویل فروش ثبت شده است");
+            //            ghy[0].TahvilFroshNum = -1;
+            //        }
+            //    }
 
-                //شماره تحویل فروش هایی که با این  ایتم هم مقصد و هم راننده هستند
-                var tahvilnumbers = sefaresh.Items
-                    .Where(t => t.TahvilFrosh > 0)
-                    .Where(y => y.Maghsad == item.Maghsad)
-                    .Where(k => k.Ranande == item.Ranande)
-                    .Select(i => i.TahvilFrosh)
-                    .Distinct();
-                //چون اگر صفر یا بیشتر از یک باشد هیچ کاری نمی توانیم بکنیم
-                if (tahvilnumbers.Count()==1)
-                {
-                    item.TahvilFrosh = tahvilnumbers.First();
-                    var oi = TahvilFroshs
-                        .Where(u => u.CodeKala == item.CodeKala)
-                        .Where(y => y.TahvilFroshNum == tahvilnumbers.First())
-                        .FirstOrDefault();
-                    if (oi!=null)
-                    {
-                        oi.IsOk = true;
-                    }
+            //    //شماره تحویل فروش هایی که با این  ایتم هم مقصد و هم راننده هستند
+            //    var tahvilnumbers = sefaresh.Items
+            //        .Where(t => t.TahvilFrosh > 0)
+            //        .Where(y => y.Maghsad == item.Maghsad)
+            //        .Where(k => k.Ranande == item.Ranande)
+            //        .Where(tt => tt.IsImenKala == item.IsImenKala)
+            //        .Select(i => i.TahvilFrosh)
+            //        .Distinct();
+            //    //چون اگر صفر یا بیشتر از یک باشد هیچ کاری نمی توانیم بکنیم
+            //    if (tahvilnumbers.Count()==1)
+            //    {
+            //        item.TahvilFrosh = tahvilnumbers.First();
+            //        var oi = TahvilFroshs
+            //            .Where(u => u.CodeKala == item.CodeKala)
+            //            .Where(y => y.TahvilFroshNum == tahvilnumbers.First())
+            //            .FirstOrDefault();
+            //        if (oi!=null)
+            //        {
+            //            oi.IsOk = true;
+            //        }
                     
-                }
-                //else
-                //{
-                //    string defd = "برای کالای " + item.Kala
-                //        + " ارسالی به " + item.Maghsad + " "
-                //        + tahvilnumbers.Count() + " تحویل فروش داریم ";
-                //    foreach (var ss in tahvilnumbers)
-                //    {
-                //        defd += tahvilnumbers + "-";
+            //    }
+            //    //else
+            //    //{
+            //    //    string defd = "برای کالای " + item.Kala
+            //    //        + " ارسالی به " + item.Maghsad + " "
+            //    //        + tahvilnumbers.Count() + " تحویل فروش داریم ";
+            //    //    foreach (var ss in tahvilnumbers)
+            //    //    {
+            //    //        defd += tahvilnumbers + "-";
 
-                //    }
+            //    //    }
 
-                //    Errors.Add(defd);
-                //}
-            }
+            //    //    Errors.Add(defd);
+            //    //}
+            //}
 
 
             //foreach (var itemi in sefareshItemMoreThanOneTahvil)
@@ -277,6 +299,63 @@ namespace OrdersAndisheh.ViewModel
             RaisePropertyChanged(() => Errors);
         }
 
+        private short CheckBySameTahvilNumber(ItemSefaresh item, List<ItemSefaresh> itemsWithSameMDAndTahvilOk,
+            List<TahvilItem> tahvilsWithSameItemCode)
+        {
+            //ممکنه تحویل فروش ها دارای چند شماره باشه
+            foreach (var ismd in itemsWithSameMDAndTahvilOk)
+            {
+                
+            }
+        }
+
+        private short CheckByTedadKala(ItemSefaresh item, List<TahvilItem> tahvilsWithSameItemCode)
+        {
+            var fi = tahvilsWithSameItemCode.Where(p => p.Tedad == item.Tedad).ToList();
+
+            if (fi.Count==1)
+            {
+                fi.First().IsOk = true;
+                return fi.First().TahvilFroshNum;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private short CheckByCodeKala(ItemSefaresh item,List<TahvilItem> tahvilsWithSameCodeKala)
+        {
+            //var findedTahvils = tahvils.Where(p => p.CodeKala == item.CodeKala).ToList();
+
+            if (tahvilsWithSameCodeKala.Count == 1)
+            {
+                if (tahvilsWithSameCodeKala.First().Tedad == item.Tedad)
+                {
+                    tahvilsWithSameCodeKala.First().IsOk = true;
+                    return tahvilsWithSameCodeKala.First().TahvilFroshNum;
+                }
+                else
+                {
+                    Errors.Add("احتمالا تعداد کالای " +
+                           item.Kala + " بجای " + item.Tedad + " عدد " +
+                           tahvilsWithSameCodeKala.First().Tedad + " عدد در تحویل فروش ثبت شده است");
+                    return -1;
+                }
+                
+            }
+            else if (tahvilsWithSameCodeKala.Count == 0)
+            {
+                Errors.Add("برای کالای "
+                        + item.Kala + " ارسالی به "
+                        + item.Maghsad + " تحویل فروشی ثبت نشده");
+                return -2;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
 
         private void CheckMoreThanOneTarikh()

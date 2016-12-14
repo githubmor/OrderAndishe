@@ -231,7 +231,7 @@ namespace BL
             
                 if (PalletCount > 0 )
                 {
-                    return (int)(PalletCount * Product.Weight);
+                    return (int)(PalletCount * (Product.Weight != null ? (int)Product.Weight : 0));
                 }
                 else//بدون پالت
                 {
@@ -253,7 +253,7 @@ namespace BL
                     }
                     else
                     {
-                        return (int)Product.Weight;
+                        return (Product.Weight!=null?(int)Product.Weight:0);
                     }
 
                 }

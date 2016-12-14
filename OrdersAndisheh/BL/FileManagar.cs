@@ -9,6 +9,7 @@ namespace BL
     using Stimulsoft.Report;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Text;
     using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace BL
         
         private List<ReportRow> ReportRows;
         private string Tarikh;
+        private ObservableCollection<ItemSefaresh> items;
         
 
         public FileManagar(List<ReportRow> reportRows,string Tarikh )
@@ -26,8 +28,38 @@ namespace BL
             this.Tarikh = Tarikh;
         }
 
+        //public FileManagar(ObservableCollection<ItemSefaresh> observableCollection)
+        //{
+        //    // TODO: Complete member initialization
+        //    this.items = observableCollection;
+        //}
+
+
+        public void CreatDriverFile(string fileName)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select a folder";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    path = dlg.SelectedPath;
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        fileName = "Report";
+                    }
+                    
+                    StiReport mainreport = new StiReport();
+                    mainreport.RegBusinessObject("Items", ReportRows);
+                    mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\DriverListReport.mrt");
+                    mainreport.Render();
+                    mainreport.Show();
+                    mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
+                }
+            }
+        }
         
-		public virtual void CreatFile(string fileName)
+		public void CreatFile(string fileName)
 		{
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())

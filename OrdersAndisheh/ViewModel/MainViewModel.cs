@@ -885,7 +885,35 @@ namespace OrdersAndisheh.ViewModel
             DriversView p = new DriversView();
             p.ShowDialog();
         }
-        
+
+
+        private RelayCommand _myCommand659658785;
+
+        /// <summary>
+        /// Gets the CreatDriverReport.
+        /// </summary>
+        public RelayCommand CreatDriverReport
+        {
+            get
+            {
+                return _myCommand659658785
+                    ?? (_myCommand659658785 = new RelayCommand(ExecuteCreatDriverReport));
+            }
+        }
+
+        private void ExecuteCreatDriverReport()
+        {
+            try
+            {
+                ReportManager rp = new ReportManager(sefaresh);
+                rp.CreatDriverReport();
+            }
+            catch (Exception rrr)
+            {
+
+                MessageBox.Show(rrr.Message.ToString()); ;
+            }
+        }
     }
 
     public static class ObservableCollectionExtensions

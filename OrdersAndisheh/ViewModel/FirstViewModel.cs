@@ -413,32 +413,34 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteBackUpDatabase()
         {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            if (folderDialog.ShowDialog() == DialogResult.OK)
-            {
-                string sourcePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string sourceFile = "OrderDbCompact.sdf";
-                string destinationPath = folderDialog.SelectedPath;
-                string destinationFile = "BackUp.sdf";
-                string sourceFileName = Path.Combine(sourcePath, sourceFile);
-                string destinationFileName = Path.Combine(destinationPath, destinationFile);
+            OpenFileDialog folderDialog = new OpenFileDialog();
+            folderDialog.InitialDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            folderDialog.ShowDialog();
+            //if (folderDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    string sourcePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //    string sourceFile = "OrderDbCompact.sdf";
+            //    string destinationPath = folderDialog.SelectedPath;
+            //    string destinationFile = "BackUp.sdf";
+            //    string sourceFileName = Path.Combine(sourcePath, sourceFile);
+            //    string destinationFileName = Path.Combine(destinationPath, destinationFile);
 
-                try
-                {
-                    //conn.disconnect();
-                    //ss.Dispose();
-                    File.Copy(sourceFileName, destinationFileName, true);
-                    MessageBox.Show("Database backup saved.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    //conn.connect();
-                }
-            }
+            //    try
+            //    {
+            //        //conn.disconnect();
+            //        //ss.Dispose();
+            //        File.Copy(sourceFileName, destinationFileName, true);
+            //        MessageBox.Show("Database backup saved.");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.ToString());
+            //    }
+            //    finally
+            //    {
+            //        //conn.connect();
+            //    }
+            //}
 
         }
 

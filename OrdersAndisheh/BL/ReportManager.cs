@@ -29,6 +29,40 @@ namespace OrdersAndisheh.BL
             this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
         }
 
+        public void CreatDriverReport()
+        {
+            int pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, 
+                        Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad
+                        ,Ranande=b.Ranande,Pallet=b.PalletCount.ToString(),Karton=b.Karton});
+                    pos += 1;
+            }
+            //foreach (var item in sefaresh.Items)
+            //{
+            //    if (item.PalletCount>0)
+            //    {
+            //        if (item.Product.Pallet.Vazn>120)
+            //        {
+            //            item.Des = item.PalletCount + "پالت فلزی";
+            //        }
+            //        else
+            //        {
+            //            item.Des = item.PalletCount + "پالت چوبی";
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        item.Des = item.Karton + "کارتن / سبد";
+            //    }
+            //}
+            FileManagar fg = new FileManagar(reportRows,"");
+            fg.CreatDriverFile("Driver");
+        }
+
        
         public void CreatAllBazresReportOnDeskTop()
         {
