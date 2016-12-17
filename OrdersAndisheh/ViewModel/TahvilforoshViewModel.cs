@@ -16,12 +16,12 @@ namespace OrdersAndisheh.ViewModel
 {
     public class TahvilforoshViewModel : ViewModelBase
     {
-        ISefareshService ss;
+        SefareshService ss;
         //ExcelService exService;
         Sefaresh sefaresh;
         public TahvilforoshViewModel(ISefareshService service)
         {
-            ss = service;
+            ss = new SefareshService();
             sefaresh = new Sefaresh();
             Errors = new List<string>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>();

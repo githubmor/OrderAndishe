@@ -94,7 +94,7 @@ namespace OrdersAndisheh.ViewModel
             //set { lists = value; }
         }
 
-        public CheckSefaresh SelectedTarikh { get; set; }
+        public CheckSefaresh SelectedSefareshCheck { get; set; }
 
         private RelayCommand _myCommand;
 
@@ -382,10 +382,10 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteEditSefaresh()
         {
-            if (SelectedTarikh != null)
+            if (SelectedSefareshCheck != null)
             {
                 MainView v = new MainView();
-                Messenger.Default.Send<string>(SelectedTarikh.TarikhSefaresh, "EditSefaresh");
+                Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "EditSefaresh");
                 v.ShowDialog();
                 RaisePropertyChanged(() => this.CheckSefareshs);
                 
@@ -394,7 +394,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteEditSefaresh()
         {
-            return SelectedTarikh != null;
+            return SelectedSefareshCheck != null;
         }
 
         private RelayCommand _myCommand45;
@@ -547,14 +547,14 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteBackUpAsExcel()
         {
-            return SelectedTarikh !=null;
+            return SelectedSefareshCheck !=null;
         }
 
         private void ExecuteBackUpAsExcel()
         {
             ExcelBackUp p = new ExcelBackUp(ss);
 
-            p.ExportLastSavedSefaresh(SelectedTarikh.TarikhSefaresh);
+            p.ExportLastSavedSefaresh(SelectedSefareshCheck.TarikhSefaresh);
 
             MessageBox.Show("اطلاعات در فایل اکسل ذخیره شد");
         }
@@ -576,14 +576,14 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDelSefaresh()
         {
-            ss.DeleteSefaresh(SelectedTarikh.TarikhSefaresh);
+            ss.DeleteSefaresh(SelectedSefareshCheck.TarikhSefaresh);
             RaisePropertyChanged(() => this.CheckSefareshs);
             MessageBox.Show("اطلاعات سفارش حذف شد");
         }
 
         private bool CanExecuteDelSefaresh()
         {
-            return SelectedTarikh !=null;
+            return SelectedSefareshCheck !=null;
         }
 
         private RelayCommand _myCommand5252656;
@@ -604,13 +604,13 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteSetTahvilfrosh()
         {
             TahvilfroshView v = new TahvilfroshView();
-            Messenger.Default.Send<string>(SelectedTarikh.TarikhSefaresh, "sefareshForTahvilSet");
+            Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "sefareshForTahvilSet");
             v.Show();
         }
 
         private bool CanExecuteSetTahvilfrosh()
         {
-            return SelectedTarikh != null;
+            return SelectedSefareshCheck != null;
         }
 
         private RelayCommand _myCommand43556111;
@@ -630,17 +630,17 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAcceptSefaresh()
         {
-            ss.AcceptSefaresh(SelectedTarikh.TarikhSefaresh);
+            ss.AcceptSefaresh(SelectedSefareshCheck.TarikhSefaresh);
             RaisePropertyChanged(() => this.CheckSefareshs);
         }
 
         private bool CanExecuteAcceptSefaresh()
         {
-            return SelectedTarikh != null &&
-                SelectedTarikh.HasItemWithNoMaghsad &
-                SelectedTarikh.HasItemWithNoRanande &
-                SelectedTarikh.HasItemWithNoTahvilFrosh &
-                SelectedTarikh.HasItemWithNoTedad;
+            return SelectedSefareshCheck != null &&
+                SelectedSefareshCheck.HasItemWithNoMaghsad &
+                SelectedSefareshCheck.HasItemWithNoRanande &
+                SelectedSefareshCheck.HasItemWithNoTahvilFrosh &
+                SelectedSefareshCheck.HasItemWithNoTedad;
         }
         
     }
