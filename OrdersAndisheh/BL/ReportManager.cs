@@ -26,7 +26,7 @@ namespace OrdersAndisheh.BL
                 throw new ApplicationException("سفارش نمیتواند بدون آیتم باشد");
             }
             this.sefaresh = sefaresh;
-            this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
+            this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.Where(p => p.ItemKind != (byte)ItemType.ارسال).OrderBy(p => p.Maghsad).ToList());
         }
 
         public void CreatDriverReport()
@@ -35,9 +35,16 @@ namespace OrdersAndisheh.BL
             List<ReportRow> reportRows = new List<ReportRow>();
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, 
-                        Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad
-                        ,Ranande=b.Ranande,Pallet=b.PalletCount.ToString(),Karton=b.Karton});
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Maghsad = b.Maghsad
+                    ,Ranande = (b.Driver.TempDriver == null ? b.Ranande : "       ")
+                    ,Pallet = b.PalletCount.ToString(),
+                    Karton = b.Karton
+                });
                     pos += 1;
             }
             //foreach (var item in sefaresh.Items)
@@ -110,7 +117,7 @@ namespace OrdersAndisheh.BL
         {
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ThenBy(p => p.ItemKind).ThenBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
                 reportRows.Add(new ReportRow()
@@ -118,9 +125,11 @@ namespace OrdersAndisheh.BL
                     Position = pos,
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
-                    Karton = b.Karton.ToString(), Pallet = b.PalletCount.ToString(), Maghsad = b.Maghsad
-                    ,Ranande = (b.ItemKind!=(byte)ItemType.ارسال & b.ItemKind!=(byte)ItemType.عادی ?
-                    GetEnumValue<ItemType>(b.ItemKind).ToString():"")
+                    Karton = b.Karton.ToString(),
+                    Pallet = b.PalletCount.ToString(),
+                    Maghsad = b.Maghsad
+                    ,Ranande = (b.ItemKind != (byte)ItemType.ارسال & b.ItemKind != (byte)ItemType.عادی ?
+                        GetEnumValue<ItemType>(b.ItemKind).ToString() + " - " + b.Ranande : b.Ranande)
                 });
                 pos += 1;
             }
@@ -134,7 +143,7 @@ namespace OrdersAndisheh.BL
         {
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            var ImenKalas = sefaresh.Items.Where(p => p.IsImenKala).ToList();
+            var ImenKalas = sefaresh.Items.Where(p => p.IsImenKala).OrderBy(p => p.Ranande).ThenBy(p => p.ItemKind).ThenBy(p => p.Maghsad).ToList();
             foreach (var b in ImenKalas)
             {
                 reportRows.Add(new ReportRow()
@@ -143,7 +152,7 @@ namespace OrdersAndisheh.BL
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
                     Maghsad = b.Maghsad ,
-                    Ranande = GetEnumValue<ItemType>(b.ItemKind).ToString()
+                    Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : "")
                 });
                 pos += 1;
             }
@@ -154,7 +163,7 @@ namespace OrdersAndisheh.BL
         {
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            var ImenKalas = sefaresh.Items.Where(p => !p.IsImenKala).ToList();
+            var ImenKalas = sefaresh.Items.Where(p => !p.IsImenKala).OrderBy(p => p.Ranande).ThenBy(p => p.ItemKind).ThenBy(p => p.Maghsad).ToList();
             foreach (var b in ImenKalas)
             {
                 reportRows.Add(new ReportRow()
@@ -175,7 +184,7 @@ namespace OrdersAndisheh.BL
         {
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad).ToList());
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ThenBy(p => p.ItemKind).ThenBy(p => p.Maghsad).ToList());
             foreach (var b in sefaresh.Items)
             {
                 reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, Maghsad = b.Maghsad
@@ -192,7 +201,8 @@ namespace OrdersAndisheh.BL
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
             string lastDriver = "";//, lastDes = "";
-            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ThenBy(p => p.Maghsad).ToList());
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande)
+                .ThenBy(p => p.Maghsad).ThenBy(p => p.ItemKind).ToList());
             foreach (var b in sefaresh.Items)
             {
                 if (lastDriver!="")
@@ -210,8 +220,8 @@ namespace OrdersAndisheh.BL
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), 
                     Karton = b.Karton.ToString(), 
                     Pallet = b.PalletCount.ToString(), 
-                    Maghsad = b.Maghsad, 
-                    Ranande = b.Ranande 
+                    Maghsad = b.Maghsad,
+                    Ranande = (b.Driver.TempDriver == null ? b.Ranande : "")
                 });
                 pos += 1;
                 //lastDes = b.Maghsad;

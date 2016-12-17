@@ -41,9 +41,9 @@
           <Components isList="true" count="1">
             <Text1 Ref="5" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.41,0.1,2.9,0.3</ClientRectangle>
+              <ClientRectangle>0.01,0,3.9,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10,Bold</Font>
+              <Font>Tahoma,13,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
@@ -73,7 +73,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>0.7,0,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Tedad</Name>
@@ -89,7 +89,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>1.2,0,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_PalletCount</Name>
@@ -105,7 +105,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>1.8,0,2.1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,11</Font>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
               <Page isRef="3" />
@@ -120,7 +120,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,8</Font>
+              <Font>Tahoma,7</Font>
               <Guid>764a9f14d1fa465eaaa07f3fd75778d2</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -145,7 +145,7 @@
         <GroupFooterBand1 Ref="11" type="GroupFooterBand" isKey="true">
           <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,1.8,3.94,0.2</ClientRectangle>
+          <ClientRectangle>0,1.8,3.94,0.4</ClientRectangle>
           <Components isList="true" count="0" />
           <Conditions isList="true" count="0" />
           <Name>GroupFooterBand1</Name>
@@ -180,10 +180,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/14/2016 2:43:37 PM</ReportChanged>
+  <ReportChanged>12/15/2016 10:55:49 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\DriverListReport.mrt</ReportFile>
-  <ReportGuid>ac7a8d45f7c44d3bb2ae3357b733b4e8</ReportGuid>
+  <ReportGuid>8a1394726ec240fea86fca49311d41db</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

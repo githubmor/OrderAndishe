@@ -109,6 +109,7 @@ namespace BL
                     .Include("Product.Bazre")
                     .OrderBy(o => o.Driver_Id)
                     .ThenBy(o => o.Customer_Id)
+                    .ThenBy(i => i.ItemType)
                     .ThenBy(s=>s.Product.Code)
                     .ToList();
 
