@@ -14,8 +14,6 @@ namespace OrdersAndisheh.DBL
         {
             base.Configuration.ProxyCreationEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyContextCF>());
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MyContextCF>());
         }
 
         public virtual DbSet<Bazres> Bazress { get; set; }
@@ -24,6 +22,7 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Pallet> Pallets { get; set; }
+        public virtual DbSet<Baste> Bastes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<MOracle> MOracles { get; set; }
         public virtual DbSet<CustomerProductRelation> CustomerProductRelations { get; set; }
@@ -78,6 +77,11 @@ namespace OrdersAndisheh.DBL
             modelBuilder.Entity<Pallet>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Pallet)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Baste>()
+                .HasMany(e => e.Products)
+                .WithOptional(e => e.Baste)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<OrderDetail>()

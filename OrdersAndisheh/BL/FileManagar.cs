@@ -19,7 +19,7 @@ namespace BL
         
         private List<ReportRow> ReportRows;
         private string Tarikh;
-        private ObservableCollection<ItemSefaresh> items;
+        //private ObservableCollection<ItemSefaresh> items;
         
 
         public FileManagar(List<ReportRow> reportRows,string Tarikh )

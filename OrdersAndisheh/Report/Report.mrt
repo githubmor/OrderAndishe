@@ -222,7 +222,7 @@
             <HeaderItems_maghsad Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>3.7,0,0.5,0.3</ClientRectangle>
+              <ClientRectangle>3.7,0,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -238,7 +238,7 @@
             <HeaderItems_vazn Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>4.2,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>4.4,0,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -379,7 +379,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.7,0,0.5,0.22</ClientRectangle>
+              <ClientRectangle>3.7,0,0.7,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
@@ -391,7 +391,7 @@
               <Parent isRef="21" />
               <Text>{Items.Karton}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_maghsad>
@@ -399,7 +399,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.2,0,1.2,0.22</ClientRectangle>
+              <ClientRectangle>4.4,0,1,0.22</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.Kala,EqualTo,khali,,String,Gray,Gray,Arial_x002C_8,True,False,,,None</value>
               </Conditions>
@@ -489,10 +489,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/3/2016 2:39:53 PM</ReportChanged>
+  <ReportChanged>12/17/2016 2:45:06 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report.mrt</ReportFile>
-  <ReportGuid>522a4a6b4b0d43029f18e7f07defe7b2</ReportGuid>
+  <ReportGuid>5c096bf0c1da4920a9cda6e14b62fabd</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

@@ -692,6 +692,7 @@ namespace OrdersAndisheh.ViewModel
         {
              ReportManager rp = new ReportManager(sefaresh);
              rp.CreatImenSazanReportOnDeskTop();
+             RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateImensazanList()

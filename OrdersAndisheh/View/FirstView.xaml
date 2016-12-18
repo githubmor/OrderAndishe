@@ -46,7 +46,9 @@
             <Button Content="ثبت تحویل فروش" Command="{Binding SetTahvilfrosh}"/>
             <Button Content="تثبیت سفارش" Command="{Binding AcceptSefaresh}"/>
         </StackPanel>
-        <DataGrid SelectedItem="{Binding SelectedTarikh}" MouseDoubleClick="ListView_MouseDoubleClick" ItemsSource="{Binding CheckSefareshs}" AutoGenerateColumns="False" Grid.Column="2" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+        <DataGrid SelectedItem="{Binding SelectedSefareshCheck}" MouseDoubleClick="ListView_MouseDoubleClick" 
+                  ItemsSource="{Binding CheckSefareshs}" AutoGenerateColumns="False" Grid.Column="2" 
+                  Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding TarikhSefaresh,Mode=OneWay}" Header="تاریخ"/>
                 <DataGridTemplateColumn Header="چک ثبت تعداد ارسالی ">

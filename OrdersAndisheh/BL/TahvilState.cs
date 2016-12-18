@@ -12,6 +12,5 @@ namespace BL
 		OK,
 		NoSefareshItem,
 		TedadError,
-		MaghsadErros,
 	}
 }

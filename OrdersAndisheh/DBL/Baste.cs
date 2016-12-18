@@ -4,10 +4,10 @@ namespace OrdersAndisheh.DBL
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Pallet")]
-    public class Pallet
+    [Table("Baste")]
+    public class Baste
     {
-        public Pallet()
+        public Baste()
         {
             Products = new HashSet<Product>();
         }
@@ -17,8 +17,6 @@ namespace OrdersAndisheh.DBL
 
         [StringLength(10)]
         public string Name { get; set; }
-
-        public byte? Vazn { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

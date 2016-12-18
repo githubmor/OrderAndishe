@@ -166,7 +166,9 @@ namespace BL
 
             if (Product.TedadDarSabad>0 && Tedad % Product.TedadDarSabad > 0)
             {
-                return (Tedad / Product.TedadDarSabad).ToString() +"+1";
+                return ((Tedad / Product.TedadDarSabad) > 0 ?
+                    (Tedad / Product.TedadDarSabad).ToString()
+                    : "") +"[" + Tedad % Product.TedadDarSabad + "]";
             }
             else if (Product.TedadDarPallet > 0 && Tedad % Product.TedadDarPallet == 0)
             {

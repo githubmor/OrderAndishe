@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>85</ApplicationRevision>
+    <ApplicationRevision>89</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -304,6 +304,7 @@
     <Compile Include="Common\ViewModel\ReadOnlyCollectionViewModel.cs" />
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
+    <Compile Include="DBL\Baste.cs" />
     <Compile Include="DBL\TempDriver.cs" />
     <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\Bazres.cs" />

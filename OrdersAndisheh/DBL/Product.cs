@@ -40,6 +40,7 @@ namespace OrdersAndisheh.DBL
         public short? TedadDarSabad { get; set; }
 
         public int PalletId { get; set; }
+        public int? BasteId { get; set; }
 
         public int Bazres_Id { get; set; }
 
@@ -50,5 +51,6 @@ namespace OrdersAndisheh.DBL
         public virtual ICollection<CustomerProductRelation> Relations { get; set; }
 
         public virtual Pallet Pallet { get; set; }
+        public virtual Baste Baste { get; set; }
     }
 }

@@ -121,22 +121,24 @@ namespace OrdersAndisheh.ViewModel
             int NotOkCount = 0;
             do
             {
+
+                //TODO  باید یه کاری کنیم که همون اول حالت هر سفارش مشخص شود
                 NotOkCount = sefaresh.Items.Where(p => p.TahvilFrosh < 1).ToList().Count;
 
-                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh < 1).ToList())
+                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
                 {
                     var tahvil = CheckByCodeKala(sefaresh_item,
                         TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
                     sefaresh_item.TahvilFrosh = tahvil;
                 }
 
-                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh <1).ToList())
+                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
                 {
                     var tahvil = CheckByTedadKala(sefaresh_item,
                         TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
                     sefaresh_item.TahvilFrosh = tahvil;
                 }
-                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh <1).ToList())
+                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
                 {
                     var tahvil = CheckBySameTahvilNumber(sefaresh_item,
                         sefaresh.Items
@@ -145,13 +147,16 @@ namespace OrdersAndisheh.ViewModel
                         .Where(o => o.IsImenKala == sefaresh_item.IsImenKala)
                         .Where(p => p.TahvilFrosh > 0).Select(p => p.TahvilFrosh).Distinct()
                         .ToList(),
-                        TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
+                        TahvilFroshs.Where(p => !p.IsOk)
+                        .Where(p => p.CodeKala == sefaresh_item.CodeKala)
+                        .Where(p=>p.Tedad==sefaresh_item.Tedad)
+                        .ToList());
                     sefaresh_item.TahvilFrosh = tahvil;
                 }
 
             } while (NotOkCount != sefaresh.Items.Where(p => p.TahvilFrosh < 1).ToList().Count);
 
-            var nuy = TahvilFroshs.Where(isa => !isa.IsOk).Where(o => o.TahvilFroshNum != -1).ToList();
+            var nuy = TahvilFroshs.Where(isa => !isa.IsOk).ToList();
             foreach (var de in nuy)
             {
                 Errors.Add("برای تحویل فروش " +
@@ -161,152 +166,7 @@ namespace OrdersAndisheh.ViewModel
             }
 
             RaisePropertyChanged(() => Errors);
-            
-                //var finded_TF_FromCodeTedad = TahvilFroshs
-                //    .Where(o => o.CodeKala == sefaresh_item.CodeKala)
-                //    .Where(t => t.Tedad == sefaresh_item.Tedad)
-                //    .ToList();
-                
-                //if (finded_TF_FromCodeTedad.Count == 0)
-                //{
-                //    Errors.Add("برای کالای "
-                //        +sefaresh_item.Kala + " ارسالی به " 
-                //        + sefaresh_item.Maghsad + " تحویل فروشی ثبت نشده");
-                //    sefaresh_item.TahvilFrosh = -1;//برای اینکه بدونیم اینا تحویل فروش نداشت نه اینکه دو تا داشت
-                //}
-                //else if (finded_TF_FromCodeTedad.Count == 1)
-                //{
-                //    sefaresh_item.TahvilFrosh = finded_TF_FromCodeTedad[0].TahvilFroshNum;
-                //    finded_TF_FromCodeTedad[0].IsOk = true;
-                //}
 
-            //سفارش هایی که هنوز تحویل فروش نگرفتن رو میگیریم
-            //var itemsNoTahvilFrosh = sefaresh.Items.Where(t => t.TahvilFrosh == 0).ToList();
-
-            //foreach (var item in itemsNoTahvilFrosh)
-            //{
-            //    //اگر کد میخواند ولی تعداد نمی خواند
-            //    var ghy = TahvilFroshs.Where(h => h.CodeKala == item.CodeKala).Where(d => !d.IsOk).ToList();
-            //    if (ghy.Count==1)
-            //    {
-            //        if (item.Tedad!=ghy[0].Tedad)
-            //        {
-            //            Errors.Add("احتمالا تعداد کالای " +
-            //                item.Kala + " بجای " + item.Tedad + " عدد " +
-            //                ghy[0].Tedad + " عدد در تحویل فروش ثبت شده است");
-            //            ghy[0].TahvilFroshNum = -1;
-            //        }
-            //    }
-
-            //    //شماره تحویل فروش هایی که با این  ایتم هم مقصد و هم راننده هستند
-            //    var tahvilnumbers = sefaresh.Items
-            //        .Where(t => t.TahvilFrosh > 0)
-            //        .Where(y => y.Maghsad == item.Maghsad)
-            //        .Where(k => k.Ranande == item.Ranande)
-            //        .Where(tt => tt.IsImenKala == item.IsImenKala)
-            //        .Select(i => i.TahvilFrosh)
-            //        .Distinct();
-            //    //چون اگر صفر یا بیشتر از یک باشد هیچ کاری نمی توانیم بکنیم
-            //    if (tahvilnumbers.Count()==1)
-            //    {
-            //        item.TahvilFrosh = tahvilnumbers.First();
-            //        var oi = TahvilFroshs
-            //            .Where(u => u.CodeKala == item.CodeKala)
-            //            .Where(y => y.TahvilFroshNum == tahvilnumbers.First())
-            //            .FirstOrDefault();
-            //        if (oi!=null)
-            //        {
-            //            oi.IsOk = true;
-            //        }
-                    
-            //    }
-            //    //else
-            //    //{
-            //    //    string defd = "برای کالای " + item.Kala
-            //    //        + " ارسالی به " + item.Maghsad + " "
-            //    //        + tahvilnumbers.Count() + " تحویل فروش داریم ";
-            //    //    foreach (var ss in tahvilnumbers)
-            //    //    {
-            //    //        defd += tahvilnumbers + "-";
-
-            //    //    }
-
-            //    //    Errors.Add(defd);
-            //    //}
-            //}
-
-
-            //foreach (var itemi in sefareshItemMoreThanOneTahvil)
-            //{
-            //    //اگر کد میخواند ولی تعداد نمی خواند
-            //    var ghy = TahvilFroshs.Where(h => h.CodeKala == itemi.CodeKala).Where(d => !d.IsOk).ToList();
-            //    if (ghy.Count==1)
-            //    {
-            //        if (itemi.Tedad!=ghy[0].Tedad)
-            //        {
-            //            Errors.Add("احتمالا تعداد کالای " + itemi.Kala + " بجای " + itemi.Tedad + " عدد " + ghy[0].Tedad + " عدد در تحویل فروش ثبت شده است");
-            //            ghy[0].TahvilFroshNum = -1;
-            //        }
-            //    }
-            //    //سفارش هایی که با این سفارش هم راننده و هم مقصد هستن ، شماره تحویل فروش هاش رو میاریم
-            //    var pofd = sefaresh.Items
-            //        .Where(iu => iu.Ranande == itemi.Ranande)
-            //        .Where(tt => tt.Maghsad == itemi.Maghsad)
-            //        .Where(tt => tt.IsImenKala == itemi.IsImenKala)
-            //        .Where(p => p.TahvilFrosh > 0);
-            //    var y = pofd.Select(t => t.TahvilFrosh).Distinct();
-            //    if (y.Count()==1)
-            //    {
-            //        var sad = TahvilFroshs
-            //                .Where(te => !te.IsOk)
-            //                .Where(hd => hd.Tedad == itemi.Tedad)
-            //                .Where(hd => hd.CodeKala == itemi.CodeKala)
-            //                .Where(zx=>zx.TahvilFroshNum==y.First())
-            //                .FirstOrDefault();
-            //        //چک میکنیم این شماره تحویل فروش تو لیست اوکی نشده های تحویل فروش هست یا نه
-            //        if (sad != null)
-            //        {
-            //            // اگر بود این شماره رو میدیم به آیتم
-            //            itemi.TahvilFrosh = y.First();
-            //            sad.IsOk = true;
-            //        }
-            //    }
-            //    else if (y.Count() > 1)
-            //    {
-            //         string defd = "برای کالای " + itemi.Kala
-            //            + " ارسالی به " + itemi.Maghsad + " "
-            //            + y.Count() + " تحویل فروش داریم ";
-
-
-            //         foreach (var ss in y)
-            //         {
-            //             defd += y + "-";
-                         
-            //         }
-
-            //         Errors.Add(defd);
-            //    }
-                //foreach (var sde in y)
-                //{
-                //    if (sde > 0)
-                //    {
-                //        var sad = TahvilFroshs
-                //            .Where(te => !te.IsOk)
-                //            .Where(hj => hj.TahvilFroshNum == sde)
-                //            .Where(hd=>hd.Maghsad==itemi.Maghsad)
-                //            .Where(hd => hd.CodeKala == itemi.CodeKala)
-                //            .FirstOrDefault();
-                //        //چک میکنیم این شماره تحویل فروش تو لیست اوکی نشده های تحویل فروش هست یا نه
-                //        if (sad != null)
-                //        {
-                //            // اگر بود این شماره رو میدیم به آیتم
-                //            itemi.TahvilFrosh = sad.TahvilFroshNum;
-                //            sad.IsOk = true;
-                //        }
-                //    }
-                //}
-            //}
-            
 
             
         }
@@ -317,7 +177,9 @@ namespace OrdersAndisheh.ViewModel
             short e = 0;
             foreach (var ismd in tahvilWithSameMDAndTahvilOk)
             {
-                var find = tahvilsWithSameItemCode.Where(p => p.TahvilFroshNum == ismd).ToList();
+                var find = tahvilsWithSameItemCode
+                    .Where(p => p.TahvilFroshNum == ismd)
+                    .ToList();
                 if (find.Count==1)
                 {
                     find.First().IsOk = true;
@@ -353,12 +215,16 @@ namespace OrdersAndisheh.ViewModel
                     tahvilsWithSameCodeKala.First().IsOk = true;
                     return tahvilsWithSameCodeKala.First().TahvilFroshNum;
                 }
-                else
+                else if (item.TahvilFrosh != -1)
                 {
                     Errors.Add("احتمالا تعداد کالای " +
-                           item.Kala + " بجای " + item.Tedad + " عدد " +
-                           tahvilsWithSameCodeKala.First().Tedad + " عدد در تحویل فروش ثبت شده است");
+                       item.Kala + " بجای " + tahvilsWithSameCodeKala.First().Tedad + " عدد " +
+                       item.Tedad + " عدد در تحویل فروش ثبت شده است");
                     return -1;
+                }
+                else
+                {
+                    return 0;
                 }
                 
             }
