@@ -24,7 +24,7 @@ namespace OrdersAndisheh.ViewModel
         public MainViewModel(ISefareshService service)
         {
             ss = new SefareshService();
-            
+            //''''
             
 
             sefaresh = new Sefaresh();
