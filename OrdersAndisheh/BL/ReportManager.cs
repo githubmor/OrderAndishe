@@ -51,25 +51,7 @@ namespace OrdersAndisheh.BL
                 });
                     pos += 1;
             }
-            //foreach (var item in sefaresh.Items)
-            //{
-            //    if (item.PalletCount>0)
-            //    {
-            //        if (item.Product.Pallet.Vazn>120)
-            //        {
-            //            item.Des = item.PalletCount + "پالت فلزی";
-            //        }
-            //        else
-            //        {
-            //            item.Des = item.PalletCount + "پالت چوبی";
-            //        }
 
-            //    }
-            //    else
-            //    {
-            //        item.Des = item.Karton + "کارتن / سبد";
-            //    }
-            //}
             FileManagar fg = new FileManagar(reportRows,"");
             fg.CreatDriverFile("Driver");
         }
@@ -259,6 +241,31 @@ namespace OrdersAndisheh.BL
             }
             return val;
         }
-        
+
+
+        public void CreatDriverErsalListReport()
+        {
+            int pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Maghsad = b.Maghsad
+                    ,
+                    Ranande = (b.Driver.TempDriver == null ? b.Ranande : "           ")
+                    ,
+                    Pallet = b.PalletCount.ToString(),
+                    Karton = b.Karton
+                });
+                pos += 1;
+            }
+
+            FileManagar fg = new FileManagar(reportRows, "");
+            fg.CreatDriverErsalFile("DriverErsal");
+        }
     }
 }

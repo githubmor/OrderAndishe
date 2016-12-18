@@ -122,8 +122,32 @@ namespace BL
             }
             
         }
-        
-        
+
+
+
+        public void CreatDriverErsalFile(string fileName)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select a folder";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    path = dlg.SelectedPath;
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        fileName = "Report";
+                    }
+
+                    StiReport mainreport = new StiReport();
+                    mainreport.RegBusinessObject("Items", ReportRows);
+                    mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\DriverErsalListReport.mrt");
+                    mainreport.Render();
+                    mainreport.Show();
+                    mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
+                }
+            }
+        }
     }
     public class Header
     {

@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>89</ApplicationRevision>
+    <ApplicationRevision>95</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -305,6 +305,7 @@
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\Baste.cs" />
+    <Compile Include="DBL\DriverWork.cs" />
     <Compile Include="DBL\TempDriver.cs" />
     <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\Bazres.cs" />
@@ -549,6 +550,9 @@
     <Content Include="Report\DriverListReport.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Report\DriverErsalListReport.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\nok.jpg" />
     <Resource Include="Images\ok.jpg" />
     <Content Include="Report\Report.mrt">
@@ -585,12 +589,12 @@
   <ItemGroup>
     <PublishFile Include="DevExpress.Office.v15.1.Core">
       <Visible>False</Visible>
-      <PublishState>Auto</PublishState>
-      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

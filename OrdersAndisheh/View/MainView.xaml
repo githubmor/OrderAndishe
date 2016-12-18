@@ -149,6 +149,8 @@
         		VerticalAlignment="Top" Width="116" Command="{Binding SelectDriver, Mode=OneWay}"/>
             <Button Content="برگه کاور رانندگان" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding CreatDriverReport, Mode=OneWay}"/>
+            <Button Content="لیست ارسال رانندگان" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreatDriverErsalListReport, Mode=OneWay}"/>
             <Button Content="نمایش کالا ها" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding ShowGoods, Mode=OneWay}"/>
             <Button Content="نمایش راننده ها" HorizontalAlignment="Left" 

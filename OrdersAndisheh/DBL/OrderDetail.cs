@@ -27,6 +27,7 @@ namespace OrdersAndisheh.DBL
         
         public int? Driver_Id { get; set; }
 
+
         public int OrderId { get; set; }
 
         public byte ItemType { get; set; }
@@ -39,5 +40,6 @@ namespace OrdersAndisheh.DBL
 
         public virtual Product Product { get; set; }
         public virtual MOracle MOracle { get; set; }
+        public virtual DriverWork DriverWork { get; set; }
     }
 }

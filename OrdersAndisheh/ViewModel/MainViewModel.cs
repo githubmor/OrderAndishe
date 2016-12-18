@@ -915,6 +915,37 @@ namespace OrdersAndisheh.ViewModel
                 MessageBox.Show(rrr.Message.ToString()); ;
             }
         }
+
+
+        private RelayCommand _myCommand55666;
+
+        /// <summary>
+        /// Gets the CreatDriverErsalListReport.
+        /// </summary>
+        public RelayCommand CreatDriverErsalListReport
+        {
+            get
+            {
+                return _myCommand55666
+                    ?? (_myCommand55666 = new RelayCommand(ExecuteCreatDriverErsalListReport));
+            }
+        }
+
+        private void ExecuteCreatDriverErsalListReport()
+        {
+            try
+            {
+                ReportManager rp = new ReportManager(sefaresh);
+                rp.CreatDriverErsalListReport();
+            }
+            catch (Exception rrr)
+            {
+
+                MessageBox.Show(rrr.Message.ToString()); ;
+            }
+        }
+
+
     }
 
     public static class ObservableCollectionExtensions
