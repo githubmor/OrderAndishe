@@ -547,6 +547,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Content Include="OrderDbCompact.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Report\DriverListReport.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
