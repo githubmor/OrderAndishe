@@ -8,10 +8,7 @@ namespace OrdersAndisheh.DBL
     [Table("MOracle")]
     public class MOracle
     {
-        public MOracle()
-        {
-            //Products = new HashSet<Product>();
-        }
+       
         public int Id { get; set; }
 
         [StringLength(10)]

@@ -155,6 +155,10 @@
         		VerticalAlignment="Top" Width="116" Command="{Binding ShowGoods, Mode=OneWay}"/>
             <Button Content="نمایش راننده ها" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding ShowDrivers, Mode=OneWay}"/>
+            <Button Content="كارهاي رانندگان" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding DriverWorksSet, Mode=OneWay}"/>
+            <Button Content="موجودي ابتداي امروز" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding GoodsLastAmount, Mode=OneWay}"/>
         </WrapPanel>
         <StackPanel  Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
             <Label Content="{Binding DriversVazn}" />

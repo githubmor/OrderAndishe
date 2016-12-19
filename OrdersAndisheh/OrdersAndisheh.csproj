@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>95</ApplicationRevision>
+    <ApplicationRevision>97</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -374,6 +374,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModel\DriverContainerViewModel.cs" />
     <Compile Include="ViewModel\DriverSelectionViewModel.cs" />
+    <Compile Include="ViewModel\DriverWorksViewModel.cs" />
     <Compile Include="ViewModel\FirstViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
@@ -386,6 +387,9 @@
     </Compile>
     <Compile Include="View\DriversView.xaml.cs">
       <DependentUpon>DriversView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DriverWorksView.xaml.cs">
+      <DependentUpon>DriverWorksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
@@ -485,6 +489,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DriverWorksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FirstView.xaml">
       <SubType>Form</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -547,9 +555,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Content Include="OrderDbCompact.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Report\DriverListReport.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -592,12 +597,12 @@
   <ItemGroup>
     <PublishFile Include="DevExpress.Office.v15.1.Core">
       <Visible>False</Visible>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Auto</PublishState>
-      <IncludeHash>False</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

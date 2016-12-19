@@ -1,0 +1,22 @@
+﻿<Window x:Class="OrdersAndisheh.View.DriverWorksView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DriverWorks" >
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="424*"/>
+        </Grid.RowDefinitions>
+        <ComboBox ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding SaveWorks}" Content="Button" HorizontalAlignment="Left" Margin="675,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox Text="{Binding Works}" HorizontalAlignment="Left" AcceptsReturn="True" Height="63" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="535"/>
+        <ListView ItemsSource="{Binding DriverWorks}" HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="760" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

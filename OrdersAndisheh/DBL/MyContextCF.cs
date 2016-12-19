@@ -90,9 +90,10 @@ namespace OrdersAndisheh.DBL
                 .WithRequired(p => p.OrderDetail)
                 .WillCascadeOnDelete(true);
 
-            modelBuilder.Entity<DriverWork>()
-                .HasRequired(p => p.OrderDetail)
-                .WithOptional(p => p.DriverWork);
+            modelBuilder.Entity<OrderDetail>()
+                .HasOptional(e => e.DriverWork)
+                .WithRequired(e => e.OrderDetail)
+                .WillCascadeOnDelete(true);
                 
 
             modelBuilder.Entity<Product>()

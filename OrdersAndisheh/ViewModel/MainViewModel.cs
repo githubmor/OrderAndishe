@@ -945,6 +945,35 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
+        private RelayCommand _myCommand465666;
+
+        /// <summary>
+        /// Gets the DriverWorksSet.
+        /// </summary>
+        public RelayCommand DriverWorksSet
+        {
+            get
+            {
+                return _myCommand465666 ?? (_myCommand465666 = new RelayCommand(
+                    ExecuteDriverWorksSet,
+                    CanExecuteDriverWorksSet));
+            }
+        }
+
+        private void ExecuteDriverWorksSet()
+        {
+            List<Driver> d = Items.Where(p=>p.Driver!=null).Select(p=>p.Driver).ToList();
+            DriverWorksViewModel vm = new DriverWorksViewModel(d);
+            DriverWorksView v = new DriverWorksView();
+            v.DataContext = vm;
+            v.ShowDialog();
+        }
+
+        private bool CanExecuteDriverWorksSet()
+        {
+            return Items.Any(p=>p.Driver!=null);
+        }
+
 
     }
 
