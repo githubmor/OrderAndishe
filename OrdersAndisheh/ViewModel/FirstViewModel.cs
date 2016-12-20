@@ -527,8 +527,8 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDataUIEdition()
         {
-            DataUIView v = new DataUIView();
-            v.Show();
+            //DataUIView v = new DataUIView();
+            //v.Show();
         }
 
         private RelayCommand _myCommand6459653;

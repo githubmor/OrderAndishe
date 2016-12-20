@@ -254,7 +254,7 @@ namespace BL
                 .Include("OrderDetails.Driver.TempDriver")
                 .Include("OrderDetails.Product")
                 .OrderBy(o => o.Id)
-                .Where(i=>!i.Accepted)
+                //.Where(i=>!i.Accepted) فعلا تا فعال کردن قابلیت برگرداندن تثبیت شده ها 
                 .ToList();
             foreach (var item in p)
             {
