@@ -116,6 +116,10 @@ namespace OrdersAndisheh.ViewModel
 
         private void CalculateSefareshWithData()
         {
+            foreach (var g in sefaresh.Items)
+            {
+                g.TahvilFrosh = 0;
+            }
             CheckMoreThanOneTarikh();
 
             int NotOkCount = 0;
@@ -166,9 +170,7 @@ namespace OrdersAndisheh.ViewModel
             }
 
             RaisePropertyChanged(() => Errors);
-
-
-            
+            RaisePropertyChanged(() => ErsalListForTahvilFrosh);
         }
 
         private short CheckBySameTahvilNumber(ItemSefaresh item, List<short> tahvilWithSameMDAndTahvilOk,
@@ -260,8 +262,27 @@ namespace OrdersAndisheh.ViewModel
             
         }
 
-        private RelayCommand _myCommand145;
+        //private RelayCommand _myCommand145;
 
+        ///// <summary>
+        ///// Gets the SaveTahvilFrosh.
+        ///// </summary>
+        //public RelayCommand SaveTahvilFrosh
+        //{
+        //    get
+        //    {
+        //        return _myCommand145
+        //            ?? (_myCommand145 = new RelayCommand(ExecuteSaveTahvilFrosh));
+        //    }
+        //}
+
+        //private void ExecuteSaveTahvilFrosh()
+        //{
+        //    MessageBox.Show(sefaresh.Items.Count.ToString());
+        //    ss.Save();
+        //}
+        private RelayCommand _myCommand55555772;
+            
         /// <summary>
         /// Gets the SaveTahvilFrosh.
         /// </summary>
@@ -269,15 +290,21 @@ namespace OrdersAndisheh.ViewModel
         {
             get
             {
-                return _myCommand145
-                    ?? (_myCommand145 = new RelayCommand(ExecuteSaveTahvilFrosh));
+                return _myCommand55555772 ?? (_myCommand55555772 = new RelayCommand(
+                    ExecuteSaveTahvilFrosh,
+                    CanExecuteSaveTahvilFrosh));
             }
         }
 
         private void ExecuteSaveTahvilFrosh()
         {
-            MessageBox.Show(sefaresh.Items.Count.ToString());
+            MessageBox.Show("تحویل فروش  تاریخ " + sefaresh.Tarikh + " ثبت شد " );
             ss.Save();
+        }
+
+        private bool CanExecuteSaveTahvilFrosh()
+        {
+            return !sefaresh.Items.Any(p=>p.TahvilFrosh<1);
         }
         
     }

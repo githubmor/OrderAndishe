@@ -262,11 +262,7 @@
     <Compile Include="BL\ReportRow.cs" />
     <Compile Include="BL\Sefaresh.cs" />
     <Compile Include="BL\SefareshService.cs" />
-    <Compile Include="Common\CommonResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommonResources.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Common\CommonResources.Designer.cs" />
     <Compile Include="Common\DataModel\DbExceptions.cs" />
     <Compile Include="Common\DataModel\DesignTime\DesignTimeInstantFeedbackSource.cs" />
     <Compile Include="Common\DataModel\DesignTime\DesignTimeReadOnlyRepository.cs" />
@@ -284,11 +280,7 @@
     <Compile Include="Common\DataModel\IRepository.cs" />
     <Compile Include="Common\DataModel\IUnitOfWork.cs" />
     <Compile Include="Common\DataModel\UnitOfWorkBase.cs" />
-    <Compile Include="Common\LayoutSettings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>LayoutSettings.settings</DependentUpon>
-    </Compile>
+    <Compile Include="Common\LayoutSettings.Designer.cs" />
     <Compile Include="Common\Utils\DbExtensions.cs" />
     <Compile Include="Common\Utils\ExpressionHelper.cs" />
     <Compile Include="Common\ViewModel\CollectionViewModel.cs" />
@@ -529,18 +521,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Common\CommonResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Common\CommonResources.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Common\LayoutSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>LayoutSettings.Designer.cs</LastGenOutput>
-    </None>
+    <None Include="Common\LayoutSettings.settings" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
