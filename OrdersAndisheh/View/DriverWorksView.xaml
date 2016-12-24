@@ -7,16 +7,27 @@
             <RowDefinition Height="81*"/>
             <RowDefinition Height="424*"/>
         </Grid.RowDefinitions>
-        <ComboBox ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Command="{Binding SaveWorks}" Content="Button" HorizontalAlignment="Left" Margin="675,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding SaveDriverWork}" Content="Button" HorizontalAlignment="Left" Margin="675,10,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox Text="{Binding Works}" HorizontalAlignment="Left" AcceptsReturn="True" Height="63" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="535"/>
-        <ListView ItemsSource="{Binding DriverWorks}" HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="760" Grid.Row="1">
+        <DataGrid 
+            HorizontalAlignment="Stretch" 
+            ItemsSource="{Binding DriverWorks}" 
+            SelectedItem="{Binding SelectedDriverWork}" 
+            Grid.Row="1" 
+            VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="راننده" Binding="{Binding Driver.Name}"/>
+                <DataGridTextColumn Header="کارها" Binding="{Binding Works}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<ListView ItemsSource="{Binding DriverWorks}" SelectedItem="{Binding SelectedDriverWork}" HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="760" Grid.Row="1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="راننده" t/>
                 </GridView>
             </ListView.View>
-        </ListView>
+        </ListView>-->
 
     </Grid>
 </Window>

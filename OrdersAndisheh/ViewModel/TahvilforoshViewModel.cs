@@ -220,8 +220,9 @@ namespace OrdersAndisheh.ViewModel
                 else if (item.TahvilFrosh != -1)
                 {
                     Errors.Add("احتمالا تعداد کالای " +
-                       item.Kala + " بجای " + tahvilsWithSameCodeKala.First().Tedad + " عدد " +
-                       item.Tedad + " عدد در تحویل فروش ثبت شده است");
+                       item.Kala + " بجای " + item.Tedad + " عدد " +
+                        tahvilsWithSameCodeKala.First().Tedad + " عدد در تحویل فروش " 
+                        + tahvilsWithSameCodeKala.First().TahvilFroshNum + " ثبت شده است");
                     return -1;
                 }
                 else
@@ -242,8 +243,6 @@ namespace OrdersAndisheh.ViewModel
                 return 0;
             }
         }
-
-
         private void CheckMoreThanOneTarikh()
         {
             List<string> tar = TahvilFroshs.Select(p => p.TarikhSanad).Distinct().ToList();
@@ -258,29 +257,8 @@ namespace OrdersAndisheh.ViewModel
                 rr = "فایل شامل اسناد بیش از یک تاریخ می باشد " + tarikhha;
                 Errors.Add(rr);
             }
-
-            
         }
 
-        //private RelayCommand _myCommand145;
-
-        ///// <summary>
-        ///// Gets the SaveTahvilFrosh.
-        ///// </summary>
-        //public RelayCommand SaveTahvilFrosh
-        //{
-        //    get
-        //    {
-        //        return _myCommand145
-        //            ?? (_myCommand145 = new RelayCommand(ExecuteSaveTahvilFrosh));
-        //    }
-        //}
-
-        //private void ExecuteSaveTahvilFrosh()
-        //{
-        //    MessageBox.Show(sefaresh.Items.Count.ToString());
-        //    ss.Save();
-        //}
         private RelayCommand _myCommand55555772;
             
         /// <summary>

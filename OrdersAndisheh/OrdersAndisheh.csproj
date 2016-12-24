@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>98</ApplicationRevision>
+    <ApplicationRevision>100</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -249,6 +249,7 @@
     <Compile Include="BL\AlarmManager.cs" />
     <Compile Include="BL\CheckSefaresh.cs" />
     <Compile Include="BL\DriverReport.cs" />
+    <Compile Include="BL\DriverWorksDto.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />

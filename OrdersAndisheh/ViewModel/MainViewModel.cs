@@ -605,6 +605,7 @@ namespace OrdersAndisheh.ViewModel
         {
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatAllBazresReportOnDeskTop();
+            RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateBazresLists()
@@ -632,6 +633,7 @@ namespace OrdersAndisheh.ViewModel
         {
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatListErsalReportOnDeskTop();
+            RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreatListErsal()
@@ -660,6 +662,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatAnbarReportOnDeskTop();
+                RaisePropertyChanged(() => Items);
             }
             catch (Exception rt)
             {
@@ -725,6 +728,7 @@ namespace OrdersAndisheh.ViewModel
         {
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatAndishehReportOnDeskTop();
+            RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateAndishehList()
@@ -761,6 +765,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatKontrolReportOnDeskTop();
+                RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
             {
@@ -836,7 +841,7 @@ namespace OrdersAndisheh.ViewModel
             v.DataContext = vm;
             Messenger.Default.Send<string>(Tarikh, "ThisSefaresh");
             v.ShowDialog();
-            //LoadThisDateSefaresh(Tarikh);
+            RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteSelectDriver()
@@ -865,6 +870,7 @@ namespace OrdersAndisheh.ViewModel
         {
             ProductsView p = new ProductsView();
             p.ShowDialog();
+            RaisePropertyChanged(() => Items);
         }
 
         private RelayCommand _myCommand746567;
@@ -885,6 +891,7 @@ namespace OrdersAndisheh.ViewModel
         {
             DriversView p = new DriversView();
             p.ShowDialog();
+            RaisePropertyChanged(() => Items);
         }
 
 
@@ -908,6 +915,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatDriverReport();
+                RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
             {
@@ -937,6 +945,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatDriverErsalListReport();
+                RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
             {
@@ -962,11 +971,11 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteDriverWorksSet()
         {
-            List<Driver> d = Items.Where(p=>p.Driver!=null).Select(p=>p.Driver).ToList();
-            DriverWorksViewModel vm = new DriverWorksViewModel(d);
+            DriverWorksViewModel vm = new DriverWorksViewModel(sefaresh.Tarikh);
             DriverWorksView v = new DriverWorksView();
             v.DataContext = vm;
             v.ShowDialog();
+            RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteDriverWorksSet()

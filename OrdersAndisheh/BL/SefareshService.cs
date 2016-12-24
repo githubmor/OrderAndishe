@@ -253,7 +253,7 @@ namespace BL
                 .Include("OrderDetails.Driver")
                 .Include("OrderDetails.Driver.TempDriver")
                 .Include("OrderDetails.Product")
-                .OrderBy(o => o.Id)
+                .OrderByDescending(o => o.Id)
                 //.Where(i=>!i.Accepted) فعلا تا فعال کردن قابلیت برگرداندن تثبیت شده ها 
                 .ToList();
             foreach (var item in p)
@@ -262,6 +262,42 @@ namespace BL
             }
             return sd;
 
+        }
+
+        //public List<DriverWork> LoadAllDriverWorkForThisSefaresh(Order order)
+        //{
+        //    return db.DriverWork.Where(p => p.Order.Id == order.Id)
+        //        .Include("Order")
+        //        .Include("Driver")
+        //        .ToList();
+        //}
+
+        public void SaveDriverWorks(DriverWork SelectedDriverWork)
+        {
+            db.DriverWork.Add(SelectedDriverWork);
+            db.SaveChanges();
+        }
+
+        public List<Driver> LoadDriversForThisSefaresh(Order order)
+        {
+            List<Driver> dr = new List<Driver>();
+            var t = db.Orders.Where(p => p.Id == order.Id).Include("OrderDetails.Driver").FirstOrDefault();
+
+            foreach (var item in t.OrderDetails)
+            {
+                dr.Add(item.Driver);
+            }
+
+            return dr.Distinct().ToList();
+        }
+
+        public Order LoadThisSefareshWithAllDriverWork(string sefareshtarikh)
+        {
+            return db.Orders
+                .Where(p => p.Tarikh == sefareshtarikh)
+                .Include("DriverWorks")
+                .Include("DriverWorks.Driver")
+                .FirstOrDefault();
         }
     }
 }

@@ -90,11 +90,17 @@ namespace OrdersAndisheh.DBL
                 .WithRequired(p => p.OrderDetail)
                 .WillCascadeOnDelete(true);
 
-            modelBuilder.Entity<OrderDetail>()
-                .HasOptional(e => e.DriverWork)
-                .WithRequired(e => e.OrderDetail)
-                .WillCascadeOnDelete(true);
-                
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.DriverWorks)
+                .WithRequired(e => e.Order)
+                .HasForeignKey(p=>p.OrderId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Driver>()
+                .HasMany(e => e.DriverWorks)
+                .WithRequired(e => e.Driver)
+                .HasForeignKey(p=>p.DriverId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails)

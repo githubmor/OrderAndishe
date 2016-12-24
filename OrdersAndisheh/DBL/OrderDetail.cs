@@ -40,6 +40,6 @@ namespace OrdersAndisheh.DBL
 
         public virtual Product Product { get; set; }
         public virtual MOracle MOracle { get; set; }
-        public virtual DriverWork DriverWork { get; set; }
+        
     }
 }

@@ -12,6 +12,7 @@ namespace OrdersAndisheh.DBL
         public Order()
         {
             OrderDetails = new HashSet<OrderDetail>();
+            DriverWorks = new HashSet<DriverWork>();
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -32,6 +33,7 @@ namespace OrdersAndisheh.DBL
         public bool Accepted { get; set; }
         public string Description { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<DriverWork> DriverWorks { get; set; }
 
         //private int calId()
         //{

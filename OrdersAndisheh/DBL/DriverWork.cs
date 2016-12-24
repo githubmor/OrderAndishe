@@ -1,22 +1,19 @@
 ﻿
 namespace OrdersAndisheh.DBL
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     [Table("DriverWork")]
     public class DriverWork
     {
-       
-        [ForeignKey("OrderDetail")]
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int DriverWorkId { get; set; }
 
         public string Works { get; set; }
 
-        public virtual OrderDetail OrderDetail { get; set; }
+        public int OrderId { get; set; }
+        public virtual Order Order { get; set; }
+        public int DriverId { get; set; }
+        public virtual Driver Driver { get; set; }
     }
 }

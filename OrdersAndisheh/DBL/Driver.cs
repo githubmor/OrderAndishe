@@ -12,6 +12,7 @@ namespace OrdersAndisheh.DBL
         public Driver()
         {
             OrderDetails = new HashSet<OrderDetail>();
+            DriverWorks = new HashSet<DriverWork>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -41,6 +42,7 @@ namespace OrdersAndisheh.DBL
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         //public int? TempDriverId { get; set; }
         public virtual TempDriver TempDriver { get; set; }
+        public virtual ICollection<DriverWork> DriverWorks { get; set; }
 
         //public override string ToString()
         //{
