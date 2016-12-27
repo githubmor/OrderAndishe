@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>100</ApplicationRevision>
+    <ApplicationRevision>109</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -73,6 +73,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>OrderAndisheh.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v15.1.Core">
@@ -247,9 +250,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\AlarmManager.cs" />
+    <Compile Include="BL\CheckList.cs" />
     <Compile Include="BL\CheckSefaresh.cs" />
-    <Compile Include="BL\DriverReport.cs" />
-    <Compile Include="BL\DriverWorksDto.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />
@@ -381,6 +383,9 @@
     <Compile Include="View\DriverWorksView.xaml.cs">
       <DependentUpon>DriverWorksView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomersView.xaml.cs">
+      <DependentUpon>CustomersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
@@ -491,6 +496,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CustomersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -535,6 +544,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Content Include="Report\Report2.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\CheckListReport.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="OrderAndisheh.ico" />
     <Content Include="Report\DriverListReport.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

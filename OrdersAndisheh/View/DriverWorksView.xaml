@@ -12,6 +12,7 @@
         <TextBox Text="{Binding Works}" HorizontalAlignment="Left" AcceptsReturn="True" Height="63" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="535"/>
         <DataGrid 
             HorizontalAlignment="Stretch" 
+            AutoGenerateColumns="False"
             ItemsSource="{Binding DriverWorks}" 
             SelectedItem="{Binding SelectedDriverWork}" 
             Grid.Row="1" 

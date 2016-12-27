@@ -5,6 +5,7 @@
         xmlns:UI="clr-namespace:OrdersAndisheh.View" 
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        Title="ارسال محصول"
         >
     <!--xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"-->
     <Window.Resources>

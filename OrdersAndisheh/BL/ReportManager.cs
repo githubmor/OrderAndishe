@@ -14,7 +14,7 @@ namespace OrdersAndisheh.BL
     public class ReportManager
     {
         private Sefaresh sefaresh;
-
+        SefareshService service;
         public ReportManager(Sefaresh sefaresh)
         {
             if (sefaresh==null)
@@ -31,12 +31,14 @@ namespace OrdersAndisheh.BL
                 .OrderBy(p => p.Ranande)
                 .ThenBy(p => p.ItemKind)
                 .ThenBy(p => p.Maghsad).ToList());
+            service = new SefareshService();
         }
 
         public void CreatDriverReport()
         {
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
+            var DrsWorks = service.LoadDriverWorksForThisSefaresh(sefaresh.SefareshId);
             foreach (var b in sefaresh.Items)
             {
                 reportRows.Add(new ReportRow()
@@ -51,8 +53,7 @@ namespace OrdersAndisheh.BL
                 });
                     pos += 1;
             }
-
-            FileManagar fg = new FileManagar(reportRows,"");
+            FileManagar fg = new FileManagar(reportRows, "");
             fg.CreatDriverFile("Driver");
         }
 
@@ -184,23 +185,24 @@ namespace OrdersAndisheh.BL
             fg.CreatFile("Kontrol");
         }
 
+        public void CreatCheckListErsalOnDeskTop()
+        {
+            List<CheckList> cs = new List<CheckList>();
+            foreach (var item in sefaresh.Items)
+            {
+                cs.Add(new CheckList() { KalaName = item.Kala,CodeKala = item.CodeKala });
+            }
+
+            FileManagar f = new FileManagar(cs, sefaresh.Tarikh);
+            f.CreatCheckListFile();
+            
+        }
         public void CreatListErsalReportOnDeskTop()
         {
             int pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            string lastDriver = "";//, lastDes = "";
-            //sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande)
-            //    .ThenBy(p => p.Maghsad).ThenBy(p => p.ItemKind).ToList());
             foreach (var b in sefaresh.Items)
             {
-                if (lastDriver!="")
-                {
-                    if ( b.Ranande!=lastDriver)
-                    {
-                        reportRows.Add(new ReportRow() { Position = pos, Kala = "khali" });
-                        pos += 1;
-                    }
-                }
                 reportRows.Add(new ReportRow() 
                 { 
                     Position = pos,
@@ -212,10 +214,6 @@ namespace OrdersAndisheh.BL
                     Ranande = (b.Driver.TempDriver == null ? b.Ranande : "")
                 });
                 pos += 1;
-                //lastDes = b.Maghsad;
-                lastDriver = b.Ranande;
-                
-                
             }
 
 

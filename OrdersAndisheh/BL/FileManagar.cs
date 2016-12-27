@@ -6,6 +6,7 @@
 //------------------------------------------------------------------------------
 namespace BL
 {
+    using OrdersAndisheh.BL;
     using Stimulsoft.Report;
     using System;
     using System.Collections.Generic;
@@ -16,18 +17,25 @@ namespace BL
 
 	public class FileManagar
 	{
-        
-        private List<ReportRow> ReportRows;
-        private string Tarikh;
-        //private ObservableCollection<ItemSefaresh> items;
-        
 
-        public FileManagar(List<ReportRow> reportRows,string Tarikh )
+        private List<ReportRow> ReportRows;
+        //private List<DriverReportRow> DriverReportRows;
+        private string Tarikh;
+        private List<CheckList> CheckList;
+        //private ObservableCollection<ItemSefaresh> items;
+
+
+        public FileManagar(List<ReportRow> reportRows, string Tarikh)
         {
             this.ReportRows = reportRows;
             this.Tarikh = Tarikh;
         }
 
+        public FileManagar(List<CheckList> reportRows, string Tarikh)
+        {
+            this.CheckList = reportRows;
+            this.Tarikh = Tarikh;
+        }
         //public FileManagar(ObservableCollection<ItemSefaresh> observableCollection)
         //{
         //    // TODO: Complete member initialization
@@ -82,7 +90,7 @@ namespace BL
                     StiReport mainreport = new StiReport();
                     mainreport.RegBusinessObject("Sefaresh", h);
                     mainreport.RegBusinessObject("Items", ReportRows);
-                    mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report.mrt");
+                    mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report2.mrt");
                     mainreport.Render();
                     mainreport.Show();
                     mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
@@ -123,7 +131,29 @@ namespace BL
             
         }
 
+        public void CreatCheckListFile()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select a folder";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
 
+                    path = dlg.SelectedPath;
+                    foreach (var item in CheckList)
+                    {
+                        StiReport mainreport = new StiReport();
+                        mainreport.RegBusinessObject("Item", item);
+                        mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
+                        mainreport.Render();
+                        //mainreport.Show();
+                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\CheckList\\" + item.CodeKala + ".pdf");
+                    }
+                }
+            }
+
+        }
 
         public void CreatDriverErsalFile(string fileName)
         {

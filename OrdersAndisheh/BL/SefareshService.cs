@@ -299,6 +299,11 @@ namespace BL
                 .Include("DriverWorks.Driver")
                 .FirstOrDefault();
         }
+
+        public List<DriverWork> LoadDriverWorksForThisSefaresh(int orderId)
+        {
+            return db.DriverWork.Where(p => p.OrderId == orderId).Include("Driver").ToList();
+        }
     }
 }
 

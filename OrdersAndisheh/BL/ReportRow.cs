@@ -6,12 +6,13 @@
 //------------------------------------------------------------------------------
 namespace BL
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
+    using OrdersAndisheh.BL;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
 
-	public class ReportRow
+	public class ReportRow 
 	{
         public int Position { get; set; }
         public string Kala { get; set; }
@@ -21,6 +22,7 @@ namespace BL
         public string Maghsad { get; set; }
         public string Vazn { get; set; }
         public string Ranande { get; set; }
+        
     }
 }
 

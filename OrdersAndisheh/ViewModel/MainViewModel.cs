@@ -227,8 +227,30 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => Tedad);
                 RaisePropertyChanged(() => PalletCount);
                 RaisePropertyChanged(() => Description);
+                RaisePropertyChanged(() => SelectedItemDriverIsTempDriver);
             }
         }
+
+        //private int myVar;
+
+        public bool  SelectedItemDriverIsTempDriver
+        {
+            get 
+            {
+                bool f = true;
+                if (SelecteddItem!=null)
+                {
+                    if (SelecteddItem.Driver!=null)
+                    {
+                        if (SelecteddItem.Driver.TempDriver != null)
+                            f = false;
+                    }
+                }
+                return f;
+            }
+            //set { myVar = value; }
+        }
+        
 
         private ItemSefaresh clickedItem;
         public ItemSefaresh ClickedItem
@@ -309,6 +331,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => Tedad);
                 RaisePropertyChanged(() => this.PalletCount);
                 RaisePropertyChanged(() => Description);
+                RaisePropertyChanged(() => SelectedItemDriverIsTempDriver);
 
             }
         }
@@ -319,7 +342,7 @@ namespace OrdersAndisheh.ViewModel
             get { return (SelecteddItem != null ? SelecteddItem.Kala : ""); }
         }
 
-        List<Driver> TempDriverForDelete = new List<Driver>();
+        //List<Driver> TempDriverForDelete = new List<Driver>();
 
         private Driver tempDriver;
 
@@ -331,21 +354,21 @@ namespace OrdersAndisheh.ViewModel
                 
                 if (SelecteddItem != null)
                 {
-                    if (SelecteddItem.Driver!=null)
-                    {
-                        if (SelecteddItem.Driver.TempDriver!=null)
-                        {
-                            TempDriverForDelete.Add(SelecteddItem.Driver);
-                        }
-                    }
+                    //if (SelecteddItem.Driver!=null)
+                    //{
+                    //    if (SelecteddItem.Driver.TempDriver!=null)
+                    //    {
+                    //        TempDriverForDelete.Add(SelecteddItem.Driver);
+                    //    }
+                    //}
                     SelecteddItem.Driver = value;
                 }
                 else if (value != null)
                 {
-                    if (value.TempDriver != null)//اگر راننده موقت انتخاب شد ببینه نگذاشته باشه برای حذف
-                    {
-                        TempDriverForDelete.Remove(value);
-                    }
+                    //if (value.TempDriver != null)//اگر راننده موقت انتخاب شد ببینه نگذاشته باشه برای حذف
+                    //{
+                    //    TempDriverForDelete.Remove(value);
+                    //}
                     tempDriver = value;
                 }
                 RaisePropertyChanged(() => SelectedDriver);
@@ -555,7 +578,7 @@ namespace OrdersAndisheh.ViewModel
                     IsEdit = true;
                     MessageBox.Show("اطلاعات سفارش روز "+Tarikh+" ذخیره شد");
                 }
-                ss.DelNoUsedTempDrivers(TempDriverForDelete);
+                //ss.DelNoUsedTempDrivers(TempDriverForDelete);
                 IsDirty = false;
                 ClickedItem = null;
                 RaisePropertyChanged(() => this.DriversVazn);
@@ -983,6 +1006,61 @@ namespace OrdersAndisheh.ViewModel
             return Items.Any(p=>p.Driver!=null);
         }
 
+        private RelayCommand _myCommand565656;
+
+        /// <summary>
+        /// Gets the ShowCustomer.
+        /// </summary>
+        public RelayCommand ShowCustomer
+        {
+            get
+            {
+                return _myCommand565656
+                    ?? (_myCommand565656 = new RelayCommand(ExecuteShowCustomer));
+            }
+        }
+
+        private void ExecuteShowCustomer()
+        {
+            CustomersView p = new CustomersView();
+            p.ShowDialog();
+            RaisePropertyChanged(() => Items);
+        }
+
+        private RelayCommand _myCommand5565656952;
+
+        /// <summary>
+        /// Gets the CreatCheckLists.
+        /// </summary>
+        public RelayCommand CreatCheckLists
+        {
+            get
+            {
+                return _myCommand5565656952 ?? (_myCommand5565656952 = new RelayCommand(
+                    ExecuteCreatCheckLists,
+                    CanExecuteCreatCheckLists));
+            }
+        }
+
+        private void ExecuteCreatCheckLists()
+        {
+            try
+            {
+                ReportManager rp = new ReportManager(sefaresh);
+                rp.CreatCheckListErsalOnDeskTop();
+                //RaisePropertyChanged(() => Items);
+            }
+            catch (Exception rrr)
+            {
+
+                MessageBox.Show(rrr.Message.ToString()); ;
+            }
+        }
+
+        private bool CanExecuteCreatCheckLists()
+        {
+            return true;
+        }
 
     }
 
