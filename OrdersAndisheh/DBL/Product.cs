@@ -35,6 +35,8 @@ namespace OrdersAndisheh.DBL
         [StringLength(150)]
         public string CodeJense { get; set; }
 
+        public string BasteBandi { get; set; }
+
         public short? TedadDarPallet { get; set; }
 
         public short? TedadDarSabad { get; set; }
