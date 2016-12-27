@@ -12,7 +12,7 @@ xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
 xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
 xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
 xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
-FlowDirection="RightToLeft"
+
 mc:Ignorable="d"
         d:DesignHeight="400" d:DesignWidth="600"
  DataContext="{dxmvvm:ViewModelSource viewmodel:ProductCollectionViewModel}"
@@ -37,7 +37,7 @@ mc:Ignorable="d"
             <dxwui:AppBarButton Label="Refresh" Command="{Binding RefreshCommand}" Glyph="{dx:DXImageGrayscale Image=Refresh_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
             <dxwui:AppBarButton Label="Print Preview" Command="{Binding TableViewCommands.ShowPrintPreviewDialog, ElementName=tableView}" Glyph="{dx:DXImageGrayscale Image=Preview_32x32.png}" IsEllipseEnabled="False" AllowGlyphTheming="True" GlyphStretch="None" HorizontalAlignment="Center" />
         </dxwui:AppBar>
-        <dxg:GridControl Name="gridControl" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" ShowLoadingPanel="{Binding IsLoading}" Margin="10">
+        <dxg:GridControl Name="gridControl" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" ShowLoadingPanel="{Binding IsLoading}" Margin="50,16,42,2">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand PassEventArgsToCommand="True" Command="{Binding EditCommand}" EventName="MouseDoubleClick">
                     <dxmvvm:EventToCommand.EventArgsConverter>
@@ -46,22 +46,28 @@ mc:Ignorable="d"
                 </dxmvvm:EventToCommand>
             </dxmvvm:Interaction.Behaviors>
             <dxg:GridControl.Columns>
-                <dxg:GridColumn IsSmart="True" FieldName="Code" Header="کد کالا" />
-                <dxg:GridColumn IsSmart="True" FieldName="Name" Header="نام کالا" />
-                <dxg:GridColumn IsSmart="True" FieldName="Weight" Header="وزن کل" />
-                <dxg:GridColumn IsSmart="True" FieldName="FaniCode" Header="شماره فنی" />
-                <dxg:GridColumn IsSmart="True" FieldName="CodeJense" Header="کد جنس" />
-                <dxg:GridColumn IsSmart="True" FieldName="TedadDarPallet" Header="تعداد در پالت" />
-                <dxg:GridColumn IsSmart="True" FieldName="TedadDarSabad"  Header="تعداد در سبد"/>
+                <dxg:GridColumn IsSmart="True" FieldName="Id" />
+                <dxg:GridColumn IsSmart="True" FieldName="Code" />
+                <dxg:GridColumn IsSmart="True" FieldName="Name" />
+                <dxg:GridColumn IsSmart="True" FieldName="Weight" />
+                <dxg:GridColumn IsSmart="True" FieldName="IsImenKala" />
+                <dxg:GridColumn IsSmart="True" FieldName="FaniCode" />
+                <dxg:GridColumn IsSmart="True" FieldName="CodeJense" />
+                <dxg:GridColumn IsSmart="True" FieldName="BasteBandi" />
+                <dxg:GridColumn IsSmart="True" FieldName="TedadDarPallet" />
+                <dxg:GridColumn IsSmart="True" FieldName="TedadDarSabad" />
+                <dxg:GridColumn FieldName="Bazre.Name" Header="Bazre" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Pallet.Name" Header="Pallet" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Baste.Name" Header="Baste" ReadOnly="True" />
             </dxg:GridControl.Columns>
-            <!--<dxg:GridControl.TotalSummary>
+            <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>
             </dxg:GridControl.TotalSummary>
             <dxg:GridControl.GroupSummary>
                 <dxg:GridSummaryItem SummaryType="Count"/>
-            </dxg:GridControl.GroupSummary>-->
+            </dxg:GridControl.GroupSummary>
             <dxg:GridControl.View>
-                <dxg:TableView Name="tableView" AllowEditing="True" ShowFixedTotalSummary="False" AllowPerPixelScrolling="True" ShowGroupPanel="False" ShowIndicator="False" ShowSearchPanelMode="Always" />
+                <dxg:TableView Name="tableView" AllowEditing="False" ShowFixedTotalSummary="True" AllowPerPixelScrolling="True" ShowGroupPanel="False" ShowIndicator="False" />
             </dxg:GridControl.View>
         </dxg:GridControl>
     </DockPanel>

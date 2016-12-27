@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.DriverCollectionView"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.BasteCollectionView"
 xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,7 +15,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 
 mc:Ignorable="d"
         d:DesignHeight="400" d:DesignWidth="600"
- DataContext="{dxmvvm:ViewModelSource viewmodel:DriverCollectionViewModel}"
+ DataContext="{dxmvvm:ViewModelSource viewmodel:BasteCollectionViewModel}"
  
 >
 
@@ -48,13 +48,6 @@ mc:Ignorable="d"
             <dxg:GridControl.Columns>
                 <dxg:GridColumn IsSmart="True" FieldName="Id" />
                 <dxg:GridColumn IsSmart="True" FieldName="Name" />
-                <dxg:GridColumn IsSmart="True" FieldName="Tel1" />
-                <dxg:GridColumn IsSmart="True" FieldName="Tel2" />
-                <dxg:GridColumn IsSmart="True" FieldName="Pelak" />
-                <dxg:GridColumn IsSmart="True" FieldName="Car" />
-                <dxg:GridColumn IsSmart="True" FieldName="Ton" />
-                <dxg:GridColumn IsSmart="True" FieldName="Tol" />
-                <dxg:GridColumn FieldName="TempDriver.Name" Header="Temp Driver" ReadOnly="True" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>

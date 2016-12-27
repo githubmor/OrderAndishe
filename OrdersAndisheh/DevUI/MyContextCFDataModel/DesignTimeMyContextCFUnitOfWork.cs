@@ -24,9 +24,9 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         {
         }
 
-        IRepository<Bazres, int> IMyContextCFUnitOfWork.Bazress
+        IRepository<Baste, int> IMyContextCFUnitOfWork.Bastes
         {
-            get { return GetRepository((Bazres x) => x.Id); }
+            get { return GetRepository((Baste x) => x.Id); }
         }
 
         IRepository<Product, int> IMyContextCFUnitOfWork.Products
@@ -34,14 +34,19 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
             get { return GetRepository((Product x) => x.Id); }
         }
 
+        IRepository<Bazres, int> IMyContextCFUnitOfWork.Bazress
+        {
+            get { return GetRepository((Bazres x) => x.Id); }
+        }
+
         IRepository<Customer, int> IMyContextCFUnitOfWork.Customers
         {
             get { return GetRepository((Customer x) => x.Id); }
         }
 
-        IReadOnlyRepository<CustomerProductRelation> IMyContextCFUnitOfWork.CustomerProductRelations
+        IRepository<CustomerProductRelation, int> IMyContextCFUnitOfWork.CustomerProductRelations
         {
-            get { return GetReadOnlyRepository<CustomerProductRelation>(); }
+            get { return GetRepository((CustomerProductRelation x) => x.Id); }
         }
 
         IRepository<Driver, int> IMyContextCFUnitOfWork.Drivers

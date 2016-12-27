@@ -18,14 +18,19 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
     {
 
         /// <summary>
-        /// The Bazres entities repository.
+        /// The Baste entities repository.
         /// </summary>
-        IRepository<Bazres, int> Bazress { get; }
+        IRepository<Baste, int> Bastes { get; }
 
         /// <summary>
         /// The Product entities repository.
         /// </summary>
         IRepository<Product, int> Products { get; }
+
+        /// <summary>
+        /// The Bazres entities repository.
+        /// </summary>
+        IRepository<Bazres, int> Bazress { get; }
 
         /// <summary>
         /// The Customer entities repository.
@@ -35,7 +40,7 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         /// <summary>
         /// The CustomerProductRelation entities repository.
         /// </summary>
-        IReadOnlyRepository<CustomerProductRelation> CustomerProductRelations { get; }
+        IRepository<CustomerProductRelation, int> CustomerProductRelations { get; }
 
         /// <summary>
         /// The Driver entities repository.

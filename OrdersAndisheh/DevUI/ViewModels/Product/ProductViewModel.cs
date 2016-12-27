@@ -39,6 +39,14 @@ namespace OrdersAndisheh.DevUI.ViewModels
         }
 
         /// <summary>
+        /// The view model that contains a look-up collection of Bastes for the corresponding navigation property in the view.
+        /// </summary>
+        public IEntitiesViewModel<Baste> LookUpBastes
+        {
+            get { return GetLookUpEntitiesViewModel((ProductViewModel x) => x.LookUpBastes, x => x.Bastes); }
+        }
+
+        /// <summary>
         /// The view model that contains a look-up collection of Bazress for the corresponding navigation property in the view.
         /// </summary>
         public IEntitiesViewModel<Bazres> LookUpBazress
@@ -57,9 +65,9 @@ namespace OrdersAndisheh.DevUI.ViewModels
         /// <summary>
         /// The view model for the ProductRelations detail collection.
         /// </summary>
-        public ReadOnlyCollectionViewModel<CustomerProductRelation, IMyContextCFUnitOfWork> ProductRelationsDetails
+        public CollectionViewModel<CustomerProductRelation, int, IMyContextCFUnitOfWork> ProductRelationsDetails
         {
-            get { return GetReadOnlyDetailsCollectionViewModel((ProductViewModel x) => x.ProductRelationsDetails, x => x.CustomerProductRelations, x => x.ProductId); }
+            get { return GetDetailsCollectionViewModel((ProductViewModel x) => x.ProductRelationsDetails, x => x.CustomerProductRelations, x => x.ProductId, (x, key) => x.ProductId = key); }
         }
     }
 }

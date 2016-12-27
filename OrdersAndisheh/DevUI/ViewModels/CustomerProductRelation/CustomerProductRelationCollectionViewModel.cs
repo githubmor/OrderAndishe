@@ -12,7 +12,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
     /// <summary>
     /// Represents the CustomerProductRelations collection view model.
     /// </summary>
-    public partial class CustomerProductRelationCollectionViewModel : ReadOnlyCollectionViewModel<CustomerProductRelation, IMyContextCFUnitOfWork>
+    public partial class CustomerProductRelationCollectionViewModel : CollectionViewModel<CustomerProductRelation, int, IMyContextCFUnitOfWork>
     {
 
         /// <summary>

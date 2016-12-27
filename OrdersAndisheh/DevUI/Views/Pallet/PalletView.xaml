@@ -64,10 +64,12 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
                             <dxg:GridColumn IsSmart="True" FieldName="IsImenKala" />
                             <dxg:GridColumn IsSmart="True" FieldName="FaniCode" />
                             <dxg:GridColumn IsSmart="True" FieldName="CodeJense" />
+                            <dxg:GridColumn IsSmart="True" FieldName="BasteBandi" />
                             <dxg:GridColumn IsSmart="True" FieldName="TedadDarPallet" />
                             <dxg:GridColumn IsSmart="True" FieldName="TedadDarSabad" />
                             <dxg:GridColumn FieldName="Bazre.Name" Header="Bazre" ReadOnly="True" />
                             <dxg:GridColumn FieldName="Pallet.Name" Header="Pallet" ReadOnly="True" />
+                            <dxg:GridColumn FieldName="Baste.Name" Header="Baste" ReadOnly="True" />
                         </dxg:GridControl.Columns>
                         <dxg:GridControl.TotalSummary>
                             <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace OrdersAndisheh.DevUI.Views
 {
-    public partial class DriverCollectionView : UserControl
+    public partial class CustomerProductRelationView : UserControl
     {
-        public DriverCollectionView()
+        public CustomerProductRelationView()
         {
             InitializeComponent();
         }

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace OrdersAndisheh.DevUI.Views
 {
-    public partial class DriverCollectionView : UserControl
+    public partial class BasteView : UserControl
     {
-        public DriverCollectionView()
+        public BasteView()
         {
             InitializeComponent();
         }

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.CustomerView"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.BasteView"
 xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,7 +15,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="600"
-	 DataContext="{dxmvvm:ViewModelSource viewmodel:CustomerViewModel}"
+	 DataContext="{dxmvvm:ViewModelSource viewmodel:BasteViewModel}"
  
 >
     <dxmvvm:Interaction.Behaviors>
@@ -38,13 +38,13 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
             <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
                 <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
             </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Name" IsRequired="True" Name="layoutItemName" >
-                <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="50" />
+            <dxlc:LayoutItem Label="Name" Name="layoutItemName" >
+                <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="10" />
             </dxlc:LayoutItem>
             <dxlc:LayoutGroup View="Tabs" MinHeight="300">
 
-                <dxlc:LayoutGroup DataContext="{Binding CustomerRelationsDetails}" dxlc:LayoutControl.TabHeader="Relations">
-                    <dxg:GridControl Name="RelationsGrid" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" ShowLoadingPanel="{Binding IsLoading}">
+                <dxlc:LayoutGroup DataContext="{Binding BasteProductsDetails}" dxlc:LayoutControl.TabHeader="Products">
+                    <dxg:GridControl Name="ProductsGrid" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" ShowLoadingPanel="{Binding IsLoading}">
                         <dxmvvm:Interaction.Behaviors>
                             <dxmvvm:EventToCommand PassEventArgsToCommand="True" Command="{Binding EditCommand}" EventName="MouseDoubleClick">
                                 <dxmvvm:EventToCommand.EventArgsConverter>
@@ -54,15 +54,18 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
                         </dxmvvm:Interaction.Behaviors>
                         <dxg:GridControl.Columns>
                             <dxg:GridColumn IsSmart="True" FieldName="Id" />
-                            <dxg:GridColumn IsSmart="True" FieldName="HasOracle" />
-                            <dxg:GridColumn IsSmart="True" FieldName="HasBarnameDasti" />
-                            <dxg:GridColumn IsSmart="True" FieldName="HasBarchasb" />
-                            <dxg:GridColumn IsSmart="True" FieldName="HasDasteTolidi" />
-                            <dxg:GridColumn IsSmart="True" FieldName="HasLabelPrint" />
-                            <dxg:GridColumn IsSmart="True" FieldName="HasHamloNaghl" />
-                            <dxg:GridColumn IsSmart="True" FieldName="HasMoshtariASN" />
-                            <dxg:GridColumn FieldName="Customer.Name" Header="Customer" ReadOnly="True" />
-                            <dxg:GridColumn FieldName="Product.Name" Header="Product" ReadOnly="True" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Code" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Name" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Weight" />
+                            <dxg:GridColumn IsSmart="True" FieldName="IsImenKala" />
+                            <dxg:GridColumn IsSmart="True" FieldName="FaniCode" />
+                            <dxg:GridColumn IsSmart="True" FieldName="CodeJense" />
+                            <dxg:GridColumn IsSmart="True" FieldName="BasteBandi" />
+                            <dxg:GridColumn IsSmart="True" FieldName="TedadDarPallet" />
+                            <dxg:GridColumn IsSmart="True" FieldName="TedadDarSabad" />
+                            <dxg:GridColumn FieldName="Bazre.Name" Header="Bazre" ReadOnly="True" />
+                            <dxg:GridColumn FieldName="Pallet.Name" Header="Pallet" ReadOnly="True" />
+                            <dxg:GridColumn FieldName="Baste.Name" Header="Baste" ReadOnly="True" />
                         </dxg:GridControl.Columns>
                         <dxg:GridControl.TotalSummary>
                             <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>
