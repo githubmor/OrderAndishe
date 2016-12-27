@@ -190,7 +190,8 @@ namespace OrdersAndisheh.BL
             List<CheckList> cs = new List<CheckList>();
             foreach (var item in sefaresh.Items)
             {
-                cs.Add(new CheckList() { KalaName = item.Kala,CodeKala = item.CodeKala });
+                cs.Add(new CheckList(item, sefaresh.Tarikh));
+                
             }
 
             FileManagar f = new FileManagar(cs, sefaresh.Tarikh);

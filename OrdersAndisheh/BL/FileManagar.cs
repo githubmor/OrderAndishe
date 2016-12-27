@@ -8,6 +8,7 @@ namespace BL
 {
     using OrdersAndisheh.BL;
     using Stimulsoft.Report;
+    using Stimulsoft.Report.Export;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -139,7 +140,7 @@ namespace BL
                 dlg.Description = "Select a folder";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-
+                    var settings = new StiPdfExportSettings() { ImageQuality = 1.0f, ImageResolution = 300, EmbeddedFonts = false, UseUnicode = false, StandardPdfFonts = true };
                     path = dlg.SelectedPath;
                     foreach (var item in CheckList)
                     {
@@ -148,7 +149,7 @@ namespace BL
                         mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
                         mainreport.Render();
                         //mainreport.Show();
-                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\CheckList\\" + item.CodeKala + ".pdf");
+                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\CheckList\\" + item.CodeKala + ".pdf", settings);
                     }
                 }
             }

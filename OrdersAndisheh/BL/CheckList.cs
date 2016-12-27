@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,22 +9,80 @@ namespace OrdersAndisheh.BL
 {
     public class CheckList
     {
-        public string NameKala { get; set; }
-        public string CodeKala { get; set; }
-        public string FaniCode { get; set; }
+        private ItemSefaresh Item;
+        public CheckList(ItemSefaresh item,string Tarikh)
+        {
+            this.Item = item;
+            this.Tarikh = Tarikh;
+        }
+
+        
+
+        public string NameKala
+        {
+            get { return Item.Kala; }
+        }
+        public string CodeKala
+        {
+            get { return Item.CodeKala; }
+        }
+        public string FaniCode
+        {
+            get { return Item.Product.FaniCode; }
+        }
         public string Tarikh { get; set; }
-        public string SherkatName { get; set; }
-        public string CodeJens { get; set; }
-        public string Govahi { get; set; }
-        public string Moshtari { get; set; }
-        public string Address { get; set; }
-        public string TahvilFrosh { get; set; }
-        public string Tedad { get; set; }
-        public string TedadDarHarPallet { get; set; }
-        public string PalletCount { get; set; }
-        public string BasteBandi { get; set; }
-        public string RanandeName { get; set; }
-        public string CarKind { get; set; }
-        public string Pelak { get; set; }
+        public string SherkatName
+        {
+            get { return (Item.IsImenKala ? "شرکت ایمن سازان خودرو اندیشه" : "شرکت اندیشه ایمنی خودرو"); }
+        }
+        public string CodeJens
+        {
+            get { return Item.Product.CodeJense; }
+        }
+        public string Govahi
+        {
+            get { return ""; }
+        }
+        public string Moshtari
+        {
+            get { return Item.Maghsad; }
+        }
+        public string Address
+        {
+            get { return Item.Maghsad; }
+        }
+        public string TahvilFrosh
+        {
+            get { return Item.TahvilFrosh.ToString(); }
+        }
+        public string Tedad
+        {
+            get { return Item.Tedad.ToString(); }
+        }
+        public string TedadDarHarPallet
+        {
+            get { return Item.Product.TedadDarPallet.ToString(); }
+        }
+        
+        public string PalletCount
+        {
+            get { return Item.PalletCount.ToString(); }
+        }
+        public string BasteBandi
+        {
+            get { return ""; }
+        }
+        public string RanandeName
+        {
+            get { return Item.Ranande; }
+        }
+        public string CarKind
+        {
+            get { return Item.Driver.Car; }
+        }
+        public string Pelak
+        {
+            get { return Item.Driver.Pelak; }
+        }
     }
 }
