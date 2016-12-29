@@ -70,7 +70,7 @@ namespace OrdersAndisheh.BL
         }
         public string BasteBandi
         {
-            get { return ""; }
+            get { return Item.Product.BasteBandi; }
         }
         public string RanandeName
         {

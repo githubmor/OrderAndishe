@@ -13,7 +13,7 @@ xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
 xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
 xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 xmlns:system="clr-namespace:System;assembly=mscorlib"
-
+FlowDirection="RightToLeft"
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="600"
 	 DataContext="{dxmvvm:ViewModelSource viewmodel:ProductViewModel}"
@@ -36,13 +36,11 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand Event="{x:Static Binding.SourceUpdatedEvent}" Command="{Binding UpdateCommand}" />
             </dxmvvm:Interaction.Behaviors>
-            <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
-                <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Code" IsRequired="True" Name="layoutItemCode" >
+            
+            <dxlc:LayoutItem Label="کد کالا" IsRequired="True" Name="layoutItemCode" >
                 <dxe:TextEdit EditValue="{Binding Entity.Code, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="8" />
             </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Name" IsRequired="True" Name="layoutItemName" >
+            <dxlc:LayoutItem Label="نام کالا" IsRequired="True" Name="layoutItemName" >
                 <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="100" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Weight" Name="layoutItemWeight" >
@@ -57,8 +55,8 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
             <dxlc:LayoutItem Label="Code Jense" Name="layoutItemCodeJense" >
                 <dxe:TextEdit EditValue="{Binding Entity.CodeJense, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="150" />
             </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Baste Bandi" Name="layoutItemBasteBandi" >
-                <dxe:TextEdit EditValue="{Binding Entity.BasteBandi, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+            <dxlc:LayoutItem Label="نحوه بسته بندی :"  Name="layoutItemBasteBandi" LabelVerticalAlignment="Top" >
+                <dxe:TextEdit AcceptsReturn="True" TextWrapping="Wrap"  EditValue="{Binding Entity.BasteBandi, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" Height="64" VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto" />
             </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Tedad Dar Pallet" Name="layoutItemTedadDarPallet" >
                 <dxe:TextEdit EditValue="{Binding Entity.TedadDarPallet, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" EditValueType="system:Int16" AllowNullInput="True" />

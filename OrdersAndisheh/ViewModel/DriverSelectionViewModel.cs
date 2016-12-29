@@ -14,9 +14,9 @@ namespace OrdersAndisheh.ViewModel
     {
         SefareshService service;
         int pos = 1;
-        public DriverSelectionViewModel(SefareshService _s)
+        public DriverSelectionViewModel()
         {
-            service = _s;
+            service = new SefareshService();
             ErsalItems = new ObservableCollection<ItemSefaresh>();
             DriverViewModels = new ObservableCollection<DriverContainerViewModel>();
             Messenger.Default.Register<string>(this, "ThisSefaresh", ThisSefaresh);

@@ -626,9 +626,9 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteCreateBazresLists()
         {
-            ReportManager rp = new ReportManager(sefaresh);
+            ReportManager rp = new ReportManager(sefaresh.Tarikh);
             rp.CreatAllBazresReportOnDeskTop();
-            RaisePropertyChanged(() => Items);
+            //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateBazresLists()
@@ -654,9 +654,9 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteCreatListErsal()
         {
-            ReportManager rp = new ReportManager(sefaresh);
+            ReportManager rp = new ReportManager(sefaresh.Tarikh);
             rp.CreatListErsalReportOnDeskTop();
-            RaisePropertyChanged(() => Items);
+            //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreatListErsal()
@@ -683,9 +683,9 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ReportManager rp = new ReportManager(sefaresh);
+                ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatAnbarReportOnDeskTop();
-                RaisePropertyChanged(() => Items);
+                //RaisePropertyChanged(() => Items);
             }
             catch (Exception rt)
             {
@@ -716,9 +716,9 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteCreateImensazanList()
         {
-             ReportManager rp = new ReportManager(sefaresh);
+            ReportManager rp = new ReportManager(sefaresh.Tarikh);
              rp.CreatImenSazanReportOnDeskTop();
-             RaisePropertyChanged(() => Items);
+             //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateImensazanList()
@@ -749,9 +749,9 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteCreateAndishehList()
         {
-            ReportManager rp = new ReportManager(sefaresh);
+            ReportManager rp = new ReportManager(sefaresh.Tarikh);
             rp.CreatAndishehReportOnDeskTop();
-            RaisePropertyChanged(() => Items);
+            //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateAndishehList()
@@ -786,9 +786,9 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ReportManager rp = new ReportManager(sefaresh);
+                ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatKontrolReportOnDeskTop();
-                RaisePropertyChanged(() => Items);
+                //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
             {
@@ -859,12 +859,14 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteSelectDriver()
         {
-            DriverSelectionViewModel vm = new DriverSelectionViewModel(ss);
+            DriverSelectionViewModel vm = new DriverSelectionViewModel();
             DriverSelectionView v = new DriverSelectionView();
             v.DataContext = vm;
             Messenger.Default.Send<string>(Tarikh, "ThisSefaresh");
             v.ShowDialog();
+            var i = sefaresh;
             RaisePropertyChanged(() => Items);
+
         }
 
         private bool CanExecuteSelectDriver()
@@ -893,7 +895,7 @@ namespace OrdersAndisheh.ViewModel
         {
             ProductsView p = new ProductsView();
             p.ShowDialog();
-            RaisePropertyChanged(() => Items);
+            //RaisePropertyChanged(() => Items);
         }
 
         private RelayCommand _myCommand746567;
@@ -914,7 +916,7 @@ namespace OrdersAndisheh.ViewModel
         {
             DriversView p = new DriversView();
             p.ShowDialog();
-            RaisePropertyChanged(() => Items);
+            //RaisePropertyChanged(() => Items);
         }
 
 
@@ -936,9 +938,9 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ReportManager rp = new ReportManager(sefaresh);
+                ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatDriverReport();
-                RaisePropertyChanged(() => Items);
+                //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
             {
@@ -966,9 +968,9 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ReportManager rp = new ReportManager(sefaresh);
+                ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatDriverErsalListReport();
-                RaisePropertyChanged(() => Items);
+                //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
             {
@@ -998,7 +1000,7 @@ namespace OrdersAndisheh.ViewModel
             DriverWorksView v = new DriverWorksView();
             v.DataContext = vm;
             v.ShowDialog();
-            RaisePropertyChanged(() => Items);
+            //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteDriverWorksSet()
@@ -1024,7 +1026,7 @@ namespace OrdersAndisheh.ViewModel
         {
             CustomersView p = new CustomersView();
             p.ShowDialog();
-            RaisePropertyChanged(() => Items);
+            //RaisePropertyChanged(() => Items);
         }
 
         private RelayCommand _myCommand5565656952;
@@ -1046,7 +1048,7 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ReportManager rp = new ReportManager(sefaresh);
+                ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatCheckListErsalOnDeskTop();
                 //RaisePropertyChanged(() => Items);
             }

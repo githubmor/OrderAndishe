@@ -34,7 +34,7 @@ namespace UnitTest
             s.Items = f;
 
 
-            ReportManager rp = new ReportManager(s);
+            ReportManager rp = new ReportManager(s.Tarikh);
 
             rp.CreatAllBazresReportOnDeskTop();
 

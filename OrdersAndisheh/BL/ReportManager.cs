@@ -15,23 +15,25 @@ namespace OrdersAndisheh.BL
     {
         private Sefaresh sefaresh;
         SefareshService service;
-        public ReportManager(Sefaresh sefaresh)
+        public ReportManager(string sefareshTarikh)
         {
-            if (sefaresh==null)
-            {
-                throw new ApplicationException("سفارش نمیتواند تهی باشد");
-            }
-            if (sefaresh.Items==null)
-            {
-                throw new ApplicationException("سفارش نمیتواند بدون آیتم باشد");
-            }
-            this.sefaresh = sefaresh;
+            //if (sefaresh==null)
+            //{
+            //    throw new ApplicationException("سفارش نمیتواند تهی باشد");
+            //}
+            //if (sefaresh.Items==null)
+            //{
+            //    throw new ApplicationException("سفارش نمیتواند بدون آیتم باشد");
+            //}
+            
+            
+            service = new SefareshService();
+            this.sefaresh = service.LoadSefaresh(sefareshTarikh);
             this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(
                 sefaresh.Items.Where(p => p.ItemKind != (byte)ItemType.ارسال)
                 .OrderBy(p => p.Ranande)
                 .ThenBy(p => p.ItemKind)
                 .ThenBy(p => p.Maghsad).ToList());
-            service = new SefareshService();
         }
 
         public void CreatDriverReport()
