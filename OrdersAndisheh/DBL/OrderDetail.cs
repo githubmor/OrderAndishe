@@ -16,6 +16,8 @@ namespace OrdersAndisheh.DBL
 
         public short TahvilForosh { get; set; }
 
+        public int AsnNumber { get; set; }
+
         public string Description { get; set; }
 
         public int ProductId { get; set; }
