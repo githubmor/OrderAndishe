@@ -148,6 +148,12 @@ namespace BL
             set { OrderDetail.TahvilForosh = value; }
 		}
 
+        public int AsnNumber
+        {
+            get { return OrderDetail.AsnNumber; }
+            set { OrderDetail.AsnNumber = value; }
+        }
+
         
 		public byte ItemKind
 		{

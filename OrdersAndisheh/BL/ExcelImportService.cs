@@ -14,18 +14,19 @@ namespace OrdersAndisheh.BL
     {
         ISefareshService service;
         ExcelPackage package;
-        public ExcelImportService(ISefareshService service,string filePath)
+        public ExcelImportService(ISefareshService service)
         {
             this.service = service;
-            FileInfo f = new FileInfo(filePath);
-            package = new ExcelPackage(f);
+            
         }
 
 
 
 
-        public ObservableCollection<TahvilItem> GetTahvilfroshData()
+        public ObservableCollection<TahvilItem> GetTahvilfroshData(string filePath)
         {
+            FileInfo f = new FileInfo(filePath);
+            package = new ExcelPackage(f);
             ObservableCollection<TahvilItem> items = new ObservableCollection<TahvilItem>();
             ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
             var start = WorkSheet.Dimension.Start;
@@ -81,6 +82,88 @@ namespace OrdersAndisheh.BL
             }
 
             return items;
+        }
+
+        public ObservableCollection<Asn> GetAsnData(string filePath)
+        {
+            FileInfo f = new FileInfo(filePath);
+            package = new ExcelPackage(f);
+            ObservableCollection<Asn> items = new ObservableCollection<Asn>();
+            ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
+            var start = WorkSheet.Dimension.Start;
+            var end = WorkSheet.Dimension.End;
+
+            int FaniCol = 5;
+            int KalaNameCol = 4;
+            int AnbarNumCol = 2;
+            int AsnNumCol = 3;
+            int TedadCol = 6;
+            int VaziatAsnCol = 12;
+            int RanandeCol = 5;
+            int RanandePelakCol = 1;
+            int RanandeTelCol = 6;
+
+            for (int i = 1; i <= end.Column; i++)
+            {
+                string t = WorkSheet.Cells[1, i].Text;
+                if (WorkSheet.Cells[1, i].Text == "شماره فني")
+                {
+                    FaniCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "محل تحويل")
+                {
+                    AnbarNumCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "ASN مقدار")
+                {
+                    TedadCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "ASN ش")
+                {
+                    AsnNumCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "ASN وضعيت")
+                {
+                    VaziatAsnCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "شرح قطعه")
+                {
+                    KalaNameCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "تلفن راننده")
+                {
+                    RanandeCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "بازه تحو?ل")
+                {
+                    RanandePelakCol = i;
+                }
+                if (WorkSheet.Cells[1, i].Text == "شماره ماش?ن")
+                {
+                    RanandeTelCol = i;
+                }
+            }
+
+            //ExcelAddress dd= WorkSheet.
+
+            for (int row = start.Row + 1; row <= end.Row; row++)
+            {
+                Asn s = new Asn();
+                s.KalaName = WorkSheet.Cells[row, KalaNameCol].Text;
+                s.FaniCode = WorkSheet.Cells[row, FaniCol].Text;
+                s.AnbarNumber = WorkSheet.Cells[row, AnbarNumCol].Text;
+                s.AsnNumber = WorkSheet.Cells[row, AsnNumCol].Text;
+                s.Tedad = (WorkSheet.Cells[row, TedadCol].Text != "" ? int.Parse(WorkSheet.Cells[row, TedadCol].Text) : 0);
+                s.VaziatAsn = WorkSheet.Cells[row, VaziatAsnCol].Text;
+                s.RanandeName = WorkSheet.Cells[row, RanandeCol].Text;
+                s.RanandePelak = WorkSheet.Cells[row, RanandePelakCol].Text;
+                s.RanandeTel = WorkSheet.Cells[row, RanandeTelCol].Text;
+                items.Add(s);
+            }
+
+            return items;
+
+
         }
     }
 }

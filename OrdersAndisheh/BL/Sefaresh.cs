@@ -21,10 +21,10 @@ namespace BL
         {
             Items = new ObservableCollection<ItemSefaresh>();
             Order = new Order();
-            AgarShodItems = new List<ItemSefaresh>();
-            UsualItems = new List<ItemSefaresh>();
-            ForiItems = new List<ItemSefaresh>();
-            GovahiItems = new List<ItemSefaresh>();
+            //AgarShodItems = new List<ItemSefaresh>();
+            //UsualItems = new List<ItemSefaresh>();
+            //ForiItems = new List<ItemSefaresh>();
+            //GovahiItems = new List<ItemSefaresh>();
             Items.CollectionChanged += (sender, e) =>
             {
                 if (e.Action == NotifyCollectionChangedAction.Add)
@@ -137,29 +137,29 @@ namespace BL
 
         
 
-		public virtual List<ItemSefaresh> AgarShodItems
-		{
-			get;
-            private set;
-		}
+        //public virtual List<ItemSefaresh> AgarShodItems
+        //{
+        //    get;
+        //    private set;
+        //}
 
-        public virtual List<ItemSefaresh> ForiItems 
-		{
-			get;
-            private set;
-		}
+        //public virtual List<ItemSefaresh> ForiItems 
+        //{
+        //    get;
+        //    private set;
+        //}
 
-        public virtual List<ItemSefaresh> GovahiItems 
-		{
-			get;
-            private set;
-		}
+        //public virtual List<ItemSefaresh> GovahiItems 
+        //{
+        //    get;
+        //    private set;
+        //}
 
-        public virtual List<ItemSefaresh> UsualItems 
-		{
-			get;
-            private set;
-		}
+        //public virtual List<ItemSefaresh> UsualItems 
+        //{
+        //    get;
+        //    private set;
+        //}
 
 
 

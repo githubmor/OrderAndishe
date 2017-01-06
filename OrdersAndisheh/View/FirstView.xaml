@@ -46,6 +46,8 @@
         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Button Content="ثبت تحویل فروش" Command="{Binding SetTahvilfrosh}"/>
             <Button Content="تثبیت سفارش" Command="{Binding AcceptSefaresh}"/>
+            <Button Content="چک بارنامه ها" Command="{Binding CheckAsns}"/>
+            <Button Content="گزارش سفارشات" Command="{Binding ErsalReporting}"/>
         </StackPanel>
         <DataGrid SelectedItem="{Binding SelectedSefareshCheck}" MouseDoubleClick="ListView_MouseDoubleClick" 
                   ItemsSource="{Binding CheckSefareshs}" AutoGenerateColumns="False" Grid.Column="2" 

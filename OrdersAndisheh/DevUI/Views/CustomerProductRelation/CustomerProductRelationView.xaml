@@ -59,6 +59,9 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
             <dxlc:LayoutItem Label="Has Moshtari ASN" Name="layoutItemHasMoshtariASN" >
                 <dxe:CheckEdit EditValue="{Binding Entity.HasMoshtariASN, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
             </dxlc:LayoutItem>
+            <dxlc:LayoutItem Label="Anbar" Name="layoutItemAnbar" >
+                <dxe:TextEdit EditValue="{Binding Entity.Anbar, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="None" Mask="d" HorizontalContentAlignment="Right" />
+            </dxlc:LayoutItem>
             <dxlc:LayoutItem Label="Customer" Name="layoutItemCustomer" >
                 <dxg:LookUpEdit EditValue="{Binding Entity.CustomerId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpCustomers.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
                     <dxg:LookUpEdit.PopupContentTemplate>

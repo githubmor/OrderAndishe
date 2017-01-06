@@ -613,6 +613,33 @@ namespace OrdersAndisheh.ViewModel
             return SelectedSefareshCheck != null;
         }
 
+        private RelayCommand _myCommand6565656562252;
+
+        /// <summary>
+        /// Gets the CheckAsns.
+        /// </summary>
+        public RelayCommand CheckAsns
+        {
+            get
+            {
+                return _myCommand6565656562252 ?? (_myCommand6565656562252 = new RelayCommand(
+                    ExecuteCheckAsns,
+                    CanExecuteCheckAsns));
+            }
+        }
+
+        private void ExecuteCheckAsns()
+        {
+            AsnView v = new AsnView();
+            Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "sefareshForAsn");
+            v.Show();
+        }
+
+        private bool CanExecuteCheckAsns()
+        {
+            return SelectedSefareshCheck != null;
+        }
+
         private RelayCommand _myCommand43556111;
 
         /// <summary>
@@ -642,7 +669,29 @@ namespace OrdersAndisheh.ViewModel
                 SelectedSefareshCheck.HasItemWithNoTahvilFrosh &
                 SelectedSefareshCheck.HasItemWithNoTedad;
         }
-        
+
+
+        private RelayCommand _myCommand5656565478111;
+
+        /// <summary>
+        /// Gets the ErsalReporting.
+        /// </summary>
+        public RelayCommand ErsalReporting
+        {
+            get
+            {
+                return _myCommand5656565478111
+                    ?? (_myCommand5656565478111 = new RelayCommand(ExecuteErsalReporting));
+            }
+        }
+
+        private void ExecuteErsalReporting()
+        {
+            ErsalReportViewModel vm = new ErsalReportViewModel();
+            ErsalReportView v = new ErsalReportView();
+            v.DataContext = vm;
+            v.Show();
+        }
     }
 
 

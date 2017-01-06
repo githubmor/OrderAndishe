@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>117</ApplicationRevision>
+    <ApplicationRevision>122</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -252,7 +252,9 @@
     <Compile Include="BL\AlarmManager.cs" />
     <Compile Include="BL\CheckList.cs" />
     <Compile Include="BL\CheckSefaresh.cs" />
+    <Compile Include="BL\ErsalItem.cs" />
     <Compile Include="BL\ItemType.cs" />
+    <Compile Include="BL\Asn.cs" />
     <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />
     <Compile Include="BL\ContainerManager.cs" />
@@ -390,11 +392,13 @@
     <Compile Include="ViewModel\DriverContainerViewModel.cs" />
     <Compile Include="ViewModel\DriverSelectionViewModel.cs" />
     <Compile Include="ViewModel\DriverWorksViewModel.cs" />
+    <Compile Include="ViewModel\ErsalReportViewModel.cs" />
     <Compile Include="ViewModel\FirstViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\ReportPreviewViewModel.cs" />
     <Compile Include="ViewModel\ReportRowViewModel.cs" />
+    <Compile Include="ViewModel\AsnViewModel.cs" />
     <Compile Include="ViewModel\TahvilforoshViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\DataUIView.xaml.cs">
@@ -409,6 +413,9 @@
     <Compile Include="View\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ErsalReportView.xaml.cs">
+      <DependentUpon>ErsalReportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
@@ -417,6 +424,9 @@
     </Compile>
     <Compile Include="View\ReportRowUserControl.xaml.cs">
       <DependentUpon>ReportRowUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AsnView.xaml.cs">
+      <DependentUpon>AsnView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TahvilfroshView.xaml.cs">
       <DependentUpon>TahvilfroshView.xaml</DependentUpon>
@@ -523,6 +533,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ErsalReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FirstView.xaml">
       <SubType>Form</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -550,6 +564,10 @@
     <Page Include="View\ReportRowUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AsnView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\TahvilfroshView.xaml">
       <SubType>Designer</SubType>
@@ -638,12 +656,12 @@
   <ItemGroup>
     <PublishFile Include="DevExpress.Office.v15.1.Core">
       <Visible>False</Visible>
-      <PublishState>Auto</PublishState>
-      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

@@ -99,8 +99,8 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ExcelImportService eis = new ExcelImportService(ss, FilePath);
-                TahvilFroshs = eis.GetTahvilfroshData();
+                ExcelImportService eis = new ExcelImportService(ss);
+                TahvilFroshs = eis.GetTahvilfroshData(FilePath);
                 CalculateSefareshWithData();
             }
             catch (Exception ree)

@@ -14,21 +14,13 @@ namespace OrdersAndisheh.BL
     public class ReportManager
     {
         private Sefaresh sefaresh;
+        private Sefaresh sefaresh2;
         SefareshService service;
         public ReportManager(string sefareshTarikh)
         {
-            //if (sefaresh==null)
-            //{
-            //    throw new ApplicationException("سفارش نمیتواند تهی باشد");
-            //}
-            //if (sefaresh.Items==null)
-            //{
-            //    throw new ApplicationException("سفارش نمیتواند بدون آیتم باشد");
-            //}
-            
-            
             service = new SefareshService();
             this.sefaresh = service.LoadSefaresh(sefareshTarikh);
+            this.sefaresh2 = service.LoadSefaresh(sefareshTarikh);
             this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(
                 sefaresh.Items.Where(p => p.ItemKind != (byte)ItemType.ارسال)
                 .OrderBy(p => p.Ranande)
@@ -190,13 +182,13 @@ namespace OrdersAndisheh.BL
         public void CreatCheckListErsalOnDeskTop()
         {
             List<CheckList> cs = new List<CheckList>();
-            foreach (var item in sefaresh.Items)
+            foreach (var item in sefaresh2.Items)
             {
-                cs.Add(new CheckList(item, sefaresh.Tarikh));
+                cs.Add(new CheckList(item, sefaresh2.Tarikh));
                 
             }
 
-            FileManagar f = new FileManagar(cs, sefaresh.Tarikh);
+            FileManagar f = new FileManagar(cs, sefaresh2.Tarikh);
             f.CreatCheckListFile();
             
         }
@@ -214,7 +206,7 @@ namespace OrdersAndisheh.BL
                     Karton = b.Karton.ToString(), 
                     Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : ""),
                     Maghsad = b.Maghsad,
-                    Ranande = (b.Driver.TempDriver == null ? b.Ranande : "")
+                    Ranande = (b.Driver !=null?(b.Driver.TempDriver == null ? b.Ranande : ""):"")
                 });
                 pos += 1;
             }

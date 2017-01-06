@@ -41,6 +41,7 @@ namespace OrdersAndisheh.ViewModel
             SimpleIoc.Default.Register<OracleRelationViewModel>();
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
             SimpleIoc.Default.Register<TahvilforoshViewModel>();
+            SimpleIoc.Default.Register<AsnViewModel>();
         }
 
         public MainViewModel Main
@@ -50,14 +51,14 @@ namespace OrdersAndisheh.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>(Guid.NewGuid().ToString());
             }
         }
-        //public FirstViewModel First
-        //{
-        //    get
-        //    {
-        //        return ServiceLocator.Current.GetInstance<FirstViewModel>(Guid.NewGuid().ToString());
-        //    }
-        //}
 
+        public AsnViewModel ASN
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AsnViewModel>(Guid.NewGuid().ToString());
+            }
+        }
 
         public TahvilforoshViewModel Tahvilforosh
         {

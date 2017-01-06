@@ -40,19 +40,12 @@ namespace UnitTest
 
             Assert.IsNotNull(s.Items);
             Assert.IsNotNull(s.Order);
-            Assert.IsNotNull(s.AgarShodItems);
-            Assert.IsNotNull(s.ForiItems);
-            Assert.IsNotNull(s.GovahiItems);
-            Assert.IsNotNull(s.UsualItems);
-
+           
             Assert.IsFalse(s.Order.Accepted);
             Assert.IsNotNull(0, s.Order.Tarikh);
 
             Assert.AreEqual(0, s.Items.Count);
-            Assert.AreEqual(0, s.AgarShodItems.Count);
-            Assert.AreEqual(0, s.ForiItems.Count);
-            Assert.AreEqual(0, s.GovahiItems.Count);
-            Assert.AreEqual(0, s.UsualItems.Count);
+           
 
             s.Items = f;
 

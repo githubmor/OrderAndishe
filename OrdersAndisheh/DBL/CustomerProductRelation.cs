@@ -26,6 +26,7 @@ namespace OrdersAndisheh.DBL
         public bool HasLabelPrint { get; set; }
         public bool HasHamloNaghl { get; set; }
         public bool HasMoshtariASN { get; set; }
+        public string Anbar { get; set; }
 
         //[Key]
         //[Column(Order = 10)]

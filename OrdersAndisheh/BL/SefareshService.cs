@@ -304,6 +304,28 @@ namespace BL
         {
             return db.DriverWork.Where(p => p.OrderId == orderId).Include("Driver").ToList();
         }
+
+        public List<ErsalItem> LoadAllSefaresh()
+        {
+            List<ErsalItem> ret = new List<ErsalItem>();
+            var p = db.Orders
+                .Include("OrderDetails.Customer")
+                .Include("OrderDetails.Driver")
+                .Include("OrderDetails.Product")
+                .Include("OrderDetails.Product.Bazre")
+                .Include("OrderDetails.Product.Pallet")
+                .Include("OrderDetails")
+                .ToList();
+            foreach (var item in p)
+            {
+                foreach (var rr in item.OrderDetails)
+                {
+                    ret.Add(new ErsalItem(rr, item.Tarikh));
+                }
+                //ret.Add(new ErsalItem(item, item.OrderDetails.ToList()));
+            }
+            return ret;
+        }
     }
 }
 

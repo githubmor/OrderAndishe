@@ -142,15 +142,16 @@ namespace BL
                 {
                     //var settings = new StiPdfExportSettings() { ImageQuality = 1.0f, ImageResolution = 300, EmbeddedFonts = true, UseUnicode = false, StandardPdfFonts = true };
                     path = dlg.SelectedPath;
-                    foreach (var item in CheckList)
+                    for (int i = 0; i < CheckList.Count; i++)
                     {
                         StiReport mainreport = new StiReport();
-                        mainreport.RegBusinessObject("Item", item);
+                        mainreport.RegBusinessObject("Item", CheckList[i]);
                         mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
                         mainreport.Render();
                         //mainreport.Show();
-                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + item.CodeKala + ".pdf");
+                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + i + ".pdf");
                     }
+                    
                 }
             }
 
