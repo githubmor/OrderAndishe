@@ -54,5 +54,6 @@ namespace OrdersAndisheh.DBL
 
         public virtual Pallet Pallet { get; set; }
         public virtual Baste Baste { get; set; }
+        public virtual Amount Amount { get; set; }
     }
 }

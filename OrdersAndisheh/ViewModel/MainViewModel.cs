@@ -1064,6 +1064,27 @@ namespace OrdersAndisheh.ViewModel
             return true;
         }
 
+        private RelayCommand _myCommand54664751;
+
+        /// <summary>
+        /// Gets the LastAmountSet.
+        /// </summary>
+        public RelayCommand LastAmountSet
+        {
+            get
+            {
+                return _myCommand54664751
+                    ?? (_myCommand54664751 = new RelayCommand(ExecuteLastAmountSet));
+            }
+        }
+
+        private void ExecuteLastAmountSet()
+        {
+            LastAmountView v = new LastAmountView();
+            v.ShowDialog();
+            RaisePropertyChanged(() => Items);
+        }
+
     }
 
     public static class ObservableCollectionExtensions

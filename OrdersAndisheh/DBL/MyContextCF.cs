@@ -28,9 +28,14 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<CustomerProductRelation> CustomerProductRelations { get; set; }
         public virtual DbSet<TempDriver> TempDriver { get; set; }
         public virtual DbSet<DriverWork> DriverWork { get; set; }
+        public virtual DbSet<Amount> Amount { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Amount>()
+                .HasRequired(et => et.Product)
+                .WithOptional(eo => eo.Amount);               
+
             modelBuilder.Entity<Bazres>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Bazre)

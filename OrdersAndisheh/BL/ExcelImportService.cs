@@ -1,5 +1,6 @@
 ﻿using BL;
 using OfficeOpenXml;
+using OrdersAndisheh.DBL;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -158,6 +159,56 @@ namespace OrdersAndisheh.BL
                 s.RanandeName = WorkSheet.Cells[row, RanandeCol].Text;
                 s.RanandePelak = WorkSheet.Cells[row, RanandePelakCol].Text;
                 s.RanandeTel = WorkSheet.Cells[row, RanandeTelCol].Text;
+                items.Add(s);
+            }
+
+            return items;
+
+
+        }
+
+        public ObservableCollection<AmountDto> GetAmountData(string filePath)
+        {
+            FileInfo f = new FileInfo(filePath);
+            package = new ExcelPackage(f);
+            ObservableCollection<AmountDto> items = new ObservableCollection<AmountDto>();
+            ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
+            var start = WorkSheet.Dimension.Start;
+            var end = WorkSheet.Dimension.End;
+
+            int CodeKalaCol = 5;
+            int KalaNameCol = 4;
+            int TedadCol = 6;
+            
+            for (int i = 1; i < end.Column; i++)
+            {
+                if (WorkSheet.Cells[1, i].Text == "کد کالا")
+                {
+                    CodeKalaCol = i;
+                }
+                
+                if (WorkSheet.Cells[1, i].Text == "موجودی")
+                {
+                    TedadCol = i;
+                }
+                
+                if (WorkSheet.Cells[1, i].Text == "کالا")
+                {
+                    KalaNameCol = i;
+                }
+            }
+
+            //ExcelAddress dd= WorkSheet.
+
+            for (int row = start.Row + 1; row <= end.Row; row++)
+            {
+                Product p = new Product();
+                p.Code = WorkSheet.Cells[row, CodeKalaCol].Text;
+                p.Name = WorkSheet.Cells[row, KalaNameCol].Text;
+
+                AmountDto s = new AmountDto();
+                s.Product = p;
+                s.LastAmount= int.Parse(WorkSheet.Cells[row, TedadCol].Text);
                 items.Add(s);
             }
 

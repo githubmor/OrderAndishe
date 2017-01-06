@@ -250,6 +250,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\AlarmManager.cs" />
+    <Compile Include="BL\AmountDto.cs" />
     <Compile Include="BL\CheckList.cs" />
     <Compile Include="BL\CheckSefaresh.cs" />
     <Compile Include="BL\ErsalItem.cs" />
@@ -308,6 +309,7 @@
     <Compile Include="Common\ViewModel\PersistentLayoutHelper.cs" />
     <Compile Include="Common\ViewModel\ReadOnlyCollectionViewModel.cs" />
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
+    <Compile Include="DBL\Amount.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\Baste.cs" />
     <Compile Include="DBL\DriverWork.cs" />
@@ -389,6 +391,7 @@
     <Compile Include="ExcelManager\ExcelBackUp.cs" />
     <Compile Include="ExcelManager\ExcelService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ViewModel\LastAmountViewModel.cs" />
     <Compile Include="ViewModel\DriverContainerViewModel.cs" />
     <Compile Include="ViewModel\DriverSelectionViewModel.cs" />
     <Compile Include="ViewModel\DriverWorksViewModel.cs" />
@@ -401,6 +404,9 @@
     <Compile Include="ViewModel\AsnViewModel.cs" />
     <Compile Include="ViewModel\TahvilforoshViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\LastAmountView.xaml.cs">
+      <DependentUpon>LastAmountView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DataUIView.xaml.cs">
       <DependentUpon>DataUIView.xaml</DependentUpon>
     </Compile>
@@ -510,6 +516,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\Product\ProductView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LastAmountView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
