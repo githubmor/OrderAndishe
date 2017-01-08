@@ -26,7 +26,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CodeKala, Mode=OneWay}"  Header="کد کالا"/>
                 <DataGridTextColumn Binding="{Binding KalaName, Mode=OneWay}" Header="نام کالا"/>
-                <DataGridTextColumn Binding="{Binding Tedad}"  Header="تعداد"/>
+                <DataGridTextColumn Binding="{Binding LastAmount}"  Header="تعداد"/>
             </DataGrid.Columns>
 
         </DataGrid>

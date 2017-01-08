@@ -22,7 +22,7 @@ namespace OrdersAndisheh.ViewModel
             //sefaresh = new Sefaresh();
             //Errors = new List<string>();
             //sefaresh.Items = new ObservableCollection<ItemSefaresh>();
-            //Amounts = new ObservableCollection<Asn>();
+            Amounts = new ObservableCollection<AmountDto>();
             //Messenger.Default.Register<string>(this, "sefareshForAsn", ThisSefaresh);
         }
 
@@ -44,7 +44,16 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private ObservableCollection<AmountDto> Amounts;
+        //public ObservableCollection<AmountDto> Amounts;
+
+        private ObservableCollection<AmountDto> myVar;
+
+        public ObservableCollection<AmountDto> Amounts
+        {
+            get { return myVar; }
+            set { myVar = value; }
+        }
+        
         //private ObservableCollection<ItemSefaresh> myVar;
 
         //public ObservableCollection<ItemSefaresh> ErsalListForTahvilFrosh
@@ -88,6 +97,7 @@ namespace OrdersAndisheh.ViewModel
                     openFileDialog1.FilterIndex = 1;
                     FilePath = openFileDialog1.FileName;
                     CalculateData();
+                    RaisePropertyChanged(() => this.Amounts);
                 }
             }
         }
@@ -273,7 +283,15 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteSaveTahvilFrosh()
         {
-            ss.AddNewAmount(AmountDto);
+            try
+            {
+                ss.AddNewAmount(Amounts);
+            }
+            catch (Exception t)
+            {
+
+                MessageBox.Show(t.InnerException.InnerException.Message.ToString());
+            }
         }
 
         private bool CanExecuteSaveTahvilFrosh()

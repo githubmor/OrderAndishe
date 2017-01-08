@@ -202,13 +202,15 @@ namespace OrdersAndisheh.BL
 
             for (int row = start.Row + 1; row <= end.Row; row++)
             {
+                Amount a = new Amount();
                 Product p = new Product();
                 p.Code = WorkSheet.Cells[row, CodeKalaCol].Text;
                 p.Name = WorkSheet.Cells[row, KalaNameCol].Text;
+                a.Product = p;
+                a.LastAmount = int.Parse(WorkSheet.Cells[row, TedadCol].Text);
 
-                AmountDto s = new AmountDto();
-                s.Product = p;
-                s.LastAmount= int.Parse(WorkSheet.Cells[row, TedadCol].Text);
+                AmountDto s = new AmountDto(a);
+
                 items.Add(s);
             }
 

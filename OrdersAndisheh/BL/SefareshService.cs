@@ -12,6 +12,7 @@ namespace BL
 	using System.Linq;
     using OrdersAndisheh.DBL;
     using OrdersAndisheh.BL;
+    using System.Collections.ObjectModel;
 
 
     /// <summary>
@@ -325,6 +326,22 @@ namespace BL
                 //ret.Add(new ErsalItem(item, item.OrderDetails.ToList()));
             }
             return ret;
+        }
+
+        public void AddNewAmount(ObservableCollection<AmountDto> Amounts)
+        {
+            db.Amount.Load();
+            foreach (var item in db.Amount.Local)
+            {
+                db.Amount.Remove(item);
+            }
+            db.SaveChanges();
+            foreach (var item in Amounts)
+            {
+                db.Amount.Add(item.amount);
+            }
+            db.SaveChanges();
+            
         }
     }
 }
