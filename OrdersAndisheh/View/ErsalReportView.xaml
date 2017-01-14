@@ -5,11 +5,52 @@
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         
-        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="OrdersAndisheh.View.ErsalReportView" 
+        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"  xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  x:Class="OrdersAndisheh.View.ErsalReportView" 
         
         Title="ErsalReportView" >
     <Grid>
-        <dxpg:PivotGridControl DataSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+        <DockPanel>
+            <dxb:ToolBarControl Caption="Edit" DockPanel.Dock="Top" AllowCollapse="False" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <dxb:BarButtonItem Content="BarButtonItem" Glyph="{dx:DXImage Image=Add_16x16.png}" LargeGlyph="{dx:DXImage Image=Add_32x32.png}" BarItemDisplayMode="ContentAndGlyph"/>
+            </dxb:ToolBarControl>
+            <dxb:StatusBarControl Caption="StatusBar" DockPanel.Dock="Bottom" ShowSizeGrip="True"/>
+            <Grid>
+                <dxlc:LayoutControl Header="Header" Orientation="Vertical" UseLayoutRounding="True" View="GroupBox">
+                    <dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup x:Name="layoutGroup" Orientation="Vertical" VerticalAlignment="Top">
+                            <dxlc:LayoutItem IsRequired="True" Label="First Name:" LabelPosition="Top">
+                                <dxe:TextEdit MinWidth="200"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem IsRequired="True" Label="Last Name:" LabelPosition="Top">
+                                <dxe:TextEdit MinWidth="200"/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutItem HorizontalAlignment="Right" Height="{Binding ActualHeight, ElementName=layoutGroup}" Label=" " LabelPosition="Top">
+                            <dxe:ImageEdit IsReadOnly="True" Width="150"/>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Header="Phones" Orientation="Vertical" UseLayoutRounding="True" View="GroupBox">
+                        <dxlc:LayoutItem Label="Mobile">
+                            <dxe:TextEdit EditValue="9999999999" MaskType="Simple" Mask="(999) 000-0000"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Home">
+                            <dxe:TextEdit EditValue="9999999999" MaskType="Simple" Mask="(999) 000-0000"/>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Header="Emails" Orientation="Vertical" UseLayoutRounding="True" View="GroupBox">
+                        <dxlc:LayoutItem Label="E-Mail">
+                            <dxe:TextEdit EditValue="support@devexpress.com" MaskType="RegEx" Mask="[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="E-Mail 2">
+                            <dxe:TextEdit MaskType="RegEx" Mask="[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}"/>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutControl>
+            </Grid>
+        </DockPanel>
+
+        <!--<dxpg:PivotGridControl DataSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft" HorizontalAlignment="Left" VerticalAlignment="Top">
             <dxpg:PivotGridControl.Fields>
                 <dxpg:PivotGridField Area="RowArea" FieldName="Kala"/>
                 <dxpg:PivotGridField Area="ColumnArea" FieldName="Tarikh"/>
@@ -18,9 +59,7 @@
                 <dxpg:PivotGridField Area="FilterArea" FieldName="Maghsad"/>
                 <dxpg:PivotGridField Area="FilterArea" FieldName="Ranande"/>
             </dxpg:PivotGridControl.Fields>
-        </dxpg:PivotGridControl>
-
-
+        </dxpg:PivotGridControl>-->
         <!--<dxg:GridControl ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Tarikh" Header="تاریخ" />
