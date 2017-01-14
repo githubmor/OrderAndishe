@@ -552,11 +552,19 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteBackUpAsExcel()
         {
-            ExcelBackUp p = new ExcelBackUp(ss);
+            try
+            {
+                ExcelBackUp p = new ExcelBackUp(ss);
 
-            p.ExportLastSavedSefaresh(SelectedSefareshCheck.TarikhSefaresh);
+                p.ExportLastSavedSefaresh(SelectedSefareshCheck.TarikhSefaresh);
 
-            MessageBox.Show("اطلاعات در فایل اکسل ذخیره شد");
+                MessageBox.Show("اطلاعات در فایل اکسل ذخیره شد");
+            }
+            catch (Exception r)
+            {
+
+                MessageBox.Show(r.Message.ToString());
+            }
         }
 
         private RelayCommand _myCommand56565;

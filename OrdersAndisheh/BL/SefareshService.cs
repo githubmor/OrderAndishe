@@ -330,18 +330,54 @@ namespace BL
 
         public void AddNewAmount(ObservableCollection<AmountDto> Amounts)
         {
-            db.Amount.Load();
-            foreach (var item in db.Amount.Local)
-            {
-                db.Amount.Remove(item);
-            }
+            List<Amount> addamount = new List<Amount>();
+            var pr = db.Amount.ToList();
+            db.Amount.RemoveRange(pr);
             db.SaveChanges();
+
             foreach (var item in Amounts)
             {
-                db.Amount.Add(item.amount);
+                var kala = db.Products.Where(p => p.Code == item.CodeKala).FirstOrDefault();
+                if (kala!=null)
+                {
+                    addamount.Add(new Amount() { Product = kala, LastAmount = item.LastAmount }); 
+                }
             }
+            db.Amount.AddRange(addamount);
             db.SaveChanges();
             
+        }
+
+        public string GetAnbarNumber(Product product, Customer customer)
+        {
+            return db.CustomerProductRelations
+                .Where(p => p.CustomerId == customer.Id)
+                .Where(p => p.ProductId == product.Id)
+                .FirstOrDefault().Anbar;
+        }
+
+        public string MontagReciving(int sefareshId)
+        {
+            string re = "";
+            var items = db.OrderDetails
+                .Where(p => p.OrderId == sefareshId)
+                .Include("Product")
+                .Include("Product.Amount")
+                .ToList();
+
+            var goodsInItems = items.Select(p => p.Product).ToList();
+            foreach (var good in goodsInItems)
+            {
+                good.Weight =  good.Amount.LastAmount - items.Where(p=>p.ProductId==good.Id).Select(p=>p.Tedad).Sum(x => x);
+            }
+            foreach (var s in goodsInItems)
+            {
+                if (s.Weight<0)
+                {
+                    re += s.Name + "-" + s.Weight + "\n";
+                }
+            }
+            return re;
         }
     }
 }

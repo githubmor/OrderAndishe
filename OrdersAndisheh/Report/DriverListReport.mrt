@@ -23,7 +23,7 @@
         <BusinessObjects isList="true" count="0" />
         <Category />
         <Columns isList="true" count="1">
-          <value>Work,System.String</value>
+          <value>Works,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Guid>a52c4be07d2d4504b0de7ee4421af71e</Guid>
@@ -179,8 +179,9 @@
               <Name>Text3</Name>
               <Page isRef="4" />
               <Parent isRef="13" />
-              <Text>{Works.Work}</Text>
+              <Text>{Works.Works}</Text>
               <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
           </Components>
@@ -217,10 +218,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/25/2016 4:19:40 PM</ReportChanged>
+  <ReportChanged>1/11/2017 11:05:02 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\DriverListReport.mrt</ReportFile>
-  <ReportGuid>68ed5afc49074eb7a22c5e3f5ca49582</ReportGuid>
+  <ReportGuid>2ef635e898bd4eb79eb76b25a0b876c0</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

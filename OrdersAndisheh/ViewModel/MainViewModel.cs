@@ -1085,6 +1085,25 @@ namespace OrdersAndisheh.ViewModel
             RaisePropertyChanged(() => Items);
         }
 
+        private RelayCommand _myCommand5654652542244;
+
+        /// <summary>
+        /// Gets the MontagReciving.
+        /// </summary>
+        public RelayCommand MontagReciving
+        {
+            get
+            {
+                return _myCommand5654652542244
+                    ?? (_myCommand5654652542244 = new RelayCommand(ExecuteMontagReciving));
+            }
+        }
+
+        private void ExecuteMontagReciving()
+        {
+            MessageBox.Show(ss.MontagReciving(sefaresh.SefareshId));
+        }
+
     }
 
     public static class ObservableCollectionExtensions

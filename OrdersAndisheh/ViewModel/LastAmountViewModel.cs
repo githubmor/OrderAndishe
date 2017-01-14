@@ -104,17 +104,17 @@ namespace OrdersAndisheh.ViewModel
 
         private void CalculateData()
         {
-            try
-            {
+            //try
+            //{
                 ExcelImportService eis = new ExcelImportService(ss);
                 Amounts = eis.GetAmountData(FilePath);
 
-            }
-            catch (Exception ree)
-            {
+            //}
+            //catch (Exception ree)
+            //{
 
-                MessageBox.Show(ree.Message.ToString());
-            }
+            //    MessageBox.Show(ree.Message.ToString());
+            //}
         }
         private bool CanExecuteGetFile()
         {

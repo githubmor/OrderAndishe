@@ -29,6 +29,7 @@ namespace BL
             Product = p;
             PalletCount = PalletCalCulate();
             ItemKind = (byte) ItemType.عادی;
+
         }
 
         public ItemSefaresh(OrderDetail od):this(od.Product)
@@ -40,6 +41,8 @@ namespace BL
             
             this.OrderDetail = od;
         }
+
+        
 
         public string Ranande
         {
@@ -130,6 +133,7 @@ namespace BL
                 PalletCount = PalletCalCulate();
                 NotifyPropertyChanged("Tedad");
                 NotifyPropertyChanged("Vazn");
+                NotifyPropertyChanged("Darkhast");
             }
 		}
         public string Des

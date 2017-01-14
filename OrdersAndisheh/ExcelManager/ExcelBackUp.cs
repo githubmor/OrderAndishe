@@ -1,5 +1,6 @@
 ﻿using BL;
 using OfficeOpenXml;
+using OrdersAndisheh.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,19 +26,22 @@ namespace OrdersAndisheh.ExcelManager
 
         public void ExportLastSavedSefaresh(string Tarikh)
         {
-            var sefaresh = service.LoadSefaresh(Tarikh);
 
-            
+            var sefaresh = service.LoadSefaresh(Tarikh);
 
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())
             {
                 dlg.Description = "Select a folder";
+                dlg.SelectedPath = Properties.Settings.Default.LastExcelBackUpPath;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-
-                    string path = dlg.SelectedPath;
-                    string file = PersianDateTime.Parse(sefaresh.Tarikh).DayOfYear + ".xlsx";
-                    string excelFileName = Path.Combine(path, file);
+                    Properties.Settings.Default.LastExcelBackUpPath = dlg.SelectedPath;
+                    string path = Path.Combine(dlg.SelectedPath , PersianDateTime.Parse(sefaresh.Tarikh).Year.ToString());
+                    string path2 = Path.Combine(path, PersianDateTime.Parse(sefaresh.Tarikh).MonthName.ToString());
+                    Directory.CreateDirectory(path2);
+                    string file = PersianDateTime.Parse(sefaresh.Tarikh).Day + ".xlsx";
+                    string excelFileName = Path.Combine(path2, file);
+                    
                     FileInfo excelForSave = new FileInfo(excelFileName);
 
                     using (var package = new ExcelPackage(excelForSave, excelTemplate))

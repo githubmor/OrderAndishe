@@ -33,5 +33,17 @@ namespace OrdersAndisheh.Properties {
                 return ((string)(this["OrderDbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastExcelBackUpPath {
+            get {
+                return ((string)(this["LastExcelBackUpPath"]));
+            }
+            set {
+                this["LastExcelBackUpPath"] = value;
+            }
+        }
     }
 }

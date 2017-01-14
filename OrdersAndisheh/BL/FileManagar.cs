@@ -7,6 +7,7 @@
 namespace BL
 {
     using OrdersAndisheh.BL;
+    using OrdersAndisheh.DBL;
     using Stimulsoft.Report;
     using Stimulsoft.Report.Export;
     using System;
@@ -44,7 +45,7 @@ namespace BL
         //}
 
 
-        public void CreatDriverFile(string fileName)
+        public void CreatDriverFile(List<DriverWork> rt , string fileName)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())
@@ -60,6 +61,7 @@ namespace BL
                     
                     StiReport mainreport = new StiReport();
                     mainreport.RegBusinessObject("Items", ReportRows);
+                    mainreport.RegBusinessObject("Works", rt);
                     mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\DriverListReport.mrt");
                     mainreport.Render();
                     mainreport.Show();

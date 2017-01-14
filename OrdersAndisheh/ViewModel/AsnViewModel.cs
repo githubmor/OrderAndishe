@@ -99,7 +99,7 @@ namespace OrdersAndisheh.ViewModel
                 ExcelImportService eis = new ExcelImportService(ss);
                 Asns = eis.GetAsnData(FilePath);
 
-                //CalculateSefareshWithData();
+                CalculateSefareshWithData();
             }
             catch (Exception ree)
             {
@@ -112,151 +112,90 @@ namespace OrdersAndisheh.ViewModel
             return true;
         }
 
-        //private void CalculateSefareshWithData()
-        //{
-        //    foreach (var g in sefaresh.Items)
-        //    {
-        //        g.AsnNumber = 0;
-        //    }
-        //    //CheckMoreThanOneTarikh();
+        private void CalculateSefareshWithData()
+        {
 
-        //    int NotOkCount = 0;
-        //    do
-        //    {
+            foreach (var item in sefaresh.Items)
+            {
+                var anbarNum = ss.GetAnbarNumber(item.Product, item.Customer);
 
-        //        //TODO  باید یه کاری کنیم که همون اول حالت هر سفارش مشخص شود
-        //        NotOkCount = sefaresh.Items.Where(p => p.AsnNumber < 1).ToList().Count;
-
-        //        foreach (var sefaresh_item in sefaresh.Items.Where(i => i.AsnNumber == 0).ToList())
-        //        {
-        //            var tahvil = CheckByCodeKala(sefaresh_item,
-        //                TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
-        //            sefaresh_item.TahvilFrosh = tahvil;
-        //        }
-
-        //        foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
-        //        {
-        //            var tahvil = CheckByTedadKala(sefaresh_item,
-        //                TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
-        //            sefaresh_item.TahvilFrosh = tahvil;
-        //        }
-        //        foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
-        //        {
-        //            var tahvil = CheckBySameTahvilNumber(sefaresh_item,
-        //                sefaresh.Items
-        //                .Where(p => p.Maghsad == sefaresh_item.Maghsad)
-        //                .Where(o => o.Ranande == sefaresh_item.Ranande)
-        //                .Where(o => o.IsImenKala == sefaresh_item.IsImenKala)
-        //                .Where(p => p.TahvilFrosh > 0).Select(p => p.TahvilFrosh).Distinct()
-        //                .ToList(),
-        //                TahvilFroshs.Where(p => !p.IsOk)
-        //                .Where(p => p.CodeKala == sefaresh_item.CodeKala)
-        //                .Where(p => p.Tedad == sefaresh_item.Tedad)
-        //                .ToList());
-        //            sefaresh_item.TahvilFrosh = tahvil;
-        //        }
-
-        //    } while (NotOkCount != sefaresh.Items.Where(p => p.TahvilFrosh < 1).ToList().Count);
-
-        //    var nuy = TahvilFroshs.Where(isa => !isa.IsOk).ToList();
-        //    foreach (var de in nuy)
-        //    {
-        //        Errors.Add("برای تحویل فروش " +
-        //            de.TahvilFroshNum + " کالای " +
-        //            de.KalaName + " به تعداد " +
-        //            de.Tedad + " آیتمی در سفارش وجود ندارد");
-        //    }
-
-        //    RaisePropertyChanged(() => Errors);
-        //    RaisePropertyChanged(() => ErsalListForTahvilFrosh);
-        //}
-
-        //private short CheckBySameTahvilNumber(ItemSefaresh item, List<short> tahvilWithSameMDAndTahvilOk,
-        //    List<TahvilItem> tahvilsWithSameItemCode)
-        //{
-        //    short e = 0;
-        //    foreach (var ismd in tahvilWithSameMDAndTahvilOk)
-        //    {
-        //        var find = tahvilsWithSameItemCode
-        //            .Where(p => p.TahvilFroshNum == ismd)
-        //            .ToList();
-        //        if (find.Count == 1)
-        //        {
-        //            find.First().IsOk = true;
-        //            e = find.First().TahvilFroshNum;
-        //        }
-        //    }
-        //    return e;
-        //}
-
-        //private short CheckByTedadKala(ItemSefaresh item, List<TahvilItem> tahvilsWithSameItemCode)
-        //{
-        //    var fi = tahvilsWithSameItemCode.Where(p => p.Tedad == item.Tedad).ToList();
-
-        //    if (fi.Count == 1)
-        //    {
-        //        fi.First().IsOk = true;
-        //        return fi.First().TahvilFroshNum;
-        //    }
-        //    else
-        //    {
-        //        return 0;
-        //    }
-        //}
-
-        //private short CheckByCodeKala(ItemSefaresh item,List<TahvilItem> tahvilsWithSameCodeKala)
-        //{
-        //    //var findedTahvils = tahvils.Where(p => p.CodeKala == item.CodeKala).ToList();
-
-        //    if (tahvilsWithSameCodeKala.Count == 1)
-        //    {
-        //        if (tahvilsWithSameCodeKala.First().Tedad == item.Tedad)
-        //        {
-        //            tahvilsWithSameCodeKala.First().IsOk = true;
-        //            return tahvilsWithSameCodeKala.First().TahvilFroshNum;
-        //        }
-        //        else if (item.TahvilFrosh != -1)
-        //        {
-        //            Errors.Add("احتمالا تعداد کالای " +
-        //               item.Kala + " بجای " + item.Tedad + " عدد " +
-        //                tahvilsWithSameCodeKala.First().Tedad + " عدد در تحویل فروش " 
-        //                + tahvilsWithSameCodeKala.First().TahvilFroshNum + " ثبت شده است");
-        //            return -1;
-        //        }
-        //        else
-        //        {
-        //            return 0;
-        //        }
+                //چون کانبانی نشون میده ممکنه کل محموله بشه چند کانبان ولی تعداش در مجموع بشه همون عدد
+                var findedAsnsWithSameAnbarAndFaniCode = Asns
+                    .Where(p => p.FaniCode == item.Product.FaniCode)
+                    .Where(p => p.AnbarNumber == anbarNum).ToList();
+                Dictionary<Asn,int> r = new Dictionary<Asn,int>();
                 
-        //    }
-        //    else if (tahvilsWithSameCodeKala.Count == 0)
-        //    {
-        //        Errors.Add("برای کالای "
-        //                + item.Kala + " ارسالی به "
-        //                + item.Maghsad + " تحویل فروشی ثبت نشده");
-        //        return -2;
-        //    }
-        //    else
-        //    {
-        //        return 0;
-        //    }
-        //}
-        //private void CheckMoreThanOneTarikh()
-        //{
-        //    List<string> tar = TahvilFroshs.Select(p => p.TarikhSanad).Distinct().ToList();
-        //    string tarikhha = "";
-        //    string rr = "";
-        //    if (tar.Count() > 1)
-        //    {
-        //        for (int i = 0; i < tar.Count(); i++)
-        //        {
-        //            tarikhha += tar[i] + "-";
-        //        }
-        //        rr = "فایل شامل اسناد بیش از یک تاریخ می باشد " + tarikhha;
-        //        Errors.Add(rr);
-        //    }
-        //}
+                //باید اول چک شود اول اینکه مجموع تعدادی که داخل یک بارنامه هست با تعداد میخونه یا نه
+                //بعد راننده چک شود
+                if (findedAsnsWithSameAnbarAndFaniCode!=null)
+                {
+                    var findedAsnNumbers = findedAsnsWithSameAnbarAndFaniCode.Select(p => p.AsnNumber).Distinct().ToList();
+                    if (findedAsnNumbers.Count == 1)//نمی تواند صفر باشد
+                    {
+                        int majmo = findedAsnsWithSameAnbarAndFaniCode.Select(p => p.Tedad).Sum();
+                        if (majmo == item.Tedad)
+                        {
+                            if (IsDriverSameAsAsn(item,findedAsnsWithSameAnbarAndFaniCode.First()))
+                            {
+                                findedAsnsWithSameAnbarAndFaniCode.First().IsOk = true;
+                                item.AsnNumber = int.Parse(findedAsnNumbers.First());
+                            }
+                            else
+                            {
+                                Errors.Add("اطلاعات راننده در بارنامه"
+                                + findedAsnNumbers.First()
+                                + "اشتباه ثبت شده");
+                            }
+                        }
+                        else
+                        {
+                            Errors.Add("تعداد کالای "
+                                + item.Kala
+                                + " در بارنامه "
+                                + findedAsnNumbers.First()
+                                + " بجای "
+                                + item.Tedad
+                                + " عدد "
+                                + majmo
+                                + " عدد ثبت شده");
+                            if (!IsDriverSameAsAsn(item, findedAsnsWithSameAnbarAndFaniCode.First()))
+                            {
+                                Errors.Add("اطلاعات راننده در بارنامه"
+                                + findedAsnNumbers.First()
+                                + "اشتباه ثبت شده");
+                            }
+                        }
+                    }
+                    else//یعنی بارنامه های بیش از یکی ین شماره فنی و این انبار را دارد که باید چک شود راننده جدا دارد یا نه و تعداش می خواند یا نه
+                    {
+                        int[] tedadHa = new int[findedAsnNumbers.Count];
+                        for (int i = 0; i < tedadHa.Length; i++)
+                        {
+                            tedadHa[i] = findedAsnsWithSameAnbarAndFaniCode
+                                .Where(p=>p.AsnNumber==findedAsnNumbers[i])
+                                .Select(p => p.Tedad).Sum();
+                        }
+                        if (tedadHa.Where(p => p == item.Tedad).Count()==1)
+                        {
+                            //var asnNum = tedadHa.Where(p=>p == item.Tedad).
+                        }
+                    }
+                }
+                
+                
+            }
 
+            
+            RaisePropertyChanged(() => Errors);
+            RaisePropertyChanged(() => ErsalListForTahvilFrosh);
+        }
+
+        private bool IsDriverSameAsAsn(ItemSefaresh item, Asn asn)
+        {
+            return false;
+        }
+
+        
         private RelayCommand _myCommand55555772;
             
         /// <summary>
