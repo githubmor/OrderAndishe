@@ -1,18 +1,27 @@
-﻿<Window x:Class="OrdersAndisheh.View.ErsalReportView"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         
+        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="OrdersAndisheh.View.ErsalReportView" 
+        
         Title="ErsalReportView" >
     <Grid>
-        <!--<dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
-                          ItemsSource="{Binding ItemSefareshes}" 
-                          SelectedItem="{Binding ClickedItem}"
-                          AutoGenerateColumns="AddNew"
-                          SelectionMode="Row" MouseDoubleClick="gg_MouseDoubleClick">-->
-        <dxg:GridControl ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
+        <dxpg:PivotGridControl DataSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <dxpg:PivotGridControl.Fields>
+                <dxpg:PivotGridField Area="RowArea" FieldName="Kala"/>
+                <dxpg:PivotGridField Area="ColumnArea" FieldName="Tarikh"/>
+                <dxpg:PivotGridField Area="DataArea" FieldName="Tedad"/>
+                <dxpg:PivotGridField Area="DataArea" FieldName="TahvilFrosh"/>
+                <dxpg:PivotGridField Area="FilterArea" FieldName="Maghsad"/>
+                <dxpg:PivotGridField Area="FilterArea" FieldName="Ranande"/>
+            </dxpg:PivotGridControl.Fields>
+        </dxpg:PivotGridControl>
+
+
+        <!--<dxg:GridControl ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Tarikh" Header="تاریخ" />
                 <dxg:GridColumn FieldName="CodeKala" Header="کد کالا" />
@@ -28,16 +37,7 @@
                 <dxg:TableView AllowPerPixelScrolling="True" AllowEditing="False" AutoWidth="True" AllowConditionalFormattingMenu="True" ShowSearchPanelMode="Always">
                 </dxg:TableView>
             </dxg:GridControl.View>
-        </dxg:GridControl>
-            <!--<dxg:GridControl.Columns>
-                <dxg:GridColumn FieldName="Kala" Header="کد کالا" />
-                <dxg:GridColumn FieldName="Kala" Header="کالا" />
-                <dxg:GridColumn FieldName="Tedad" Header="تعداد" />
-                <dxg:GridColumn FieldName="Maghsad" Header="مقصد"/>
-                <dxg:GridColumn FieldName="Ranande" Header="راننده" />
-                <dxg:GridColumn  FieldName="Des" Header="توضیحات" />
-            </dxg:GridControl.Columns>-->
-            
-        <!--</dxg:GridControl>-->
+        </dxg:GridControl>-->
+
     </Grid>
 </Window>
