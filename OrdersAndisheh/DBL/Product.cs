@@ -54,6 +54,7 @@ namespace OrdersAndisheh.DBL
 
         public virtual Pallet Pallet { get; set; }
         public virtual Baste Baste { get; set; }
+        [InverseProperty("Product")]
         public virtual Amount Amount { get; set; }
     }
 }

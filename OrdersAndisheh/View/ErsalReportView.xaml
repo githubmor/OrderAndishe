@@ -5,7 +5,10 @@
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         
-        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"  xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  x:Class="OrdersAndisheh.View.ErsalReportView" 
+        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"  
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+    x:Class="OrdersAndisheh.View.ErsalReportView" 
         
         Title="ErsalReportView" >
     <Grid>

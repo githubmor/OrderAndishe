@@ -33,9 +33,10 @@ namespace OrdersAndisheh.DBL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Amount>()
+                .HasKey(p=>p.ProductId)
                 .HasRequired(et => et.Product)
-                .WithOptional(eo => eo.Amount);               
-
+                .WithOptional(eo => eo.Amount);
+            
             modelBuilder.Entity<Bazres>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Bazre)

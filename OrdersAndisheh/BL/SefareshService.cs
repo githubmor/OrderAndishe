@@ -108,6 +108,7 @@ namespace BL
                     .Include("Product")
                     .Include("Product.Pallet")
                     .Include("Product.Bazre")
+                    .Include("Product.Amount")
                     .OrderBy(o => o.Driver_Id)
                     .ThenBy(o => o.Customer_Id)
                     .ThenBy(i => i.ItemType)
@@ -368,7 +369,12 @@ namespace BL
             var goodsInItems = items.Select(p => p.Product).ToList();
             foreach (var good in goodsInItems)
             {
-                good.Weight =  good.Amount.LastAmount - items.Where(p=>p.ProductId==good.Id).Select(p=>p.Tedad).Sum(x => x);
+                if (good.Amount!=null)
+                {
+                    good.Weight =
+                                good.Amount.LastAmount -
+                                items.Where(p => p.ProductId == good.Id).Select(p => p.Tedad).Sum(x => x); 
+                }
             }
             foreach (var s in goodsInItems)
             {
