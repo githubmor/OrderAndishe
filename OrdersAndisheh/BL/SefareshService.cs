@@ -366,21 +366,18 @@ namespace BL
                 .Include("Product.Amount")
                 .ToList();
 
-            var goodsInItems = items.Select(p => p.Product).ToList();
+            var goodsInItems = items.Select(p => p.Product).Distinct().ToList();
             foreach (var good in goodsInItems)
             {
                 if (good.Amount!=null)
                 {
-                    good.Weight =
-                                good.Amount.LastAmount -
-                                items.Where(p => p.ProductId == good.Id).Select(p => p.Tedad).Sum(x => x); 
-                }
-            }
-            foreach (var s in goodsInItems)
-            {
-                if (s.Weight<0)
-                {
-                    re += s.Name + "-" + s.Weight + "\n";
+                    var y = good.Amount.LastAmount -
+                                items.Where(p => p.ProductId == good.Id).Select(p => p.Tedad).Sum(x => x);
+                    if (y<0)
+                    {
+                        re += good.Name + "-" + y + "\n";
+                    }
+
                 }
             }
             return re;

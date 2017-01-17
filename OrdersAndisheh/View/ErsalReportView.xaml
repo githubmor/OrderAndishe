@@ -13,7 +13,7 @@
         Title="ErsalReportView" >
     <Grid>
 
-        <DockPanel>
+        <!--<DockPanel>
             <dxb:ToolBarControl Caption="Edit" DockPanel.Dock="Top" AllowCollapse="False" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <dxb:BarButtonItem Content="BarButtonItem" Glyph="{dx:DXImage Image=Add_16x16.png}" LargeGlyph="{dx:DXImage Image=Add_32x32.png}" BarItemDisplayMode="ContentAndGlyph"/>
             </dxb:ToolBarControl>
@@ -51,9 +51,9 @@
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutControl>
             </Grid>
-        </DockPanel>
+        </DockPanel>-->
 
-        <!--<dxpg:PivotGridControl DataSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <dxpg:PivotGridControl DataSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft" HorizontalAlignment="Left" VerticalAlignment="Top">
             <dxpg:PivotGridControl.Fields>
                 <dxpg:PivotGridField Area="RowArea" FieldName="Kala"/>
                 <dxpg:PivotGridField Area="ColumnArea" FieldName="Tarikh"/>
@@ -62,7 +62,7 @@
                 <dxpg:PivotGridField Area="FilterArea" FieldName="Maghsad"/>
                 <dxpg:PivotGridField Area="FilterArea" FieldName="Ranande"/>
             </dxpg:PivotGridControl.Fields>
-        </dxpg:PivotGridControl>-->
+        </dxpg:PivotGridControl>
         <!--<dxg:GridControl ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Tarikh" Header="تاریخ" />

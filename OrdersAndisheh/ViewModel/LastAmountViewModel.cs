@@ -286,12 +286,14 @@ namespace OrdersAndisheh.ViewModel
             try
             {
                 ss.AddNewAmount(Amounts);
+                MessageBox.Show("اطلاعات ذخیره شد");
             }
             catch (Exception t)
             {
 
                 MessageBox.Show(t.InnerException.InnerException.Message.ToString());
             }
+            
         }
 
         private bool CanExecuteSaveTahvilFrosh()
