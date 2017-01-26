@@ -1,5 +1,7 @@
-﻿using BL;
+﻿ using BL;
 using OfficeOpenXml;
+using OrdersAndisheh.BL.Asn;
+
 using OrdersAndisheh.DBL;
 using System;
 using System.Collections.Generic;
@@ -85,11 +87,12 @@ namespace OrdersAndisheh.BL
             return items;
         }
 
-        public ObservableCollection<Asn> GetAsnData(string filePath)
+        public List<IAsn> GetAsnData(string filePath)
         {
             FileInfo f = new FileInfo(filePath);
             package = new ExcelPackage(f);
-            ObservableCollection<Asn> items = new ObservableCollection<Asn>();
+            List<IAsn> items = new List<IAsn>();
+            List<IAsn> itemsf = new List<IAsn>();
             ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
             var start = WorkSheet.Dimension.Start;
             var end = WorkSheet.Dimension.End;
@@ -149,7 +152,7 @@ namespace OrdersAndisheh.BL
 
             for (int row = start.Row + 1; row <= end.Row; row++)
             {
-                Asn s = new Asn();
+                aAsn s = new aAsn();
                 s.KalaName = WorkSheet.Cells[row, KalaNameCol].Text;
                 s.FaniCode = WorkSheet.Cells[row, FaniCol].Text;
                 s.AnbarNumber = WorkSheet.Cells[row, AnbarNumCol].Text;
@@ -159,10 +162,10 @@ namespace OrdersAndisheh.BL
                 s.RanandeName = WorkSheet.Cells[row, RanandeCol].Text;
                 s.RanandePelak = WorkSheet.Cells[row, RanandePelakCol].Text;
                 s.RanandeTel = WorkSheet.Cells[row, RanandeTelCol].Text;
-                items.Add(s);
+                //itemsf.Add(s);
             }
 
-            return items;
+            return itemsf;
 
 
         }

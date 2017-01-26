@@ -2,7 +2,7 @@
 using BL;
 namespace OrdersAndisheh.BL
 {
-    public class Asn
+    public class aAsn
     {
         public string KalaName { get; set; }
         public string FaniCode { get; set; }

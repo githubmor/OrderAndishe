@@ -258,11 +258,19 @@
     </ApplicationDefinition>
     <Compile Include="BL\AlarmManager.cs" />
     <Compile Include="BL\AmountDto.cs" />
+    <Compile Include="BL\Asn\AsnChecker.cs" />
+    <Compile Include="BL\Asn\AsnHeader.cs" />
+    <Compile Include="BL\Asn\AsnRow.cs" />
+    <Compile Include="BL\Asn\SapcoAsn.cs" />
+    <Compile Include="BL\Asn\IAsn.cs" />
     <Compile Include="BL\CheckList.cs" />
     <Compile Include="BL\CheckSefaresh.cs" />
     <Compile Include="BL\ErsalItem.cs" />
+    <Compile Include="BL\ImportFromExcel\ErsalImport.cs" />
+    <Compile Include="BL\ImportFromExcel\ExcelImporter.cs" />
+    <Compile Include="BL\ImportFromExcel\TahvilFroshImporter.cs" />
     <Compile Include="BL\ItemType.cs" />
-    <Compile Include="BL\Asn.cs" />
+    <Compile Include="BL\aAsn.cs" />
     <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />
     <Compile Include="BL\ContainerManager.cs" />

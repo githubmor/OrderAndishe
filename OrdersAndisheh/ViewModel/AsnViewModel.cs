@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.BL;
+using OrdersAndisheh.BL.Asn;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +23,7 @@ namespace OrdersAndisheh.ViewModel
             sefaresh = new Sefaresh();
             Errors = new List<string>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>();
-            Asns = new ObservableCollection<Asn>();
+            Asns = new List<IAsn>();
             Messenger.Default.Register<string>(this, "sefareshForAsn", ThisSefaresh);
         }
 
@@ -44,7 +45,7 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private ObservableCollection<Asn> Asns;
+        private List<IAsn> Asns;
         //private ObservableCollection<ItemSefaresh> myVar;
 
         public ObservableCollection<ItemSefaresh> ErsalListForTahvilFrosh
@@ -99,7 +100,9 @@ namespace OrdersAndisheh.ViewModel
                 ExcelImportService eis = new ExcelImportService(ss);
                 Asns = eis.GetAsnData(FilePath);
 
-                CalculateSefareshWithData();
+                AsnChecker ck = new AsnChecker(Asns, sefaresh);
+                Errors = ck.CheckAsns();
+                //CalculateSefareshWithData();
             }
             catch (Exception ree)
             {
@@ -112,85 +115,85 @@ namespace OrdersAndisheh.ViewModel
             return true;
         }
 
-        private void CalculateSefareshWithData()
-        {
+        //private void CalculateSefareshWithData()
+        //{
 
-            foreach (var item in sefaresh.Items)
-            {
-                var anbarNum = ss.GetAnbarNumber(item.Product, item.Customer);
+        //    foreach (var item in sefaresh.Items)
+        //    {
+        //        var anbarNum = ss.GetAnbarNumber(item.Product, item.Customer);
 
-                //چون کانبانی نشون میده ممکنه کل محموله بشه چند کانبان ولی تعداش در مجموع بشه همون عدد
-                var findedAsnsWithSameAnbarAndFaniCode = Asns
-                    .Where(p => p.FaniCode == item.Product.FaniCode)
-                    .Where(p => p.AnbarNumber == anbarNum).ToList();
-                Dictionary<Asn,int> r = new Dictionary<Asn,int>();
+        //        //چون کانبانی نشون میده ممکنه کل محموله بشه چند کانبان ولی تعداش در مجموع بشه همون عدد
+        //        var findedAsnsWithSameAnbarAndFaniCode = Asns
+        //            .Where(p => p.FaniCode == item.Product.FaniCode)
+        //            .Where(p => p.AnbarNumber == anbarNum).ToList();
+        //        Dictionary<aAsn,int> r = new Dictionary<aAsn,int>();
                 
-                //باید اول چک شود اول اینکه مجموع تعدادی که داخل یک بارنامه هست با تعداد میخونه یا نه
-                //بعد راننده چک شود
-                if (findedAsnsWithSameAnbarAndFaniCode!=null)
-                {
-                    var findedAsnNumbers = findedAsnsWithSameAnbarAndFaniCode.Select(p => p.AsnNumber).Distinct().ToList();
-                    if (findedAsnNumbers.Count == 1)//نمی تواند صفر باشد
-                    {
-                        int majmo = findedAsnsWithSameAnbarAndFaniCode.Select(p => p.Tedad).Sum();
-                        if (majmo == item.Tedad)
-                        {
-                            if (IsDriverSameAsAsn(item,findedAsnsWithSameAnbarAndFaniCode.First()))
-                            {
-                                findedAsnsWithSameAnbarAndFaniCode.First().IsOk = true;
-                                item.AsnNumber = int.Parse(findedAsnNumbers.First());
-                            }
-                            else
-                            {
-                                Errors.Add("اطلاعات راننده در بارنامه"
-                                + findedAsnNumbers.First()
-                                + "اشتباه ثبت شده");
-                            }
-                        }
-                        else
-                        {
-                            Errors.Add("تعداد کالای "
-                                + item.Kala
-                                + " در بارنامه "
-                                + findedAsnNumbers.First()
-                                + " بجای "
-                                + item.Tedad
-                                + " عدد "
-                                + majmo
-                                + " عدد ثبت شده");
-                            if (!IsDriverSameAsAsn(item, findedAsnsWithSameAnbarAndFaniCode.First()))
-                            {
-                                Errors.Add("اطلاعات راننده در بارنامه"
-                                + findedAsnNumbers.First()
-                                + "اشتباه ثبت شده");
-                            }
-                        }
-                    }
-                    else//یعنی بارنامه های بیش از یکی ین شماره فنی و این انبار را دارد که باید چک شود راننده جدا دارد یا نه و تعداش می خواند یا نه
-                    {
-                        int[] tedadHa = new int[findedAsnNumbers.Count];
-                        for (int i = 0; i < tedadHa.Length; i++)
-                        {
-                            tedadHa[i] = findedAsnsWithSameAnbarAndFaniCode
-                                .Where(p=>p.AsnNumber==findedAsnNumbers[i])
-                                .Select(p => p.Tedad).Sum();
-                        }
-                        if (tedadHa.Where(p => p == item.Tedad).Count()==1)
-                        {
-                            //var asnNum = tedadHa.Where(p=>p == item.Tedad).
-                        }
-                    }
-                }
+        //        //باید اول چک شود اول اینکه مجموع تعدادی که داخل یک بارنامه هست با تعداد میخونه یا نه
+        //        //بعد راننده چک شود
+        //        if (findedAsnsWithSameAnbarAndFaniCode!=null)
+        //        {
+        //            var findedAsnNumbers = findedAsnsWithSameAnbarAndFaniCode.Select(p => p.AsnNumber).Distinct().ToList();
+        //            if (findedAsnNumbers.Count == 1)//نمی تواند صفر باشد
+        //            {
+        //                int majmo = findedAsnsWithSameAnbarAndFaniCode.Select(p => p.Tedad).Sum();
+        //                if (majmo == item.Tedad)
+        //                {
+        //                    if (IsDriverSameAsAsn(item,findedAsnsWithSameAnbarAndFaniCode.First()))
+        //                    {
+        //                        findedAsnsWithSameAnbarAndFaniCode.First().IsOk = true;
+        //                        item.AsnNumber = int.Parse(findedAsnNumbers.First());
+        //                    }
+        //                    else
+        //                    {
+        //                        Errors.Add("اطلاعات راننده در بارنامه"
+        //                        + findedAsnNumbers.First()
+        //                        + "اشتباه ثبت شده");
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    Errors.Add("تعداد کالای "
+        //                        + item.Kala
+        //                        + " در بارنامه "
+        //                        + findedAsnNumbers.First()
+        //                        + " بجای "
+        //                        + item.Tedad
+        //                        + " عدد "
+        //                        + majmo
+        //                        + " عدد ثبت شده");
+        //                    if (!IsDriverSameAsAsn(item, findedAsnsWithSameAnbarAndFaniCode.First()))
+        //                    {
+        //                        Errors.Add("اطلاعات راننده در بارنامه"
+        //                        + findedAsnNumbers.First()
+        //                        + "اشتباه ثبت شده");
+        //                    }
+        //                }
+        //            }
+        //            else//یعنی بارنامه های بیش از یکی ین شماره فنی و این انبار را دارد که باید چک شود راننده جدا دارد یا نه و تعداش می خواند یا نه
+        //            {
+        //                int[] tedadHa = new int[findedAsnNumbers.Count];
+        //                for (int i = 0; i < tedadHa.Length; i++)
+        //                {
+        //                    tedadHa[i] = findedAsnsWithSameAnbarAndFaniCode
+        //                        .Where(p=>p.AsnNumber==findedAsnNumbers[i])
+        //                        .Select(p => p.Tedad).Sum();
+        //                }
+        //                if (tedadHa.Where(p => p == item.Tedad).Count()==1)
+        //                {
+        //                    var asnNum = tedadHa.Where(p=>p == item.Tedad).
+        //                }
+        //            }
+        //        }
                 
                 
-            }
+        //    }
 
             
-            RaisePropertyChanged(() => Errors);
-            RaisePropertyChanged(() => ErsalListForTahvilFrosh);
-        }
+        //    RaisePropertyChanged(() => Errors);
+        //    RaisePropertyChanged(() => ErsalListForTahvilFrosh);
+        //}
 
-        private bool IsDriverSameAsAsn(ItemSefaresh item, Asn asn)
+        private bool IsDriverSameAsAsn(ItemSefaresh item, aAsn asn)
         {
             return false;
         }

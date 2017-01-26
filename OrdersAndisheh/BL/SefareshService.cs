@@ -382,6 +382,27 @@ namespace BL
             }
             return re;
         }
+
+        public Product GetProduct(string code)
+        {
+            return db.Products.Where(p => p.Code == code).FirstOrDefault();
+        }
+
+        public Customer GetCustomer(string name)
+        {
+            return db.Customers.Where(p => p.Name == name).FirstOrDefault();
+        }
+
+        public Driver GetDriver(string name)
+        {
+            return db.Drivers.Where(p => p.Name == name).FirstOrDefault();
+        }
+
+        public void SaveOrders(List<Order> yu)
+        {
+            db.Orders.AddRange(yu);
+            db.SaveChanges();
+        }
     }
 }
 

@@ -13,6 +13,7 @@ using System.Reflection;
 using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
 using OrdersAndisheh.BL;
+using OrdersAndisheh.BL.ImportFromExcel;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -506,8 +507,24 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteOracleRelation()
         {
-            OracleRelationView v = new OracleRelationView();
-            v.Show();
+            
+
+            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            {
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
+                    openFileDialog1.FilterIndex = 1;
+                    //FilePath = openFileDialog1.FileName;
+                    ErsalImport c = new ErsalImport(ss);
+                    var yu = c.GetData(openFileDialog1.FileName, "05");
+
+                    ss.SaveOrders(yu);
+                }
+            }
+            //OracleRelationView v = new OracleRelationView();
+            //v.Show();
         }
 
 
