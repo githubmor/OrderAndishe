@@ -266,6 +266,7 @@
     <Compile Include="BL\CheckList.cs" />
     <Compile Include="BL\CheckSefaresh.cs" />
     <Compile Include="BL\ErsalItem.cs" />
+    <Compile Include="BL\ExportToFile\Exporter.cs" />
     <Compile Include="BL\ImportFromExcel\ErsalImport.cs" />
     <Compile Include="BL\ImportFromExcel\ExcelImporter.cs" />
     <Compile Include="BL\ImportFromExcel\TahvilFroshImporter.cs" />

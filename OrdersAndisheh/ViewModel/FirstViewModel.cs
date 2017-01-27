@@ -14,6 +14,7 @@ using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
 using OrdersAndisheh.BL;
 using OrdersAndisheh.BL.ImportFromExcel;
+using OrdersAndisheh.DBL;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -517,8 +518,8 @@ namespace OrdersAndisheh.ViewModel
                     openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
                     openFileDialog1.FilterIndex = 1;
                     //FilePath = openFileDialog1.FileName;
-                    ErsalImport c = new ErsalImport(ss);
-                    var yu = c.GetData(openFileDialog1.FileName, "05");
+                    ExcelImporter c = new ErsalImport(ss);
+                    var yu = (List<Order>) c.GetData(openFileDialog1.FileName);
 
                     ss.SaveOrders(yu);
                 }
@@ -716,6 +717,40 @@ namespace OrdersAndisheh.ViewModel
             ErsalReportView v = new ErsalReportView();
             v.DataContext = vm;
             v.Show();
+        }
+
+        private RelayCommand _myCommand75555;
+
+        /// <summary>
+        /// Gets the PelaskoReport.
+        /// </summary>
+        public RelayCommand PelaskoReport
+        {
+            get
+            {
+                return _myCommand75555
+                    ?? (_myCommand75555 = new RelayCommand(ExecutePelaskoReport));
+            }
+        }
+
+        private void ExecutePelaskoReport()
+        {
+            var items = ss.LoadAllPelaskosefaresh();
+
+            foreach (var er in items)
+            {
+                er.Des = er.OrderDetail.Order.Tarikh;
+            }
+
+            FileManagar f = new FileManagar();
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                if (dialog.ShowDialog()==DialogResult.OK)
+                {
+                    f.CreatePlaskoreport(items, dialog.SelectedPath+"/pelasko.xlsx");
+                }
+            }
+
         }
     }
 

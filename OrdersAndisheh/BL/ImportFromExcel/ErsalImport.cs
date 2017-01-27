@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace OrdersAndisheh.BL.ImportFromExcel
 {
-    public class ErsalImport 
+    public class ErsalImport : ExcelImporter
     {
         SefareshService service;
         ExcelPackage package;
@@ -17,8 +17,11 @@ namespace OrdersAndisheh.BL.ImportFromExcel
             this.service = service;
             
         }
-        public List<Order> GetData(string filePath,string month)
+
+        
+        public object GetData(string filePath)
         {
+            string month = "05";
             FileInfo f = new FileInfo(filePath);
             package = new ExcelPackage(f);
             List<Order> items = new List<Order>();
@@ -107,5 +110,7 @@ namespace OrdersAndisheh.BL.ImportFromExcel
 
             return items;
         }
+
+        
     }
 }

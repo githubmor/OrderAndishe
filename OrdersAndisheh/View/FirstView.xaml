@@ -48,6 +48,7 @@
             <Button Content="تثبیت سفارش" Command="{Binding AcceptSefaresh}"/>
             <Button Content="چک بارنامه ها" Command="{Binding CheckAsns}"/>
             <Button Content="گزارش سفارشات" Command="{Binding ErsalReporting}"/>
+            <Button Content="گزارش پلاسکو" Command="{Binding PelaskoReport}"/>
         </StackPanel>
         <DataGrid SelectedItem="{Binding SelectedSefareshCheck}" MouseDoubleClick="ListView_MouseDoubleClick" 
                   ItemsSource="{Binding CheckSefareshs}" AutoGenerateColumns="False" Grid.Column="2" 

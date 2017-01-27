@@ -403,6 +403,40 @@ namespace BL
             db.Orders.AddRange(yu);
             db.SaveChanges();
         }
+
+        public List<ItemSefaresh> LoadAllPelaskosefaresh()
+        {
+            List<ItemSefaresh> rets = new List<ItemSefaresh>();
+
+            var allPelaskitems = db.OrderDetails.Where(p => p.ProductId == 79)
+                .Include("Customer")
+                .Include("Driver")
+                .Include("Product")
+                .Include("Product.Pallet")
+                .Include("Product.Bazre")
+                .Include("Order")
+                .ToList();
+
+            foreach (var we in allPelaskitems)
+            {
+                var t = db.OrderDetails
+                    .Include("Customer")
+                    .Include("Driver")
+                    .Include("Product")
+                    .Include("Product.Pallet")
+                    .Include("Product.Bazre")
+                    .Include("Order")
+                    .Where(p => p.Driver_Id == we.Driver_Id)
+                    .Where(p => p.Order.Tarikh == we.Order.Tarikh)
+                    .ToList();
+                foreach (var tr in t)
+                {
+                    rets.Add(new ItemSefaresh(tr));
+                }
+            }
+
+            return rets;
+        }
     }
 }
 

@@ -22,10 +22,6 @@ namespace OrdersAndisheh.BL
             this.service = service;
             
         }
-
-
-
-
         public ObservableCollection<TahvilItem> GetTahvilfroshData(string filePath)
         {
             FileInfo f = new FileInfo(filePath);

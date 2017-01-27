@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace OrdersAndisheh.BL.ImportFromExcel
 {
-    public class TahvilFroshImporter
+    public class TahvilFroshImporter : ExcelImporter
     {
-        public ObservableCollection<TahvilItem> GetData()
-        {
 
-            return null;
+        public object GetData(string filePath)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,6 +6,7 @@
 //------------------------------------------------------------------------------
 namespace BL
 {
+    using OfficeOpenXml;
     using OrdersAndisheh.BL;
     using OrdersAndisheh.DBL;
     using Stimulsoft.Report;
@@ -13,6 +14,7 @@ namespace BL
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Windows.Forms;
@@ -37,6 +39,24 @@ namespace BL
         {
             this.CheckList = reportRows;
             this.Tarikh = Tarikh;
+        }
+
+        public FileManagar()
+        {
+
+        }
+
+        public void CreatePlaskoreport(List<ItemSefaresh> items,string path)
+        {
+            FileInfo f = new FileInfo(path);
+            using (ExcelPackage package = new ExcelPackage(f))
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("test");
+
+                worksheet.Cells["A1"].LoadFromCollection(items, true, OfficeOpenXml.Table.TableStyles.Medium1);
+
+                package.Save();
+            }
         }
         //public FileManagar(ObservableCollection<ItemSefaresh> observableCollection)
         //{
