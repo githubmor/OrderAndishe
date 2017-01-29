@@ -255,8 +255,8 @@ namespace BL
                 .Include("OrderDetails.Driver")
                 .Include("OrderDetails.Driver.TempDriver")
                 .Include("OrderDetails.Product")
-                .OrderByDescending(o => o.Id)
-                //.Where(i=>!i.Accepted) فعلا تا فعال کردن قابلیت برگرداندن تثبیت شده ها 
+                .OrderByDescending(o => o.Tarikh)
+                //.Where(i => !i.Accepted) //UNDONE باید برگشت از تثبیت رو هم درست کنم
                 .ToList();
             foreach (var item in p)
             {
@@ -408,7 +408,9 @@ namespace BL
         {
             List<ItemSefaresh> rets = new List<ItemSefaresh>();
 
-            var allPelaskitems = db.OrderDetails.Where(p => p.ProductId == 79)
+            var allPelaskitems = db.OrderDetails
+                .Where(p => p.ProductId == 79)
+                .Where(p => p.Customer_Id == 9)
                 .Include("Customer")
                 .Include("Driver")
                 .Include("Product")

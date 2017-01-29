@@ -4,11 +4,10 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.View;
 using System;
-using System.Configuration;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
@@ -28,14 +27,14 @@ namespace OrdersAndisheh.ViewModel
             
             ss = new SefareshService();
             Messenger.Default.Register<string>(this, "path", getFilePath);
-            Messenger.Default.Register<string>(this, "Reload", ReloadList);
+            //Messenger.Default.Register<string>(this, "Reload", ReloadList);
             
         }
 
-        private void ReloadList(string obj)
-        {
-            RaisePropertyChanged(() => this.CheckSefareshs);
-        }
+        //private void ReloadList(CheckSefaresh sefaresh)
+        //{
+        //    RaisePropertyChanged(sefaresh)
+        //}
 
         
         private void getFilePath(string path)
@@ -389,7 +388,8 @@ namespace OrdersAndisheh.ViewModel
                 MainView v = new MainView();
                 Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "EditSefaresh");
                 v.ShowDialog();
-                RaisePropertyChanged(() => this.CheckSefareshs);
+                //ReloadList(SelectedSefareshCheck);
+                //RaisePropertyChanged(() => this.CheckSefareshs);
                 
             }
         }
@@ -487,7 +487,7 @@ namespace OrdersAndisheh.ViewModel
                 {
                     //conn.connect();
                 }
-                RaisePropertyChanged(() => this.CheckSefareshs);
+                //RaisePropertyChanged(() => this.CheckSefareshs);
             }
         }
 
@@ -508,22 +508,32 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteOracleRelation()
         {
-            
 
-            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-            {
 
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //try
+            //{
+                using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
                 {
-                    openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
-                    openFileDialog1.FilterIndex = 1;
-                    //FilePath = openFileDialog1.FileName;
-                    ExcelImporter c = new ErsalImport(ss);
-                    var yu = (List<Order>) c.GetData(openFileDialog1.FileName);
 
-                    ss.SaveOrders(yu);
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
+                        openFileDialog1.FilterIndex = 1;
+                        //FilePath = openFileDialog1.FileName;
+                        ExcelImporter c = new ErsalImport(ss);
+                        var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
+
+                        ss.SaveOrders(yu);
+                        MessageBox.Show("ذخیره شد");
+                    }
                 }
-            }
+            //}
+            //catch (Exception eree)
+            //{
+
+            //    MessageBox.Show(eree.Message.ToString());
+            //    MessageBox.Show("ذخیره سازی انجام نشد");
+            //}
             //OracleRelationView v = new OracleRelationView();
             //v.Show();
         }
