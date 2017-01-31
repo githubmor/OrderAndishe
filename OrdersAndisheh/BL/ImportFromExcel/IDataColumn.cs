@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OrdersAndisheh.BL.ImportFromExcel
 {
-    public interface ExcelImporter
+    public class IDataColumn
     {
-        object GetData(string filePath);
+        public int ColumnNumber { get; set; }
+        public string ColumnName { get; set; }
     }
 }

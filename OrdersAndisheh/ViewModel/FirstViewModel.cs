@@ -520,10 +520,10 @@ namespace OrdersAndisheh.ViewModel
                         openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
                         openFileDialog1.FilterIndex = 1;
                         //FilePath = openFileDialog1.FileName;
-                        ExcelImporter c = new ErsalImport(ss);
-                        var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
+                        //IExcelImporter c = new ErsalImport(ss);
+                        //var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
 
-                        ss.SaveOrders(yu);
+                        //ss.SaveOrders(yu);
                         MessageBox.Show("ذخیره شد");
                     }
                 }

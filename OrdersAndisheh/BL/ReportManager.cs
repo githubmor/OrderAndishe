@@ -247,10 +247,8 @@ namespace OrdersAndisheh.BL
                     Position = pos,
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
-                    Maghsad = b.Maghsad
-                    ,
-                    Ranande = (b.Driver.TempDriver == null ? b.Ranande : "           ")
-                    ,
+                    Maghsad = b.Maghsad,
+                    Ranande = (b.Driver.TempDriver == null ? b.Ranande : "           "),
                     Pallet = b.PalletCount.ToString(),
                     Karton = b.Karton
                 });

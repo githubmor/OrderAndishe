@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.BL;
+using OrdersAndisheh.BL.ImportFromExcel;
 using OrdersAndisheh.ExcelManager;
 using System;
 using System.Collections.Generic;
@@ -99,9 +100,10 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ExcelImportService eis = new ExcelImportService(ss);
-                TahvilFroshs = eis.GetTahvilfroshData(FilePath);
-                CalculateSefareshWithData();
+                //TahvilFroshImporter iei = new TahvilFroshImporter();
+                //iei.GetData(FilePath);
+                //TahvilFroshs = iei.
+                //CalculateSefareshWithData();
             }
             catch (Exception ree)
             {

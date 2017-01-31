@@ -53,7 +53,7 @@
             </Grid>
         </DockPanel>-->
 
-        <dxpg:PivotGridControl DataSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <!--<dxpg:PivotGridControl DataSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft" HorizontalAlignment="Left" VerticalAlignment="Top">
             <dxpg:PivotGridControl.Fields>
                 <dxpg:PivotGridField Area="RowArea" FieldName="Kala"/>
                 <dxpg:PivotGridField Area="ColumnArea" FieldName="Tarikh"/>
@@ -62,8 +62,8 @@
                 <dxpg:PivotGridField Area="FilterArea" FieldName="Maghsad"/>
                 <dxpg:PivotGridField Area="FilterArea" FieldName="Ranande"/>
             </dxpg:PivotGridControl.Fields>
-        </dxpg:PivotGridControl>
-        <!--<dxg:GridControl ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
+        </dxpg:PivotGridControl>-->
+        <dxg:GridControl ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Tarikh" Header="تاریخ" />
                 <dxg:GridColumn FieldName="CodeKala" Header="کد کالا" />
@@ -79,7 +79,7 @@
                 <dxg:TableView AllowPerPixelScrolling="True" AllowEditing="False" AutoWidth="True" AllowConditionalFormattingMenu="True" ShowSearchPanelMode="Always">
                 </dxg:TableView>
             </dxg:GridControl.View>
-        </dxg:GridControl>-->
+        </dxg:GridControl>
 
     </Grid>
 </Window>

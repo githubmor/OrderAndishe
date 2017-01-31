@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>135</ApplicationRevision>
+    <ApplicationRevision>139</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -267,8 +267,10 @@
     <Compile Include="BL\CheckSefaresh.cs" />
     <Compile Include="BL\ErsalItem.cs" />
     <Compile Include="BL\ExportToFile\Exporter.cs" />
+    <Compile Include="BL\ImportFromExcel\AbstractExcelImporter.cs" />
     <Compile Include="BL\ImportFromExcel\ErsalImport.cs" />
-    <Compile Include="BL\ImportFromExcel\ExcelImporter.cs" />
+    <Compile Include="BL\ImportFromExcel\IDataColumn.cs" />
+    <Compile Include="BL\ImportFromExcel\IExcelImporter.cs" />
     <Compile Include="BL\ImportFromExcel\TahvilFroshImporter.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\aAsn.cs" />
