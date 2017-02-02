@@ -5,13 +5,24 @@
         xmlns:UI="clr-namespace:OrdersAndisheh.View" 
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         Title="ارسال محصول"
         >
     <!--xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"-->
     <Window.Resources>
         <ResourceDictionary>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-            
+            <tb:TaskbarIcon x:Key="MyNotifyIcon"
+                  IconSource="OrderAndisheh.ico"
+                  ToolTipText="ارسال اندیشه" >
+                <tb:TaskbarIcon.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="صفحه اصلی"  Click="MenuItem_Click_2"/>
+                        <MenuItem Header="سفارش جدید" Click="MenuItem_Click"/>
+                        <MenuItem Header="سفارش امروز"  Click="MenuItem_Click_1"/>
+                    </ContextMenu>
+                </tb:TaskbarIcon.ContextMenu>
+            </tb:TaskbarIcon>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -22,7 +33,10 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-       
+        <!--<tb:TaskbarIcon
+      IconSource="../OrderAndisheh.ico"
+      ToolTipText="hello world" />-->
+
         <StackPanel  Orientation="Vertical" HorizontalAlignment="Stretch" >
             <Button Content="سفارش جدید" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Command="{Binding NewSefaresh, Mode=OneWay}" />
             <Button Content="بک آپ گیری" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding BackUpDatabase, Mode=OneWay}" />

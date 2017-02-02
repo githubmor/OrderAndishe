@@ -439,6 +439,11 @@ namespace BL
 
             return rets;
         }
+
+        public bool ChechHasSefaresh(string today)
+        {
+            return db.Orders.Any(p => p.Tarikh == today);
+        }
     }
 }
 
