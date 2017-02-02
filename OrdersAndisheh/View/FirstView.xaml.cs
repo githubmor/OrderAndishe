@@ -2,8 +2,12 @@
 using Microsoft.Win32;
 using OrdersAndisheh.BL;
 using OrdersAndisheh.ViewModel;
+using System;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 
 namespace OrdersAndisheh.View
 {
@@ -12,18 +16,74 @@ namespace OrdersAndisheh.View
     /// </summary>
     public partial class FirstView : Window
     {
+        //private NotifyIcon TrayIcon;
+        //private ContextMenuStrip TrayIconContextMenu;
+        //private ToolStripMenuItem CloseMenuItem;
         /// <summary>
         /// Initializes a new instance of the FirstView class.
         /// </summary>
         public FirstView()
         {
             InitializeComponent();
+            
             this.DataContext = new FirstViewModel();
+            
+            //string iconPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\OrderAndisheh.ico";
+            //System.Windows.Forms.NotifyIcon ni = new System.Windows.Forms.NotifyIcon();
+            //ni.Icon = new System.Drawing.Icon(System.Drawing.SystemIcons.Information);
+            //ni.Visible = true;
+            //var notification = new System.Windows.Forms.NotifyIcon()
+            //{
+            //    Visible = true,
+            //    Icon = System.Drawing.SystemIcons.WinLogo,
+            //    // optional - BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info,
+            //    // optional - BalloonTipTitle = "My Title",
+            //    BalloonTipText = "My long description...",
+
+            //};
+            //notification.ShowBalloonTip(5000, "Title", "Text", System.Windows.Forms.ToolTipIcon.Info);
+            //notification.DoubleClick += TrayIcon_DoubleClick;
+
+            //notification.DoubleClick +=
+            //    delegate(object sender, EventArgs args)
+            //    {
+            //        this.Show();
+            //        this.WindowState = WindowState.Normal;
+            //    };
+
+
         }
+
+        
+        //private void TrayIcon_DoubleClick(object sender, EventArgs e)
+        //{
+        //    //Here you can do stuff if the tray icon is doubleclicked
+        //    //TrayIcon.ShowBalloonTip(10000);
+        //    System.Windows.Forms.MessageBox.Show("Test");
+        //}
+
+        //protected override void OnStateChanged(EventArgs e)
+        //{
+        //    if (WindowState == WindowState.Minimized)
+        //        this.Hide();
+
+        //    base.OnStateChanged(e);
+        //}
+
+        /// <summary>
+        /// Handles a click on the notify icon or its balloon.
+        /// </summary>
+        /// <param name="sender">Event source.</param>
+        /// <param name="e">Event arguments.</param>
+        //private void HandleNotifyIconOrBalloonClicked(object sender, EventArgs e)
+        //{
+        //    // Restore the Window
+        //    this.WindowState = WindowState.Normal;
+        //}
 
         private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DataGrid s = (DataGrid)sender;
+            System.Windows.Controls.DataGrid s = (System.Windows.Controls.DataGrid)sender;
             CheckSefaresh ss = (CheckSefaresh)s.SelectedItem;
 
             MainView v = new MainView();
@@ -36,7 +96,7 @@ namespace OrdersAndisheh.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Create an instance of the open file dialog box.
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            Microsoft.Win32.OpenFileDialog openFileDialog1 = new Microsoft.Win32.OpenFileDialog();
 
             // Set filter options and filter index.
             openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";

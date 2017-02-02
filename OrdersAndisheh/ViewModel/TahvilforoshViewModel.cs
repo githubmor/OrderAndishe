@@ -100,10 +100,9 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                //TahvilFroshImporter iei = new TahvilFroshImporter();
-                //iei.GetData(FilePath);
-                //TahvilFroshs = iei.
-                //CalculateSefareshWithData();
+                ExcelImportService s = new ExcelImportService();
+                TahvilFroshs = s.GetTahvilfroshData(FilePath);
+                CalculateSefareshWithData();
             }
             catch (Exception ree)
             {
