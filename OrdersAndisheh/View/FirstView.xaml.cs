@@ -18,7 +18,7 @@ namespace OrdersAndisheh.View
     /// </summary>
     public partial class FirstView : Window
     {
-        private TaskbarIcon tb;
+        //private TaskbarIcon tb;
         //private NotifyIcon TrayIcon;
         //private ContextMenuStrip TrayIconContextMenu;
         //private ToolStripMenuItem CloseMenuItem;
@@ -30,7 +30,7 @@ namespace OrdersAndisheh.View
             InitializeComponent();
             
             this.DataContext = new FirstViewModel();
-            tb = (TaskbarIcon)this.Resources["MyNotifyIcon"];
+            //tb = (TaskbarIcon)this.Resources["MyNotifyIcon"];
             //string iconPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\OrderAndisheh.ico";
             //System.Windows.Forms.NotifyIcon ni = new System.Windows.Forms.NotifyIcon();
             //ni.Icon = new System.Drawing.Icon(System.Drawing.SystemIcons.Information);
@@ -121,6 +121,7 @@ namespace OrdersAndisheh.View
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
+            this.Show();
             this.WindowState = WindowState.Normal;
         }
 
@@ -142,7 +143,7 @@ namespace OrdersAndisheh.View
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("سفارشی برای امروز ثبت نشده");
+                System.Windows.MessageBox.Show("سفارشی برای امروز ثبت نشده");
             }
         }
 

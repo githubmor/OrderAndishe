@@ -36,6 +36,14 @@ namespace OrdersAndisheh.ViewModel
         //    RaisePropertyChanged(sefaresh)
         //}
 
+        //private int myVar;
+
+        public string today
+        {
+            get { return "سفارش امروز - "+ PersianDateTime.Now.ToString(PersianDateTimeFormat.Date); }
+        }
+        
+
         
         private void getFilePath(string path)
         {
@@ -509,24 +517,24 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteOracleRelation()
         {
 
-
+            
             //try
             //{
-                using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-                {
+                //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+                //{
 
-                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
-                        openFileDialog1.FilterIndex = 1;
-                        //FilePath = openFileDialog1.FileName;
-                        //IExcelImporter c = new ErsalImport(ss);
-                        //var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
+                //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                //    {
+                //        openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
+                //        openFileDialog1.FilterIndex = 1;
+                //        //FilePath = openFileDialog1.FileName;
+                //        //IExcelImporter c = new ErsalImport(ss);
+                //        //var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
 
-                        //ss.SaveOrders(yu);
-                        MessageBox.Show("ذخیره شد");
-                    }
-                }
+                //        //ss.SaveOrders(yu);
+                //        MessageBox.Show("ذخیره شد");
+                //    }
+                //}
             //}
             //catch (Exception eree)
             //{
@@ -537,6 +545,7 @@ namespace OrdersAndisheh.ViewModel
             //OracleRelationView v = new OracleRelationView();
             //v.Show();
         }
+
 
 
         private RelayCommand _myCommand654654;

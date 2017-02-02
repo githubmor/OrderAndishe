@@ -70,7 +70,7 @@
             <dxlc:LayoutGroup Orientation="Vertical" >
                 <dxlc:LayoutGroup VerticalAlignment="Top" >
                     <dxlc:LayoutItem Label="کالا :" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Name="code" Width="80" Text="{Binding GoodCode,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TabIndex="1" />
+                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Name="code" MaxLength="8" Width="80" Text="{Binding GoodCode,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TabIndex="1" />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="نام کالا :" VerticalAlignment="Center">
                         <Label Content="{Binding GoodName, Mode=OneWay}"></Label>
