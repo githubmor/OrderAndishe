@@ -1104,6 +1104,32 @@ namespace OrdersAndisheh.ViewModel
             MessageBox.Show(ss.MontagReciving(sefaresh.SefareshId));
         }
 
+        private RelayCommand _myCommand56566865;
+
+        /// <summary>
+        /// Gets the OracleSet.
+        /// </summary>
+        public RelayCommand OracleSet
+        {
+            get
+            {
+                return _myCommand56566865 ?? (_myCommand56566865 = new RelayCommand(
+                    ExecuteOracleSet,
+                    CanExecuteOracleSet));
+            }
+        }
+
+        private void ExecuteOracleSet()
+        {
+            OracleView v = new OracleView();
+            Messenger.Default.Send<Sefaresh>(sefaresh, "SefareshTarikh");
+            v.ShowDialog();
+        }
+
+        private bool CanExecuteOracleSet()
+        {
+            return !IsDirty;
+        }
     }
 
     public static class ObservableCollectionExtensions

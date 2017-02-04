@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>140</ApplicationRevision>
+    <ApplicationRevision>142</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -334,6 +334,7 @@
     <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\Baste.cs" />
     <Compile Include="DBL\DriverWork.cs" />
+    <Compile Include="DBL\OracleRelation.cs" />
     <Compile Include="DBL\TempDriver.cs" />
     <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\Bazres.cs" />
@@ -352,6 +353,8 @@
     <Compile Include="DevUI\ViewModels\Baste\BasteViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Bazres\BazresCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Bazres\BazresViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Customer\CustomerCollectionViewModel.cs" />
@@ -374,6 +377,12 @@
     </Compile>
     <Compile Include="DevUI\Views\Bazres\BazresView.xaml.cs">
       <DependentUpon>BazresView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml.cs">
+      <DependentUpon>OracleRelationCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OracleRelation\OracleRelationView.xaml.cs">
+      <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml.cs">
       <DependentUpon>CustomerProductRelationCollectionView.xaml</DependentUpon>
@@ -420,6 +429,7 @@
     <Compile Include="ViewModel\FirstViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
+    <Compile Include="ViewModel\OracleViewModel.cs" />
     <Compile Include="ViewModel\ReportPreviewViewModel.cs" />
     <Compile Include="ViewModel\ReportRowViewModel.cs" />
     <Compile Include="ViewModel\AsnViewModel.cs" />
@@ -442,6 +452,9 @@
     </Compile>
     <Compile Include="View\ErsalReportView.xaml.cs">
       <DependentUpon>ErsalReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OracleView.xaml.cs">
+      <DependentUpon>OracleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
@@ -493,6 +506,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\Bazres\BazresView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OracleRelation\OracleRelationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -583,6 +604,10 @@
     <Page Include="View\CustomersView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\OracleView.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProductsView.xaml">
       <SubType>Designer</SubType>

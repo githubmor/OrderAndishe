@@ -29,6 +29,7 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<TempDriver> TempDriver { get; set; }
         public virtual DbSet<DriverWork> DriverWork { get; set; }
         public virtual DbSet<Amount> Amount { get; set; }
+        public virtual DbSet<OracleRelation> OracleRelation { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -126,6 +127,17 @@ namespace OrdersAndisheh.DBL
             modelBuilder.Entity<CustomerProductRelation>()
                 .HasRequired(p => p.Product)
                 .WithMany(o => o.Relations)
+                .HasForeignKey(p => p.ProductId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<OracleRelation>()
+                .HasRequired(p => p.Customer)
+                .WithMany(o => o.OracleRelations)
+                .HasForeignKey(p => p.CustomerId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<OracleRelation>()
+                .HasRequired(p => p.Product)
+                .WithMany(o => o.OracleRelations)
                 .HasForeignKey(p => p.ProductId)
                 .WillCascadeOnDelete(false);
             //modelBuilder.Entity<Product>()

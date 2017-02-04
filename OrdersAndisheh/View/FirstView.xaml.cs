@@ -30,40 +30,10 @@ namespace OrdersAndisheh.View
             InitializeComponent();
             
             this.DataContext = new FirstViewModel();
-            //tb = (TaskbarIcon)this.Resources["MyNotifyIcon"];
-            //string iconPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\OrderAndisheh.ico";
-            //System.Windows.Forms.NotifyIcon ni = new System.Windows.Forms.NotifyIcon();
-            //ni.Icon = new System.Drawing.Icon(System.Drawing.SystemIcons.Information);
-            //ni.Visible = true;
-            //var notification = new System.Windows.Forms.NotifyIcon()
-            //{
-            //    Visible = true,
-            //    Icon = System.Drawing.SystemIcons.WinLogo,
-            //    // optional - BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info,
-            //    // optional - BalloonTipTitle = "My Title",
-            //    BalloonTipText = "My long description...",
-
-            //};
-            //notification.ShowBalloonTip(5000, "Title", "Text", System.Windows.Forms.ToolTipIcon.Info);
-            //notification.DoubleClick += TrayIcon_DoubleClick;
-
-            //notification.DoubleClick +=
-            //    delegate(object sender, EventArgs args)
-            //    {
-            //        this.Show();
-            //        this.WindowState = WindowState.Normal;
-            //    };
-
+            
 
         }
 
-        
-        //private void TrayIcon_DoubleClick(object sender, EventArgs e)
-        //{
-        //    //Here you can do stuff if the tray icon is doubleclicked
-        //    //TrayIcon.ShowBalloonTip(10000);
-        //    System.Windows.Forms.MessageBox.Show("Test");
-        //}
 
         protected override void OnStateChanged(EventArgs e)
         {
@@ -73,16 +43,7 @@ namespace OrdersAndisheh.View
             base.OnStateChanged(e);
         }
 
-        /// <summary>
-        /// Handles a click on the notify icon or its balloon.
-        /// </summary>
-        /// <param name="sender">Event source.</param>
-        /// <param name="e">Event arguments.</param>
-        //private void HandleNotifyIconOrBalloonClicked(object sender, EventArgs e)
-        //{
-        //    // Restore the Window
-        //    this.WindowState = WindowState.Normal;
-        //}
+        
 
         private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -92,7 +53,6 @@ namespace OrdersAndisheh.View
             MainView v = new MainView();
             Messenger.Default.Send<string>(ss.TarikhSefaresh, "Editsefaresh");
             v.ShowDialog();
-            Messenger.Default.Send<string>("", "Reload");
             
         }
 
@@ -138,13 +98,18 @@ namespace OrdersAndisheh.View
             if (s.ChechHasSefaresh(today))
             {
                 MainView v = new MainView();
-                Messenger.Default.Send<string>(today, "EditSefaresh");
+                Messenger.Default.Send<string>(today, "Editsefaresh");
                 v.ShowDialog();
             }
             else
             {
                 System.Windows.MessageBox.Show("سفارشی برای امروز ثبت نشده");
             }
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
 

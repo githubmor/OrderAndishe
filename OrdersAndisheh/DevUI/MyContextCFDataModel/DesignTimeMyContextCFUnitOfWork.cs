@@ -58,5 +58,9 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         {
             get { return GetRepository((Pallet x) => x.Id); }
         }
+        IRepository<OracleRelation, int> IMyContextCFUnitOfWork.OracleRelations
+        {
+            get { return GetRepository((OracleRelation x) => x.Id); }
+        }
     }
 }

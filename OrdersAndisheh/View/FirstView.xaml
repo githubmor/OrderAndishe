@@ -31,6 +31,7 @@
                   ToolTipText="ارسال اندیشه" >
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
+                    <MenuItem Header="خروج"  Click="MenuItem_Click_3"/>
                     <MenuItem Header="صفحه اصلی"  Click="MenuItem_Click_2"/>
                     <MenuItem Header="سفارش جدید" Click="MenuItem_Click"/>
                     <MenuItem Header="{Binding today}"  Click="MenuItem_Click_1"/>

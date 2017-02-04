@@ -51,6 +51,7 @@ namespace OrdersAndisheh.DBL
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         //public int? RelationId { get; set; }
         public virtual ICollection<CustomerProductRelation> Relations { get; set; }
+        public virtual ICollection<OracleRelation> OracleRelations { get; set; }
 
         public virtual Pallet Pallet { get; set; }
         public virtual Baste Baste { get; set; }

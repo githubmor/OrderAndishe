@@ -38,7 +38,7 @@ namespace BL
             {
                 throw new ApplicationException("آیتم سفارش از دیتابیس وجود ندارد !");
             }
-            
+           
             this.OrderDetail = od;
         }
 
@@ -94,6 +94,7 @@ namespace BL
                 NotifyPropertyChanged("CodeKala");
             }
 		}
+        public string MNumber{get; set;}
 
 		public Driver Driver
 		{
@@ -107,7 +108,7 @@ namespace BL
 		{
             get { return OrderDetail.Customer; }
             set 
-            { 
+            {
                 OrderDetail.Customer = value;
                 NotifyPropertyChanged("Maghsad");
             }

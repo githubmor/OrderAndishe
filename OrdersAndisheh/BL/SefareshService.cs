@@ -44,6 +44,7 @@ namespace BL
 		}
 
         
+        
 
         public void UpdateSefaresh(Sefaresh sefaresh)
 		{
@@ -443,6 +444,12 @@ namespace BL
         public bool ChechHasSefaresh(string today)
         {
             return db.Orders.Any(p => p.Tarikh == today);
+        }
+
+
+        public bool HasOracle(Product product, Customer customer)
+        {
+            return db.OracleRelation.Where(p => p.ProductId == product.Id).Where(o => o.CustomerId == customer.Id).Any();
         }
     }
 }
