@@ -246,25 +246,25 @@
 
         public List<CheckSefaresh> LoadCheckSefareshs()
         {
-            db.Database.Log = Console.Write; 
-            List<CheckSefaresh> sd = new List<CheckSefaresh>();
-            //var t = from e in db.Orders 
-            //        join dd in db.OrderDetails on e.Id equals dd.OrderId
-            //        select e;
-            //var p = t.ToList();
-            var p = db.Orders
-                .Include("OrderDetails.Customer")
-                .Include("OrderDetails.Driver")
-                .Include("OrderDetails.Driver.TempDriver")
-                .Include("OrderDetails.Product")
-                .OrderByDescending(o => o.Tarikh)
-                .Where(i => !i.Accepted) //UNDONE باید برگشت از تثبیت رو هم درست کنم
-                .ToList();
-            //Debug.WriteLine(p.ToString());
-            foreach (var item in p)
+            db.Database.Log = x =>
             {
-                sd.Add(new CheckSefaresh(new Sefaresh(item, item.OrderDetails.ToList())));
-            }
+                if (x.StartsWith("SELECT"))
+                    Console.WriteLine(x);
+            };
+            List<CheckSefaresh> sd = new List<CheckSefaresh>();
+            var y = db.Orders.Select(p=>p.Tarikh).ToList();
+            //var p = db.Orders
+            //    .Include("OrderDetails.Customer")
+            //    .Include("OrderDetails.Driver")
+            //    .Include("OrderDetails.Driver.TempDriver")
+            //    .Include("OrderDetails.Product")
+            //    .OrderByDescending(o => o.Tarikh)
+            //    .Where(i => !i.Accepted) //UNDONE باید برگشت از تثبیت رو هم درست کنم
+            //    .ToList();
+            //foreach (var item in p)
+            //{
+            //    sd.Add(new CheckSefaresh(new Sefaresh(item, item.OrderDetails.ToList())));
+            //}
             return sd;
 
         }
