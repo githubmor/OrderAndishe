@@ -14,7 +14,7 @@
     <Grid>
 
         <!--<DockPanel>
-            <dxb:ToolBarControl Caption="Edit" DockPanel.Dock="Top" AllowCollapse="False" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <dxb:ToolBarControl Caption="Edit" Doc<TextBox />kPanel.Dock="Top" AllowCollapse="False" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <dxb:BarButtonItem Content="BarButtonItem" Glyph="{dx:DXImage Image=Add_16x16.png}" LargeGlyph="{dx:DXImage Image=Add_32x32.png}" BarItemDisplayMode="ContentAndGlyph"/>
             </dxb:ToolBarControl>
             <dxb:StatusBarControl Caption="StatusBar" DockPanel.Dock="Bottom" ShowSizeGrip="True"/>
@@ -63,7 +63,7 @@
                 <dxpg:PivotGridField Area="FilterArea" FieldName="Ranande"/>
             </dxpg:PivotGridControl.Fields>
         </dxpg:PivotGridControl>-->
-        <dxg:GridControl ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
+        <dxg:GridControl FilterString="{Binding Text, ElementName=textBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=ItemSefareshes}" FlowDirection="RightToLeft">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Tarikh" Header="تاریخ" />
                 <dxg:GridColumn FieldName="CodeKala" Header="کد کالا" />
@@ -80,6 +80,7 @@
                 </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="209,16,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
