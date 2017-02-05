@@ -46,9 +46,9 @@ mc:Ignorable="d"
                 </dxmvvm:EventToCommand>
             </dxmvvm:Interaction.Behaviors>
             <dxg:GridControl.Columns>
-                <dxg:GridColumn IsSmart="True" FieldName="Id" />
-                <dxg:GridColumn FieldName="Customer" Header="Customer" ReadOnly="True" />
-                <dxg:GridColumn FieldName="Product.Name" Header="Product" ReadOnly="True" />
+                <dxg:GridColumn  FieldName="Id" />
+                <dxg:GridColumn FieldName="Customer.Name" Header="Customer.Name" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Product.Name" Header="Product.Name" ReadOnly="True" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>

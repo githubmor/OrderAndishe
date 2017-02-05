@@ -57,5 +57,7 @@ namespace OrdersAndisheh.DBL
         public virtual Baste Baste { get; set; }
         [InverseProperty("Product")]
         public virtual Amount Amount { get; set; }
+
+        
     }
 }

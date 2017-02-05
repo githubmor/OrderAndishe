@@ -94,7 +94,23 @@ namespace BL
                 NotifyPropertyChanged("CodeKala");
             }
 		}
-        public string MNumber{get; set;}
+
+
+        public string MNumber
+        {
+            get { return (OrderDetail.MOracle!=null?OrderDetail.MOracle.MNumber:"Nan"); }
+            set
+            {
+                if (OrderDetail.MOracle==null)
+                {
+                    OrderDetail.MOracle = new MOracle();
+                }
+                OrderDetail.MOracle.MNumber = value;
+                NotifyPropertyChanged("MNumber");
+            }
+        }
+        
+        //public string MNumber{get; set;}
 
 		public Driver Driver
 		{

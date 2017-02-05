@@ -1122,7 +1122,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteOracleSet()
         {
             OracleView v = new OracleView();
-            Messenger.Default.Send<Sefaresh>(sefaresh, "SefareshTarikh");
+            Messenger.Default.Send<string>(sefaresh.Tarikh, "SefareshTarikh");
             v.ShowDialog();
         }
 

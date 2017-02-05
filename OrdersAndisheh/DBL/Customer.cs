@@ -26,5 +26,7 @@ namespace OrdersAndisheh.DBL
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual ICollection<CustomerProductRelation> Relations { get; set; }
         public virtual ICollection<OracleRelation> OracleRelations { get; set; }
+
+       
     }
 }
