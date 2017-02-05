@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.ProductCollectionView"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.OracleRelationCollectionView"
 xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,10 +12,10 @@ xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
 xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
 xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
 xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
-FlowDirection="RightToLeft"
+
 mc:Ignorable="d"
         d:DesignHeight="400" d:DesignWidth="600"
- DataContext="{dxmvvm:ViewModelSource viewmodel:ProductCollectionViewModel}"
+ DataContext="{dxmvvm:ViewModelSource viewmodel:OracleRelationCollectionViewModel}"
  
 >
 
@@ -46,13 +46,9 @@ mc:Ignorable="d"
                 </dxmvvm:EventToCommand>
             </dxmvvm:Interaction.Behaviors>
             <dxg:GridControl.Columns>
-                <dxg:GridColumn IsSmart="True" FieldName="Code" />
-                <dxg:GridColumn IsSmart="True" FieldName="Name" />
-                <dxg:GridColumn IsSmart="True" FieldName="Weight" />
-                <dxg:GridColumn IsSmart="True" FieldName="FaniCode" />
-                <dxg:GridColumn IsSmart="True" FieldName="CodeJense" />
-                <dxg:GridColumn IsSmart="True" FieldName="TedadDarPallet" />
-                <dxg:GridColumn IsSmart="True" FieldName="TedadDarSabad" />
+                <dxg:GridColumn  FieldName="Id" />
+                <dxg:GridColumn FieldName="Customer.Name" Header="Customer.Name" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Product.Name" Header="Product.Name" ReadOnly="True" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>

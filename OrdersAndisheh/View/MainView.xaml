@@ -60,7 +60,9 @@
                         <dxg:FormatCondition Expression="[Maghsad] == ''" FieldName="Maghsad">
                             <dx:Format Background="#FFF0EB95"  />
                         </dxg:FormatCondition>
-                        
+                        <dxg:FormatCondition Expression="[MNumber] == ''" FieldName="Kala" >
+                            <dx:Format Background="#FFFFCEFD"  />
+                        </dxg:FormatCondition>
                     </dxg:TableView.FormatConditions>
 
                 </dxg:TableView>
@@ -70,7 +72,7 @@
             <dxlc:LayoutGroup Orientation="Vertical" >
                 <dxlc:LayoutGroup VerticalAlignment="Top" >
                     <dxlc:LayoutItem Label="کالا :" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Name="code" Width="80" Text="{Binding GoodCode,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TabIndex="1" />
+                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Name="code" MaxLength="8" Width="80" Text="{Binding GoodCode,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TabIndex="1" />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="نام کالا :" VerticalAlignment="Center">
                         <Label Content="{Binding GoodName, Mode=OneWay}"></Label>
@@ -161,6 +163,8 @@
         		VerticalAlignment="Top" Width="116" Command="{Binding CreatCheckLists, Mode=OneWay}"/>
             <Button Content="درخواست از مونتاژ" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding MontagReciving, Mode=OneWay}"/>
+            <Button Content="اوراکل" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding OracleSet, Mode=OneWay}"/>
         </WrapPanel>
         <StackPanel  Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
             <Label Content="{Binding DriversVazn}" />

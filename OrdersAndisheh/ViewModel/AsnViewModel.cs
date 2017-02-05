@@ -97,7 +97,7 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                ExcelImportService eis = new ExcelImportService(ss);
+                ExcelImportService eis = new ExcelImportService();
                 Asns = eis.GetAsnData(FilePath);
 
                 AsnChecker ck = new AsnChecker(Asns, sefaresh);

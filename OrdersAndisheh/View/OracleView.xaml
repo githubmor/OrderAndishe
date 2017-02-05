@@ -1,0 +1,44 @@
+﻿<Window x:Class="OrdersAndisheh.View.OracleView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        mc:Ignorable="d ignore"
+        DataContext="{Binding Oracle, Source={StaticResource Locator}}">
+
+    <Grid>
+        <DockPanel>
+            <dxb:ToolBarControl Caption="Edit" DockPanel.Dock="Top" AllowCollapse="False" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <dxb:BarButtonItem Content="ذخیره" Command="{Binding SaveOracle}" Glyph="{dx:DXImage Image=Add_16x16.png}" LargeGlyph="{dx:DXImage Image=Add_32x32.png}" BarItemDisplayMode="ContentAndGlyph"/>
+            </dxb:ToolBarControl>
+            <dxb:StatusBarControl Caption="StatusBar" DockPanel.Dock="Bottom" ShowSizeGrip="True"/>
+            <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" Margin="10" FlowDirection="RightToLeft">
+                <ItemsControl 
+              ItemsSource="{Binding Oracles}">
+                    
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                                <Label Content="{Binding Kala}" />
+                                <Label Content="{Binding Maghsad}" />
+                                <Label Content="{Binding Tedad}" />
+                                <TextBox Text="{Binding MNumber, UpdateSourceTrigger=PropertyChanged}" MinWidth="200"/>
+                            </StackPanel>
+                            
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+
+                </ItemsControl>
+            </ScrollViewer>
+
+        </DockPanel>
+        
+    </Grid>
+    
+</Window>

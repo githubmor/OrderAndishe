@@ -38,7 +38,7 @@ namespace BL
             {
                 throw new ApplicationException("آیتم سفارش از دیتابیس وجود ندارد !");
             }
-            
+           
             this.OrderDetail = od;
         }
 
@@ -95,6 +95,23 @@ namespace BL
             }
 		}
 
+
+        public string MNumber
+        {
+            get { return (OrderDetail.MOracle!=null?OrderDetail.MOracle.MNumber:"Nan"); }
+            set
+            {
+                if (OrderDetail.MOracle==null)
+                {
+                    OrderDetail.MOracle = new MOracle();
+                }
+                OrderDetail.MOracle.MNumber = value;
+                NotifyPropertyChanged("MNumber");
+            }
+        }
+        
+        //public string MNumber{get; set;}
+
 		public Driver Driver
 		{
             get { return OrderDetail.Driver; }
@@ -107,7 +124,7 @@ namespace BL
 		{
             get { return OrderDetail.Customer; }
             set 
-            { 
+            {
                 OrderDetail.Customer = value;
                 NotifyPropertyChanged("Maghsad");
             }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace OrdersAndisheh.BL.ImportFromExcel
 {
-    public class ErsalImport : ExcelImporter
+    public class ErsalImport 
     {
         SefareshService service;
         ExcelPackage package;

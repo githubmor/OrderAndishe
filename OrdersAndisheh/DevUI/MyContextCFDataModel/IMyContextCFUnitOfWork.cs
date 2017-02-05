@@ -51,5 +51,10 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         /// The Pallet entities repository.
         /// </summary>
         IRepository<Pallet, int> Pallets { get; }
+
+        /// <summary>
+        /// The OracleRelation entities repository.
+        /// </summary>
+        IRepository<OracleRelation, int> OracleRelations { get; }
     }
 }

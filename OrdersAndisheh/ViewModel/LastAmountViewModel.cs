@@ -106,7 +106,7 @@ namespace OrdersAndisheh.ViewModel
         {
             //try
             //{
-                ExcelImportService eis = new ExcelImportService(ss);
+                ExcelImportService eis = new ExcelImportService();
                 Amounts = eis.GetAmountData(FilePath);
 
             //}

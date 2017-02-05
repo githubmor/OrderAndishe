@@ -42,6 +42,7 @@ namespace OrdersAndisheh.ViewModel
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
             SimpleIoc.Default.Register<TahvilforoshViewModel>();
             SimpleIoc.Default.Register<AsnViewModel>();
+            SimpleIoc.Default.Register<OracleViewModel>();
         }
 
         public MainViewModel Main
@@ -80,6 +81,13 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<OracleRelationViewModel>(Guid.NewGuid().ToString());
+            }
+        }
+        public OracleViewModel Oracle
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<OracleViewModel>(Guid.NewGuid().ToString());
             }
         }
         public static void Cleanup()

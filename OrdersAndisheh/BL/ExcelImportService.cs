@@ -15,11 +15,11 @@ namespace OrdersAndisheh.BL
 {
     public class ExcelImportService
     {
-        ISefareshService service;
+        //ISefareshService service;
         ExcelPackage package;
-        public ExcelImportService(ISefareshService service)
+        public ExcelImportService()
         {
-            this.service = service;
+            //this.service = service;
             
         }
         public ObservableCollection<TahvilItem> GetTahvilfroshData(string filePath)

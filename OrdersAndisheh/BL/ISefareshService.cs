@@ -28,5 +28,9 @@ namespace BL
         void DelNoUsedTempDrivers(List<Driver> TempDriverForDelete);
 
         List<string> LoadAllNOAcceptedSefareshTarikh();
+
+        bool HasOracle(Product product, Customer customer);
+
+        void SaveOracle(MOracle m);
     }
 }
