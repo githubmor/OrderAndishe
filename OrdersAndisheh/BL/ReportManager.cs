@@ -43,7 +43,8 @@ namespace OrdersAndisheh.BL
                     Maghsad = b.Maghsad
                     ,Ranande = (b.Driver.TempDriver == null ? b.Ranande : "           ")
                     ,Pallet = b.PalletCount.ToString(),
-                    Karton = b.Karton
+                    Karton = b.Karton,
+                    Pelak = b.Driver.Pelak
                 });
                     pos += 1;
             }
@@ -250,7 +251,8 @@ namespace OrdersAndisheh.BL
                     Maghsad = b.Maghsad,
                     Ranande = (b.Driver.TempDriver == null ? b.Ranande : "           "),
                     Pallet = b.PalletCount.ToString(),
-                    Karton = b.Karton
+                    Karton = b.Karton,
+                    Pelak = b.Driver.Pelak
                 });
                 pos += 1;
             }

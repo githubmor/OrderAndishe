@@ -8,18 +8,11 @@ using System.Linq;
 
 namespace OrdersAndisheh.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
+    
     public class OracleViewModel : ViewModelBase
     {
         private ISefareshService service;
-        /// <summary>
-        /// Initializes a new instance of the OracleViewModel class.
-        /// </summary>
+       
         public OracleViewModel(ISefareshService _service)
         {
             Oracles = new List<ItemSefaresh>();
@@ -67,13 +60,14 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
+                //service.SaveOracle(Oracles);
                 service.Save();
                 System.Windows.Forms.MessageBox.Show("Save Complete");
             }
             catch (System.Exception r)
             {
-                
-                throw;
+
+                System.Windows.Forms.MessageBox.Show(r.Message.ToString());
             }
         }
 

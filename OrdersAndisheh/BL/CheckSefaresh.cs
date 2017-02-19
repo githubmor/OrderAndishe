@@ -10,58 +10,84 @@ namespace OrdersAndisheh.BL
 {
     public class CheckSefaresh : INotifyPropertyChanged
     {
-        Sefaresh sefaresh;
-        public CheckSefaresh(Sefaresh s)
+
+        //Sefaresh sefaresh;
+        //public CheckSefaresh(Sefaresh s)
+        //{
+        //    this.sefaresh = s;
+        //    NotifyPropertyChanged("TarikhSefaresh");
+        //    NotifyPropertyChanged("HasItemWithNoTedad");
+        //    NotifyPropertyChanged("HasItemWithNoMaghsad");
+        //    NotifyPropertyChanged("HasItemWithNoRanande");
+        //    NotifyPropertyChanged("HasItemWithNoTahvilFrosh");
+        //}
+
+        public CheckSefaresh(string tarikh,
+            bool hasAnyZeroTedad, bool hasAnyEmptyMaghsad, bool hasAnyEmptyRanande,bool hasAnyTempRanande,
+            bool hasAnyZeroTahvilFrosh,
+            bool hasAnyEmptyOracle)
         {
-            this.sefaresh = s;
-            NotifyPropertyChanged("TarikhSefaresh");
-            NotifyPropertyChanged("HasItemWithNoTedad");
-            NotifyPropertyChanged("HasItemWithNoMaghsad");
-            NotifyPropertyChanged("HasItemWithNoRanande");
-            NotifyPropertyChanged("HasItemWithNoTahvilFrosh");
+            TarikhSefaresh = tarikh;
+            IsTedadOk = !hasAnyZeroTedad;
+            IsMaghsadOk = !hasAnyEmptyMaghsad;
+            IsRanandeOk = !hasAnyEmptyRanande & !hasAnyTempRanande;
+            IsTahvilFroshOk = !hasAnyZeroTahvilFrosh;
+            IsOracleOk = !hasAnyEmptyOracle;
+
         }
 
         //private Sefaresh myVar;
 
-        public Sefaresh Sefaresh
+        //public Sefaresh Sefaresh
+        //{
+        //    get { return sefaresh; }
+        //    set { sefaresh = value; }
+        //}
+        
+
+        public string TarikhSefaresh {get; set;}
+        //{
+        //    get { return sefaresh.Tarikh; }
+        //}
+
+        //private int myVar;
+
+        public bool IsEveryThingOk
         {
-            get { return sefaresh; }
-            set { sefaresh = value; }
+            get { return IsMaghsadOk & IsOracleOk & IsRanandeOk & IsTahvilFroshOk & IsTedadOk; }
+            //set { myVar = value; }
         }
         
 
-        public string TarikhSefaresh
-        {
-            get { return sefaresh.Tarikh; }
-        }
-
-        public bool HasItemWithNoTedad
-        {
-            get { return !sefaresh.Items.Any(p=>p.Tedad==0); }
-        }
-        public bool HasItemWithNoMaghsad
-        {
-            get { return !sefaresh.Items.Any(p => p.Maghsad==""); }
-        }
-        public bool HasItemWithNoRanande
-        {
-            get 
-            {
-                if (!sefaresh.Items.Any(p => p.Ranande == ""))
-                {
-                    return !sefaresh.Items.Any(p => p.Driver.TempDriver != null);
-                }
-                else
-                {
-                    return false;
-                }
-                //return !sefaresh.Items.Any(p => p.Ranande == "") && !sefaresh.Items.Any(p => p.Driver.TempDriver !=null); 
-            }
-        }
-        public bool HasItemWithNoTahvilFrosh
-        {
-            get { return !sefaresh.Items.Any(p => p.TahvilFrosh == 0); }
-        }
+        public bool IsTedadOk { get; set; }
+        public bool HasItemWithNoOracle { get; set; }
+        //{
+        //    get { return !sefaresh.Items.Any(p => p.Tedad == 0); }
+        //}
+        public bool IsMaghsadOk { get; set; }
+        //{
+        //    get { return !sefaresh.Items.Any(p => p.Maghsad==""); }
+        //}
+        public bool IsRanandeOk { get; set; }
+        //{
+        //    get 
+        //    {
+        //        if (!sefaresh.Items.Any(p => p.Ranande == ""))
+        //        {
+        //            return !sefaresh.Items.Any(p => p.Driver.TempDriver != null);
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //        //return !sefaresh.Items.Any(p => p.Ranande == "") && !sefaresh.Items.Any(p => p.Driver.TempDriver !=null); 
+        //    }
+        //}
+        public bool IsTahvilFroshOk { get; set; }
+        public bool IsOracleOk { get; set; }
+        //{
+        //    get { return !sefaresh.Items.Any(p => p.TahvilFrosh == 0); }
+        //}
         //public bool AllItemHasNotTempDriver
         //{
         //    get
@@ -86,7 +112,7 @@ namespace OrdersAndisheh.BL
         //}
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         private void NotifyPropertyChanged(String info)
         {
             if (PropertyChanged != null)
@@ -94,5 +120,7 @@ namespace OrdersAndisheh.BL
                 PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
         }
+
+        
     }
 }

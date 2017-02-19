@@ -98,10 +98,10 @@ namespace BL
 
         public string MNumber
         {
-            get { return (OrderDetail.MOracle!=null?OrderDetail.MOracle.MNumber:"Nan"); }
+            get { return (OrderDetail.MOracle!=null?OrderDetail.MOracle.MNumber:""); }
             set
             {
-                if (OrderDetail.MOracle==null)
+                if (OrderDetail.MOracle == null)
                 {
                     OrderDetail.MOracle = new MOracle();
                 }
@@ -109,6 +109,7 @@ namespace BL
                 NotifyPropertyChanged("MNumber");
             }
         }
+        
         
         //public string MNumber{get; set;}
 

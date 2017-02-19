@@ -22,6 +22,7 @@ namespace BL
         public string Maghsad { get; set; }
         public string Vazn { get; set; }
         public string Ranande { get; set; }
+        public string Pelak { get; set; }
         
     }
 }

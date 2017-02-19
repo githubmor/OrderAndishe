@@ -26,7 +26,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <dxg:GridControl  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
+        <dxg:GridControl IsEnabled="{Binding CanEdit}"  x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
                           SelectedItem="{Binding ClickedItem}"
                           SelectionMode="Row" MouseDoubleClick="gg_MouseDoubleClick">
@@ -60,9 +60,9 @@
                         <dxg:FormatCondition Expression="[Maghsad] == ''" FieldName="Maghsad">
                             <dx:Format Background="#FFF0EB95"  />
                         </dxg:FormatCondition>
-                        <dxg:FormatCondition Expression="[MNumber] == ''" FieldName="Kala" >
+                        <!--<dxg:FormatCondition Expression="[MNumber] == ' '" FieldName="Kala" >
                             <dx:Format Background="#FFFFCEFD"  />
-                        </dxg:FormatCondition>
+                        </dxg:FormatCondition>-->
                     </dxg:TableView.FormatConditions>
 
                 </dxg:TableView>
@@ -72,28 +72,28 @@
             <dxlc:LayoutGroup Orientation="Vertical" >
                 <dxlc:LayoutGroup VerticalAlignment="Top" >
                     <dxlc:LayoutItem Label="کالا :" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Name="code" MaxLength="8" Width="80" Text="{Binding GoodCode,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TabIndex="1" />
+                        <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" Name="code" MaxLength="8" Width="80" Text="{Binding GoodCode,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TabIndex="1" />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="نام کالا :" VerticalAlignment="Center">
                         <Label Content="{Binding GoodName, Mode=OneWay}"></Label>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="تعداد :" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding Tedad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="2"/>
+                        <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding Tedad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="2"/>
                     </dxlc:LayoutItem>
                     
                     <dxlc:LayoutItem Label="توضیحات :">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="10" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="10" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
-                        <Button UI:EventFocusAttachment.ElementToFocus="{Binding ElementName=code}" Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding AddNewItem, Mode=OneWay}" TabIndex="4"/>
+                        <Button IsEnabled="{Binding CanEdit}" UI:EventFocusAttachment.ElementToFocus="{Binding ElementName=code}" Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding AddNewItem, Mode=OneWay}" TabIndex="4"/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
                 <dxlc:LayoutGroup>
                     <dxlc:LayoutItem Label="تعداد پالت :" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <dxe:TextEdit UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding PalletCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="12"/>
+                        <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding PalletCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="12"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="مقصد :">
-                        <dxg:LookUpEdit ItemsSource="{Binding Destinations}" SelectedItem="{Binding SelectedDestenation}" 
+                        <dxg:LookUpEdit IsEnabled="{Binding CanEdit}" ItemsSource="{Binding Destinations}" SelectedItem="{Binding SelectedDestenation}" 
                                         ValueMember="Id" DisplayMember="Name"
                                         UI:FocusAdvancement.AdvancesByEnterKey="True"
                                         AllowRejectUnknownValues="True" 
@@ -105,7 +105,7 @@
                                         />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="راننده :">
-                        <dxg:LookUpEdit ItemsSource="{Binding Drivers}" 
+                        <dxg:LookUpEdit  ItemsSource="{Binding Drivers}" 
                                         SelectedItem="{Binding SelectedDriver}" 
                                         UI:FocusAdvancement.AdvancesByEnterKey="True"
                                         ValueMember="Id" DisplayMember="Name"
@@ -119,13 +119,14 @@
                                         />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
-                        <Button Content="↓"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding ADDDriverDestenation}" TabIndex="7"/>
-                        <Button Content="-"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding DeleteItem}" TabIndex="8"/>
+                        <Button IsEnabled="{Binding CanEdit}" Content="↓"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding ADDDriverDestenation}" TabIndex="7"/>
+                        <Button IsEnabled="{Binding CanEdit}" Content="-"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding DeleteItem}" TabIndex="8"/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
                 
             </dxlc:LayoutGroup>
-            <Button Content="ذخیره" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="97" Margin="1,26,-56,-26" Command="{Binding SaveSefaresh}" TabIndex="10"/>
+            <Button Content="{Binding SaveText}" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="97" Margin="1,26,-56,-26" 
+                    Command="{Binding SaveSefaresh}" TabIndex="10"/>
             <TextBox UI:FocusAdvancement.AdvancesByEnterKey="True" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="97" Margin="-45,0,0,0" TabIndex="9"/>
 
         </dxlc:LayoutControl>

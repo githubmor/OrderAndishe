@@ -24,18 +24,21 @@ namespace OrdersAndisheh.ExcelManager
             package = new ExcelPackage();
         }
 
-        public void ExportLastSavedSefaresh(string Tarikh)
+        public string ExportLastSavedSefaresh(string Tarikh)
         {
-
+            string re = "";
             var sefaresh = service.LoadSefaresh(Tarikh);
 
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())
             {
                 dlg.Description = "Select a folder";
+                //Properties.Settings.Default.Upgrade();
                 dlg.SelectedPath = Properties.Settings.Default.LastExcelBackUpPath;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     Properties.Settings.Default.LastExcelBackUpPath = dlg.SelectedPath;
+                    Properties.Settings.Default.Save();
+                    re = Properties.Settings.Default.LastExcelBackUpPath;
                     string path = Path.Combine(dlg.SelectedPath , PersianDateTime.Parse(sefaresh.Tarikh).Year.ToString());
                     string path2 = Path.Combine(path, PersianDateTime.Parse(sefaresh.Tarikh).MonthName.ToString());
                     Directory.CreateDirectory(path2);
@@ -65,6 +68,7 @@ namespace OrdersAndisheh.ExcelManager
                     }
                 }
             }
+            return re;
 
             
         }

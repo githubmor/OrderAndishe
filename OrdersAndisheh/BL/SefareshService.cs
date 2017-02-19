@@ -76,12 +76,8 @@
 
         public virtual void UnAcceptSefaresh(Sefaresh sefaresh)
 		{
-            if (sefaresh.Items == null)
-            {
-                throw new ApplicationException("");
-            }
             sefaresh.Accepted = false;
-            this.UpdateSefaresh(sefaresh);
+            db.SaveChanges();
 		}
 
        
@@ -246,13 +242,21 @@
 
         public List<CheckSefaresh> LoadCheckSefareshs()
         {
-            db.Database.Log = x =>
-            {
-                if (x.StartsWith("SELECT"))
-                    Console.WriteLine(x);
-            };
+            db.Database.Log = Console.Write;
             List<CheckSefaresh> sd = new List<CheckSefaresh>();
-            var y = db.Orders.Select(p=>p.Tarikh).ToList();
+            var u = from p in db.Orders
+                    where !p.Accepted
+                    orderby p.Tarikh descending
+                    select new { 
+                        tarikh = p.Tarikh, 
+                        hasAnyZeroTedad = p.OrderDetails.Any(t => t.Tedad == 0),
+                        hasAnyEmptyMaghsad = p.OrderDetails.Any(t => t.Customer == null),
+                        hasAnyEmptyRanande = p.OrderDetails.Any(t => t.Driver == null),
+                        hasAnyTempRanande = p.OrderDetails.Any(t => t.Driver.TempDriver!=null),
+                        hasAnyZeroTahvilFrosh = p.OrderDetails.Any(t => t.TahvilForosh == 0),
+                        hasAnyEmptyOracle = p.OrderDetails.Any(r => r.MOracle == null)
+                    };
+            var sad = u.ToList();
             //var p = db.Orders
             //    .Include("OrderDetails.Customer")
             //    .Include("OrderDetails.Driver")
@@ -265,6 +269,18 @@
             //{
             //    sd.Add(new CheckSefaresh(new Sefaresh(item, item.OrderDetails.ToList())));
             //}
+            foreach (var item in sad)
+            {
+                sd.Add(new CheckSefaresh(
+                    item.tarikh,
+                    item.hasAnyZeroTedad,
+                    item.hasAnyEmptyMaghsad,
+                    item.hasAnyEmptyRanande,
+                    item.hasAnyTempRanande,
+                    item.hasAnyZeroTahvilFrosh,
+                    item.hasAnyEmptyOracle
+                    ));
+            }
             return sd;
 
         }
@@ -451,6 +467,10 @@
 
         public bool HasOracle(Product product, Customer customer)
         {
+            if (product==null | customer == null)
+            {
+                throw new ApplicationException("اطلاعات کافی فرستاده نشد");
+            }
             return db.OracleRelation.Where(p => p.ProductId == product.Id).Where(o => o.CustomerId == customer.Id).Any();
         }
 
@@ -458,6 +478,41 @@
         public void SaveOracle(MOracle m)
         {
             db.MOracles.Add(m);
+        }
+
+        public void DatabaseChecking()
+        {
+            var t = db.Drivers.Include("OrderDetails").ToList();
+            for (int i = 0; i < t.Count; i++)
+			{
+			    if (t[i].OrderDetails.Count==0)
+                {
+                    db.Drivers.Remove(t[i]);
+                }
+			}
+            db.SaveChanges();
+            //foreach (var item in t)
+            //{
+            //    if (item.OrderDetails==null)
+            //    {
+            //        item.
+            //    }
+            //}
+            //var ds = db.OrderDetails.Include("Driver").Include("TempDriver").Select(p => p.Driver.TempDriver != null);
+        }
+
+
+        public void SaveOracle(List<ItemSefaresh> Oracles)
+        {
+            if (Oracles.Any(p=>p.OrderDetail==null))
+            {
+                throw new ApplicationException("اطلاعات سفارش وجود ندارد");
+            }
+            foreach (var item in Oracles.Where(p=>!string.IsNullOrEmpty(p.MNumber)))
+            {
+                db.MOracles.Add(new MOracle() { MNumber = item.MNumber, OrderDetail = item.OrderDetail });
+                db.SaveChanges();
+            }
         }
     }
 }

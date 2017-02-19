@@ -32,5 +32,7 @@ namespace BL
         bool HasOracle(Product product, Customer customer);
 
         void SaveOracle(MOracle m);
+
+        void SaveOracle(List<ItemSefaresh> Oracles);
     }
 }

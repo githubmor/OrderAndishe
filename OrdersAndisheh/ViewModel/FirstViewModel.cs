@@ -593,9 +593,9 @@ namespace OrdersAndisheh.ViewModel
             {
                 ExcelBackUp p = new ExcelBackUp(ss);
 
-                p.ExportLastSavedSefaresh(SelectedSefareshCheck.TarikhSefaresh);
+                string y = p.ExportLastSavedSefaresh(SelectedSefareshCheck.TarikhSefaresh);
 
-                MessageBox.Show("اطلاعات در فایل اکسل ذخیره شد");
+                MessageBox.Show("اطلاعات در آدرس " + y + " ذخیره شد");
             }
             catch (Exception r)
             {
@@ -702,17 +702,24 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteAcceptSefaresh()
         {
-            ss.AcceptSefaresh(SelectedSefareshCheck.TarikhSefaresh);
-            RaisePropertyChanged(() => this.CheckSefareshs);
+            try
+            {
+                ss.AcceptSefaresh(SelectedSefareshCheck.TarikhSefaresh);
+                ExcelBackUp p = new ExcelBackUp(ss);
+                string y = p.ExportLastSavedSefaresh(SelectedSefareshCheck.TarikhSefaresh);
+                MessageBox.Show("اطلاعات در آدرس " + y + " ذخیره شد");
+                RaisePropertyChanged(() => this.CheckSefareshs);
+            }
+            catch (Exception t)
+            {
+                MessageBox.Show(t.Message.ToString());
+            }
         }
 
         private bool CanExecuteAcceptSefaresh()
         {
-            return SelectedSefareshCheck != null &&
-                SelectedSefareshCheck.HasItemWithNoMaghsad &
-                SelectedSefareshCheck.HasItemWithNoRanande &
-                SelectedSefareshCheck.HasItemWithNoTahvilFrosh &
-                SelectedSefareshCheck.HasItemWithNoTedad;
+            return SelectedSefareshCheck != null && SelectedSefareshCheck.IsEveryThingOk;
+                
         }
 
 
@@ -770,6 +777,26 @@ namespace OrdersAndisheh.ViewModel
                 }
             }
 
+        }
+
+        private RelayCommand _myCommand5595;
+
+        /// <summary>
+        /// Gets the DatabaseChecking.
+        /// </summary>
+        public RelayCommand DatabaseChecking
+        {
+            get
+            {
+                return _myCommand5595
+                    ?? (_myCommand5595 = new RelayCommand(ExecuteDatabaseChecking));
+            }
+        }
+
+        private void ExecuteDatabaseChecking()
+        {
+            ss.DatabaseChecking();
+            MessageBox.Show("دیتابیس آماده شد");
         }
     }
 

@@ -64,6 +64,7 @@
             <Button Content="چک بارنامه ها" Command="{Binding CheckAsns}"/>
             <Button Content="گزارش سفارشات" Command="{Binding ErsalReporting}"/>
             <Button Content="گزارش پلاسکو" Command="{Binding PelaskoReport}"/>
+            <Button Content="بررسی دیتابیس" Command="{Binding DatabaseChecking}"/>
         </StackPanel>
         <DataGrid SelectedItem="{Binding SelectedSefareshCheck}" MouseDoubleClick="ListView_MouseDoubleClick" 
                   ItemsSource="{Binding CheckSefareshs}" AutoGenerateColumns="False" Grid.Column="2" 
@@ -75,7 +76,7 @@
                         <DataTemplate>
                             <Image Name="MyImage" Source="/Images/ok.jpg"/>
                             <DataTemplate.Triggers>
-                                <DataTrigger Binding="{Binding HasItemWithNoTedad,Mode=OneWay}" Value="False">
+                                <DataTrigger Binding="{Binding IsTedadOk,Mode=OneWay}" Value="False">
                                     <Setter TargetName="MyImage" Property="Source" Value="/Images/nok.jpg"/>
                                 </DataTrigger>
                             </DataTemplate.Triggers>
@@ -88,7 +89,7 @@
                         <DataTemplate>
                             <Image Name="MyImage" Source="/Images/ok.jpg"/>
                             <DataTemplate.Triggers>
-                                <DataTrigger Binding="{Binding HasItemWithNoMaghsad,Mode=OneWay}" Value="False">
+                                <DataTrigger Binding="{Binding IsMaghsadOk,Mode=OneWay}" Value="False">
                                     <Setter TargetName="MyImage" Property="Source" Value="/Images/nok.jpg"/>
                                 </DataTrigger>
                             </DataTemplate.Triggers>
@@ -101,7 +102,7 @@
                         <DataTemplate>
                             <Image Name="MyImage" Source="/Images/ok.jpg"/>
                             <DataTemplate.Triggers>
-                                <DataTrigger Binding="{Binding HasItemWithNoRanande,Mode=OneWay}" Value="False">
+                                <DataTrigger Binding="{Binding IsRanandeOk,Mode=OneWay}" Value="False">
                                     <Setter TargetName="MyImage" Property="Source" Value="/Images/nok.jpg"/>
                                 </DataTrigger>
                             </DataTemplate.Triggers>
@@ -114,7 +115,19 @@
                         <DataTemplate>
                             <Image Name="MyImage" Source="/Images/ok.jpg"/>
                             <DataTemplate.Triggers>
-                                <DataTrigger Binding="{Binding HasItemWithNoTahvilFrosh,Mode=OneWay}" Value="False">
+                                <DataTrigger Binding="{Binding IsTahvilFroshOk,Mode=OneWay}" Value="False">
+                                    <Setter TargetName="MyImage" Property="Source" Value="/Images/nok.jpg"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="چک ثبت اوراکل ها">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="MyImage" Source="/Images/ok.jpg"/>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsOracleOk,Mode=OneWay}" Value="False">
                                     <Setter TargetName="MyImage" Property="Source" Value="/Images/nok.jpg"/>
                                 </DataTrigger>
                             </DataTemplate.Triggers>

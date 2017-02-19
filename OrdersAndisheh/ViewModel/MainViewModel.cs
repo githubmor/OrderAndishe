@@ -25,8 +25,8 @@ namespace OrdersAndisheh.ViewModel
         {
             ss = new SefareshService();
             //''''
-            
 
+            CanEdit = true;
             sefaresh = new Sefaresh();
             Drivers = ss.LoadDrivers();
             Goods = ss.LoadGoods();
@@ -53,8 +53,10 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => Items);
                 IsEdit = true;
                 IsDirty = false;
+                CanEdit = !sefaresh.Accepted;
                 //MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد");
                 RaisePropertyChanged(() => this.Tarikh);
+                RaisePropertyChanged(() => this.SaveText);
                 RaisePropertyChanged(() => this.DriversVazn);
                 RaisePropertyChanged(() => this.MaghsadVazn);
             }
@@ -63,6 +65,29 @@ namespace OrdersAndisheh.ViewModel
                 System.Windows.Forms.MessageBox.Show(r.Message.ToString());
             }
         }
+
+        //public bool CanEdit { get; set; }
+
+        private bool myVar;
+
+        public bool CanEdit
+        {
+            get { return myVar; }
+            set { 
+                myVar = value;
+                RaisePropertyChanged(() => CanEdit);
+            }
+        }
+        
+
+        //private string myVar;
+
+        public string SaveText
+        {
+            get { return (CanEdit?"ذخیره":"فعال کردن"); }
+            //set { myVar = value; }
+        }
+        
 
         private short tempTedad;
 
@@ -567,22 +592,31 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                if (IsEdit)
+                if (CanEdit)
                 {
-                    ss.UpdateSefaresh(sefaresh);
-                    MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ویرایش شد");
+                    if (IsEdit)
+                    {
+                        ss.UpdateSefaresh(sefaresh);
+                        MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ویرایش شد");
+                    }
+                    else
+                    {
+                        ss.SaveSefaresh(sefaresh);
+                        IsEdit = true;
+                        MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ذخیره شد");
+                    }
                 }
-                else 
+                else
                 {
-                    ss.SaveSefaresh(sefaresh);
-                    IsEdit = true;
-                    MessageBox.Show("اطلاعات سفارش روز "+Tarikh+" ذخیره شد");
+                    CanEdit = true;
+                    ss.UnAcceptSefaresh(sefaresh);
+                    MessageBox.Show("سفارش از حالت تثبیت در آمد");
                 }
-                //ss.DelNoUsedTempDrivers(TempDriverForDelete);
                 IsDirty = false;
                 ClickedItem = null;
                 RaisePropertyChanged(() => this.DriversVazn);
                 RaisePropertyChanged(() => this.MaghsadVazn);
+                RaisePropertyChanged(() => this.SaveText);
             }
             catch (DbEntityValidationException e)
             {
@@ -606,7 +640,15 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteSaveSefaresh()
         {
-            return Items.Count > 0 & !string.IsNullOrEmpty(Tarikh) & IsDirty;
+            if (CanEdit)
+            {
+                return Items.Count > 0 & !string.IsNullOrEmpty(Tarikh) & IsDirty;
+            }
+            else
+            {
+                return true;
+            }
+            
         }
 
         private RelayCommand createBazresList;
@@ -1128,7 +1170,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteOracleSet()
         {
-            return !IsDirty;
+            return !IsDirty & !Items.Any(p=>string.IsNullOrEmpty(p.Maghsad));
         }
     }
 

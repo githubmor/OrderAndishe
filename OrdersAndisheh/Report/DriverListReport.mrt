@@ -6,13 +6,14 @@
         <Alias>Items</Alias>
         <BusinessObjects isList="true" count="0" />
         <Category />
-        <Columns isList="true" count="6">
+        <Columns isList="true" count="7">
           <value>Ranande,System.String</value>
           <value>Maghsad,System.String</value>
           <value>Kala,System.String</value>
           <value>Tedad,System.String</value>
           <value>Pallet,System.String</value>
           <value>Karton,System.String</value>
+          <value>Pelak,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Guid>4fcf97da98c8464eb18c1a2ff368d119</Guid>
@@ -48,8 +49,8 @@
         <GroupHeaderBand1 Ref="5" type="GroupHeaderBand" isKey="true">
           <Border>Top, Left, Right;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.2,3.94,0.5</ClientRectangle>
-          <Components isList="true" count="1">
+          <ClientRectangle>0,0.2,3.94,0.8</ClientRectangle>
+          <Components isList="true" count="2">
             <Text1 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.01,0,3.9,0.5</ClientRectangle>
@@ -66,6 +67,22 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text1>
+            <Text4 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.5,3.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>پلاک : {Items.Pelak}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
           </Components>
           <Condition>{Items.Maghsad}{Items.Ranande}</Condition>
           <Conditions isList="true" count="0" />
@@ -74,13 +91,13 @@
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupHeaderBand1>
-        <Data Ref="7" type="DataBand" isKey="true">
+        <Data Ref="8" type="DataBand" isKey="true">
           <Border>Left, Right;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>4fcf97da98c8464eb18c1a2ff368d119</BusinessObjectGuid>
-          <ClientRectangle>0,1.1,3.94,0.3</ClientRectangle>
+          <ClientRectangle>0,1.4,3.94,0.3</ClientRectangle>
           <Components isList="true" count="4">
-            <DataItems_Tedad Ref="8" type="Text" isKey="true">
+            <DataItems_Tedad Ref="9" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.7,0,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -89,14 +106,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Tedad</Name>
               <Page isRef="4" />
-              <Parent isRef="7" />
+              <Parent isRef="8" />
               <Text>{IIF(Items.Pallet=="0",Items.Karton,Items.Pallet)}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_Tedad>
-            <DataItems_PalletCount Ref="9" type="Text" isKey="true">
+            <DataItems_PalletCount Ref="10" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>1.2,0,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -105,14 +122,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_PalletCount</Name>
               <Page isRef="4" />
-              <Parent isRef="7" />
+              <Parent isRef="8" />
               <Text>{Items.Tedad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_PalletCount>
-            <DataItems_Ranande Ref="10" type="Text" isKey="true">
+            <DataItems_Ranande Ref="11" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>1.8,0,2.1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -120,14 +137,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
               <Page isRef="4" />
-              <Parent isRef="7" />
+              <Parent isRef="8" />
               <Text>{Items.Kala}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_Ranande>
-            <Text2 Ref="11" type="Text" isKey="true">
+            <Text2 Ref="12" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -137,8 +154,8 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="4" />
-              <Parent isRef="7" />
-              <Text>{IIF(Items.Pallet=="0","سبد/کارتن","پالت")}</Text>
+              <Parent isRef="8" />
+              <Text>{IIF(Items.Pallet=="0","کارتن","پالت")}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -153,32 +170,35 @@
           <Parent isRef="4" />
           <Sort isList="true" count="0" />
         </Data>
-        <GroupFooterBand1 Ref="12" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand1 Ref="13" type="GroupFooterBand" isKey="true">
           <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,1.8,3.94,0.4</ClientRectangle>
+          <ClientRectangle>0,2.1,3.94,0.4</ClientRectangle>
           <Components isList="true" count="0" />
           <Conditions isList="true" count="0" />
           <Name>GroupFooterBand1</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupFooterBand1>
-        <FooterBand1 Ref="13" type="FooterBand" isKey="true">
+        <FooterBand1 Ref="14" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2.6,3.94,0.3</ClientRectangle>
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,2.9,3.94,0.3</ClientRectangle>
           <Components isList="true" count="1">
-            <Text3 Ref="14" type="Text" isKey="true">
+            <Text3 Ref="15" type="Text" isKey="true">
               <Border>Bottom;Black;1;Dash;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
               <ClientRectangle>0,0,3.94,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <DockStyle>Fill</DockStyle>
-              <Font>Tahoma,10</Font>
-              <HorAlignment>Center</HorAlignment>
+              <Font>Tahoma,14</Font>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="14" />
               <Text>{Works.Works}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -200,13 +220,13 @@
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
-      <Watermark Ref="15" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="16" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="16" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="17" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -218,10 +238,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/11/2017 11:05:02 AM</ReportChanged>
+  <ReportChanged>2/8/2017 10:15:55 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\DriverListReport.mrt</ReportFile>
-  <ReportGuid>2ef635e898bd4eb79eb76b25a0b876c0</ReportGuid>
+  <ReportGuid>8fabf35d332b451dbf405299f40adf66</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
@@ -250,7 +270,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="1">
-    <Style1 Ref="17" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="18" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Brush>Transparent</Brush>
       <Conditions isList="true" count="0" />
       <Description />
