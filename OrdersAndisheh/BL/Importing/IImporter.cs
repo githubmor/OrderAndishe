@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrdersAndisheh.BL.ImportFromExcel
+namespace OrdersAndisheh.BL.Importing
 {
-    public interface IExcelImporter
+    public interface IImporter
     {
-        void GetData(string filePath);
+        public string[,] GetData(string filePath);
     }
 }

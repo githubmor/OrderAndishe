@@ -183,10 +183,11 @@ namespace OrdersAndisheh.BL
         public void CreatCheckListErsalOnDeskTop()
         {
             List<CheckList> cs = new List<CheckList>();
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad)
+                .ThenBy(p => p.Ranande).ToList());
             foreach (var item in sefaresh2.Items)
             {
                 cs.Add(new CheckList(item, sefaresh2.Tarikh));
-                
             }
 
             FileManagar f = new FileManagar(cs, sefaresh2.Tarikh);

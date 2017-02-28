@@ -193,6 +193,7 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
+        //private string tarikh = "";
         public string Tarikh
         {
             get { return sefaresh.Tarikh; }
@@ -203,7 +204,7 @@ namespace OrdersAndisheh.ViewModel
                 {
                     sefaresh.Tarikh = value;
                     RaisePropertyChanged(() => Tarikh);
-                    IsDirty = true;
+                    IsDirty = true; 
                 }
                 catch (Exception r)
                 {

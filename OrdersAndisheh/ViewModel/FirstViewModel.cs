@@ -12,7 +12,6 @@ using System.Reflection;
 using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
 using OrdersAndisheh.BL;
-using OrdersAndisheh.BL.ImportFromExcel;
 using OrdersAndisheh.DBL;
 
 namespace OrdersAndisheh.ViewModel
