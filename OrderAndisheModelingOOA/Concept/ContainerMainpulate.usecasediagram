@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="0c4294d8-996a-4794-abe4-57083bac3d85" name="ContainerMainpulate" linkedPackageId="5f38cb0f-93da-4ad6-a183-ca0770884515" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="9ba23da5-86b0-424f-af21-bea67708029c" name="OrderMan" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="56d3fa1b-224c-4842-8383-f8089298eee7" />
+        <targetEnds>
+          <association Id="3749c984-b1f1-4074-b16b-3c5b4188f500" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Add New Container" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f5c4e26b-0d6f-4c37-bfd6-41ee7b1ce040" LastKnownName="Add New Container" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="99523e75-421d-4708-bbba-fca182422edc" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0c60efcf-87bf-4a42-b08b-6b1c7fe27615" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f6b1fe39-4e20-4a60-84ff-f63afba549d6" name="Add New Container" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="edffe03f-4bd1-4f1c-ae34-9436fbf482e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a9f76848-0c1c-4c2d-ab54-7280bdcac328" />
+          </association>
+          <association Id="762f2e5f-966d-46dc-b0fb-4afdb372f5e5" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="View Barandaz Items" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="585c53ed-0374-4a57-8015-bc7b6934ec0a" LastKnownName="View Barandaz Items" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="73304b08-5bcc-44b9-ba5f-f6e4dd49c698" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d4648e4e-4f5f-4d21-a105-3e4e06c4d16a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7731b1e5-0416-49b0-83fd-cd791c177f1a" name="View Barandaz Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="83335141-6c4f-4833-85a4-f7908d9b6cea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="05fe9c4c-317a-4bc8-aec1-7fab345cf01c" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="585c53ed-0374-4a57-8015-bc7b6934ec0a" name="View Barandaz Items" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="97feeac5-49a3-4c86-ae74-1ad298ec99d8" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f5c4e26b-0d6f-4c37-bfd6-41ee7b1ce040" name="Add New Container" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d8320f6f-1ee9-42f3-9950-79a369fedb9f" />
+        <extendedCases>
+          <extend Id="a736953e-dae8-464b-a2e8-1fc64aff5433">
+            <useCaseMoniker Id="e323c72d-1784-447f-bed4-a195343b1dbd" LastKnownName="Add Item To container" />
+            <elementDefinition Id="7004127b-51cc-4ad1-881c-29752af0f8f8" />
+          </extend>
+          <extend Id="21656115-f54b-4cca-988c-1762f72b7f05">
+            <useCaseMoniker Id="ada19b75-9dd8-4460-adf2-7c3ceebab536" LastKnownName="Remove Item From Container" />
+            <elementDefinition Id="03fb4126-12d7-4a56-9fe9-e3c5c995d3af" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="3e14bc4f-d314-4842-b6f3-22103e822c4f">
+            <useCaseMoniker Id="6ca36c41-b58b-4f79-ba68-04260db885ab" LastKnownName="Calculate Container weight" />
+            <elementDefinition Id="72f37136-405a-459e-b36e-39b7e8413111" />
+          </include>
+          <include Id="4ebdc468-adff-4bed-8340-e2aed92a900d">
+            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Pallet Count Container" />
+            <elementDefinition Id="ba14b9bd-28f4-40ff-b79a-d2148cde46d9" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e323c72d-1784-447f-bed4-a195343b1dbd" name="Add Item To container" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8bd47fb8-8d1f-4d0b-a82a-4eb58835f3a7" />
+        <additions>
+          <include Id="b8256e0a-26d0-4aed-95eb-75a3d88e871f">
+            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Pallet Count Container" />
+            <elementDefinition Id="efd108e8-dbd2-481a-b820-bef41822d88b" />
+          </include>
+          <include Id="346ca577-65b4-4ccd-ba5c-756722502352">
+            <useCaseMoniker Id="6ca36c41-b58b-4f79-ba68-04260db885ab" LastKnownName="Calculate Container weight" />
+            <elementDefinition Id="7a6d107e-93fa-4c02-8980-4febfd0ea35b" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ada19b75-9dd8-4460-adf2-7c3ceebab536" name="Remove Item From Container" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ce3f6769-9fc3-4ded-9515-e7f30b8d8b32" />
+        <additions>
+          <include Id="94b2235a-af92-4c52-a970-8ef3d1568761">
+            <useCaseMoniker Id="9dfcc296-4bc3-4f16-9fcb-fde6ad1cbd21" LastKnownName="Move Item  To Barandaz" />
+            <elementDefinition Id="077c0d2f-eaf6-450a-9810-2fcaefb29f68" />
+          </include>
+          <include Id="af4dd0d4-5467-4f78-81e7-4332b391a93f">
+            <useCaseMoniker Id="e323c72d-1784-447f-bed4-a195343b1dbd" LastKnownName="Add Item To container" />
+            <elementDefinition Id="e34c6329-9cc5-4148-bf22-0e667bfe0d18" />
+          </include>
+          <include Id="822d896d-51bc-4c0e-ba52-401362dba4b4">
+            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Pallet Count Container" />
+            <elementDefinition Id="1a8883cf-83f1-4166-8361-1c415d7e15b9" />
+          </include>
+          <include Id="6d142a17-1cd1-4bee-b137-3f959e3421c3">
+            <useCaseMoniker Id="6ca36c41-b58b-4f79-ba68-04260db885ab" LastKnownName="Calculate Container weight" />
+            <elementDefinition Id="cbe99944-6dc4-4a79-bd57-5174fe4e0775" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9dfcc296-4bc3-4f16-9fcb-fde6ad1cbd21" name="Move Item  To Barandaz" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a722d75d-8576-47af-9bda-1c71d05f0dad" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6ca36c41-b58b-4f79-ba68-04260db885ab" name="Calculate Container weight" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="372a41a4-98f2-4792-bce4-40079663c051" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" name="Calculate Pallet Count Container" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="291ede87-5bb8-4814-8e79-0d7a40690ffb" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="5f38cb0f-93da-4ad6-a183-ca0770884515" name="OrderAndisheModelingOOA">
+    <elementDefinition Id="1b073815-14f9-4287-aadc-d3291c207a18" />
+    <profileInstances>
+      <packageHasProfileInstances Id="5203d4a8-c1d4-4033-a91c-459391c87553">
+        <profileInstance Id="d4701662-ea2a-47f6-a790-e3e118d112ab" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="852d0f15-0e9c-413c-b5cc-5bc0bca9495d">
+        <profileInstance Id="08919e50-f185-4713-9321-6090bdd42592" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

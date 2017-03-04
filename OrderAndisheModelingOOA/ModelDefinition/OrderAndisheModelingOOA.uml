@@ -1,0 +1,2139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="1b073815-14f9-4287-aadc-d3291c207a18"
+  name="OrderAndisheModelingOOA" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="fc2310f0-8dbc-4e5c-ae99-5c65c03bb2bf">
+      <body>View Accepted Sefaresh List
+Filter Sefaresh List
+</body>
+    </comment>
+    <comment
+      Id="427a4de6-9461-4e3d-8f56-4fa7842c8f73">
+      <body>Add new Sefaresh
+Edit Sefaresh
+Delete Sefaresh
+Add New Item To Sefaresh
+Edit Itemsefaresh
+Del Itemsefaresh
+Accept Sefarseh
+UnAccept Sefaresh
+View UnAccepted Sefaresh
+Set TahvilFroshs
+Set Asns
+View All Sefareshs 
+
+</body>
+    </comment>
+    <comment
+      Id="89ce1f0f-71ee-49b6-a0e3-25b166c89929">
+      <body>Add Item Sefaresh
+Del Item Sefaresh
+Edit Item Sefaresh
+Add Driver To Item Sefaresh
+Del Driver To Item Sefaresh
+
+Edit Driver To Item Sefaresh
+
+Add Customer To Item Sefaresh
+
+Del Customer To Item Sefaresh
+
+Edit Customer To Item Sefaresh
+
+View And Print Sefaresh by Filters
+
+View And Print Sefaresh Drivers
+
+View Each Customer Weight
+
+View Each Driver Weight
+
+Add First Amount
+
+Print CheckListErsal
+
+View Amount Needed
+Set Oracle Number
+Add Works For Drivers
+Add New Container
+Del Container
+Add Item Sefaresh to Container
+Remove Item from Container
+View Items In Barandaz
+Remove Item From Barandaz To Container
+View Container Weight
+View PalletCount Container
+View JaighahCount Container
+View Last Edited Item
+Export Sefaresh To Excel
+Set Govahi
+Print Labels
+Select Item Sefaresh State</body>
+    </comment>
+    <comment
+      Id="303a6d98-ce22-441e-94c2-a16327d35bcd">
+      <body>Seprate UseCase</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="bf09078c-cdec-4436-9c8f-305ffd56ed52"
+          LastKnownName="Add New Sefaresh"
+          LastKnownLocation="OrderAndisheModelingOOA.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="222f4f69-61b2-496c-a5e9-676541a82e0e">
+      <body>Bazres Sefaresh list
+Andishe , ...</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="132a8ad3-1325-4fde-9446-24eebb783435"
+          LastKnownName="View &amp; Print Sefaresh List"
+          LastKnownLocation="OrderAndisheModelingOOA.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="3a454b59-c661-4dc3-8308-bf543ccea5ef">
+      <body>Seprate UseCase</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="c96734a8-de89-47d0-98fc-7cc5051deb49"
+          LastKnownName="Container Mainplute"
+          LastKnownLocation="OrderAndisheModelingOOA.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <subsystem
+        Id="cf7615eb-a0c3-4245-bcae-23b8ecf289a1"
+        name="OrderAndish"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="56d3fa1b-224c-4842-8383-f8089298eee7"
+        name="OrderMan"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="04768794-d671-4292-a07c-88156ae840ec"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="d31c7b0f-d8ba-4962-8d7a-0a90176536ea"
+              LastKnownName="User"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="42ed000e-16c7-41db-8aa0-2bf7e60c6d04"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="View UnAccepted Sefaresh"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4e793fef-7e73-4f1f-9782-48c87aa69d49"
+              LastKnownName="View UnAccepted Sefaresh"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9b9ce1b6-ef2d-40e9-bda1-da96252e57be"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="89885675-9d36-49dd-b8f8-433070606abf"
+                  name="View UnAccepted Sefaresh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7194037b-ba9a-497e-9a1e-9fb745426928"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Add New Sefaresh"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bf09078c-cdec-4436-9c8f-305ffd56ed52"
+              LastKnownName="Add New Sefaresh"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c4ab2c47-9cf3-4cf5-b603-b1e4035e5e97"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="17342b7b-c405-4a78-866c-a3aa8379a554"
+                  name="Add New Sefaresh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d8bcfdc7-6ec0-4b95-8371-59b1e6faf2c4"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Accept Sefaresh"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d0f46965-d888-4251-8a3e-c7768159e674"
+              LastKnownName="Accept Sefaresh"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dc50e1eb-87c1-4768-b860-76a72db942eb"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc851998-e4d6-4a6f-8ad6-011af703e369"
+                  name="Accept Sefaresh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="cf344c49-85c8-4c22-9c22-fd7e12a0c130"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="View &amp; Filter Sefaresh Details "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a33e812a-6950-4065-b4e2-8d28b83cebb0"
+              LastKnownName="View &amp; Filter Sefaresh Details "
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="39b39650-cb8b-48ea-8a00-1c9d3d195f55"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cfac1788-543f-4c4b-a188-2d06c105c4c5"
+                  name="View &amp; Filter Sefaresh Details "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="59ecc51c-0596-41d8-8ace-ffee17bfb0dd"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set Tahvils"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d792240e-53e7-40a0-85c4-e876315f9fa0"
+              LastKnownName="Import &amp; Set Tahvils"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1aa26ec1-6ce9-46f3-9c9b-7aa1406b9ebd"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="001fdbbe-43ec-46f4-9fd1-daaef06d2c2f"
+                  name="Set Tahvils"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="553ad964-063d-4f5c-84b6-6d84d763aa41"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set Asns"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c2d644fe-760a-426b-8878-f3c88297ad71"
+              LastKnownName="Set Asns"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07bd57f1-ff9e-42a6-a44f-ac4fea1279fa"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="72e6f9e1-0bb2-4e11-a104-207494dc5906"
+                  name="Set Asns"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7e1ab02f-6705-410f-8fb6-58947df62325"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Add New Item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4a9b8ac4-37e3-4470-a634-4f46fc6e7f5b"
+              LastKnownName="Add New Item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="56b56f30-20af-4aab-b902-19d7709eb28b"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="35e28155-ccaa-4cb0-b32b-d06d63b36a65"
+                  name="Add New Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="21241306-0e0d-4f68-b4b0-f0569fa847a0"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Edit An Item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c2234875-aef3-4de9-9b64-187b50b30771"
+              LastKnownName="Edit An Item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1293c337-321a-4959-950b-8f289b485063"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="71f35698-1fba-4608-a693-336da4b18183"
+                  name="Edit An Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7d960269-7d85-4ada-b881-b1c0e03d067e"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Delete Item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="dacc5dc3-1198-4b93-9f97-75d43b863ef4"
+              LastKnownName="Delete Item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa908b96-f0b4-4a7d-a3ef-25fd3f1d4bde"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7214d73a-645f-4fd0-b666-e374a7451158"
+                  name="Delete Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ff01c219-ccf3-4bcf-b00d-e2311e263ac9"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="View Barandaz Items"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="09529683-7ed8-4d11-bffe-7b15cfaecf7b"
+              LastKnownName="View Barandaz Items"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="295a3971-b384-4a1f-8e12-ef6ad93e7c43"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0a5161d7-02cc-43bb-87d0-b294c4f647fb"
+                  name="View Barandaz Items"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4c5bab30-de51-4063-b042-f5312404f503"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Add New Container"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c96734a8-de89-47d0-98fc-7cc5051deb49"
+              LastKnownName="Container Mainplute"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e0f3f7c3-4e7b-42b3-892b-77566556cbab"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7e709a96-76f2-4ed4-8c70-2287d00a3e23"
+                  name="Add New Container"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8841989e-cc6e-4303-82a5-af38f1a1a050"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set Driver To Container"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9269379e-b4ae-4adb-98cc-8aec4f1b3b4e"
+              LastKnownName="Set Driver To Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5a459658-d767-44ab-a3c3-dd0f2dc27f72"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eb0a4ee8-b18a-48a0-b596-c5c50edc1e7d"
+                  name="Set Driver To Container"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="cfb02ea4-7dce-467a-b1bf-f0c073b666c8"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="View &amp; Print Sefaresh List"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="132a8ad3-1325-4fde-9446-24eebb783435"
+              LastKnownName="View &amp; Print Sefaresh List"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d8718a06-932b-445b-a678-fc4c42c848f9"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2f51a381-1d9a-4b20-8fab-891199bc8b15"
+                  name="View &amp; Print Sefaresh List"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3477cf29-7250-40d3-99dd-6234252f260d"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Change Driver Container"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="affc2cfc-2c28-418f-8de3-50463ed71356"
+              LastKnownName="Change Driver Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="749530e3-375e-4121-9951-2fff0b32dd3c"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="add62085-74a1-4439-9468-04d1c62c4223"
+                  name="Change Driver Container"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="aca9f059-e01a-4709-8c08-82e2af001b0c"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Add Customer To Item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a1f03444-7070-43d6-8339-a7906924fa49"
+              LastKnownName="Add Customer To Item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4b16d2eb-283d-4df8-a0b7-1510ee5d8b0e"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bd283a2a-5730-4eca-98c7-18c0777be5f4"
+                  name="Add Customer To Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f76d0157-01b5-4f96-bca2-3d3975e64de8"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Romove Customer From Item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c9c38f43-3b43-4af6-bd33-57d10558b337"
+              LastKnownName="Romove Customer From Item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8fdc5a73-5abf-4bd5-ad3e-e9dc0b5fede2"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="184a4117-05f2-4a03-8523-6aff5eb2bfbd"
+                  name="Romove Customer From Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="07938a00-484c-4c87-994b-ba3b1128eb5d"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Change Customer Of item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7edceb32-1dca-4ca4-994c-6bcf2ad5a142"
+              LastKnownName="Change Customer Of item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="54db536b-bbeb-4568-8ad0-dcd88ff1f4b5"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="39c6d11d-9ffa-4aee-b937-abbcd58b40e9"
+                  name="Change Customer Of item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="79dc211e-2df2-4f76-9b88-d52ecd046a2c"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Print Driver Cover"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b2c8a93e-8260-4308-9a59-a4a938aec462"
+              LastKnownName="Print Driver Cover"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9e24cb73-7c62-400f-a4ed-9d4015031a52"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fcb5ff92-6ecf-4908-be3f-57858534853b"
+                  name="Print Driver Cover"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a9f76848-0c1c-4c2d-ab54-7280bdcac328"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Add New Container"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d8320f6f-1ee9-42f3-9950-79a369fedb9f"
+              LastKnownName="Add New Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0c60efcf-87bf-4a42-b08b-6b1c7fe27615"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="edffe03f-4bd1-4f1c-ae34-9436fbf482e8"
+                  name="Add New Container"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="05fe9c4c-317a-4bc8-aec1-7fab345cf01c"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="View Barandaz Items"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="97feeac5-49a3-4c86-ae74-1ad298ec99d8"
+              LastKnownName="View Barandaz Items"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4648e4e-4f5f-4d21-a105-3e4e06c4d16a"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="83335141-6c4f-4833-85a4-f7908d9b6cea"
+                  name="View Barandaz Items"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6c35dcdd-373d-43e5-86e2-2981a9079ff3"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set Driver Works"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6e19edc6-0b73-44f2-a179-f89ad0e2b6ee"
+              LastKnownName="Set Driver Works"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="40426208-bc60-4d7e-adac-1134e6ff604f"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7bc96bc8-93a2-442b-9148-1cd9efb57aae"
+                  name="Set Driver Works"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="535bb7c2-4957-42bf-87da-85e198006b4b"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set LastAmount"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="43737f92-07fe-4d70-9a04-79672759c1c2"
+              LastKnownName="Set LastAmount"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0c38ed56-c06f-4033-ba53-521eb722d89f"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fb78cf58-64d0-42d1-8546-e454842137dd"
+                  name="Set LastAmount"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1f58ce63-72c9-4d1e-ba00-dcb3025eb866"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Print CheckList"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c938f1e7-a3eb-4628-aa41-e9028a2705be"
+              LastKnownName="Print CheckList"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a6843ca1-9fe8-4b27-b245-00b592cbfa50"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="71d27ef5-532b-4e52-8e87-a3cc88706998"
+                  name="Print CheckList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5a035b22-f73a-4416-b498-2ef42762ab51"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Add New Item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="034f4afc-a22d-4bc7-8527-d52ce2e78e68"
+              LastKnownName="Add New Item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a634cf65-d257-43af-b096-e6ca57af2d38"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3e19a38e-8c5b-41d7-a0b2-0afaa00b3918"
+                  name="Add New Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8aa8eaf9-f20b-4082-b98f-a0bf23b803a6"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Edit Item Data"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="3c65691a-45dc-46b8-b752-14204463e5b0"
+              LastKnownName="Edit Item Data"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a70139e6-1b61-4f31-b30a-f13c97a266ec"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8d7aefba-ed46-4edc-acda-6f656966fa24"
+                  name="Edit Item Data"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7daeb617-f246-4b6d-8b92-c2720f308f4c"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Del Item"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e39c8be7-0374-4b0a-bd00-6c462f0beb9f"
+              LastKnownName="Del Item"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bea63ce3-d904-4a7f-aa4e-0af9da4bd3fd"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="844d5a56-1a3b-4961-9ca1-2e9c97073c4f"
+                  name="Del Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="aea0dc2a-734b-42ae-bc82-ff1a15aef98c"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="View Last Item Changes"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0b413152-a998-4930-94c9-d1fbd006d63f"
+              LastKnownName="View Last Item Changes"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aaee5628-f986-4e2e-9145-d0af885c82a5"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e7551a63-0185-4fbf-ae15-155d660debb8"
+                  name="View Last Item Changes"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="46a5fe4a-1aaa-4b29-90af-22ed3bc92aa9"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set Oracle"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="49809e41-cc2d-4afe-b086-0d68a5f5d623"
+              LastKnownName="Set Oracle"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1ce5a492-693a-4168-b7bf-bcff929d403e"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a8ab989c-de71-4746-8e28-fd67ddcf71b2"
+                  name="Set Oracle"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="150dfdf8-ef50-4bb0-b42d-ef2ab229c9c8"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set Govahi"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="11307e62-66e4-40f6-a3be-057b92d082f8"
+              LastKnownName="Set Govahi"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="350c7211-9e5f-4d0b-b449-8d7b54887090"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b43ebc83-72fa-4508-85ba-0becc5942dc8"
+                  name="Set Govahi"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1e1cbd76-33b2-4a49-9b82-8da1118c9cc5"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Accept Sefaresh1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1226bfb6-04b1-4562-b4c3-54be231ae7b2"
+              LastKnownName="Accept Sefaresh1"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="080430d1-1ea7-44a4-87cc-b907a0617b42"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c6a1553-8062-46f9-ae10-96bc53625101"
+                  name="Accept Sefaresh1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2a37c481-6e72-4098-afff-24ca5de9f532"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set Item State"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cf0e9c17-57e4-4756-a4da-6cfbd1192160"
+              LastKnownName="Set Item State"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a6fed405-8782-4259-a6df-4a56db4fbcd7"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ed7f24e1-9c57-4d7a-8f7f-13dded6b5b5a"
+                  name="Set Item State"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c7f6618c-6254-4bd7-980f-d38b5e16b054"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Set LastAmount1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="de225f5c-bcb5-48f7-95da-88d7f8f7c8af"
+              LastKnownName="Set LastAmount1"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9507f63b-3c1c-43af-b5e5-04f800025229"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="15acfa97-decc-4ba9-b95e-0fadecb85fca"
+                  name="Set LastAmount1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="d31c7b0f-d8ba-4962-8d7a-0a90176536ea"
+        name="User"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="fa9b5077-614a-4ce1-83a1-3d254d73db44"
+        name="Assistant"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="0f82bd73-aef5-406d-919c-da6ef0f5f74e"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="d31c7b0f-d8ba-4962-8d7a-0a90176536ea"
+              LastKnownName="User"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="c3fc9975-6502-40ef-989b-580afcbc1d83"
+        name="System"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4e793fef-7e73-4f1f-9782-48c87aa69d49"
+        name="View UnAccepted Sefaresh"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bf09078c-cdec-4436-9c8f-305ffd56ed52"
+        name="Add New Sefaresh"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a33e812a-6950-4065-b4e2-8d28b83cebb0"
+        name="View &amp; Filter Sefaresh Details "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d0f46965-d888-4251-8a3e-c7768159e674"
+        name="Accept Sefaresh"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="a9ff9264-6c75-4eb9-86e5-5b406e4118ae">
+            <useCaseMoniker
+              Id="8d5ba2bb-1806-4e5a-b3f3-ffa29ca81279"
+              LastKnownName="Export As Excel"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="b2beac6d-be18-4676-9edb-998b110d34d9">
+            <useCaseMoniker
+              Id="408846d6-18c4-4422-8a47-1529956951c2"
+              LastKnownName="Print CheckListErsal"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8d5ba2bb-1806-4e5a-b3f3-ffa29ca81279"
+        name="Export As Excel"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="408846d6-18c4-4422-8a47-1529956951c2"
+        name="Print CheckListErsal"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d792240e-53e7-40a0-85c4-e876315f9fa0"
+        name="Import &amp; Set Tahvils"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c2d644fe-760a-426b-8878-f3c88297ad71"
+        name="Set Asns"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4a9b8ac4-37e3-4470-a634-4f46fc6e7f5b"
+        name="Add New Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c2234875-aef3-4de9-9b64-187b50b30771"
+        name="Edit An Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="dacc5dc3-1198-4b93-9f97-75d43b863ef4"
+        name="Delete Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b8d0e785-0410-432b-89c4-3a2fba480f3c"
+        name="Add Driver To Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="09529683-7ed8-4d11-bffe-7b15cfaecf7b"
+        name="View Barandaz Items"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c96734a8-de89-47d0-98fc-7cc5051deb49"
+        name="Container Mainplute"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="5daae52c-f0d6-419b-9757-c0f7f62b5984">
+            <useCaseMoniker
+              Id="8e8d830d-4fa1-4662-8d22-6aa3792ca5ef"
+              LastKnownName="Add Item To Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+          <extend
+            Id="e8d7c4df-609c-4e32-a099-5059eb7fb5f1">
+            <useCaseMoniker
+              Id="156e759b-593e-4537-ab5d-d047dbd07cc3"
+              LastKnownName="RemoveItem from Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+          <extend
+            Id="adbbdd60-f417-49d9-ad02-a991f13d10bb">
+            <useCaseMoniker
+              Id="9269379e-b4ae-4adb-98cc-8aec4f1b3b4e"
+              LastKnownName="Set Driver To Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8e8d830d-4fa1-4662-8d22-6aa3792ca5ef"
+        name="Add Item To Container"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="156e759b-593e-4537-ab5d-d047dbd07cc3"
+        name="RemoveItem from Container"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9269379e-b4ae-4adb-98cc-8aec4f1b3b4e"
+        name="Set Driver To Container"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="132a8ad3-1325-4fde-9446-24eebb783435"
+        name="View &amp; Print Sefaresh List"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a1f03444-7070-43d6-8339-a7906924fa49"
+        name="Add Customer To Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="affc2cfc-2c28-418f-8de3-50463ed71356"
+        name="Change Driver Container"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c9c38f43-3b43-4af6-bd33-57d10558b337"
+        name="Romove Customer From Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7edceb32-1dca-4ca4-994c-6bcf2ad5a142"
+        name="Change Customer Of item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b2c8a93e-8260-4308-9a59-a4a938aec462"
+        name="Print Driver Cover"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="97feeac5-49a3-4c86-ae74-1ad298ec99d8"
+        name="View Barandaz Items"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d8320f6f-1ee9-42f3-9950-79a369fedb9f"
+        name="Add New Container"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="7004127b-51cc-4ad1-881c-29752af0f8f8">
+            <useCaseMoniker
+              Id="8bd47fb8-8d1f-4d0b-a82a-4eb58835f3a7"
+              LastKnownName="Add Item To container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+          <extend
+            Id="03fb4126-12d7-4a56-9fe9-e3c5c995d3af">
+            <useCaseMoniker
+              Id="ce3f6769-9fc3-4ded-9515-e7f30b8d8b32"
+              LastKnownName="Remove Item From Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include
+            Id="72f37136-405a-459e-b36e-39b7e8413111">
+            <useCaseMoniker
+              Id="372a41a4-98f2-4792-bce4-40079663c051"
+              LastKnownName="Calculate Container weight"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="ba14b9bd-28f4-40ff-b79a-d2148cde46d9">
+            <useCaseMoniker
+              Id="291ede87-5bb8-4814-8e79-0d7a40690ffb"
+              LastKnownName="Calculate Pallet Count Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8bd47fb8-8d1f-4d0b-a82a-4eb58835f3a7"
+        name="Add Item To container"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="efd108e8-dbd2-481a-b820-bef41822d88b">
+            <useCaseMoniker
+              Id="291ede87-5bb8-4814-8e79-0d7a40690ffb"
+              LastKnownName="Calculate Pallet Count Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="7a6d107e-93fa-4c02-8980-4febfd0ea35b">
+            <useCaseMoniker
+              Id="372a41a4-98f2-4792-bce4-40079663c051"
+              LastKnownName="Calculate Container weight"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ce3f6769-9fc3-4ded-9515-e7f30b8d8b32"
+        name="Remove Item From Container"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="077c0d2f-eaf6-450a-9810-2fcaefb29f68">
+            <useCaseMoniker
+              Id="a722d75d-8576-47af-9bda-1c71d05f0dad"
+              LastKnownName="Move Item  To Barandaz"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="e34c6329-9cc5-4148-bf22-0e667bfe0d18">
+            <useCaseMoniker
+              Id="8bd47fb8-8d1f-4d0b-a82a-4eb58835f3a7"
+              LastKnownName="Add Item To container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="1a8883cf-83f1-4166-8361-1c415d7e15b9">
+            <useCaseMoniker
+              Id="291ede87-5bb8-4814-8e79-0d7a40690ffb"
+              LastKnownName="Calculate Pallet Count Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="cbe99944-6dc4-4a79-bd57-5174fe4e0775">
+            <useCaseMoniker
+              Id="372a41a4-98f2-4792-bce4-40079663c051"
+              LastKnownName="Calculate Container weight"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a722d75d-8576-47af-9bda-1c71d05f0dad"
+        name="Move Item  To Barandaz"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="372a41a4-98f2-4792-bce4-40079663c051"
+        name="Calculate Container weight"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="76b1780f-cd91-470f-8b3d-0245c0ea120e"
+        name="Move To"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="291ede87-5bb8-4814-8e79-0d7a40690ffb"
+        name="Calculate Pallet Count Container"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bdea4236-ab94-4768-99cd-7f2e17204d1b"
+        name="Set Oracle"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c4e3b260-f25d-4c83-a7ce-a7e2dea684a1"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="034f4afc-a22d-4bc7-8527-d52ce2e78e68"
+        name="Add New Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6e19edc6-0b73-44f2-a179-f89ad0e2b6ee"
+        name="Set Driver Works"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="43737f92-07fe-4d70-9a04-79672759c1c2"
+        name="Set LastAmount"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="cb749e7d-e93e-4299-8d30-42f4d6094ae5">
+            <useCaseMoniker
+              Id="bbe0bcb7-47cb-4ab3-afcd-61d24a8c8e07"
+              LastKnownName="View Needed Product"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bbe0bcb7-47cb-4ab3-afcd-61d24a8c8e07"
+        name="View Needed Product"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c938f1e7-a3eb-4628-aa41-e9028a2705be"
+        name="Print CheckList"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3c65691a-45dc-46b8-b752-14204463e5b0"
+        name="Edit Item Data"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="af8e2b0c-3f5e-4fab-8bf2-e3002af1d385">
+            <useCaseMoniker
+              Id="8a68c9aa-0258-4582-9a42-6d5e9dbb0a08"
+              LastKnownName="Add Customer"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+          <extend
+            Id="7971be22-3910-4eda-8890-08dd01786d46">
+            <useCaseMoniker
+              Id="45afa833-3903-4778-b2c6-3f76ef2bb279"
+              LastKnownName="Change Customer"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+          <extend
+            Id="559846d9-1d93-47e9-95b7-d17d37a3c69b">
+            <useCaseMoniker
+              Id="7b352065-1a2e-4291-b9e0-d9644379fbd2"
+              LastKnownName="Del Customer"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8a68c9aa-0258-4582-9a42-6d5e9dbb0a08"
+        name="Add Customer"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="45afa833-3903-4778-b2c6-3f76ef2bb279"
+        name="Change Customer"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7b352065-1a2e-4291-b9e0-d9644379fbd2"
+        name="Del Customer"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e39c8be7-0374-4b0a-bd00-6c462f0beb9f"
+        name="Del Item"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0b413152-a998-4930-94c9-d1fbd006d63f"
+        name="View Last Item Changes"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f5dbdbab-8002-4b95-9410-753b1567b911"
+        name="UseCase2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="49809e41-cc2d-4afe-b086-0d68a5f5d623"
+        name="Set Oracle"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="11307e62-66e4-40f6-a3be-057b92d082f8"
+        name="Set Govahi"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="eb8269d5-87ad-42fe-bf52-45282011ad18">
+            <useCaseMoniker
+              Id="3f825f15-6ff1-49a1-82ed-f7a9517f0201"
+              LastKnownName="Print Labels"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3f825f15-6ff1-49a1-82ed-f7a9517f0201"
+        name="Print Labels"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1226bfb6-04b1-4562-b4c3-54be231ae7b2"
+        name="Accept Sefaresh1"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="f54ed82f-c758-4617-82d4-111a055709a2">
+            <useCaseMoniker
+              Id="b8f87ed2-31fb-418d-b2e9-8353e69e5315"
+              LastKnownName="Export As Excel1"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="9a562364-147b-4073-ba8a-7bbf133ed38d">
+            <useCaseMoniker
+              Id="4728ccc1-52bf-4daf-8db1-62b024f870ef"
+              LastKnownName="Print CheckListErsal1"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b8f87ed2-31fb-418d-b2e9-8353e69e5315"
+        name="Export As Excel1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4728ccc1-52bf-4daf-8db1-62b024f870ef"
+        name="Print CheckListErsal1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="051b2752-ee78-4b80-8358-8f57f20d1057"
+        name="Accept Sefaresh2"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="d98793dc-61a3-4941-aaba-393d811677a8">
+            <useCaseMoniker
+              Id="a3da649c-a98c-4554-8fa5-ff0e10a84101"
+              LastKnownName="Export As Excel2"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+          <include
+            Id="0b928fff-a901-4063-8e71-525a8aa36c59">
+            <useCaseMoniker
+              Id="cf0ba3d8-1cb2-4a53-a84d-46710e94a0bc"
+              LastKnownName="Print CheckListErsal2"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a3da649c-a98c-4554-8fa5-ff0e10a84101"
+        name="Export As Excel2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cf0ba3d8-1cb2-4a53-a84d-46710e94a0bc"
+        name="Print CheckListErsal2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cf0e9c17-57e4-4756-a4da-6cfbd1192160"
+        name="Set Item State"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="482eba9c-7194-4aff-8e20-d29ae1a9aa66"
+        name="UseCase3"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2aa03610-6cda-47e0-89d3-67f9fcfc7457"
+        name="Sefaresh"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b6c4d81b-d4f7-4f74-8881-a7cbe1102907"
+        name="SefareshItem"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4be101da-8406-483c-be38-e472a23d2b99"
+        name="DriverCover"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="eb8159c2-e28b-4ce8-839a-7a688536bce9"
+        name="Tahvil"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="de225f5c-bcb5-48f7-95da-88d7f8f7c8af"
+        name="Set LastAmount1"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="8a4b1433-8491-49f2-9490-7092f5ea7e3a">
+            <useCaseMoniker
+              Id="a77f5bed-5bd8-49d6-92a5-6f7c8103eb22"
+              LastKnownName="View Needed Product1"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a77f5bed-5bd8-49d6-92a5-6f7c8103eb22"
+        name="View Needed Product1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="57477a37-de75-4ae7-8ac9-400686217586"
+        name="ASN"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b913ce9e-b957-4872-820c-a7db93c1e9da"
+        name="DriverWork"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="38e6589a-7ae5-4589-938d-e0f8132b223a"
+        name="OrderMan"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d615f23f-a3b9-413e-b9d3-914f05ee75ac"
+        name="SefareshManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1cfe7530-763c-41e9-b18d-b35d85875a7d"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b55e543d-94db-461d-b7fe-5ef753f34a1a}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>OrderAndisheModelingOOA</Name>
+    <RootNamespace>OrderAndisheModelingOOA</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Content Include="Concept\Concept.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Concept\Concept.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Concept\Concept.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Concept\ContainerMainpulate.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Concept\ContainerMainpulate.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Concept\ContainerMainpulate.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Concept\MainWork.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Concept\MainWork.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Concept\MainWork.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Concept\SefareshItem.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Concept\SefareshItem.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Concept\SefareshItem.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Concept\SefareshMainpulate.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Concept\SefareshMainpulate.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Concept\SefareshMainpulate.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Sefaresh Mainplute.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sefaresh Mainplute.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Sefaresh Mainplute.classdiagram</DependentUpon>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\OrderAndisheModelingOOA.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="Concept" />
+  </ItemGroup>
+</Project>

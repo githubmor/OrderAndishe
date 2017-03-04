@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="bc65b31f-6070-4c84-bfa3-bc3aedae720f" name="MainWork" linkedPackageId="16638147-efc6-4520-aedb-728d1f61640f" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="049c924b-c65a-4e08-8414-cad94e23f5c8">
+      <elementDefinition Id="303a6d98-ce22-441e-94c2-a16327d35bcd" />
+      <body>Seprate UseCase</body>
+      <annotatedElements>
+        <useCaseMoniker Id="403d8143-f21a-4096-9337-9fc56be575f3" LastKnownName="Add New Sefaresh" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="97df2d66-6317-4b55-801d-560d5e2a1cc9" name="OrderMan" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="56d3fa1b-224c-4842-8383-f8089298eee7" />
+        <targetEnds>
+          <association Id="076e9783-b0d6-4476-9381-0fc8fef44b8f" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="View UnAccepted Sefaresh" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6d496ffd-e094-4b91-9a57-11c05676f3bc" LastKnownName="View UnAccepted Sefaresh" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d45b2d3c-0a8d-4d1f-be2b-c33e50112b9d" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9b9ce1b6-ef2d-40e9-bda1-da96252e57be" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="516f4dde-9fff-4593-818e-24ab406ec957" name="View UnAccepted Sefaresh" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="89885675-9d36-49dd-b8f8-433070606abf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="42ed000e-16c7-41db-8aa0-2bf7e60c6d04" />
+          </association>
+          <association Id="7c7821e8-1edf-41fb-86de-f1341fd59d65" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Add New Sefaresh" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="403d8143-f21a-4096-9337-9fc56be575f3" LastKnownName="Add New Sefaresh" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1e2e3f46-d071-4a0b-b729-76a7d3355d69" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c4ab2c47-9cf3-4cf5-b603-b1e4035e5e97" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="273cc63e-4542-40cf-b82f-6b7959c19579" name="Add New Sefaresh" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="17342b7b-c405-4a78-866c-a3aa8379a554" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7194037b-ba9a-497e-9a1e-9fb745426928" />
+          </association>
+          <association Id="3f1d7193-6254-483b-897a-a8cabfbe9950" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="View &amp; Filter Sefaresh Details " isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="043ed947-66f2-43c5-8eb7-98366ee9b1f6" LastKnownName="View &amp; Filter Sefaresh Details " />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="adc20636-f683-41ce-adf4-4eb6ad806d4f" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="39b39650-cb8b-48ea-8a00-1c9d3d195f55" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="30bcfbf6-6f9d-4ccd-91a7-5db2c8898944" name="View &amp; Filter Sefaresh Details " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cfac1788-543f-4c4b-a188-2d06c105c4c5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cf344c49-85c8-4c22-9c22-fd7e12a0c130" />
+          </association>
+          <association Id="a6a5d5cd-597a-4906-bf23-8acf880d8e2e" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Set LastAmount1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="aea24bdb-a2ad-40e8-aae6-286c66409e3c" LastKnownName="Set LastAmount1" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d58b746e-8726-4228-9c11-1d83375c1495" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9507f63b-3c1c-43af-b5e5-04f800025229" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c6f5165f-66fb-495d-821a-26191d2c937c" name="Set LastAmount1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="15acfa97-decc-4ba9-b95e-0fadecb85fca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c7f6618c-6254-4bd7-980f-d38b5e16b054" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6d496ffd-e094-4b91-9a57-11c05676f3bc" name="View UnAccepted Sefaresh" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4e793fef-7e73-4f1f-9782-48c87aa69d49" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="403d8143-f21a-4096-9337-9fc56be575f3" name="Add New Sefaresh" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bf09078c-cdec-4436-9c8f-305ffd56ed52" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="043ed947-66f2-43c5-8eb7-98366ee9b1f6" name="View &amp; Filter Sefaresh Details " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a33e812a-6950-4065-b4e2-8d28b83cebb0" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="aea24bdb-a2ad-40e8-aae6-286c66409e3c" name="Set LastAmount1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="de225f5c-bcb5-48f7-95da-88d7f8f7c8af" />
+        <extendedCases>
+          <extend Id="756ea656-598c-45aa-bd9e-794cf8c3178a">
+            <useCaseMoniker Id="3abed138-c768-44e7-b11a-e42ffe2ca575" LastKnownName="View Needed Product1" />
+            <elementDefinition Id="8a4b1433-8491-49f2-9490-7092f5ea7e3a" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3abed138-c768-44e7-b11a-e42ffe2ca575" name="View Needed Product1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a77f5bed-5bd8-49d6-92a5-6f7c8103eb22" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="16638147-efc6-4520-aedb-728d1f61640f" name="OrderAndisheModelingOOA">
+    <elementDefinition Id="1b073815-14f9-4287-aadc-d3291c207a18" />
+    <profileInstances>
+      <packageHasProfileInstances Id="91bc4030-048b-48ba-8e6d-11208b0a9bfa">
+        <profileInstance Id="3e97aa49-b38d-47d1-a0ef-d4470184d8f7" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="9199589f-8800-49bb-9c05-3fc8bfa80083">
+        <profileInstance Id="4bb03f0e-5dd1-461f-967f-172fd22a9f49" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

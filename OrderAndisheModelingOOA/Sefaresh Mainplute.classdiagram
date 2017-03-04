@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="0a3948f6-2203-4710-a740-5d85a6a5d2fa" name="Sefaresh Mainplute" linkedPackageId="c52f33ac-aa25-4e76-aa4b-8fd8085f1196" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="97af1ec6-ac3b-4b9e-8b26-f28a8d7beb7c">
+      <profileInstance Id="2e62034a-33e2-478c-8da9-2e604b13411b" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="49fa3119-c549-4de4-8523-16f360dddd37">
+      <profileInstance Id="94aa8f7c-5222-448a-90c9-a7c7df6eecf4" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7c22eecb-59f7-44b6-a3b3-9e815ce849ab" name="Sefaresh" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2aa03610-6cda-47e0-89d3-67f9fcfc7457" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4e61b89e-7865-4a05-b879-93dd1d4accc5" name="SefareshItem" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b6c4d81b-d4f7-4f74-8881-a7cbe1102907" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9f3f57bf-9698-4282-9d6c-49d64fe66e9f" name="DriverCover" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4be101da-8406-483c-be38-e472a23d2b99" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="49513768-2558-43e8-9a00-92ffa6cbdae6" name="Tahvil" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="eb8159c2-e28b-4ce8-839a-7a688536bce9" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="44801966-99f8-419d-9d52-6821d6ded5ba" name="ASN" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="57477a37-de75-4ae7-8ac9-400686217586" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1e7088bd-75f0-4895-93b7-37c6a0191596" name="DriverWork" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b913ce9e-b957-4872-820c-a7db93c1e9da" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c356e778-d3a2-4098-8606-eabd3df9bc54" name="OrderMan" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="38e6589a-7ae5-4589-938d-e0f8132b223a" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4c45a4fd-af76-473d-b373-300b03079529" name="SefareshManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d615f23f-a3b9-413e-b9d3-914f05ee75ac" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b58744ad-7dee-4d94-9354-ea9b9e4abaf3" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1cfe7530-763c-41e9-b18d-b35d85875a7d" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="c52f33ac-aa25-4e76-aa4b-8fd8085f1196" name="OrderAndisheModelingOOA">
+    <elementDefinition Id="1b073815-14f9-4287-aadc-d3291c207a18" />
+  </package>
+</logicalClassDesignerModel>
