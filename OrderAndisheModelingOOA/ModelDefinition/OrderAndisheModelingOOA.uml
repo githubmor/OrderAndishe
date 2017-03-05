@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="1b073815-14f9-4287-aadc-d3291c207a18"
   name="OrderAndisheModelingOOA" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -8,23 +8,6 @@
       Id="fc2310f0-8dbc-4e5c-ae99-5c65c03bb2bf">
       <body>View Accepted Sefaresh List
 Filter Sefaresh List
-</body>
-    </comment>
-    <comment
-      Id="427a4de6-9461-4e3d-8f56-4fa7842c8f73">
-      <body>Add new Sefaresh
-Edit Sefaresh
-Delete Sefaresh
-Add New Item To Sefaresh
-Edit Itemsefaresh
-Del Itemsefaresh
-Accept Sefarseh
-UnAccept Sefaresh
-View UnAccepted Sefaresh
-Set TahvilFroshs
-Set Asns
-View All Sefareshs 
-
 </body>
     </comment>
     <comment
@@ -79,7 +62,7 @@ Select Item Sefaresh State</body>
       <annotatedElements>
         <useCaseMoniker
           Id="bf09078c-cdec-4436-9c8f-305ffd56ed52"
-          LastKnownName="Add New Sefaresh"
+          LastKnownName="Sefaresh Mainpulate"
           LastKnownLocation="OrderAndisheModelingOOA.uml" />
       </annotatedElements>
     </comment>
@@ -103,6 +86,54 @@ Andishe , ...</body>
           LastKnownName="Container Mainplute"
           LastKnownLocation="OrderAndisheModelingOOA.uml" />
       </annotatedElements>
+    </comment>
+    <comment
+      Id="ba5b6f42-d430-4a31-a314-37fcc98b474b">
+      <body>MainWork :
+-View UnAccepted sefaresh
+-View Sefaresh Details &amp; Filter
+-Add New Sefaresh
+-Del Sefaresh
+-Accept Sefaresh
+-BackUp Database
+-Set Setting
+-Set Last Amount</body>
+    </comment>
+    <comment
+      Id="97d4458b-9520-4857-a3e4-5e35048443af">
+      <body>Sefaresh Work :
+-Edit Sefaresh Details
+-View Sefaresh
+-Printing
+-View Container weight
+-View Customer Weight</body>
+    </comment>
+    <comment
+      Id="010ab0df-3048-4c0f-a901-f62aa6cf1e9f">
+      <body>Item Sefaresh Work:
+-Add New Item
+-Edit Item
+-Add Customer
+-Edit Customer
+-Del Customer
+-View Last Edition
+-Set Item State
+</body>
+    </comment>
+    <comment
+      Id="b2d3c4e9-099f-4c14-9402-10ed148bcb6b">
+      <body>Container Work :
+</body>
+    </comment>
+    <comment
+      Id="e41ee520-92e6-480a-9896-ddd01f36bc99">
+      <body>Compeletance Sefaresh :
+-Check &amp; set Tahvils
+-Check &amp; Set Asns
+-Set Oracels
+-set Govahi
+-Print CheckList
+-Print Driver Cover</body>
     </comment>
   </ownedCommentsInternal>
   <profileInstances>
@@ -193,7 +224,7 @@ Andishe , ...</body>
             isAbstract="false">
             <useCaseMoniker
               Id="bf09078c-cdec-4436-9c8f-305ffd56ed52"
-              LastKnownName="Add New Sefaresh"
+              LastKnownName="Sefaresh Mainpulate"
               LastKnownLocation="OrderAndisheModelingOOA.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1393,6 +1424,84 @@ Andishe , ...</body>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="cbe0a6c5-3fe1-4bb6-8ded-919b50baf951"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="Assign Driver to Container"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="502ce32d-7dca-4608-af79-130daaec5b4f"
+              LastKnownName="Assign Driver to Container"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="32196941-98eb-4801-9a10-643d2c97208e"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1fec0999-eb56-4145-be6f-6ddfe67125b6"
+                  name="Assign Driver to Container"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6c179b8f-c422-4b5f-b803-f9da0ea721a6"
+            isDerived="false"
+            sourceEndRoleName="OrderMan"
+            targetEndRoleName="BackUp Database"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="32b343d7-a203-4f5d-84a1-bd72ff9f9122"
+              LastKnownName="BackUp Database"
+              LastKnownLocation="OrderAndisheModelingOOA.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ad6a6f8f-dc4d-4d0b-bb71-7bd7072998da"
+                  name="OrderMan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ba2c652c-0450-4011-a709-55017667875d"
+                  name="BackUp Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -1438,7 +1547,7 @@ Andishe , ...</body>
     <packageHasNamedElement>
       <useCase
         Id="bf09078c-cdec-4436-9c8f-305ffd56ed52"
-        name="Add New Sefaresh"
+        name="Sefaresh Mainpulate"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
@@ -2114,6 +2223,20 @@ Andishe , ...</body>
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="502ce32d-7dca-4608-af79-130daaec5b4f"
+        name="Assign Driver to Container"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="32b343d7-a203-4f5d-84a1-bd72ff9f9122"
+        name="BackUp Database"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

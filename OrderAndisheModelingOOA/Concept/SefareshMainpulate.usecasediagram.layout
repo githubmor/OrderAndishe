@@ -6,11 +6,11 @@
       <actorMoniker Id="e7e1bccb-ecfe-4689-9e04-25b443f4f5c5" LastKnownName="OrderMan" />
       <relativeChildShapes />
     </actorShape>
-    <useCaseShape Id="70f3c3ff-29ca-4384-8b4c-24b550fa146a" absoluteBounds="0.875, 0.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+    <useCaseShape Id="70f3c3ff-29ca-4384-8b4c-24b550fa146a" absoluteBounds="1.5, 1.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
       <useCaseMoniker Id="052c462f-74cc-4c1a-8e0f-f0144e73c949" LastKnownName="Container Mainplute" />
       <relativeChildShapes />
     </useCaseShape>
-    <useCaseAssociationConnector edgePoints="[(2.125 : 2.5); (1.49626781251817 : 1.24253562503633)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+    <useCaseAssociationConnector edgePoints="[(2.19444444444444 : 2.5); (2.05521576303742 : 1.8734709336684)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
       <associationMoniker Id="f8ed7890-f662-4487-9070-b34b0dded61a" />
       <relativeChildShapes />
       <nodes>
@@ -45,7 +45,7 @@
       <useCaseMoniker Id="1b7a4801-ebac-4999-8c8d-fad1224cfe72" LastKnownName="Print Driver Cover" />
       <relativeChildShapes />
     </useCaseShape>
-    <useCaseAssociationConnector edgePoints="[(2.5 : 2.51666666666667); (3.88888929374229 : 1.2203699925072)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+    <useCaseAssociationConnector edgePoints="[(2.5 : 2.51666666666667); (3.88888929374229 : 1.2203699925072)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
       <associationMoniker Id="8d003f36-354a-4ee0-9474-656476108418" />
       <relativeChildShapes />
       <nodes>
@@ -53,11 +53,11 @@
         <useCaseShapeMoniker Id="1de0d96d-7626-4f0b-a136-6fb86dd1747f" />
       </nodes>
     </useCaseAssociationConnector>
-    <commentShape Id="f2649519-9e6f-475c-a369-1f477e9bec7d" absoluteBounds="2.125, 0.75, 1.25, 0.375" customColor="251, 247, 200">
+    <commentShape Id="f2649519-9e6f-475c-a369-1f477e9bec7d" absoluteBounds="1.25, 0.75, 1.25, 0.375" customColor="251, 247, 200">
       <commentMoniker Id="d987f1b2-8b53-42c1-b98b-c61b8d4eb92b" />
       <relativeChildShapes />
     </commentShape>
-    <commentConnector edgePoints="[(2.125 : 0.9375); (1.85912291827593 : 0.9375)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="217d6bd0-42ed-4e7f-ad2b-af3ef5142428" customColor="Black">
+    <commentConnector edgePoints="[(2 : 1.125); (2 : 1.375)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="217d6bd0-42ed-4e7f-ad2b-af3ef5142428" customColor="Black">
       <relativeChildShapes />
       <nodes>
         <commentShapeMoniker Id="f2649519-9e6f-475c-a369-1f477e9bec7d" />

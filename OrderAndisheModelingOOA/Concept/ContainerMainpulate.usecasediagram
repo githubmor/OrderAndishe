@@ -37,6 +37,22 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="05fe9c4c-317a-4bc8-aec1-7fab345cf01c" />
           </association>
+          <association Id="cbec4da2-e398-4631-af6a-24fa671809f0" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Assign Driver to Container" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5829f05a-e2b3-4fc7-98e9-79ea06318356" LastKnownName="Assign Driver to Container" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e094dfc7-3c5f-4f31-b091-339bed10620e" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="32196941-98eb-4801-9a10-643d2c97208e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d6529248-19ec-41ed-b39f-30ea9683f698" name="Assign Driver to Container" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1fec0999-eb56-4145-be6f-6ddfe67125b6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cbe0a6c5-3fe1-4bb6-8ded-919b50baf951" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
@@ -121,6 +137,11 @@
     <useCaseModelRootHasTypes>
       <useCase Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" name="Calculate Pallet Count Container" isAbstract="false" isLeaf="false">
         <elementDefinition Id="291ede87-5bb8-4814-8e79-0d7a40690ffb" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5829f05a-e2b3-4fc7-98e9-79ea06318356" name="Assign Driver to Container" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="502ce32d-7dca-4608-af79-130daaec5b4f" />
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>
