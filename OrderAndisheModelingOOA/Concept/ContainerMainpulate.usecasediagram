@@ -53,12 +53,34 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="cbe0a6c5-3fe1-4bb6-8ded-919b50baf951" />
           </association>
+          <association Id="d8cc1192-0c6d-4b1d-9d6f-fb6e4bf66cfe" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Delete Container" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f28cff2b-04d8-4c25-aa17-981ce54b551d" LastKnownName="Delete Container" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f5b6e9ec-2a90-46e8-9a22-13638044c2b8" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b876678b-dd06-4509-af22-8086648e2567" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4b4ef7e0-f6d6-438b-bf72-63145fb92687" name="Delete Container" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9e2514a6-ac80-413f-b0be-9c130529bf5c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e59cb6c0-e88a-4576-b79f-b49819c92d5a" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="585c53ed-0374-4a57-8015-bc7b6934ec0a" name="View Barandaz Items" isAbstract="false" isLeaf="false">
         <elementDefinition Id="97feeac5-49a3-4c86-ae74-1ad298ec99d8" />
+        <additions>
+          <include Id="d704b38b-047a-4d9b-9934-9743f7f3df67">
+            <useCaseMoniker Id="60f9c3dc-d799-403a-85ec-fa682ea3e741" LastKnownName="View Barandaz Items details" />
+            <elementDefinition Id="b1ef4e83-1c41-47d7-a37a-2bb013e41df3" />
+          </include>
+        </additions>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -70,17 +92,13 @@
             <elementDefinition Id="7004127b-51cc-4ad1-881c-29752af0f8f8" />
           </extend>
           <extend Id="21656115-f54b-4cca-988c-1762f72b7f05">
-            <useCaseMoniker Id="ada19b75-9dd8-4460-adf2-7c3ceebab536" LastKnownName="Remove Item From Container" />
+            <useCaseMoniker Id="ada19b75-9dd8-4460-adf2-7c3ceebab536" LastKnownName="Move Item Between Container" />
             <elementDefinition Id="03fb4126-12d7-4a56-9fe9-e3c5c995d3af" />
           </extend>
         </extendedCases>
         <additions>
-          <include Id="3e14bc4f-d314-4842-b6f3-22103e822c4f">
-            <useCaseMoniker Id="6ca36c41-b58b-4f79-ba68-04260db885ab" LastKnownName="Calculate Container weight" />
-            <elementDefinition Id="72f37136-405a-459e-b36e-39b7e8413111" />
-          </include>
           <include Id="4ebdc468-adff-4bed-8340-e2aed92a900d">
-            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Pallet Count Container" />
+            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Container Details" />
             <elementDefinition Id="ba14b9bd-28f4-40ff-b79a-d2148cde46d9" />
           </include>
         </additions>
@@ -91,18 +109,14 @@
         <elementDefinition Id="8bd47fb8-8d1f-4d0b-a82a-4eb58835f3a7" />
         <additions>
           <include Id="b8256e0a-26d0-4aed-95eb-75a3d88e871f">
-            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Pallet Count Container" />
+            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Container Details" />
             <elementDefinition Id="efd108e8-dbd2-481a-b820-bef41822d88b" />
-          </include>
-          <include Id="346ca577-65b4-4ccd-ba5c-756722502352">
-            <useCaseMoniker Id="6ca36c41-b58b-4f79-ba68-04260db885ab" LastKnownName="Calculate Container weight" />
-            <elementDefinition Id="7a6d107e-93fa-4c02-8980-4febfd0ea35b" />
           </include>
         </additions>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="ada19b75-9dd8-4460-adf2-7c3ceebab536" name="Remove Item From Container" isAbstract="false" isLeaf="false">
+      <useCase Id="ada19b75-9dd8-4460-adf2-7c3ceebab536" name="Move Item Between Container" isAbstract="false" isLeaf="false">
         <elementDefinition Id="ce3f6769-9fc3-4ded-9515-e7f30b8d8b32" />
         <additions>
           <include Id="94b2235a-af92-4c52-a970-8ef3d1568761">
@@ -114,12 +128,8 @@
             <elementDefinition Id="e34c6329-9cc5-4148-bf22-0e667bfe0d18" />
           </include>
           <include Id="822d896d-51bc-4c0e-ba52-401362dba4b4">
-            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Pallet Count Container" />
+            <useCaseMoniker Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" LastKnownName="Calculate Container Details" />
             <elementDefinition Id="1a8883cf-83f1-4166-8361-1c415d7e15b9" />
-          </include>
-          <include Id="6d142a17-1cd1-4bee-b137-3f959e3421c3">
-            <useCaseMoniker Id="6ca36c41-b58b-4f79-ba68-04260db885ab" LastKnownName="Calculate Container weight" />
-            <elementDefinition Id="cbe99944-6dc4-4a79-bd57-5174fe4e0775" />
           </include>
         </additions>
       </useCase>
@@ -127,21 +137,32 @@
     <useCaseModelRootHasTypes>
       <useCase Id="9dfcc296-4bc3-4f16-9fcb-fde6ad1cbd21" name="Move Item  To Barandaz" isAbstract="false" isLeaf="false">
         <elementDefinition Id="a722d75d-8576-47af-9bda-1c71d05f0dad" />
+        <additions>
+          <include Id="1c80c284-8c32-4de9-bfe5-cbb8a01d7373">
+            <useCaseMoniker Id="60f9c3dc-d799-403a-85ec-fa682ea3e741" LastKnownName="View Barandaz Items details" />
+            <elementDefinition Id="4365c8d5-2077-48d0-98e0-66b6da074d52" />
+          </include>
+        </additions>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="6ca36c41-b58b-4f79-ba68-04260db885ab" name="Calculate Container weight" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="372a41a4-98f2-4792-bce4-40079663c051" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" name="Calculate Pallet Count Container" isAbstract="false" isLeaf="false">
+      <useCase Id="e7699d55-ab3a-440b-8476-ddcc2f7ec3e0" name="Calculate Container Details" isAbstract="false" isLeaf="false">
         <elementDefinition Id="291ede87-5bb8-4814-8e79-0d7a40690ffb" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="5829f05a-e2b3-4fc7-98e9-79ea06318356" name="Assign Driver to Container" isAbstract="false" isLeaf="false">
         <elementDefinition Id="502ce32d-7dca-4608-af79-130daaec5b4f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f28cff2b-04d8-4c25-aa17-981ce54b551d" name="Delete Container" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="579bc6d2-86ae-4fff-b259-8751f2bca4b2" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="60f9c3dc-d799-403a-85ec-fa682ea3e741" name="View Barandaz Items details" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8d9260e3-b1e0-4710-8613-28c260a3b8ba" />
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>

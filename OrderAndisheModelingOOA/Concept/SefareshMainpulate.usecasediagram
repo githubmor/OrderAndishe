@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="18d50e5b-9bc0-436a-a4a3-2fd7ff8b6d89" name="SefareshMainpulate" linkedPackageId="a92b434b-a436-42d6-a657-0567adebdc11" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <ownedCommentsInternal>
-    <comment Id="73f344d9-8647-45de-8b2e-ddefbad2db8c">
-      <elementDefinition Id="222f4f69-61b2-496c-a5e9-676541a82e0e" />
-      <body>Bazres Sefaresh list
-Andishe , ...</body>
-      <annotatedElements>
-        <useCaseMoniker Id="b780e066-7dc6-4f23-90ed-b7ac4a12d981" LastKnownName="View &amp; Print Sefaresh List" />
-      </annotatedElements>
-    </comment>
     <comment Id="d987f1b2-8b53-42c1-b98b-c61b8d4eb92b">
       <elementDefinition Id="3a454b59-c661-4dc3-8308-bf543ccea5ef" />
       <body>Seprate UseCase</body>
@@ -22,38 +14,6 @@ Andishe , ...</body>
       <actor Id="e7e1bccb-ecfe-4689-9e04-25b443f4f5c5" name="OrderMan" isAbstract="false" isLeaf="false">
         <elementDefinition Id="56d3fa1b-224c-4842-8383-f8089298eee7" />
         <targetEnds>
-          <association Id="18134fce-3ba5-4d97-8fca-00847db3ab4a" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Set Tahvils" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="2f5212ac-392c-47be-82fa-a7b3b2edc50f" LastKnownName="Import &amp; Set Tahvils" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="d1ff6bcc-dcc4-4e40-b83c-d37fca20a5f7" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="1aa26ec1-6ce9-46f3-9c9b-7aa1406b9ebd" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="efb97c9c-e4d0-48ca-b977-9368b29af8e3" name="Set Tahvils" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="001fdbbe-43ec-46f4-9fd1-daaef06d2c2f" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="59ecc51c-0596-41d8-8ace-ffee17bfb0dd" />
-          </association>
-          <association Id="a79e8ae3-e992-4171-aa58-8be8808e3d4f" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Set Asns" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="93e3c205-83b2-45c9-a92c-a57a8590d5d9" LastKnownName="Set Asns" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="4e67ecb2-92d0-4b99-871b-01a33296033c" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="07bd57f1-ff9e-42a6-a44f-ac4fea1279fa" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="929141a1-d80f-4751-9be9-0d0102b1b81f" name="Set Asns" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="72e6f9e1-0bb2-4e11-a104-207494dc5906" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="553ad964-063d-4f5c-84b6-6d84d763aa41" />
-          </association>
           <association Id="f8ed7890-f662-4487-9070-b34b0dded61a" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Add New Container" isLeaf="false" isAbstract="false">
             <useCaseMoniker Id="052c462f-74cc-4c1a-8e0f-f0144e73c949" LastKnownName="Container Mainplute" />
             <relationshipOwnedElementsInternal>
@@ -70,85 +30,85 @@ Andishe , ...</body>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="4c5bab30-de51-4063-b042-f5312404f503" />
           </association>
-          <association Id="cad32de1-5d01-4ac3-8780-91212cb3dafc" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="View &amp; Print Sefaresh List" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="b780e066-7dc6-4f23-90ed-b7ac4a12d981" LastKnownName="View &amp; Print Sefaresh List" />
+          <association Id="549070a8-ddd9-41b4-b4cb-d9a15c7fac99" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Delete Sefaresh" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="58a26de6-73a3-4275-98a0-09b1358830ae" LastKnownName="Delete Sefaresh" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="182c28c8-5221-4448-8174-c5a181f9ac82" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="d8718a06-932b-445b-a678-fc4c42c848f9" />
+                <memberEnd Id="fcb0ac8b-3860-458e-aa87-413e2ceaf22e" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1dabb5e8-2183-487b-a3a2-d86f338b9ac7" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="4cc2b804-f8ee-4bfc-b03a-ee73088b2367" name="View &amp; Print Sefaresh List" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="2f51a381-1d9a-4b20-8fab-891199bc8b15" />
+                <memberEnd Id="126752b9-9fbb-4e8a-b7a2-c148a488da43" name="Delete Sefaresh" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2471707d-fd1a-4679-bd18-3c27336c2b1f" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="cfb02ea4-7dce-467a-b1bf-f0c073b666c8" />
+            <elementDefinition Id="e12de9b3-63ee-4369-a0d2-b063ce67e7d3" />
           </association>
-          <association Id="8d003f36-354a-4ee0-9474-656476108418" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Print Driver Cover" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="1b7a4801-ebac-4999-8c8d-fad1224cfe72" LastKnownName="Print Driver Cover" />
+          <association Id="6da2392b-ee70-44cf-9466-d52d68fe7f8c" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Add New Sefaresh" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="270c9eb6-88a5-4745-97d2-341e6184f412" LastKnownName="Add New Sefaresh" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="765ec962-48b1-4b95-a545-193a6a75dbf2" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="9e24cb73-7c62-400f-a4ed-9d4015031a52" />
+                <memberEnd Id="2f1df980-331a-4a8d-9271-e4cc7ff1671f" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e9e97067-b344-4c07-b440-3a0c12b152ce" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="5ac775c7-76fb-4a78-be49-e2980878b482" name="Print Driver Cover" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="fcb5ff92-6ecf-4908-be3f-57858534853b" />
+                <memberEnd Id="dfe455d3-876e-4346-b6f5-474ebe5f5b3a" name="Add New Sefaresh" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="00bfc48c-9991-493f-b7ed-e1292aabe1c8" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="79dc211e-2df2-4f76-9b88-d52ecd046a2c" />
+            <elementDefinition Id="34600124-72c4-4e1a-a09e-94e250f1e094" />
           </association>
-          <association Id="cc6472f6-fdcd-4ddf-af29-3a95b8774630" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Set Driver Works" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="8aed27a7-7cb1-4782-960c-5657bad152ed" LastKnownName="Set Driver Works" />
+          <association Id="0b865d10-1094-47fa-a666-ffcdca31abc5" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Printing By Criteria" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9e92affe-8ed6-48a0-a13c-b6162e4513b0" LastKnownName="Printing By Criteria" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="37ca21bd-2473-429d-bbc7-6f17a6c533ba" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="40426208-bc60-4d7e-adac-1134e6ff604f" />
+                <memberEnd Id="ee327bf5-50b9-43a8-874f-b44e926f0886" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ada67dcd-29dd-44f0-9f3c-9d47ecd6ffbe" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="99326fc3-a1b0-496d-8617-cd28b5c0f09e" name="Set Driver Works" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="7bc96bc8-93a2-442b-9148-1cd9efb57aae" />
+                <memberEnd Id="0901d6bd-0198-4e33-9460-2e773b36b83d" name="Printing By Criteria" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2145bbe3-5c18-42bb-b9b5-b861517f102d" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="6c35dcdd-373d-43e5-86e2-2981a9079ff3" />
+            <elementDefinition Id="a2ca1c25-c70c-41ba-b7bb-b1180c7f0a41" />
           </association>
-          <association Id="f8a945d7-df3b-49a3-9cf9-e4548a7beafa" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Print CheckList" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="e6bc92d0-aa91-44f9-81f9-efe2287f01c4" LastKnownName="Print CheckList" />
+          <association Id="4c345535-07ab-4fc1-b02c-56425d2da836" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="View Sefaresh Details &amp; Items" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="14b57ec4-47f2-48d0-9e8d-103e7a78c2f7" LastKnownName="View Sefaresh Details &amp; Items" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="ed8c8362-6285-4690-be7d-87eebb674a1b" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="a6843ca1-9fe8-4b27-b245-00b592cbfa50" />
+                <memberEnd Id="d6a5246c-4102-4549-9d45-cf36d79e0ad5" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="74d3f8c9-4d32-40f1-806d-8c4d9418f51d" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="8c411d75-39a2-4261-88db-c3d59e240db3" name="Print CheckList" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="71d27ef5-532b-4e52-8e87-a3cc88706998" />
+                <memberEnd Id="f1186aa9-7a31-4127-aa13-924928fc54d9" name="View Sefaresh Details &amp; Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8e72c880-47a4-4ee8-af35-828cfe53f7f3" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="1f58ce63-72c9-4d1e-ba00-dcb3025eb866" />
+            <elementDefinition Id="976b475f-43c3-483a-aa1d-33e93ff7f193" />
           </association>
-          <association Id="1e623648-7a82-44b1-a861-8fb3b82da3a4" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Accept Sefaresh1" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="cd3316a6-3610-496c-b8e4-73f4f6904323" LastKnownName="Accept Sefaresh1" />
+          <association Id="84b4829b-a86f-4446-96e2-daf014bef094" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Edit Sefaresh Details" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9184ed51-e1a6-4171-b4fb-c877edc1ed51" LastKnownName="Edit Sefaresh Details" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="7946fda9-8941-4366-bb56-451245b0d5c9" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="080430d1-1ea7-44a4-87cc-b907a0617b42" />
+                <memberEnd Id="caac1511-bfa2-4a9a-866b-ee54280249c6" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="967167a1-8fb8-42fa-8b3f-8b3acc1ca667" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="480e0be8-40fe-43a3-9e18-bef66b52d176" name="Accept Sefaresh1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="5c6a1553-8062-46f9-ae10-96bc53625101" />
+                <memberEnd Id="4640bcae-4fbe-4e6a-a562-94742bb2c24e" name="Edit Sefaresh Details" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7f1a5338-39b3-4102-be28-8ce51d30d2f8" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="1e1cbd76-33b2-4a49-9b82-8da1118c9cc5" />
+            <elementDefinition Id="ef76e031-b55a-44c1-bb61-fd269f0cf3f5" />
           </association>
         </targetEnds>
       </actor>
@@ -159,58 +119,57 @@ Andishe , ...</body>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="b780e066-7dc6-4f23-90ed-b7ac4a12d981" name="View &amp; Print Sefaresh List" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="132a8ad3-1325-4fde-9446-24eebb783435" />
+      <useCase Id="9184ed51-e1a6-4171-b4fb-c877edc1ed51" name="Edit Sefaresh Details" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b4ef316d-2106-4d35-9c33-8b7493a00bb2" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="1b7a4801-ebac-4999-8c8d-fad1224cfe72" name="Print Driver Cover" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="b2c8a93e-8260-4308-9a59-a4a938aec462" />
+      <useCase Id="14b57ec4-47f2-48d0-9e8d-103e7a78c2f7" name="View Sefaresh Details &amp; Items" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cd2beffa-d7da-4882-8a36-8b3cb711d952" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="8aed27a7-7cb1-4782-960c-5657bad152ed" name="Set Driver Works" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="6e19edc6-0b73-44f2-a179-f89ad0e2b6ee" />
+      <useCase Id="9e92affe-8ed6-48a0-a13c-b6162e4513b0" name="Printing By Criteria" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1898c193-c764-47e8-94ea-cc864318d2c8" />
+        <extendedCases>
+          <extend Id="ea2cd27d-a617-4d1a-b924-276002ff6cb8">
+            <useCaseMoniker Id="67095c98-8521-4097-9273-1ad492b4be2b" LastKnownName="Print By Bazres" />
+            <elementDefinition Id="2b4ac155-1d35-4f56-8193-94e3c5599cf6" />
+          </extend>
+          <extend Id="2a077c63-89af-4312-9a1f-868cdca7eee5">
+            <useCaseMoniker Id="0ec209be-ca98-42bb-acb8-3fd0b515de29" LastKnownName="Print By Work" />
+            <elementDefinition Id="1c49f53e-3c78-4869-94ff-00794835d4de" />
+          </extend>
+          <extend Id="19d74015-8e9f-47e9-bd24-4d8cd3ecf323">
+            <useCaseMoniker Id="923b7b8a-045f-48a6-80e1-55006c3ae7ec" LastKnownName="Print For Control" />
+            <elementDefinition Id="8b7d4ee7-d299-4431-91bc-d1520cc06995" />
+          </extend>
+        </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="e6bc92d0-aa91-44f9-81f9-efe2287f01c4" name="Print CheckList" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="c938f1e7-a3eb-4628-aa41-e9028a2705be" />
+      <useCase Id="270c9eb6-88a5-4745-97d2-341e6184f412" name="Add New Sefaresh" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d224ad61-e1bf-4ec5-92cd-0ccb06dc0108" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="cd3316a6-3610-496c-b8e4-73f4f6904323" name="Accept Sefaresh1" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="1226bfb6-04b1-4562-b4c3-54be231ae7b2" />
-        <additions>
-          <include Id="e3443425-8ecf-4a56-a281-082c7a171913">
-            <useCaseMoniker Id="11722d5e-585e-4b9f-827b-98dba3ff3cbf" LastKnownName="Export As Excel1" />
-            <elementDefinition Id="f54ed82f-c758-4617-82d4-111a055709a2" />
-          </include>
-          <include Id="88da9e89-f6fe-4c2a-b7cc-d00435c73cf1">
-            <useCaseMoniker Id="4807c843-ba64-4419-8ec5-abbb3c66c34d" LastKnownName="Print CheckListErsal1" />
-            <elementDefinition Id="9a562364-147b-4073-ba8a-7bbf133ed38d" />
-          </include>
-        </additions>
+      <useCase Id="58a26de6-73a3-4275-98a0-09b1358830ae" name="Delete Sefaresh" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="79fb2c89-de20-43e0-87ee-b54805f682ef" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="11722d5e-585e-4b9f-827b-98dba3ff3cbf" name="Export As Excel1" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="b8f87ed2-31fb-418d-b2e9-8353e69e5315" />
+      <useCase Id="67095c98-8521-4097-9273-1ad492b4be2b" name="Print By Bazres" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="834f5010-18d0-490a-a66f-f0d743eef1e6" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="4807c843-ba64-4419-8ec5-abbb3c66c34d" name="Print CheckListErsal1" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="4728ccc1-52bf-4daf-8db1-62b024f870ef" />
+      <useCase Id="0ec209be-ca98-42bb-acb8-3fd0b515de29" name="Print By Work" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="199bfe0c-920b-4437-ae21-3acc52fa5538" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="2f5212ac-392c-47be-82fa-a7b3b2edc50f" name="Import &amp; Set Tahvils" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="d792240e-53e7-40a0-85c4-e876315f9fa0" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="93e3c205-83b2-45c9-a92c-a57a8590d5d9" name="Set Asns" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="c2d644fe-760a-426b-8878-f3c88297ad71" />
+      <useCase Id="923b7b8a-045f-48a6-80e1-55006c3ae7ec" name="Print For Control" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="424129cf-32a2-4ed0-9211-fcbffd2eb801" />
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>

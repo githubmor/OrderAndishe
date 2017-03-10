@@ -63,7 +63,7 @@
             <elementDefinition Id="cf344c49-85c8-4c22-9c22-fd7e12a0c130" />
           </association>
           <association Id="a6a5d5cd-597a-4906-bf23-8acf880d8e2e" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Set LastAmount1" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="aea24bdb-a2ad-40e8-aae6-286c66409e3c" LastKnownName="Set LastAmount1" />
+            <useCaseMoniker Id="aea24bdb-a2ad-40e8-aae6-286c66409e3c" LastKnownName="Set LastAmount" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="d58b746e-8726-4228-9c11-1d83375c1495" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -94,6 +94,22 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="6c179b8f-c422-4b5f-b803-f9da0ea721a6" />
           </association>
+          <association Id="3c40381a-fb17-4d4c-8e12-0e35b7b4de31" isDerived="false" sourceEndRoleName="OrderMan" targetEndRoleName="Set Setting" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b7bccf83-82fd-470a-96e7-09a3a0b925d5" LastKnownName="Set Setting" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="27ce1063-fece-4d86-95ad-29fe99a2b279" name="OrderMan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2779dd6b-c8f9-4ac1-b057-1a6f3ea967ed" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8e407953-630d-40bb-af53-d6a0d6cc2c71" name="Set Setting" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="91c4e53f-1e7b-4418-acfa-8215ea05f66f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="99e9e5d8-2824-40e0-b03a-d992db611181" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
@@ -113,24 +129,18 @@
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="aea24bdb-a2ad-40e8-aae6-286c66409e3c" name="Set LastAmount1" isAbstract="false" isLeaf="false">
+      <useCase Id="aea24bdb-a2ad-40e8-aae6-286c66409e3c" name="Set LastAmount" isAbstract="false" isLeaf="false">
         <elementDefinition Id="de225f5c-bcb5-48f7-95da-88d7f8f7c8af" />
-        <extendedCases>
-          <extend Id="756ea656-598c-45aa-bd9e-794cf8c3178a">
-            <useCaseMoniker Id="3abed138-c768-44e7-b11a-e42ffe2ca575" LastKnownName="View Needed Product1" />
-            <elementDefinition Id="8a4b1433-8491-49f2-9490-7092f5ea7e3a" />
-          </extend>
-        </extendedCases>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="3abed138-c768-44e7-b11a-e42ffe2ca575" name="View Needed Product1" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="a77f5bed-5bd8-49d6-92a5-6f7c8103eb22" />
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="2ae067b5-541a-4316-81f7-b35ec9a8f8e4" name="BackUp Database" isAbstract="false" isLeaf="false">
         <elementDefinition Id="32b343d7-a203-4f5d-84a1-bd72ff9f9122" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b7bccf83-82fd-470a-96e7-09a3a0b925d5" name="Set Setting" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c2dc2850-af9a-4c20-be9d-78e3b38783c7" />
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>

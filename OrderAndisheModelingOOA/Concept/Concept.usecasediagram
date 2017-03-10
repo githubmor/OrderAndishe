@@ -1,105 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="92eec95f-42eb-4f7e-ad88-4561d8cb5817" name="Concept" linkedPackageId="08d448ac-6490-4197-8512-acef02c03d29" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <ownedCommentsInternal>
-    <comment Id="606ac670-f04a-46cb-9b22-7e70e74b13af">
-      <elementDefinition Id="fc2310f0-8dbc-4e5c-ae99-5c65c03bb2bf" />
-      <body>View Accepted Sefaresh List
-Filter Sefaresh List
-</body>
-    </comment>
-    <comment Id="c4ef2b23-2bc4-40fd-867b-d8784f38315e">
-      <elementDefinition Id="89ce1f0f-71ee-49b6-a0e3-25b166c89929" />
-      <body>Add Item Sefaresh
-Del Item Sefaresh
-Edit Item Sefaresh
-Add Driver To Item Sefaresh
-Del Driver To Item Sefaresh
-
-Edit Driver To Item Sefaresh
-
-Add Customer To Item Sefaresh
-
-Del Customer To Item Sefaresh
-
-Edit Customer To Item Sefaresh
-
-View And Print Sefaresh by Filters
-
-View And Print Sefaresh Drivers
-
-View Each Customer Weight
-
-View Each Driver Weight
-
-Add First Amount
-
-Print CheckListErsal
-
-View Amount Needed
-Set Oracle Number
-Add Works For Drivers
-Add New Container
-Del Container
-Add Item Sefaresh to Container
-Remove Item from Container
-View Items In Barandaz
-Remove Item From Barandaz To Container
-View Container Weight
-View PalletCount Container
-View JaighahCount Container
-View Last Edited Item
-Export Sefaresh To Excel
-Set Govahi
-Print Labels
-Select Item Sefaresh State</body>
-    </comment>
     <comment Id="3e234185-b2d7-48c0-95d2-f422bfe80101">
       <elementDefinition Id="ba5b6f42-d430-4a31-a314-37fcc98b474b" />
       <body>MainWork :
 -View UnAccepted sefaresh
 -View Sefaresh Details &amp; Filter
--Add New Sefaresh
--Del Sefaresh
--Accept Sefaresh
 -BackUp Database
 -Set Setting
--Set Last Amount</body>
+-Set Last Amount
+</body>
     </comment>
     <comment Id="ba5ee209-ed5d-47e6-8221-cc95c2ad7942">
       <elementDefinition Id="97d4458b-9520-4857-a3e4-5e35048443af" />
       <body>Sefaresh Work :
 -Edit Sefaresh Details
--View Sefaresh
--Printing
--View Container weight
--View Customer Weight</body>
+-View Sefaresh Details &amp; Items
+-Printing By Criteria
+-Add New Sefaresh
+-Del Sefaresh
+</body>
     </comment>
     <comment Id="8c6ed723-b8b5-4788-8300-ac3bc35e96c6">
       <elementDefinition Id="010ab0df-3048-4c0f-a901-f62aa6cf1e9f" />
       <body>Item Sefaresh Work:
 -Add New Item
 -Edit Item
--Add Customer
--Edit Customer
--Del Customer
+-Add Customer To Item
+-Edit Customer To Item
+-Del Customer To Item
 -View Last Edition
 -Set Item State
-</body>
+-Add Driver To Item
+-Edit Driver To Item
+-Del Driver To Item</body>
     </comment>
     <comment Id="40587da8-0bf3-43e9-8518-e2bba201ccb5">
       <elementDefinition Id="b2d3c4e9-099f-4c14-9402-10ed148bcb6b" />
       <body>Container Work :
-</body>
+-Add New Container
+-View Barandaz Items
+-Move Item To Container
+-Move Item To Barandaz
+-View Container Details(Pallet &amp; weight)
+-Del Container
+-Assign Driver To Container</body>
     </comment>
     <comment Id="89a126c2-4412-4206-997f-0726ccbfe771">
       <elementDefinition Id="e41ee520-92e6-480a-9896-ddd01f36bc99" />
       <body>Compeletance Sefaresh :
--Check &amp; set Tahvils
--Check &amp; Set Asns
--Set Oracels
--set Govahi
+-Assign Tahvils
+-Assign Asns
+-Assign Oracels
+-Assign Govahi
 -Print CheckList
--Print Driver Cover</body>
+-Print Driver Cover
+-Set DriverWorks
+-Print Labelas After Govahi
+-Accept Sefaresh
+-View Amount Needed
+-View Container Weight
+-View Customer Weight
+-Export To Excel</body>
     </comment>
   </ownedCommentsInternal>
   <packagedElements>
