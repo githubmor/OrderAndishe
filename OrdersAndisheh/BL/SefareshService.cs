@@ -8,6 +8,7 @@
     using OrdersAndisheh.BL;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
+    using OrdersAndisheh.ViewModel;
 
 
     /// <summary>
@@ -515,6 +516,36 @@
                 db.MOracles.Add(new MOracle() { MNumber = item.MNumber, OrderDetail = item.OrderDetail });
                 db.SaveChanges();
             }
+        }
+
+        public List<PalletItem> LoadAllPalletReport()
+        {
+            var ret = new List<PalletItem>();
+            //var gp8id = db.Pallets.Where(p=>p.Name.Contains("GP8")).SingleOrDefault().Id;
+            //var re8id = db.Pallets.Where(p=>p.Name.Contains("RE8")).SingleOrDefault().Id;
+            //var gp8Orders = db.OrderDetails
+            //    .Where(p => p.Product.PalletId == gp8id)
+            //    .Include("Pallet")
+            //    .Include("Product")
+            //    .ToList();
+            //var re8Orders = db.OrderDetails
+            //    .Where(p => p.Product.PalletId == re8id)
+            //    .Include("Pallet")
+            //    .Include("Product")
+            //    .ToList();
+            var d = db.OrderDetails.GroupBy(p => new { p.Order.Tarikh,p.Product.PalletId })
+                .Select(
+                    g => new
+                    {
+                        Tarikh = g.Key.Tarikh,
+                        Value = g.Sum(s => s.TedadPallet),
+                        name = g.Key.PalletId,
+                    }).ToList();
+            
+
+            
+           
+            return null;
         }
     }
 }

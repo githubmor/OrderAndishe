@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>149</ApplicationRevision>
+    <ApplicationRevision>154</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -421,6 +421,8 @@
     <Compile Include="ExcelManager\ExcelBackUp.cs" />
     <Compile Include="ExcelManager\ExcelService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ViewModel\PalletItem.cs" />
+    <Compile Include="ViewModel\PalletReportViewModel.cs" />
     <Compile Include="ViewModel\LastAmountViewModel.cs" />
     <Compile Include="ViewModel\DriverContainerViewModel.cs" />
     <Compile Include="ViewModel\DriverSelectionViewModel.cs" />
@@ -436,6 +438,9 @@
     <Compile Include="ViewModel\TahvilforoshViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\ColumnFilterConverter.cs" />
+    <Compile Include="View\PalletReportView.xaml.cs">
+      <DependentUpon>PalletReportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LastAmountView.xaml.cs">
       <DependentUpon>LastAmountView.xaml</DependentUpon>
     </Compile>
@@ -559,6 +564,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\Product\ProductView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PalletReportView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

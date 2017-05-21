@@ -96,6 +96,7 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
+                TahvilFroshs = new ObservableCollection<TahvilItem>();
                 ExcelImportService s = new ExcelImportService();
                 TahvilFroshs = s.GetTahvilfroshData(FilePath);
                 CalculateSefareshWithData();
@@ -113,36 +114,38 @@ namespace OrdersAndisheh.ViewModel
 
         private void CalculateSefareshWithData()
         {
-            foreach (var g in sefaresh.Items)
-            {
-                g.TahvilFrosh = 0;
-            }
+            //foreach (var g in sefaresh.Items)
+            //{
+            //    g.TahvilFrosh = 0;
+            //}
+            var isImen = TahvilFroshs.Any(p=>int.Parse(p.CodeKala)>15009000);
             CheckMoreThanOneTarikh();
 
+            var ItemForCheck = sefaresh.Items.Where(p => p.IsImenKala == isImen);
             int NotOkCount = 0;
             do
             {
 
                 //TODO  باید یه کاری کنیم که همون اول حالت هر سفارش مشخص شود
-                NotOkCount = sefaresh.Items.Where(p => p.TahvilFrosh < 1).ToList().Count;
+                NotOkCount = ItemForCheck.Where(p => p.TahvilFrosh < 1).ToList().Count;
 
-                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
+                foreach (var sefaresh_item in ItemForCheck.Where(i => i.TahvilFrosh == 0).ToList())
                 {
                     var tahvil = CheckByCodeKala(sefaresh_item,
                         TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
                     sefaresh_item.TahvilFrosh = tahvil;
                 }
 
-                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
+                foreach (var sefaresh_item in ItemForCheck.Where(i => i.TahvilFrosh == 0).ToList())
                 {
                     var tahvil = CheckByTedadKala(sefaresh_item,
                         TahvilFroshs.Where(p => !p.IsOk).Where(p => p.CodeKala == sefaresh_item.CodeKala).ToList());
                     sefaresh_item.TahvilFrosh = tahvil;
                 }
-                foreach (var sefaresh_item in sefaresh.Items.Where(i => i.TahvilFrosh == 0).ToList())
+                foreach (var sefaresh_item in ItemForCheck.Where(i => i.TahvilFrosh == 0).ToList())
                 {
                     var tahvil = CheckBySameTahvilNumber(sefaresh_item,
-                        sefaresh.Items
+                        ItemForCheck
                         .Where(p => p.Maghsad == sefaresh_item.Maghsad)
                         .Where(o => o.Ranande == sefaresh_item.Ranande)
                         .Where(o => o.IsImenKala == sefaresh_item.IsImenKala)
@@ -155,7 +158,7 @@ namespace OrdersAndisheh.ViewModel
                     sefaresh_item.TahvilFrosh = tahvil;
                 }
 
-            } while (NotOkCount != sefaresh.Items.Where(p => p.TahvilFrosh < 1).ToList().Count);
+            } while (NotOkCount != ItemForCheck.Where(p => p.TahvilFrosh < 1).ToList().Count);
 
             var nuy = TahvilFroshs.Where(isa => !isa.IsOk).ToList();
             foreach (var de in nuy)

@@ -738,8 +738,12 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteErsalReporting()
         {
-            ErsalReportViewModel vm = new ErsalReportViewModel();
-            ErsalReportView v = new ErsalReportView();
+            //ErsalReportViewModel vm = new ErsalReportViewModel();
+            //ErsalReportView v = new ErsalReportView();
+            //v.DataContext = vm;
+            //v.Show();
+            PalletReportViewModel vm = new PalletReportViewModel();
+            PalletReportView v = new PalletReportView();
             v.DataContext = vm;
             v.Show();
         }

@@ -8,6 +8,6 @@ namespace OrdersAndisheh.BL.Importing
 {
     public interface IImporter
     {
-        public string[,] GetData(string filePath);
+        //public string[,] GetData(string filePath);
     }
 }

@@ -66,11 +66,11 @@ namespace BL
             get { return Order.Tarikh ;}
             set
             {
-                DateTime j;
-                if (!DateTime.TryParse(value,out j))
-                {
-                    throw new ApplicationException("فرمت تاریخ وارد شده صحیح نمی باشد !");
-                };
+                //PersianDateTime j;
+                //if (!PersianDateTime.Parse(value, out j))
+                //{
+                //    throw new ApplicationException("فرمت تاریخ وارد شده صحیح نمی باشد !");
+                //};
                 Order.Tarikh = value;
                 NotifyPropertyChanged("Tarikh");
             }

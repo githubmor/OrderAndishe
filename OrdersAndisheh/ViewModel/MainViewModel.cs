@@ -33,7 +33,8 @@ namespace OrdersAndisheh.ViewModel
             Destinations = ss.LoadDestinations();
             enumList = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
             IsDirty = true;
-            Tarikh = PersianDateTime.Now.ToString(PersianDateTimeFormat.Date);
+            var t = PersianDateTime.Now.ToString(PersianDateTimeFormat.Date);
+            Tarikh = t;
             Messenger.Default.Register<string>(this, "Editsefaresh", LoadThisDateSefaresh);
             //TODO  باید یک قسمت توضیحات برای هر راننده اضافه کنیم مثل شب تحویل - انبار  87 - دیجیتال صنعت
             //TODO قفل های بدون اورکل چی شد 
@@ -59,6 +60,7 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.SaveText);
                 RaisePropertyChanged(() => this.DriversVazn);
                 RaisePropertyChanged(() => this.MaghsadVazn);
+                RaisePropertyChanged(() => this.palletHa);
             }
             catch (System.Exception r)
             {
@@ -149,6 +151,37 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => Description);
             }
         }
+
+        //private string myVar;
+
+        public string palletHa
+        {
+            get { return getPalletaha(); }
+            //set { myVar = value; }
+        }
+
+        private string getPalletaha()
+        {
+            string re = "";
+            //var t = from b in Items
+                    //select new {palet=b.Product.Pallet.Name,tedadpalet = b.PalletCount };
+            var t = Items.Select(p => p.Product.Pallet.Name).Distinct();
+
+            foreach (var item in t)
+            {
+                int sum = 0;
+                
+                foreach (var d in Items.Where(p=>p.Product.Pallet.Name==item).Select(o=>o.PalletCount))
+                {
+                    sum += d;
+                }
+                re += item + " = " + sum + "   -   ";
+            }
+            //return t.ToString();      
+            return re;
+            //string sezeh = Items.Where(p=>p.Product.)
+        }
+        
 
         public string DriversVazn 
         {

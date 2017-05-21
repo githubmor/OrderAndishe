@@ -1,11 +1,11 @@
-﻿ using BL;
+﻿using BL;
 using OfficeOpenXml;
 using OrdersAndisheh.BL.Asn;
-
 using OrdersAndisheh.DBL;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -60,22 +60,25 @@ namespace OrdersAndisheh.BL
                 {
                     TarikhSanadCol = i;
                 }
-                if (WorkSheet.Cells[1, i].Text == "عنوان کالا")
+                if (WorkSheet.Cells[1, i].Text == "نام کالا")
                 {
                     KalaNameCol = i;
                 }
 			}
 
             //ExcelAddress dd= WorkSheet.
+            //var ty = WorkSheet.Cells[row, TedadCol].Text;
 
             for (int row = start.Row + 1; row <= end.Row; row++)
             {
+                //string ty = WorkSheet.Cells[row, TedadCol].Text;
+                //int tr = int.Parse(ty);
                 TahvilItem s = new TahvilItem();
                 s.KalaName = WorkSheet.Cells[row, KalaNameCol].Text;
                 s.CodeKala = WorkSheet.Cells[row, CodeKalaCol].Text;
                 s.TarafeMoghabel = WorkSheet.Cells[row, TarafeMoghabelCol].Text;
                 s.TahvilFroshNum = short.Parse(WorkSheet.Cells[row, TahvilFroshNumCol].Text);
-                s.Tedad = Math.Abs(WorkSheet.Cells[row, TedadCol].Text != "" ? int.Parse(WorkSheet.Cells[row, TedadCol].Text) : 0);
+                s.Tedad = Math.Abs(WorkSheet.Cells[row, TedadCol].Text != "" ? int.Parse(WorkSheet.Cells[row, TedadCol].Text, NumberStyles.AllowThousands) : 0);
                 s.TarikhSanad = WorkSheet.Cells[row, TarikhSanadCol].Text;
                 items.Add(s);
             }
