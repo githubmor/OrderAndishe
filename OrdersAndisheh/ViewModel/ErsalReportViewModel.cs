@@ -11,7 +11,7 @@ namespace OrdersAndisheh.ViewModel
         public ErsalReportViewModel()
         {
             SefareshService s = new SefareshService();
-            ItemSefareshes = s.LoadAllSefaresh();
+            ItemSefareshes = s.LoadAllSefaresh(PersianDateTime.Now.Year);
         }
                 
         private List<ErsalItem> myVar;

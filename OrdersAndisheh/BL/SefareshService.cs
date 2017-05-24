@@ -241,12 +241,13 @@
             }
         }
 
-        public List<CheckSefaresh> LoadCheckSefareshs()
+        public List<CheckSefaresh> LoadCheckSefareshs(int year)
         {
             db.Database.Log = Console.Write;
             List<CheckSefaresh> sd = new List<CheckSefaresh>();
             var u = from p in db.Orders
                     where !p.Accepted
+                    where p.Tarikh.StartsWith(year.ToString())
                     orderby p.Tarikh descending
                     select new { 
                         tarikh = p.Tarikh, 
@@ -329,10 +330,10 @@
             return db.DriverWork.Where(p => p.OrderId == orderId).Include("Driver").ToList();
         }
 
-        public List<ErsalItem> LoadAllSefaresh()
+        public List<ErsalItem> LoadAllSefaresh(int year)
         {
             List<ErsalItem> ret = new List<ErsalItem>();
-            var p = db.Orders
+            var p = db.Orders.Where(p=>p.Tarikh.StartsWith(year.ToString()))
                 .Include("OrderDetails.Customer")
                 .Include("OrderDetails.Driver")
                 .Include("OrderDetails.Product")
@@ -518,34 +519,44 @@
             }
         }
 
-        public List<PalletItem> LoadAllPalletReport()
+        public List<PalletItem> LoadAllPalletReport(int year)
         {
             var ret = new List<PalletItem>();
-            //var gp8id = db.Pallets.Where(p=>p.Name.Contains("GP8")).SingleOrDefault().Id;
-            //var re8id = db.Pallets.Where(p=>p.Name.Contains("RE8")).SingleOrDefault().Id;
-            //var gp8Orders = db.OrderDetails
-            //    .Where(p => p.Product.PalletId == gp8id)
-            //    .Include("Pallet")
-            //    .Include("Product")
-            //    .ToList();
-            //var re8Orders = db.OrderDetails
-            //    .Where(p => p.Product.PalletId == re8id)
-            //    .Include("Pallet")
-            //    .Include("Product")
-            //    .ToList();
-            var d = db.OrderDetails.GroupBy(p => new { p.Order.Tarikh,p.Product.PalletId })
+            
+            var d = db.OrderDetails.Where(p=>p.Order.Tarikh.StartsWith(year.ToString())).GroupBy(p => new { p.Order.Tarikh,p.Product.PalletId,p.Product.IsImenKala })
                 .Select(
                     g => new
                     {
                         Tarikh = g.Key.Tarikh,
-                        Value = g.Sum(s => s.TedadPallet),
-                        name = g.Key.PalletId,
+                        Tedad = g.Sum(s => s.TedadPallet),
+                        palletId = g.FirstOrDefault().Product.Pallet.Id,
+                        palletName = g.FirstOrDefault().Product.Pallet.Name,
+                        isImen = g.Key.IsImenKala
                     }).ToList();
-            
 
-            
-           
-            return null;
+            var erf = d.GroupBy(p =>p.Tarikh)
+                .Select(j => new
+                {
+                    Tarikh = j.Key,
+                    er = j.ToList()
+                }).ToList();
+
+            foreach (var item in erf)
+            {
+                bool isSaipaA = item.er.Where(p => !p.isImen).Any(p => p.palletName == "GP8");
+                bool isSaipaI = item.er.Where(p => p.isImen).Any(p => p.palletName == "GP8");
+                bool isSapcoA = item.er.Where(p => !p.isImen).Any(p => p.palletName == "RE8");
+                bool isSapcoI = item.er.Where(p => p.isImen).Any(p => p.palletName == "RE8");
+                ret.Add(new PalletItem() { 
+                    Tarikh = item.Tarikh,
+                    saipaA = (isSaipaA ? item.er.Where(o => !o.isImen).Where(p => p.palletName == "GP8").FirstOrDefault().Tedad : 0),
+                    saipaI = (isSaipaI ? item.er.Where(o => o.isImen).Where(p => p.palletName == "GP8").FirstOrDefault().Tedad : 0),
+                    sapcoA = (isSapcoA ? item.er.Where(o => !o.isImen).Where(p => p.palletName == "RE8").FirstOrDefault().Tedad : 0),
+                    sapcoI = (isSapcoI ? item.er.Where(o => o.isImen).Where(p => p.palletName == "RE8").FirstOrDefault().Tedad : 0),
+                });
+            }
+
+            return ret;
         }
     }
 }

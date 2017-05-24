@@ -970,7 +970,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteShowGoods()
         {
             ProductsView p = new ProductsView();
-            p.ShowDialog();
+            p.Show();
             //RaisePropertyChanged(() => Items);
         }
 
@@ -991,7 +991,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteShowDrivers()
         {
             DriversView p = new DriversView();
-            p.ShowDialog();
+            p.Show();
             //RaisePropertyChanged(() => Items);
         }
 

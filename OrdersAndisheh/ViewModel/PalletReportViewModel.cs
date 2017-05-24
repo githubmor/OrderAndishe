@@ -11,7 +11,7 @@ namespace OrdersAndisheh.ViewModel
         public PalletReportViewModel()
         {
             SefareshService s = new SefareshService();
-            Pallets = s.LoadAllPalletReport();
+            Pallets = s.LoadAllPalletReport(PersianDateTime.Now.Year);
         }
                 
         private List<PalletItem> myVar;

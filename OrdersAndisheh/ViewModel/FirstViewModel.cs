@@ -98,7 +98,7 @@ namespace OrdersAndisheh.ViewModel
 
         public List<CheckSefaresh> CheckSefareshs
         {
-            get { return ss.LoadCheckSefareshs(); }
+            get { return ss.LoadCheckSefareshs(PersianDateTime.Now.Year); }
             //set { lists = value; }
         }
 
@@ -738,10 +738,29 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteErsalReporting()
         {
-            //ErsalReportViewModel vm = new ErsalReportViewModel();
-            //ErsalReportView v = new ErsalReportView();
-            //v.DataContext = vm;
-            //v.Show();
+            ErsalReportViewModel vm = new ErsalReportViewModel();
+            ErsalReportView v = new ErsalReportView();
+            v.DataContext = vm;
+            v.Show();
+            
+        }
+
+        private RelayCommand _myCommand5465656565656;
+
+        /// <summary>
+        /// Gets the PalletReporting.
+        /// </summary>
+        public RelayCommand PalletReporting
+        {
+            get
+            {
+                return _myCommand5465656565656
+                    ?? (_myCommand5465656565656 = new RelayCommand(ExecutePalletReporting));
+            }
+        }
+
+        private void ExecutePalletReporting()
+        {
             PalletReportViewModel vm = new PalletReportViewModel();
             PalletReportView v = new PalletReportView();
             v.DataContext = vm;
