@@ -333,7 +333,7 @@
         public List<ErsalItem> LoadAllSefaresh(int year)
         {
             List<ErsalItem> ret = new List<ErsalItem>();
-            var p = db.Orders.Where(p=>p.Tarikh.StartsWith(year.ToString()))
+            var p = db.Orders.Where(r=>r.Tarikh.StartsWith(year.ToString()))
                 .Include("OrderDetails.Customer")
                 .Include("OrderDetails.Driver")
                 .Include("OrderDetails.Product")
