@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.BL;
+using OrdersAndisheh.BL.Importing;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +23,7 @@ namespace OrdersAndisheh.ViewModel
             sefaresh = new Sefaresh();
             Errors = new List<string>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>();
-            TahvilFroshs = new ObservableCollection<TahvilItem>();
+            TahvilFroshs = new List<TahvilFroshData>();
             Messenger.Default.Register<string>(this, "sefareshForTahvilSet", ThisSefaresh);
         }
 
@@ -44,7 +45,7 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private ObservableCollection<TahvilItem> TahvilFroshs;
+        private List<TahvilFroshData> TahvilFroshs;
         //private ObservableCollection<ItemSefaresh> myVar;
 
         public ObservableCollection<ItemSefaresh> ErsalListForTahvilFrosh
@@ -96,7 +97,7 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-                TahvilFroshs = new ObservableCollection<TahvilItem>();
+                TahvilFroshs = new List<TahvilFroshData>();
                 ExcelImportService s = new ExcelImportService();
                 TahvilFroshs = s.GetTahvilfroshData(FilePath);
                 CalculateSefareshWithData();
@@ -174,7 +175,7 @@ namespace OrdersAndisheh.ViewModel
         }
 
         private short CheckBySameTahvilNumber(ItemSefaresh item, List<short> tahvilWithSameMDAndTahvilOk,
-            List<TahvilItem> tahvilsWithSameItemCode)
+            List<TahvilFroshData> tahvilsWithSameItemCode)
         {
             short e = 0;
             foreach (var ismd in tahvilWithSameMDAndTahvilOk)
@@ -191,7 +192,7 @@ namespace OrdersAndisheh.ViewModel
             return e;
         }
 
-        private short CheckByTedadKala(ItemSefaresh item, List<TahvilItem> tahvilsWithSameItemCode)
+        private short CheckByTedadKala(ItemSefaresh item, List<TahvilFroshData> tahvilsWithSameItemCode)
         {
             var fi = tahvilsWithSameItemCode.Where(p => p.Tedad == item.Tedad).ToList();
 
@@ -206,7 +207,7 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        private short CheckByCodeKala(ItemSefaresh item,List<TahvilItem> tahvilsWithSameCodeKala)
+        private short CheckByCodeKala(ItemSefaresh item, List<TahvilFroshData> tahvilsWithSameCodeKala)
         {
             //var findedTahvils = tahvils.Where(p => p.CodeKala == item.CodeKala).ToList();
 

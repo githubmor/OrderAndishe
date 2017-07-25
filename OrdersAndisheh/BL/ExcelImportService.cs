@@ -1,15 +1,11 @@
-﻿using BL;
-using OfficeOpenXml;
+﻿using OfficeOpenXml;
 using OrdersAndisheh.BL.Asn;
-using OrdersAndisheh.DBL;
+using OrdersAndisheh.BL.Importing;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrdersAndisheh.BL
 {
@@ -22,69 +18,70 @@ namespace OrdersAndisheh.BL
             //this.service = service;
             
         }
-        public ObservableCollection<TahvilItem> GetTahvilfroshData(string filePath)
-        {
-            FileInfo f = new FileInfo(filePath);
-            package = new ExcelPackage(f);
-            ObservableCollection<TahvilItem> items = new ObservableCollection<TahvilItem>();
-            ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
-            var start = WorkSheet.Dimension.Start;
-            var end = WorkSheet.Dimension.End;
 
-            int CodeKalaCol = 5;
-            int KalaNameCol = 4;
-            int TarafeMoghabelCol = 2;
-            int TahvilFroshNumCol = 3;
-            int TedadCol = 6;
-            int TarikhSanadCol = 12;
+        //public ObservableCollection<TahvilItem> GetTahvilfroshData(string filePath)
+        //{
+        //    FileInfo f = new FileInfo(filePath);
+        //    package = new ExcelPackage(f);
+        //    ObservableCollection<TahvilItem> items = new ObservableCollection<TahvilItem>();
+        //    ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
+        //    var start = WorkSheet.Dimension.Start;
+        //    var end = WorkSheet.Dimension.End;
 
-            for (int i = 1; i < end.Column; i++)
-			{
-                if (WorkSheet.Cells[1, i].Text == "کد کالا")
-                {
-                    CodeKalaCol = i;
-                }
-                if (WorkSheet.Cells[1, i].Text == "طرف مقابل")
-                {
-                    TarafeMoghabelCol = i;
-                }
-                if (WorkSheet.Cells[1, i].Text == "مقدار")
-                {
-                    TedadCol = i;
-                }
-                if (WorkSheet.Cells[1, i].Text == "شماره سند")
-                {
-                    TahvilFroshNumCol = i;
-                }
-                if (WorkSheet.Cells[1, i].Text == "تاریخ سند")
-                {
-                    TarikhSanadCol = i;
-                }
-                if (WorkSheet.Cells[1, i].Text == "نام کالا")
-                {
-                    KalaNameCol = i;
-                }
-			}
+        //    int CodeKalaCol = 5;
+        //    int KalaNameCol = 4;
+        //    int TarafeMoghabelCol = 2;
+        //    int TahvilFroshNumCol = 3;
+        //    int TedadCol = 6;
+        //    int TarikhSanadCol = 12;
 
-            //ExcelAddress dd= WorkSheet.
-            //var ty = WorkSheet.Cells[row, TedadCol].Text;
+        //    for (int i = 1; i < end.Column; i++)
+        //    {
+        //        if (WorkSheet.Cells[1, i].Text == "کد کالا")
+        //        {
+        //            CodeKalaCol = i;
+        //        }
+        //        if (WorkSheet.Cells[1, i].Text == "طرف مقابل")
+        //        {
+        //            TarafeMoghabelCol = i;
+        //        }
+        //        if (WorkSheet.Cells[1, i].Text == "مقدار")
+        //        {
+        //            TedadCol = i;
+        //        }
+        //        if (WorkSheet.Cells[1, i].Text == "شماره سند")
+        //        {
+        //            TahvilFroshNumCol = i;
+        //        }
+        //        if (WorkSheet.Cells[1, i].Text == "تاریخ سند")
+        //        {
+        //            TarikhSanadCol = i;
+        //        }
+        //        if (WorkSheet.Cells[1, i].Text == "نام کالا")
+        //        {
+        //            KalaNameCol = i;
+        //        }
+        //    }
 
-            for (int row = start.Row + 1; row <= end.Row; row++)
-            {
-                //string ty = WorkSheet.Cells[row, TedadCol].Text;
-                //int tr = int.Parse(ty);
-                TahvilItem s = new TahvilItem();
-                s.KalaName = WorkSheet.Cells[row, KalaNameCol].Text;
-                s.CodeKala = WorkSheet.Cells[row, CodeKalaCol].Text;
-                s.TarafeMoghabel = WorkSheet.Cells[row, TarafeMoghabelCol].Text;
-                s.TahvilFroshNum = short.Parse(WorkSheet.Cells[row, TahvilFroshNumCol].Text);
-                s.Tedad = Math.Abs(WorkSheet.Cells[row, TedadCol].Text != "" ? int.Parse(WorkSheet.Cells[row, TedadCol].Text, NumberStyles.AllowThousands) : 0);
-                s.TarikhSanad = WorkSheet.Cells[row, TarikhSanadCol].Text;
-                items.Add(s);
-            }
+        //    //ExcelAddress dd= WorkSheet.
+        //    //var ty = WorkSheet.Cells[row, TedadCol].Text;
 
-            return items;
-        }
+        //    for (int row = start.Row + 1; row <= end.Row; row++)
+        //    {
+        //        //string ty = WorkSheet.Cells[row, TedadCol].Text;
+        //        //int tr = int.Parse(ty);
+        //        TahvilItem s = new TahvilItem();
+        //        s.KalaName = WorkSheet.Cells[row, KalaNameCol].Text;
+        //        s.CodeKala = WorkSheet.Cells[row, CodeKalaCol].Text;
+        //        s.TarafeMoghabel = WorkSheet.Cells[row, TarafeMoghabelCol].Text;
+        //        s.TahvilFroshNum = short.Parse(WorkSheet.Cells[row, TahvilFroshNumCol].Text);
+        //        s.Tedad = Math.Abs(WorkSheet.Cells[row, TedadCol].Text != "" ? int.Parse(WorkSheet.Cells[row, TedadCol].Text, NumberStyles.AllowThousands) : 0);
+        //        s.TarikhSanad = WorkSheet.Cells[row, TarikhSanadCol].Text;
+        //        items.Add(s);
+        //    }
+
+        //    return items;
+        //}
 
         public List<IAsn> GetAsnData(string filePath)
         {
@@ -180,21 +177,21 @@ namespace OrdersAndisheh.BL
 
             int CodeKalaCol = 5;
             int KalaNameCol = 4;
-            int TedadCol = 6;
+            int TedadCol = 8;
             
             for (int i = 1; i < end.Column; i++)
             {
-                if (WorkSheet.Cells[1, i].Text == "کد کالا")
+                if (WorkSheet.Cells[1, i].Text == "کد")
                 {
                     CodeKalaCol = i;
                 }
                 
-                if (WorkSheet.Cells[1, i].Text == "موجودی")
+                if (WorkSheet.Cells[1, i].Text == "مانده (اصلی)")
                 {
                     TedadCol = i;
                 }
                 
-                if (WorkSheet.Cells[1, i].Text == "کالا")
+                if (WorkSheet.Cells[1, i].Text == "عنوان")
                 {
                     KalaNameCol = i;
                 }
@@ -215,6 +212,15 @@ namespace OrdersAndisheh.BL
             return items;
 
 
+        }
+
+        public List<TahvilFroshData> GetTahvilfroshData(string FilePath)
+        {
+            FactoryImporter import = new TahvilFroshImporter(FilePath);
+
+            var s = import.GetDataFromPath();
+
+            return s.ConvertAll(o=>(TahvilFroshData)o);
         }
     }
 }

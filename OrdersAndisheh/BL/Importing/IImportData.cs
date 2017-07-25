@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace OrdersAndisheh.BL.Importing
 {
-    public interface IImporter
+    public interface IImportData
     {
-        //public string[,] GetData(string filePath);
+        string KalaName { get; set; }
+        ImportDataKind FileKind { get; }
+
+        
     }
 }

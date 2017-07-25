@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OrdersAndisheh.BL.Importing
 {
-    public class ExcelImporter : IImporter
+    public enum ImportDataKind
     {
-        public string[,] GetData(string filePath)
-        {
-            throw new NotImplementedException();
-        }
+        tahvilFrosh,
+        GoodAmount,
+        ProductionStatics,
+        Asns
     }
 }
