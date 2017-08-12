@@ -304,7 +304,9 @@
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,1.3,0.24</ClientRectangle>
-              <Conditions isList="true" count="0" />
+              <Conditions isList="true" count="1">
+                <value>Items.IsDriverChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
+              </Conditions>
               <Font>Tahoma,9</Font>
               <Guid>8d4f133da84b4439b13bb39b1cf5d517</Guid>
               <HorAlignment>Center</HorAlignment>
@@ -323,7 +325,9 @@
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>1.3,0,1.2,0.24</ClientRectangle>
-              <Conditions isList="true" count="0" />
+              <Conditions isList="true" count="1">
+                <value>Items.IsCustomerChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
+              </Conditions>
               <Font>Tahoma,9</Font>
               <Guid>a8bb2059e9334ccbb94e09e87814cdb6</Guid>
               <HorAlignment>Center</HorAlignment>
@@ -381,7 +385,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>3.7,0,1,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
-                <value>Items.IsTedadChanged,EqualTo,true,,String,Red,Transparent,Arial_x002C_8,True,False,,,None</value>
+                <value>Items.IsTedadChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
               <Font>Tahoma,9</Font>
               <Guid>da0a4306c10a4d0e851e5f5f8a47eeb9</Guid>
@@ -419,7 +423,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>4.7,0,2.7,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
-                <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Arial_x002C_8,True,False,,,None</value>
+                <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
               <Font>Tahoma,9</Font>
               <Guid>947297b422234c17b405ec0af4449adb</Guid>
@@ -480,10 +484,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/12/2017 4:27:06 PM</ReportChanged>
+  <ReportChanged>8/12/2017 6:40:29 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report2.mrt</ReportFile>
-  <ReportGuid>dac155fa6e70476fad79bb78c15eab70</ReportGuid>
+  <ReportGuid>8de3bbed751f456597947b4a27a7323b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

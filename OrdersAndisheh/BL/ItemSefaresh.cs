@@ -41,6 +41,7 @@ namespace BL
             }
            
             this.OrderDetail = od;
+            IsNew = false;
         }
 
         
@@ -192,8 +193,10 @@ namespace BL
 		public byte ItemKind
 		{
             get { return OrderDetail.ItemType; }
-            set { OrderDetail.ItemType = value;
-            IsItemKindChanged = true;
+            set 
+            { 
+                OrderDetail.ItemType = value;
+                //IsItemKindChanged = true;
             }
 		}
 

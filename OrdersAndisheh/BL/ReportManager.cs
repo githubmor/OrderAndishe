@@ -27,6 +27,26 @@ namespace OrdersAndisheh.BL
                 .ThenBy(p => p.ItemKind)
                 .ThenBy(p => p.Maghsad).ToList());
         }
+        public ReportManager(Sefaresh s)
+        {
+            service = new SefareshService();
+            this.sefaresh = service.LoadSefaresh(s.Tarikh);
+
+            foreach (var item in sefaresh.Items)
+            {
+                item.IsCustomerChanged = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsCustomerChanged;
+                item.IsDriverChanged = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsDriverChanged;
+                item.IsNew = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsNew;
+                item.IsTedadChanged = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsTedadChanged;
+            }
+
+            this.sefaresh2 = service.LoadSefaresh(s.Tarikh);
+            this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(
+                sefaresh.Items.Where(p => p.ItemKind != (byte)ItemType.ارسال)
+                .OrderBy(p => p.Ranande)
+                .ThenBy(p => p.ItemKind)
+                .ThenBy(p => p.Maghsad).ToList());
+        }
 
         public void CreatDriverReport()
         {
