@@ -166,6 +166,8 @@
         		VerticalAlignment="Top" Width="116" Command="{Binding MontagReciving, Mode=OneWay}"/>
             <Button Content="اوراکل" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding OracleSet, Mode=OneWay}"/>
+            <Button Content="گزارش مالي" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CreateMaliReport, Mode=OneWay}"/>
             <Button Content="پرینت" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding TableViewCommands.ShowPrintPreviewDialog, ElementName=tableView}"/>
         </WrapPanel>

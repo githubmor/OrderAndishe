@@ -61,12 +61,18 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => this.DriversVazn);
                 RaisePropertyChanged(() => this.MaghsadVazn);
                 RaisePropertyChanged(() => this.palletHa);
+
             }
             catch (System.Exception r)
             {
                 System.Windows.Forms.MessageBox.Show(r.Message.ToString());
             }
         }
+
+        public bool KalaChanged { get; set; }
+        public bool TedadChanged { get; set; }
+        public bool CustomerChanged { get; set; }
+        public bool DriverChanged { get; set; }
 
         //public bool CanEdit { get; set; }
 
@@ -563,6 +569,8 @@ namespace OrdersAndisheh.ViewModel
             IsDirty = true;
             //IsEdit = true;
             ClickedItem = null;
+            DriverChanged = true;
+            CustomerChanged = true;
             RaisePropertyChanged(() => this.DriversVazn);
             RaisePropertyChanged(() => this.MaghsadVazn);
             
@@ -594,6 +602,7 @@ namespace OrdersAndisheh.ViewModel
            
             IsDirty = true;
             ClickedItem = null;
+
             RaisePropertyChanged(() => this.DriversVazn);
             RaisePropertyChanged(() => this.MaghsadVazn);
 
@@ -630,13 +639,23 @@ namespace OrdersAndisheh.ViewModel
                 {
                     if (IsEdit)
                     {
+                        KalaChanged = sefaresh.Items.Any(p => p.IsNew);
+                        TedadChanged = sefaresh.Items.Any(p => p.IsTedadChanged);
+                        CustomerChanged = sefaresh.Items.Any(p => p.IsCustomerChanged);
+                        DriverChanged = sefaresh.Items.Any(p => p.IsDriverChanged);
+
                         ss.UpdateSefaresh(sefaresh);
+
                         MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ویرایش شد");
                     }
                     else
                     {
                         ss.SaveSefaresh(sefaresh);
                         IsEdit = true;
+                        KalaChanged = true;
+                        TedadChanged = true;
+                        CustomerChanged = true;
+                        DriverChanged = true;
                         MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ذخیره شد");
                     }
                 }
@@ -704,12 +723,14 @@ namespace OrdersAndisheh.ViewModel
         {
             ReportManager rp = new ReportManager(sefaresh.Tarikh);
             rp.CreatAllBazresReportOnDeskTop();
+            KalaChanged = false;
+            TedadChanged = false;
             //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateBazresLists()
         {
-            return !IsDirty;
+            return !IsDirty & (KalaChanged | TedadChanged);
         }
 
 
@@ -732,12 +753,16 @@ namespace OrdersAndisheh.ViewModel
         {
             ReportManager rp = new ReportManager(sefaresh.Tarikh);
             rp.CreatListErsalReportOnDeskTop();
+            KalaChanged = false;
+            TedadChanged = false;
+            CustomerChanged = false;
+            DriverChanged = false;
             //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreatListErsal()
         {
-            return !IsDirty;
+            return !IsDirty & (KalaChanged | TedadChanged | DriverChanged | CustomerChanged);
         }
 
         private RelayCommand _myCommand8;
@@ -761,6 +786,8 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatAnbarReportOnDeskTop();
+                KalaChanged = false;
+                TedadChanged = false;
                 //RaisePropertyChanged(() => Items);
             }
             catch (Exception rt)
@@ -772,7 +799,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreateAnbarList()
         {
-            return !IsDirty;
+            return !IsDirty & (KalaChanged | TedadChanged);
         }
 
         private RelayCommand _myCommand9;
@@ -794,12 +821,15 @@ namespace OrdersAndisheh.ViewModel
         {
             ReportManager rp = new ReportManager(sefaresh.Tarikh);
              rp.CreatImenSazanReportOnDeskTop();
+             KalaChanged = false;
+             TedadChanged = false;
+
              //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateImensazanList()
         {
-            return !IsDirty;
+            return !IsDirty & (KalaChanged | TedadChanged);
         }
 
 
@@ -827,20 +857,16 @@ namespace OrdersAndisheh.ViewModel
         {
             ReportManager rp = new ReportManager(sefaresh.Tarikh);
             rp.CreatAndishehReportOnDeskTop();
+            KalaChanged = false;
+            TedadChanged = false;
+
             //RaisePropertyChanged(() => Items);
         }
 
         private bool CanExecuteCreateAndishehList()
         {
-            return !IsDirty;
+            return !IsDirty & ( KalaChanged | TedadChanged );
         }
-
-
-
-
-
-
-
 
 
         private RelayCommand _myCommand10;
@@ -864,6 +890,8 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatKontrolReportOnDeskTop();
+                KalaChanged = false;
+                TedadChanged = false;
                 //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
@@ -876,7 +904,7 @@ namespace OrdersAndisheh.ViewModel
         private bool CanExecuteCreateKontrolList()
         {
             //TODO باید اینجا فقط زمانی اینا فعال باشن که اولا ثبت شده باشد یعنی در حال ویرایش و دوما هیچ تغییر ثبت نشده جدیدی وجود نداشته باشد
-            return !IsDirty;
+            return !IsDirty & (KalaChanged | CustomerChanged);
         }
 
         private RelayCommand _myCommand111;
@@ -915,7 +943,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteLoadSefaresh()
         {
-            return !string.IsNullOrEmpty(Tarikh) ;
+            return !string.IsNullOrEmpty(Tarikh);
         }
 
         private RelayCommand _myCommand465;
@@ -1006,8 +1034,13 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return _myCommand659658785
-                    ?? (_myCommand659658785 = new RelayCommand(ExecuteCreatDriverReport));
+                    ?? (_myCommand659658785 = new RelayCommand(ExecuteCreatDriverReport, CanExecuteCreatDriverReport));
             }
+        }
+
+        private bool CanExecuteCreatDriverReport()
+        {
+            return KalaChanged | TedadChanged | CustomerChanged | DriverChanged; 
         }
 
         private void ExecuteCreatDriverReport()
@@ -1016,6 +1049,10 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatDriverReport();
+                KalaChanged = false;
+                TedadChanged = false;
+                CustomerChanged = false;
+                DriverChanged = false;
                 //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
@@ -1036,8 +1073,13 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return _myCommand55666
-                    ?? (_myCommand55666 = new RelayCommand(ExecuteCreatDriverErsalListReport));
+                    ?? (_myCommand55666 = new RelayCommand(ExecuteCreatDriverErsalListReport, CanExecuteCreatDriverErsalListReport));
             }
+        }
+
+        private bool CanExecuteCreatDriverErsalListReport()
+        {
+            return KalaChanged | TedadChanged | CustomerChanged | DriverChanged;
         }
 
         private void ExecuteCreatDriverErsalListReport()
@@ -1046,6 +1088,10 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh.Tarikh);
                 rp.CreatDriverErsalListReport();
+                KalaChanged = false;
+                TedadChanged = false;
+                CustomerChanged = false;
+                DriverChanged = false;
                 //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
@@ -1171,8 +1217,13 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return _myCommand5654652542244
-                    ?? (_myCommand5654652542244 = new RelayCommand(ExecuteMontagReciving));
+                    ?? (_myCommand5654652542244 = new RelayCommand(ExecuteMontagReciving, CanExecuteMontagReciving));
             }
+        }
+
+        private bool CanExecuteMontagReciving()
+        {
+            return KalaChanged | TedadChanged;
         }
 
         private void ExecuteMontagReciving()
@@ -1200,11 +1251,42 @@ namespace OrdersAndisheh.ViewModel
             OracleView v = new OracleView();
             Messenger.Default.Send<string>(sefaresh.Tarikh, "SefareshTarikh");
             v.ShowDialog();
+            KalaChanged = false;
+            CustomerChanged = false;
         }
 
         private bool CanExecuteOracleSet()
         {
-            return !IsDirty & !Items.Any(p=>string.IsNullOrEmpty(p.Maghsad));
+            return !IsDirty & !Items.Any(p=>string.IsNullOrEmpty(p.Maghsad)) & ( KalaChanged | CustomerChanged );
+        }
+
+        private RelayCommand _myCommand96595;
+
+        /// <summary>
+        /// Gets the CreateMaliReport.
+        /// </summary>
+        public RelayCommand CreateMaliReport
+        {
+            get
+            {
+                return _myCommand96595 ?? (_myCommand96595 = new RelayCommand(
+                    ExecuteCreateMaliReport,
+                    CanExecuteCreateMaliReport));
+            }
+        }
+
+        private void ExecuteCreateMaliReport()
+        {
+            ReportManager rp = new ReportManager(sefaresh.Tarikh);
+            rp.CreatMaliReport();
+            KalaChanged = false;
+            TedadChanged = false;
+            CustomerChanged = false;
+        }
+
+        private bool CanExecuteCreateMaliReport()
+        {
+            return !IsDirty & (KalaChanged | TedadChanged | CustomerChanged);
         }
     }
 

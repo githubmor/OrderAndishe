@@ -29,6 +29,7 @@ namespace BL
             Product = p;
             PalletCount = PalletCalCulate();
             ItemKind = (byte) ItemType.عادی;
+            IsNew = true;
 
         }
 
@@ -53,6 +54,11 @@ namespace BL
         {
             get { return (Customer==null?"":Customer.Name); }
         }
+
+        public bool IsNew { get; set; }
+        public bool IsDriverChanged { get; set; }
+        public bool IsCustomerChanged { get; set; }
+        public bool IsTedadChanged { get; set; }
 
         public string Kala
         {
@@ -92,6 +98,7 @@ namespace BL
                 PalletCount = PalletCalCulate();
                 NotifyPropertyChanged("Kala");
                 NotifyPropertyChanged("CodeKala");
+                IsNew = true;
             }
 		}
 
@@ -118,6 +125,7 @@ namespace BL
             get { return OrderDetail.Driver; }
             set { OrderDetail.Driver = value;
             NotifyPropertyChanged("Ranande");
+            IsDriverChanged = true;
             }
 		}
 
@@ -128,6 +136,7 @@ namespace BL
             {
                 OrderDetail.Customer = value;
                 NotifyPropertyChanged("Maghsad");
+                IsCustomerChanged = true;
             }
 		}
         private bool isSelacted;
@@ -152,6 +161,7 @@ namespace BL
                 NotifyPropertyChanged("Tedad");
                 NotifyPropertyChanged("Vazn");
                 NotifyPropertyChanged("Darkhast");
+                IsTedadChanged = true;
             }
 		}
         public string Des
@@ -167,7 +177,9 @@ namespace BL
 		public short TahvilFrosh
 		{
             get { return OrderDetail.TahvilForosh; }
-            set { OrderDetail.TahvilForosh = value; }
+            set { OrderDetail.TahvilForosh = value;
+            IsTahvilFroshChanged = true;
+            }
 		}
 
         public int AsnNumber
@@ -180,7 +192,9 @@ namespace BL
 		public byte ItemKind
 		{
             get { return OrderDetail.ItemType; }
-            set { OrderDetail.ItemType = value; }
+            set { OrderDetail.ItemType = value;
+            IsItemKindChanged = true;
+            }
 		}
 
 
@@ -305,6 +319,10 @@ namespace BL
             }
         }
 
+
+        public bool IsTahvilFroshChanged { get; set; }
+
+        public bool IsItemKindChanged { get; set; }
     }
 }
 

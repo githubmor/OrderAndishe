@@ -166,50 +166,55 @@ namespace OrdersAndisheh.BL
 
         }
 
-        public ObservableCollection<AmountDto> GetAmountData(string filePath)
+        public List<AmountData> GetAmountData(string filePath)
         {
-            FileInfo f = new FileInfo(filePath);
-            package = new ExcelPackage(f);
-            ObservableCollection<AmountDto> items = new ObservableCollection<AmountDto>();
-            ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
-            var start = WorkSheet.Dimension.Start;
-            var end = WorkSheet.Dimension.End;
+            FactoryImporter import = new AmountImporter(filePath);
 
-            int CodeKalaCol = 5;
-            int KalaNameCol = 4;
-            int TedadCol = 8;
+            var s = import.GetDataFromPath();
+
+            return s.ConvertAll(o => (AmountData)o);
+            //FileInfo f = new FileInfo(filePath);
+            //package = new ExcelPackage(f);
+            //ObservableCollection<AmountDto> items = new ObservableCollection<AmountDto>();
+            //ExcelWorksheet WorkSheet = package.Workbook.Worksheets[1];
+            //var start = WorkSheet.Dimension.Start;
+            //var end = WorkSheet.Dimension.End;
+
+            //int CodeKalaCol = 5;
+            //int KalaNameCol = 4;
+            //int TedadCol = 8;
             
-            for (int i = 1; i < end.Column; i++)
-            {
-                if (WorkSheet.Cells[1, i].Text == "کد")
-                {
-                    CodeKalaCol = i;
-                }
+            //for (int i = 1; i < end.Column; i++)
+            //{
+            //    if (WorkSheet.Cells[1, i].Text == "کد")
+            //    {
+            //        CodeKalaCol = i;
+            //    }
                 
-                if (WorkSheet.Cells[1, i].Text == "مانده (اصلی)")
-                {
-                    TedadCol = i;
-                }
+            //    if (WorkSheet.Cells[1, i].Text == "مانده (اصلی)")
+            //    {
+            //        TedadCol = i;
+            //    }
                 
-                if (WorkSheet.Cells[1, i].Text == "عنوان")
-                {
-                    KalaNameCol = i;
-                }
-            }
+            //    if (WorkSheet.Cells[1, i].Text == "عنوان")
+            //    {
+            //        KalaNameCol = i;
+            //    }
+            //}
 
-            //ExcelAddress dd= WorkSheet.
+            ////ExcelAddress dd= WorkSheet.
 
-            for (int row = start.Row + 1; row <= end.Row; row++)
-            {
-                AmountDto a = new AmountDto();
-                a.CodeKala = WorkSheet.Cells[row, CodeKalaCol].Text;
-                a.KalaName = WorkSheet.Cells[row, KalaNameCol].Text;
-                a.LastAmount = double.Parse(WorkSheet.Cells[row, TedadCol].Text);
+            //for (int row = start.Row + 1; row <= end.Row; row++)
+            //{
+            //    AmountDto a = new AmountDto();
+            //    a.CodeKala = WorkSheet.Cells[row, CodeKalaCol].Text;
+            //    a.KalaName = WorkSheet.Cells[row, KalaNameCol].Text;
+            //    a.LastAmount = double.Parse(WorkSheet.Cells[row, TedadCol].Text);
 
-                items.Add(a);
-            }
+            //    items.Add(a);
+            //}
 
-            return items;
+            //return items;
 
 
         }

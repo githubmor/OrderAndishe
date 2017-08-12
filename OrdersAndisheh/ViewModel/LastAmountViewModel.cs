@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using OrdersAndisheh.BL;
+using OrdersAndisheh.BL.Importing;
 using OrdersAndisheh.DBL;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace OrdersAndisheh.ViewModel
             //sefaresh = new Sefaresh();
             //Errors = new List<string>();
             //sefaresh.Items = new ObservableCollection<ItemSefaresh>();
-            Amounts = new ObservableCollection<AmountDto>();
+            Amounts = new List<AmountData>();
             //Messenger.Default.Register<string>(this, "sefareshForAsn", ThisSefaresh);
         }
 
@@ -46,9 +47,9 @@ namespace OrdersAndisheh.ViewModel
 
         //public ObservableCollection<AmountDto> Amounts;
 
-        private ObservableCollection<AmountDto> myVar;
+        private List<AmountData> myVar;
 
-        public ObservableCollection<AmountDto> Amounts
+        public List<AmountData> Amounts
         {
             get { return myVar; }
             set { myVar = value; }

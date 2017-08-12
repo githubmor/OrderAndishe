@@ -44,13 +44,19 @@ namespace OrdersAndisheh.BL
                     ,Ranande = (b.Driver.TempDriver == null ? b.Ranande : "           ")
                     ,Pallet = b.PalletCount.ToString(),
                     Karton = b.Karton,
-                    Pelak = b.Driver.Pelak
+                    Pelak = b.Driver.Pelak,
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged
                 });
                     pos += 1;
             }
             FileManagar fg = new FileManagar(reportRows, "");
             fg.CreatDriverFile(DrsWorks, "Driver");
         }
+
+        
 
        
         public void CreatAllBazresReportOnDeskTop()
@@ -65,7 +71,12 @@ namespace OrdersAndisheh.BL
                 {
                     reportRows.Add(new ReportRow() { Position = pos, Kala = b.Kala, 
                         Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""), Maghsad = b.Maghsad
-                        ,Ranande=(b.ItemKind==(byte)ItemType.فوری?"فوری":"")});
+                        ,
+                        IsDriverChanged = b.IsDriverChanged,
+                        IsKalaChanged = b.IsNew,
+                        IsCustomerChanged = b.IsCustomerChanged,
+                        IsTedadChanged = b.IsTedadChanged,Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : "")
+                    });
                     pos += 1;
                 }
 
@@ -111,7 +122,12 @@ namespace OrdersAndisheh.BL
                     Karton = b.Karton.ToString(),
                     Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : ""),
                     Maghsad = b.Maghsad
-                    ,Ranande = (b.ItemKind != (byte)ItemType.ارسال & b.ItemKind != (byte)ItemType.عادی ?
+                    ,
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged,
+                    Ranande = (b.ItemKind != (byte)ItemType.ارسال & b.ItemKind != (byte)ItemType.عادی ?
                         GetEnumValue<ItemType>(b.ItemKind).ToString() + " - " + b.Ranande : b.Ranande)
                 });
                 pos += 1;
@@ -135,7 +151,11 @@ namespace OrdersAndisheh.BL
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
                     Maghsad = b.Maghsad ,
-                    Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : "")
+                    Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : ""),
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged
                 });
                 pos += 1;
             }
@@ -155,12 +175,42 @@ namespace OrdersAndisheh.BL
                     Kala = b.Kala,
                     Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
                     Maghsad = b.Maghsad,
-                    Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : "")
+                    Ranande = (b.ItemKind == (byte)ItemType.فوری ? "فوری" : ""),
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged
                 });
                 pos += 1;
             }
             FileManagar fg = NewMethod(reportRows);
             fg.CreatFile("Andisheh");
+        }
+        public void CreatMaliReport()
+        {
+            int pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            //var ImenKalas = sefaresh.Items.Where(p => !p.IsImenKala);
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Karton = b.Product.FaniCode,
+                    Pallet = b.Des,
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Maghsad = b.Maghsad,
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged
+                    
+                });
+                pos += 1;
+            }
+            FileManagar fg = NewMethod(reportRows);
+            fg.CreatFileMali("Mali");
         }
 
         public void CreatKontrolReportOnDeskTop()
@@ -208,7 +258,11 @@ namespace OrdersAndisheh.BL
                     Karton = b.Karton.ToString(), 
                     Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : ""),
                     Maghsad = b.Maghsad,
-                    Ranande = (b.Driver !=null?(b.Driver.TempDriver == null ? b.Ranande : ""):"")
+                    Ranande = (b.Driver !=null?(b.Driver.TempDriver == null ? b.Ranande : ""):""),
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged
                 });
                 pos += 1;
             }
@@ -253,7 +307,11 @@ namespace OrdersAndisheh.BL
                     Ranande = (b.Driver.TempDriver == null ? b.Ranande : "           "),
                     Pallet = b.PalletCount.ToString(),
                     Karton = b.Karton,
-                    Pelak = b.Driver.Pelak
+                    Pelak = b.Driver.Pelak,
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged
                 });
                 pos += 1;
             }

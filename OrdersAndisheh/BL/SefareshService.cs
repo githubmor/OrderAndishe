@@ -9,6 +9,7 @@
     using System.Collections.ObjectModel;
     using System.Diagnostics;
     using OrdersAndisheh.ViewModel;
+    using OrdersAndisheh.BL.Importing;
 
 
     /// <summary>
@@ -352,7 +353,7 @@
             return ret;
         }
 
-        public void AddNewAmount(ObservableCollection<AmountDto> Amounts)
+        public void AddNewAmount(List<AmountData> Amounts)
         {
             List<Amount> addamount = new List<Amount>();
             var pr = db.Amount.ToList();

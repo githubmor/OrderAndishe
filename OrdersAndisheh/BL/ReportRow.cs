@@ -23,6 +23,10 @@ namespace BL
         public string Vazn { get; set; }
         public string Ranande { get; set; }
         public string Pelak { get; set; }
+        public bool IsKalaChanged { get; set; }
+        public bool IsTedadChanged { get; set; }
+        public bool IsCustomerChanged { get; set; }
+        public bool IsDriverChanged { get; set; }
         
     }
 }

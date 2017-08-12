@@ -18,7 +18,7 @@
         <Alias>Items</Alias>
         <BusinessObjects isList="true" count="0" />
         <Category />
-        <Columns isList="true" count="11">
+        <Columns isList="true" count="7">
           <value>Kala,System.String</value>
           <value>Tedad,System.String</value>
           <value>Karton,System.String</value>
@@ -26,10 +26,6 @@
           <value>Maghsad,System.String</value>
           <value>Vazn,System.String</value>
           <value>Ranande,System.String</value>
-          <value>IsDriverChanged,System.Boolean</value>
-          <value>IsKalaChanged,System.Boolean</value>
-          <value>IsCustomerChanged,System.Boolean</value>
-          <value>IsTedadChanged,System.Boolean</value>
         </Columns>
         <Dictionary isRef="1" />
         <Guid>febeeb78b448498fbfc442ce5bff949c</Guid>
@@ -180,7 +176,7 @@
               <Name>HeaderItems_kala</Name>
               <Page isRef="4" />
               <Parent isRef="13" />
-              <Text>راننده</Text>
+              <Text>تائيديه فروش</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
@@ -198,7 +194,7 @@
               <Name>HeaderItems_karton</Name>
               <Page isRef="4" />
               <Parent isRef="13" />
-              <Text>مقصد</Text>
+              <Text>مشتري</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
@@ -206,7 +202,7 @@
             <HeaderItems_pallet Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>2.5,0,0.5,0.3</ClientRectangle>
+              <ClientRectangle>3.4,0,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>4e0efe66f0e14e9aa8d39ae3e0b50f59</Guid>
@@ -215,15 +211,16 @@
               <Name>HeaderItems_pallet</Name>
               <Page isRef="4" />
               <Parent isRef="13" />
-              <Text>پالت</Text>
+              <Text>شماره قرارداد</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_pallet>
             <HeaderItems_maghsad Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>3,0,0.7,0.3</ClientRectangle>
+              <ClientRectangle>4.2,0,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,11,Bold</Font>
               <Guid>bc4a3ec0de604e50b49feca2da872253</Guid>
@@ -232,15 +229,16 @@
               <Name>HeaderItems_maghsad</Name>
               <Page isRef="4" />
               <Parent isRef="13" />
-              <Text>کارتن</Text>
+              <Text>شماره فني</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_maghsad>
             <HeaderItems_vazn Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>3.7,0,1,0.3</ClientRectangle>
+              <ClientRectangle>2.5,0,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>6e05b718a97e4788b5980c85e2efc031</Guid>
@@ -257,7 +255,7 @@
             <HeaderItems_Ranande Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>4.7,0,2.7,0.3</ClientRectangle>
+              <ClientRectangle>5.1,0,2.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>873ff8dab067480585c2826352ab82a9</Guid>
@@ -341,7 +339,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2.5,0,0.5,0.24</ClientRectangle>
+              <ClientRectangle>3.4,0,0.8,0.24</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>e936b727d3664d43b547857e78e77161</Guid>
@@ -360,7 +358,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3,0,0.7,0.24</ClientRectangle>
+              <ClientRectangle>4.2,0,0.9,0.24</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>9ed16503a5704c6b8d35df3289af7053</Guid>
@@ -375,28 +373,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_maghsad>
-            <DataItems_vazn Ref="26" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>3.7,0,1,0.24</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>Items.IsTedadChanged,EqualTo,true,,String,Red,Transparent,Arial_x002C_8,True,False,,,None</value>
-              </Conditions>
-              <Font>Tahoma,9</Font>
-              <Guid>da0a4306c10a4d0e851e5f5f8a47eeb9</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataItems_vazn</Name>
-              <Page isRef="4" />
-              <Parent isRef="21" />
-              <Text>{Items.Tedad}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </DataItems_vazn>
-            <Text7 Ref="27" type="Text" isKey="true">
+            <Text7 Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>7.4,0,0.47,0.24</ClientRectangle>
@@ -414,13 +391,11 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <DataItems_Ranande Ref="28" type="Text" isKey="true">
+            <DataItems_Ranande Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.7,0,2.7,0.24</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Arial_x002C_8,True,False,,,None</value>
-              </Conditions>
+              <ClientRectangle>5.1,0,2.3,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>947297b422234c17b405ec0af4449adb</Guid>
               <Margins>0,0,0,0</Margins>
@@ -434,6 +409,25 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_Ranande>
+            <DataItems_vazn Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.5,0,0.9,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>da0a4306c10a4d0e851e5f5f8a47eeb9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataItems_vazn</Name>
+              <Page isRef="4" />
+              <Parent isRef="21" />
+              <Text>{Items.Tedad}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataItems_vazn>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName isNull="true" />
@@ -480,10 +474,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/12/2017 4:27:06 PM</ReportChanged>
+  <ReportChanged>8/12/2017 9:53:02 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
-  <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report2.mrt</ReportFile>
-  <ReportGuid>dac155fa6e70476fad79bb78c15eab70</ReportGuid>
+  <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\MaliReport.mrt</ReportFile>
+  <ReportGuid>a7b937e742de4aae85f18b4bb051d411</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

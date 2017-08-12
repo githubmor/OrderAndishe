@@ -121,6 +121,37 @@ namespace BL
             }
             
 		}
+        public void CreatFileMali(string fileName)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select a folder";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    //MessageBox.Show("You selected: " + dlg.SelectedPath);
+                    path = dlg.SelectedPath;
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        fileName = "Report";
+                    }
+                    var h = new Header();
+                    h.Tarikh = Tarikh;
+                    h.WeekDay = PersianDateTime.Parse(Tarikh).DayName;
+
+
+
+                    StiReport mainreport = new StiReport();
+                    mainreport.RegBusinessObject("Sefaresh", h);
+                    mainreport.RegBusinessObject("Items", ReportRows);
+                    mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\MaliReport.mrt");
+                    mainreport.Render();
+                    mainreport.Show();
+                    mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
+                }
+            }
+
+        }
 
         public virtual void CreatDocFile(string fileName)
         {
