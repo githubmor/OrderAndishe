@@ -55,6 +55,10 @@ namespace OrdersAndisheh.ViewModel
                 IsEdit = true;
                 IsDirty = false;
                 CanEdit = !sefaresh.Accepted;
+                KalaChanged = true;
+                TedadChanged = true;
+                CustomerChanged = true;
+                DriverChanged = true;
                 //MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد");
                 RaisePropertyChanged(() => this.Tarikh);
                 RaisePropertyChanged(() => this.SaveText);
@@ -652,6 +656,8 @@ namespace OrdersAndisheh.ViewModel
                         changeState();
                         MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ذخیره شد");
                     }
+                    ReportManager rp = new ReportManager(sefaresh);
+                    rp.CreatAllReport();
                 }
                 else
                 {
@@ -958,8 +964,10 @@ namespace OrdersAndisheh.ViewModel
             v.DataContext = vm;
             Messenger.Default.Send<string>(Tarikh, "ThisSefaresh");
             v.ShowDialog();
-            var i = sefaresh;
-            RaisePropertyChanged(() => Items);
+            ExecuteLoadSefaresh();
+            //var i = sefaresh;
+            //RaisePropertyChanged(() => Items);
+            changeState();
 
         }
 
@@ -1240,7 +1248,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteOracleSet()
         {
-            return !IsDirty & !Items.Any(p=>string.IsNullOrEmpty(p.Maghsad)) & ( KalaChanged | CustomerChanged );
+            return !IsDirty & !Items.Any(p=>string.IsNullOrEmpty(p.Maghsad)) & (TedadChanged | KalaChanged | CustomerChanged );
         }
 
         private RelayCommand _myCommand96595;

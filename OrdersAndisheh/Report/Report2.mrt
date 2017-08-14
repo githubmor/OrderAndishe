@@ -346,7 +346,9 @@
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>2.5,0,0.5,0.24</ClientRectangle>
-              <Conditions isList="true" count="0" />
+              <Conditions isList="true" count="1">
+                <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
+              </Conditions>
               <Font>Tahoma,9</Font>
               <Guid>e936b727d3664d43b547857e78e77161</Guid>
               <HorAlignment>Center</HorAlignment>
@@ -365,7 +367,9 @@
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>3,0,0.7,0.24</ClientRectangle>
-              <Conditions isList="true" count="0" />
+              <Conditions isList="true" count="1">
+                <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
+              </Conditions>
               <Font>Tahoma,9</Font>
               <Guid>9ed16503a5704c6b8d35df3289af7053</Guid>
               <HorAlignment>Center</HorAlignment>
@@ -484,10 +488,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/12/2017 6:40:29 PM</ReportChanged>
+  <ReportChanged>8/14/2017 11:44:06 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report2.mrt</ReportFile>
-  <ReportGuid>8de3bbed751f456597947b4a27a7323b</ReportGuid>
+  <ReportGuid>d2e436fc761741969efe94287991d3db</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

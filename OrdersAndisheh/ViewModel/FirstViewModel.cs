@@ -13,6 +13,7 @@ using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
 using OrdersAndisheh.BL;
 using OrdersAndisheh.DBL;
+using System.Threading.Tasks;
 
 namespace OrdersAndisheh.ViewModel
 {
@@ -650,6 +651,7 @@ namespace OrdersAndisheh.ViewModel
             TahvilfroshView v = new TahvilfroshView();
             Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "sefareshForTahvilSet");
             v.Show();
+            RaisePropertyChanged(() => this.CheckSefareshs);
         }
 
         private bool CanExecuteSetTahvilfrosh()
@@ -765,6 +767,7 @@ namespace OrdersAndisheh.ViewModel
             PalletReportView v = new PalletReportView();
             v.DataContext = vm;
             v.Show();
+
         }
 
         private RelayCommand _myCommand75555;
