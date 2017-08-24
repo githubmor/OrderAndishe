@@ -17,6 +17,7 @@ namespace OrdersAndisheh.BL
         private Sefaresh sefaresh2;
         SefareshService service;
         int pos = 0;
+        //List<ReportRow> reportRows;
         //public ReportManager(string sefareshTarikh)
         //{
         //    service = new SefareshService();
@@ -48,6 +49,7 @@ namespace OrdersAndisheh.BL
                 .OrderBy(p => p.Ranande)
                 .ThenBy(p => p.ItemKind)
                 .ThenBy(p => p.Maghsad).ToList());
+            
         }
 
         public void CreatDriverReport()
@@ -75,13 +77,13 @@ namespace OrdersAndisheh.BL
                     pos += 1;
             }
             FileManagar fg = new FileManagar(reportRows, "");
-            fg.CreatDriverFile(DrsWorks, "Driver");
+            fg.CreatDriverFile(DrsWorks, "Driver",false);
         }
 
-        
 
-       
-        public void CreatAllBazresReportOnDeskTop()
+
+
+        public void CreatAllBazresReportOnDeskTop(bool showPreview = true)
         {
             var bazres = sefaresh.Items.Select(p => p.BazresName).Distinct();
             foreach (var name in bazres)
@@ -102,21 +104,21 @@ namespace OrdersAndisheh.BL
                     pos += 1;
                 }
 
-                FileManagar fg = NewMethod(reportRows,true);
+                FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
                 if (name == "فهامه")
                 {
-                    fg.CreatDocFile(name);
+                    fg.CreatDocFile(name,false);
                 }
                 else
                 {
-                    fg.CreatFile(name);
+                    fg.CreatFile(name, false);
                 }
                 
             }
 
         }
 
-        private FileManagar NewMethod(List<ReportRow> reportRows,bool showReportPreview)
+        private FileManagar GetDataAfterPreview(List<ReportRow> reportRows,bool showReportPreview)
         {
             
 
@@ -134,7 +136,7 @@ namespace OrdersAndisheh.BL
             return fg;
         }
 
-        public void CreatAnbarReportOnDeskTop()
+        public void CreatAnbarReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -161,12 +163,12 @@ namespace OrdersAndisheh.BL
                 pos += 1;
             }
 
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFile("Anbar");
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFile("Anbar", false);
            
         }
 
-        public void CreatImenSazanReportOnDeskTop()
+        public void CreatImenSazanReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -187,10 +189,10 @@ namespace OrdersAndisheh.BL
                 });
                 pos += 1;
             }
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFile("ImenSazan");
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFile("ImenSazan", false);
         }
-        public void CreatAndishehReportOnDeskTop()
+        public void CreatAndishehReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -211,13 +213,15 @@ namespace OrdersAndisheh.BL
                 });
                 pos += 1;
             }
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFile("Andisheh");
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFile("Andisheh", false);
         }
-        public void CreatMaliReport()
+        public void CreatMaliReport(bool showPreview = true)
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.IsNew)
+                .ThenBy(p => p.Product.FaniCode).ToList());
             //var ImenKalas = sefaresh.Items.Where(p => !p.IsImenKala);
             foreach (var b in sefaresh.Items)
             {
@@ -237,11 +241,11 @@ namespace OrdersAndisheh.BL
                 });
                 pos += 1;
             }
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFileMali("Mali");
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFileMali("Mali", false);
         }
 
-        public void CreatKontrolReportOnDeskTop()
+        public void CreatKontrolReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -254,11 +258,11 @@ namespace OrdersAndisheh.BL
                 });
                 pos += 1;
             }
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFile("Kontrol");
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFile("Kontrol", false);
         }
 
-        public void CreatCheckListErsalOnDeskTop()
+        public void CreatCheckListErsalOnDeskTop(bool showPreview = true)
         {
             List<CheckList> cs = new List<CheckList>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad)
@@ -272,7 +276,7 @@ namespace OrdersAndisheh.BL
             f.CreatCheckListFile();
             
         }
-        public void CreatListErsalReportOnDeskTop()
+        public void CreatListErsalReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -296,8 +300,8 @@ namespace OrdersAndisheh.BL
             }
 
 
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFile("Ersal");
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFile("Ersal", false);
         }
 
         public T GetEnumValue<T>(byte intValue) where T : struct, IConvertible
@@ -345,20 +349,20 @@ namespace OrdersAndisheh.BL
             }
 
             FileManagar fg = new FileManagar(reportRows, "");
-            fg.CreatDriverErsalFile("DriverErsal");
+            fg.CreatDriverErsalFile("DriverErsal", false);
         }
 
 
 
         public void CreatAllReport()
         {
-            
-            //this.CreatAllBazresReportOnDeskTop();
-            //this.CreatAnbarReportOnDeskTop();
-            //this.CreatAndishehReportOnDeskTop();
-            //this.CreatImenSazanReportOnDeskTop();
-            //this.CreatKontrolReportOnDeskTop();
-            //this.CreatMaliReport();
+
+            this.CreatAllBazresReportOnDeskTop(false);
+            this.CreatAnbarReportOnDeskTop(false);
+            this.CreatAndishehReportOnDeskTop(false);
+            this.CreatImenSazanReportOnDeskTop(false);
+            this.CreatKontrolReportOnDeskTop(false);
+            this.CreatMaliReport(false);
         }
     }
 }

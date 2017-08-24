@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrdersAndisheh.BL
 {
-    public class CheckList
+    public class CheckList : OrdersAndisheh.BL.ICheckList
     {
         private ItemSefaresh Item;
         public CheckList(ItemSefaresh item,string Tarikh)

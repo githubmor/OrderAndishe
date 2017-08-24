@@ -101,6 +101,7 @@
     <Compile Include="MainViewModelTest.cs" />
     <Compile Include="ReportManagerTest.cs" />
     <Compile Include="UnitTest1.cs" />
+    <Compile Include="UnitTest2.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OrdersAndisheh\OrdersAndisheh.csproj">
