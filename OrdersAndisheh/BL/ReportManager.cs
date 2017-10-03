@@ -17,18 +17,7 @@ namespace OrdersAndisheh.BL
         private Sefaresh sefaresh2;
         SefareshService service;
         int pos = 0;
-        //List<ReportRow> reportRows;
-        //public ReportManager(string sefareshTarikh)
-        //{
-        //    service = new SefareshService();
-        //    this.sefaresh = service.LoadSefaresh(sefareshTarikh);
-        //    this.sefaresh2 = service.LoadSefaresh(sefareshTarikh);
-        //    this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(
-        //        sefaresh.Items.Where(p => p.ItemKind != (byte)ItemType.ارسال)
-        //        .OrderBy(p => p.Ranande)
-        //        .ThenBy(p => p.ItemKind)
-        //        .ThenBy(p => p.Maghsad).ToList());
-        //}
+        
         public ReportManager(Sefaresh s)
         {
             service = new SefareshService();
@@ -168,6 +157,33 @@ namespace OrdersAndisheh.BL
            
         }
 
+        public void CreatPalletTabloReportOnDeskTop(bool showPreview = true)
+        {
+            pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                for (int i = 0; i < b.PalletCount; i++)
+                {
+                    reportRows.Add(new ReportRow()
+                    {
+                        //Position = pos,
+                        Kala = b.Kala,
+                        //Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                        Karton = b.Karton.ToString(),
+                        //Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : ""),
+                        Maghsad = b.Maghsad,
+                        Ranande = b.Ranande
+                    });
+                }
+                pos += 1;
+            }
+
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatPalletTabloFile("PalletTablo", false);
+
+        }
+
         public void CreatImenSazanReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
@@ -216,6 +232,46 @@ namespace OrdersAndisheh.BL
             FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
             fg.CreatFile("Andisheh", false);
         }
+
+
+        public void CreatCheckReport(bool showPreview = true)
+        {
+            pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Maghsad = b.Maghsad,
+                    Ranande = b.Ranande,
+                    Car = b.Driver.Car,
+                    Karton = b.Karton,
+                    Pallet = b.PalletCount.ToString(),
+                    Pelak = b.Driver.Pelak,
+                    Phone = b.Driver.Tel1,
+                });
+                pos += 1;
+            }
+
+            var trr = reportRows.GroupBy(p => p.Ranande)
+                .Select(group => new { Ranande = group.Key, Items = group.ToList() })
+                .ToList();
+
+            foreach (var w in trr)
+            {
+                FileManagar fg = GetDataAfterPreview(w.Items, false);
+                fg.CreatCheckFile(w.Ranande, false);
+            }
+            
+            //FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            //fg.CreatCheckFile("Check", false);
+        }
+
+
+
         public void CreatMaliReport(bool showPreview = true)
         {
             pos = 0;
@@ -267,12 +323,12 @@ namespace OrdersAndisheh.BL
             List<CheckList> cs = new List<CheckList>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad)
                 .ThenBy(p => p.Ranande).ToList());
-            foreach (var item in sefaresh2.Items)
+            foreach (var item in sefaresh.Items)
             {
-                cs.Add(new CheckList(item, sefaresh2.Tarikh));
+                cs.Add(new CheckList(item, sefaresh.Tarikh));
             }
 
-            FileManagar f = new FileManagar(cs, sefaresh2.Tarikh);
+            FileManagar f = new FileManagar(cs, sefaresh.Tarikh);
             f.CreatCheckListFile();
             
         }

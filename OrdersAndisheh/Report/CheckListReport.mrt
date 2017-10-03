@@ -51,7 +51,7 @@
             <Text1 Ref="5" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.2,0,2.5,0.4</ClientRectangle>
+              <ClientRectangle>5,0,2.7,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -67,7 +67,7 @@
             <Text2 Ref="6" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.2,0,3,0.4</ClientRectangle>
+              <ClientRectangle>2.4,0,2.6,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,17,Bold</Font>
               <Guid>8b89d9e404eb46919b342b62eb086eef</Guid>
@@ -84,7 +84,7 @@
             <Text3 Ref="7" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1,0,1.2,0.4</ClientRectangle>
+              <ClientRectangle>1.2,0,1.2,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,14,Bold</Font>
               <Guid>fbe09840635a4581b88228675ac99507</Guid>
@@ -102,7 +102,7 @@
             <Text4 Ref="8" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,1,0.4</ClientRectangle>
+              <ClientRectangle>0,0,1.2,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,12</Font>
               <Guid>ad39efc686b547a2b546af04887ed594</Guid>
@@ -134,7 +134,7 @@
               <VertAlignment>Center</VertAlignment>
             </Text8>
             <Text5 Ref="10" type="Text" isKey="true">
-              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Border>Top, Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>5,0.6,1.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -168,6 +168,7 @@
               <VertAlignment>Center</VertAlignment>
             </Text6>
             <Text7 Ref="12" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>5,0.9,1.9,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -201,7 +202,7 @@
               <VertAlignment>Center</VertAlignment>
             </Text9>
             <Text10 Ref="14" type="Text" isKey="true">
-              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>5,1.3,1.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -235,7 +236,7 @@
               <VertAlignment>Center</VertAlignment>
             </Text11>
             <Text12 Ref="16" type="Text" isKey="true">
-              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Border>Top, Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.4,0.6,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -268,6 +269,7 @@
               <VertAlignment>Center</VertAlignment>
             </Text13>
             <Text14 Ref="18" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.4,0.9,1.4,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -301,7 +303,7 @@
               <VertAlignment>Center</VertAlignment>
             </Text15>
             <Text16 Ref="20" type="Text" isKey="true">
-              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.4,1.3,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -456,7 +458,7 @@
         </Text25>
         <Table1 Ref="29" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2.2,7.72,7.5</ClientRectangle>
+          <ClientRectangle>0,2.2,7.72,8</ClientRectangle>
           <ColumnCount>7</ColumnCount>
           <Components isList="true" count="91">
             <Table1_Cell1 Ref="30" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
@@ -746,7 +748,7 @@
               <ParentJoin>8</ParentJoin>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>مشاهدات 
-(انبار و كنترل كيفيت)
+(ناظر ارسال)
 </Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -783,7 +785,7 @@
             <Table1_Cell15 Ref="44" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.4,1.4,0.4</ClientRectangle>
+              <ClientRectangle>0,0.4,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>10</ID>
@@ -800,7 +802,7 @@
             <Table1_Cell16 Ref="45" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,0.4,0.5,0.4</ClientRectangle>
+              <ClientRectangle>1.4,0.4,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>27</ID>
@@ -816,7 +818,7 @@
             <Table1_Cell17 Ref="46" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,0.4,0.5,0.4</ClientRectangle>
+              <ClientRectangle>1.9,0.4,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>32</ID>
@@ -832,7 +834,7 @@
             <Table1_Cell18 Ref="47" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,0.4,0.5,0.4</ClientRectangle>
+              <ClientRectangle>2.4,0.4,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>11</ID>
@@ -849,7 +851,7 @@
             <Table1_Cell19 Ref="48" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,0.4,0.5,0.4</ClientRectangle>
+              <ClientRectangle>2.9,0.4,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>12</ID>
@@ -866,7 +868,7 @@
             <Table1_Cell20 Ref="49" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,0.4,1,0.4</ClientRectangle>
+              <ClientRectangle>3.4,0.4,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>13</ID>
@@ -883,7 +885,7 @@
             <Table1_Cell21 Ref="50" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top, Left, Right;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,0.4,3.3,0.4</ClientRectangle>
+              <ClientRectangle>4.4,0.4,3.3,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,10</Font>
               <ID>14</ID>
@@ -893,7 +895,8 @@
               <Page isRef="3" />
               <Parent isRef="29" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>تعداد تحويلي : {Item.Tedad} عدد
+              <Text>انطباق تعداد تحويلي با تعداد ذكر شده در بارنامه:
+تعداد تحويلي : {Item.Tedad} عدد
 در هر پالت  {Item.TedadDarHarPallet} عدد
 </Text>
               <TextBrush>Black</TextBrush>
@@ -904,7 +907,7 @@
             <Table1_Cell22 Ref="51" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.8,1.4,0.6</ClientRectangle>
+              <ClientRectangle>0,1,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>20</ID>
@@ -921,7 +924,7 @@
             <Table1_Cell23 Ref="52" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,0.8,0.5,0.6</ClientRectangle>
+              <ClientRectangle>1.4,1,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>29</ID>
@@ -937,7 +940,7 @@
             <Table1_Cell24 Ref="53" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,0.8,0.5,0.6</ClientRectangle>
+              <ClientRectangle>1.9,1,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>34</ID>
@@ -953,7 +956,7 @@
             <Table1_Cell25 Ref="54" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,0.8,0.5,0.6</ClientRectangle>
+              <ClientRectangle>2.4,1,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>21</ID>
@@ -970,7 +973,7 @@
             <Table1_Cell26 Ref="55" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,0.8,0.5,0.6</ClientRectangle>
+              <ClientRectangle>2.9,1,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>22</ID>
@@ -987,7 +990,7 @@
             <Table1_Cell27 Ref="56" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,0.8,1,0.6</ClientRectangle>
+              <ClientRectangle>3.4,1,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>23</ID>
@@ -1004,7 +1007,7 @@
             <Table1_Cell28 Ref="57" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,0.8,3.3,0.6</ClientRectangle>
+              <ClientRectangle>4.4,1,3.3,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,10</Font>
               <ID>24</ID>
@@ -1025,7 +1028,7 @@
             <Table1_Cell29 Ref="58" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,1.4,1.4,1.7</ClientRectangle>
+              <ClientRectangle>0,1.6,1.4,1.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1042,7 +1045,7 @@
             <Table1_Cell30 Ref="59" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,1.4,0.5,1.7</ClientRectangle>
+              <ClientRectangle>1.4,1.6,0.5,1.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1059,7 +1062,7 @@
             <Table1_Cell31 Ref="60" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,1.4,0.5,1.7</ClientRectangle>
+              <ClientRectangle>1.9,1.6,0.5,1.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1076,7 +1079,7 @@
             <Table1_Cell32 Ref="61" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,1.4,0.5,1.7</ClientRectangle>
+              <ClientRectangle>2.4,1.6,0.5,1.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1093,7 +1096,7 @@
             <Table1_Cell33 Ref="62" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,1.4,0.5,1.7</ClientRectangle>
+              <ClientRectangle>2.9,1.6,0.5,1.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1110,7 +1113,7 @@
             <Table1_Cell34 Ref="63" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,1.4,1,1.7</ClientRectangle>
+              <ClientRectangle>3.4,1.6,1,1.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1128,7 +1131,7 @@
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.4,1.4,3.3,1.7</ClientRectangle>
+              <ClientRectangle>4.4,1.6,3.3,1.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1147,7 +1150,7 @@
             <Table1_Cell36 Ref="65" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,3.1,1.4,0.3</ClientRectangle>
+              <ClientRectangle>0,3.3,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,9</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1163,7 +1166,7 @@
             <Table1_Cell37 Ref="66" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,3.1,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.4,3.3,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,9</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1179,7 +1182,7 @@
             <Table1_Cell38 Ref="67" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,3.1,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.9,3.3,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,9</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1195,7 +1198,7 @@
             <Table1_Cell39 Ref="68" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,3.1,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.4,3.3,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,9</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1211,7 +1214,7 @@
             <Table1_Cell40 Ref="69" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,3.1,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.9,3.3,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,9</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1227,7 +1230,7 @@
             <Table1_Cell41 Ref="70" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,3.1,1,0.3</ClientRectangle>
+              <ClientRectangle>3.4,3.3,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,9</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1244,7 +1247,7 @@
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.4,3.1,3.3,0.3</ClientRectangle>
+              <ClientRectangle>4.4,3.3,3.3,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,10</Font>
               <GrowToHeight>True</GrowToHeight>
@@ -1256,7 +1259,7 @@
               <Page isRef="3" />
               <Parent isRef="29" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>صحت اطلاعات روی برچسب و همخوانی با قطعات داخل ظرف :
+              <Text>برچسب گذاري و علامتگذاري :
 برچسب های پالت را براساس مشخصات ذکر شده روی برچسب و نوع محصول داخل پالت بررسی میشود.</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -1266,7 +1269,7 @@
             <Table1_Cell43 Ref="72" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,3.4,1.4,1.2</ClientRectangle>
+              <ClientRectangle>0,3.9,1.4,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>42</ID>
@@ -1282,7 +1285,7 @@
             <Table1_Cell44 Ref="73" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,3.4,0.5,1.2</ClientRectangle>
+              <ClientRectangle>1.4,3.9,0.5,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>43</ID>
@@ -1298,7 +1301,7 @@
             <Table1_Cell45 Ref="74" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,3.4,0.5,1.2</ClientRectangle>
+              <ClientRectangle>1.9,3.9,0.5,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>44</ID>
@@ -1314,7 +1317,7 @@
             <Table1_Cell46 Ref="75" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,3.4,0.5,1.2</ClientRectangle>
+              <ClientRectangle>2.4,3.9,0.5,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>45</ID>
@@ -1330,7 +1333,7 @@
             <Table1_Cell47 Ref="76" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,3.4,0.5,1.2</ClientRectangle>
+              <ClientRectangle>2.9,3.9,0.5,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>46</ID>
@@ -1346,7 +1349,7 @@
             <Table1_Cell48 Ref="77" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,3.4,1,1.2</ClientRectangle>
+              <ClientRectangle>3.4,3.9,1,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>47</ID>
@@ -1362,7 +1365,7 @@
             <Table1_Cell49 Ref="78" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,3.4,3.3,1.2</ClientRectangle>
+              <ClientRectangle>4.4,3.9,3.3,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,10</Font>
               <ID>48</ID>
@@ -1372,7 +1375,7 @@
               <Page isRef="3" />
               <Parent isRef="29" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>برچسب گذاري و علامتگذاري :
+              <Text>صحت اطلاعات روی برچسب و همخوانی با قطعات داخل ظرف:
 بر روي پالت برچسب آ4 با مشخصات برچسب هاي رنگي داخلي در سمت بارگيري ليفتراك ( قسمت هلال دار زير پالت ) نصب مي گردد.
 پس از تكميل پالتها يك برگ برچسب ساپكو با ثبت تعداد كل محصول روي پالت نصب مي گردد.
 </Text>
@@ -1384,7 +1387,7 @@
             <Table1_Cell50 Ref="79" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,4.6,1.4,0.8</ClientRectangle>
+              <ClientRectangle>0,5.1,1.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>35</ID>
@@ -1400,7 +1403,7 @@
             <Table1_Cell51 Ref="80" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,4.6,0.5,0.8</ClientRectangle>
+              <ClientRectangle>1.4,5.1,0.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>36</ID>
@@ -1416,7 +1419,7 @@
             <Table1_Cell52 Ref="81" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,4.6,0.5,0.8</ClientRectangle>
+              <ClientRectangle>1.9,5.1,0.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>37</ID>
@@ -1432,7 +1435,7 @@
             <Table1_Cell53 Ref="82" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,4.6,0.5,0.8</ClientRectangle>
+              <ClientRectangle>2.4,5.1,0.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>38</ID>
@@ -1448,7 +1451,7 @@
             <Table1_Cell54 Ref="83" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,4.6,0.5,0.8</ClientRectangle>
+              <ClientRectangle>2.9,5.1,0.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>39</ID>
@@ -1464,7 +1467,7 @@
             <Table1_Cell55 Ref="84" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,4.6,1,0.8</ClientRectangle>
+              <ClientRectangle>3.4,5.1,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>40</ID>
@@ -1480,7 +1483,7 @@
             <Table1_Cell56 Ref="85" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,4.6,3.3,0.8</ClientRectangle>
+              <ClientRectangle>4.4,5.1,3.3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,10</Font>
               <ID>41</ID>
@@ -1501,7 +1504,7 @@
             <Table1_Cell57 Ref="86" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,5.4,1.4,0.9</ClientRectangle>
+              <ClientRectangle>0,5.9,1.4,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>98</ID>
@@ -1516,7 +1519,7 @@
             <Table1_Cell58 Ref="87" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,5.4,0.5,0.9</ClientRectangle>
+              <ClientRectangle>1.4,5.9,0.5,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>99</ID>
@@ -1531,7 +1534,7 @@
             <Table1_Cell59 Ref="88" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,5.4,0.5,0.9</ClientRectangle>
+              <ClientRectangle>1.9,5.9,0.5,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>100</ID>
@@ -1546,7 +1549,7 @@
             <Table1_Cell60 Ref="89" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,5.4,0.5,0.9</ClientRectangle>
+              <ClientRectangle>2.4,5.9,0.5,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>101</ID>
@@ -1561,7 +1564,7 @@
             <Table1_Cell61 Ref="90" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,5.4,0.5,0.9</ClientRectangle>
+              <ClientRectangle>2.9,5.9,0.5,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>102</ID>
@@ -1576,7 +1579,7 @@
             <Table1_Cell62 Ref="91" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,5.4,1,0.9</ClientRectangle>
+              <ClientRectangle>3.4,5.9,1,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>103</ID>
@@ -1591,7 +1594,7 @@
             <Table1_Cell63 Ref="92" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,5.4,3.3,0.9</ClientRectangle>
+              <ClientRectangle>4.4,5.9,3.3,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,10</Font>
               <ID>104</ID>
@@ -1614,7 +1617,7 @@
             <Table1_Cell64 Ref="93" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top, Left;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,6.3,1.4,0.3</ClientRectangle>
+              <ClientRectangle>0,6.8,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>91</ID>
@@ -1629,7 +1632,7 @@
             <Table1_Cell65 Ref="94" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,6.3,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.4,6.8,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -1646,7 +1649,7 @@
             <Table1_Cell66 Ref="95" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,6.3,1,0.3</ClientRectangle>
+              <ClientRectangle>1.4,6.8,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <HorAlignment>Right</HorAlignment>
@@ -1673,7 +1676,7 @@
             <Table1_Cell67 Ref="96" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,6.3,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.4,6.8,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -1692,7 +1695,7 @@
             <Table1_Cell68 Ref="97" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,6.3,1,0.3</ClientRectangle>
+              <ClientRectangle>2.4,6.8,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <HorAlignment>Right</HorAlignment>
@@ -1718,7 +1721,7 @@
             <Table1_Cell69 Ref="98" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,6.3,1,0.3</ClientRectangle>
+              <ClientRectangle>3.4,6.8,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <HorAlignment>Right</HorAlignment>
@@ -1737,7 +1740,7 @@
             <Table1_Cell70 Ref="99" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top, Right;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,6.3,3.3,0.3</ClientRectangle>
+              <ClientRectangle>4.4,6.8,3.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>97</ID>
@@ -1756,7 +1759,7 @@
             <Table1_Cell71 Ref="100" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Left;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,6.6,1.4,0.3</ClientRectangle>
+              <ClientRectangle>0,7.1,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>84</ID>
@@ -1771,7 +1774,7 @@
             <Table1_Cell72 Ref="101" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,6.6,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.4,7.1,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>85</ID>
@@ -1786,7 +1789,7 @@
             <Table1_Cell73 Ref="102" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,6.6,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.9,7.1,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>86</ID>
@@ -1801,7 +1804,7 @@
             <Table1_Cell74 Ref="103" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,6.6,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.4,7.1,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>87</ID>
@@ -1816,7 +1819,7 @@
             <Table1_Cell75 Ref="104" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,6.6,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.9,7.1,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>88</ID>
@@ -1831,7 +1834,7 @@
             <Table1_Cell76 Ref="105" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,6.6,1,0.3</ClientRectangle>
+              <ClientRectangle>3.4,7.1,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,9</Font>
               <ID>89</ID>
@@ -1846,7 +1849,7 @@
             <Table1_Cell77 Ref="106" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Right;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,6.6,3.3,0.3</ClientRectangle>
+              <ClientRectangle>4.4,7.1,3.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>2  Nazanin,11</Font>
               <ID>90</ID>
@@ -1865,7 +1868,7 @@
             <Table1_Cell78 Ref="107" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,6.9,1.4,0.3</ClientRectangle>
+              <ClientRectangle>0,7.4,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -1882,7 +1885,7 @@
             <Table1_Cell79 Ref="108" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,6.9,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.4,7.4,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -1899,7 +1902,7 @@
             <Table1_Cell80 Ref="109" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Bottom;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,6.9,2.4,0.3</ClientRectangle>
+              <ClientRectangle>0,7.4,2.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10</Font>
               <ID>79</ID>
@@ -1926,7 +1929,7 @@
             <Table1_Cell81 Ref="110" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,6.9,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.4,7.4,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -1943,7 +1946,7 @@
             <Table1_Cell82 Ref="111" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,6.9,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.9,7.4,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -1960,7 +1963,7 @@
             <Table1_Cell83 Ref="112" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Bottom;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,6.9,2,0.3</ClientRectangle>
+              <ClientRectangle>2.4,7.4,2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10</Font>
               <ID>82</ID>
@@ -1978,7 +1981,7 @@
               <Parent isRef="29" />
               <ParentJoin>82</ParentJoin>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>تاييد كننده ( QC ) :	</Text>
+              <Text>تاييد كننده ( ناظر ارسال ):</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -1987,7 +1990,7 @@
             <Table1_Cell84 Ref="113" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Bottom;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,6.9,3.3,0.3</ClientRectangle>
+              <ClientRectangle>4.4,7.4,3.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10</Font>
               <ID>83</ID>
@@ -2006,7 +2009,7 @@
             <Table1_Cell85 Ref="114" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,7.2,1.4,0.3</ClientRectangle>
+              <ClientRectangle>0,7.7,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -2023,7 +2026,7 @@
             <Table1_Cell86 Ref="115" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,7.2,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.4,7.7,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -2040,7 +2043,7 @@
             <Table1_Cell87 Ref="116" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.9,7.2,0.5,0.3</ClientRectangle>
+              <ClientRectangle>1.9,7.7,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -2057,7 +2060,7 @@
             <Table1_Cell88 Ref="117" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.4,7.2,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.4,7.7,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -2074,7 +2077,7 @@
             <Table1_Cell89 Ref="118" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.9,7.2,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.9,7.7,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -2091,7 +2094,7 @@
             <Table1_Cell90 Ref="119" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,7.2,1,0.3</ClientRectangle>
+              <ClientRectangle>3.4,7.7,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Font>2  Nazanin,9</Font>
@@ -2108,7 +2111,7 @@
             <Table1_Cell91 Ref="120" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
               <Border>Top;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,7.2,7.7,0.3</ClientRectangle>
+              <ClientRectangle>0,7.7,7.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10</Font>
               <ID>111</ID>
@@ -2174,10 +2177,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>2/18/2017 2:24:29 PM</ReportChanged>
+  <ReportChanged>10/3/2017 1:26:10 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckListReport.mrt</ReportFile>
-  <ReportGuid>08f09d473ff0467f9859d240073caf51</ReportGuid>
+  <ReportGuid>80b400bf604e4ea5a93c09e6969a5349</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

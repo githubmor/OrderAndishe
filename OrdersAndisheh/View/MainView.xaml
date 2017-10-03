@@ -82,7 +82,7 @@
                     </dxlc:LayoutItem>
                     
                     <dxlc:LayoutItem Label="توضیحات :">
-                        <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="10" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="3" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup Orientation="Horizontal">
                         <Button IsEnabled="{Binding CanEdit}" UI:EventFocusAttachment.ElementToFocus="{Binding ElementName=code}" Content="↓" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding AddNewItem, Mode=OneWay}" TabIndex="4"/>
@@ -170,6 +170,10 @@
         		VerticalAlignment="Top" Width="116" Command="{Binding CreateMaliReport, Mode=OneWay}"/>
             <Button Content="پرینت" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding TableViewCommands.ShowPrintPreviewDialog, ElementName=tableView}"/>
+            <Button Content="تابلو پالت" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding PalletTablo, Mode=OneWay}"/>
+            <Button Content="چكينگ" HorizontalAlignment="Left" 
+        		VerticalAlignment="Top" Width="116" Command="{Binding CheckReportPrint, Mode=OneWay}"/>
         </WrapPanel>
         <StackPanel  Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
             <Label Content="{Binding DriversVazn}" />
