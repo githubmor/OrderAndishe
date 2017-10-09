@@ -30,6 +30,7 @@ namespace OrdersAndisheh.BL
                 item.IsDriverChanged = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsDriverChanged;
                 item.IsNew = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsNew;
                 item.IsTedadChanged = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsTedadChanged;
+                item.IsSelected = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsSelected;
             }
 
             this.sefaresh2 = service.LoadSefaresh(s.Tarikh);
@@ -323,7 +324,12 @@ namespace OrdersAndisheh.BL
             List<CheckList> cs = new List<CheckList>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad)
                 .ThenBy(p => p.Ranande).ToList());
-            foreach (var item in sefaresh.Items)
+            List<ItemSefaresh> dd = sefaresh.Items.ToList();
+            if (sefaresh.Items.Any(p=>p.IsSelected))
+            {
+                dd = sefaresh.Items.Where(p => p.IsSelected).ToList();
+            }
+            foreach (var item in dd)
             {
                 cs.Add(new CheckList(item, sefaresh.Tarikh));
             }

@@ -175,7 +175,8 @@
                         mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
                         mainreport.Render(false);
                         //mainreport.Show();
-                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + i + ".pdf");
+                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\"
+                            + CheckList[i].NameKala +" - "+ CheckList[i].RanandeName + ".pdf");
                     }
                     
                 }

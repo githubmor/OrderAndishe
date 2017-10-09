@@ -1900,11 +1900,11 @@
               <TextBrush>Black</TextBrush>
             </Table1_Cell79>
             <Table1_Cell80 Ref="109" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
-              <Border>Bottom;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Border>Left, Bottom;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,7.4,2.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>2  Nazanin,11</Font>
               <ID>79</ID>
               <Join>True</Join>
               <JoinCells isList="true" count="3">
@@ -1965,7 +1965,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>2.4,7.4,2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>2  Nazanin,11</Font>
               <ID>82</ID>
               <Join>True</Join>
               <JoinCells isList="true" count="3">
@@ -1988,11 +1988,11 @@
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell83>
             <Table1_Cell84 Ref="113" type="Stimulsoft.Report.Components.Table.StiTableCell" isKey="true">
-              <Border>Bottom;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Border>Right, Bottom;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>4.4,7.4,3.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>2  Nazanin,11</Font>
               <ID>83</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
@@ -2133,7 +2133,7 @@
               <Parent isRef="29" />
               <ParentJoin>111</ParentJoin>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>شماره فرم : 02/ 1511F                               	             	1- انبار		              2- مشتري (در صورت نياز)</Text>
+              <Text>شماره فرم : 04/ 1511F                               	             	1- انبار		              2- مشتري (در صورت نياز)</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -2177,10 +2177,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/3/2017 1:26:10 PM</ReportChanged>
+  <ReportChanged>10/3/2017 1:34:20 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckListReport.mrt</ReportFile>
-  <ReportGuid>80b400bf604e4ea5a93c09e6969a5349</ReportGuid>
+  <ReportGuid>8dae64c9b01c41f980f05dafbfbca74c</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
