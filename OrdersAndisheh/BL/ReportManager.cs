@@ -17,7 +17,6 @@ namespace OrdersAndisheh.BL
         private Sefaresh sefaresh2;
         SefareshService service;
         int pos = 0;
-        //List<ReportRow> reportRows;
         //public ReportManager(string sefareshTarikh)
         //{
         //    service = new SefareshService();
@@ -41,6 +40,7 @@ namespace OrdersAndisheh.BL
                 item.IsDriverChanged = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsDriverChanged;
                 item.IsNew = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsNew;
                 item.IsTedadChanged = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsTedadChanged;
+                item.IsSelected = s.Items.Single(p => p.OrderDetail.Id == item.OrderDetail.Id).IsSelected;
             }
 
             this.sefaresh2 = service.LoadSefaresh(s.Tarikh);
@@ -80,9 +80,9 @@ namespace OrdersAndisheh.BL
             fg.CreatDriverFile(DrsWorks, "Driver",false);
         }
 
+        
 
-
-
+       
         public void CreatAllBazresReportOnDeskTop(bool showPreview = true)
         {
             var bazres = sefaresh.Items.Select(p => p.BazresName).Distinct();
@@ -163,9 +163,12 @@ namespace OrdersAndisheh.BL
                 pos += 1;
             }
 
-            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-            fg.CreatFile("Anbar", false);
+            FileManagar fg = NewMethod(reportRows,true);
+            fg.CreatFile("Anbar");
            
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatPalletTabloFile("PalletTablo", false);
+
         }
 
         public void CreatImenSazanReportOnDeskTop(bool showPreview = true)
@@ -213,10 +216,10 @@ namespace OrdersAndisheh.BL
                 });
                 pos += 1;
             }
-            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-            fg.CreatFile("Andisheh", false);
+            FileManagar fg = NewMethod(reportRows,true);
+            fg.CreatFile("Andisheh");
         }
-        public void CreatMaliReport(bool showPreview = true)
+        public void CreatMaliReport()
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -267,12 +270,17 @@ namespace OrdersAndisheh.BL
             List<CheckList> cs = new List<CheckList>();
             sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad)
                 .ThenBy(p => p.Ranande).ToList());
-            foreach (var item in sefaresh2.Items)
+            List<ItemSefaresh> dd = sefaresh.Items.ToList();
+            if (sefaresh.Items.Any(p=>p.IsSelected))
             {
-                cs.Add(new CheckList(item, sefaresh2.Tarikh));
+                dd = sefaresh.Items.Where(p => p.IsSelected).ToList();
+            }
+            foreach (var item in dd)
+            {
+                cs.Add(new CheckList(item, sefaresh.Tarikh));
             }
 
-            FileManagar f = new FileManagar(cs, sefaresh2.Tarikh);
+            FileManagar f = new FileManagar(cs, sefaresh.Tarikh);
             f.CreatCheckListFile();
             
         }
@@ -356,7 +364,7 @@ namespace OrdersAndisheh.BL
 
         public void CreatAllReport()
         {
-
+            
             this.CreatAllBazresReportOnDeskTop(false);
             this.CreatAnbarReportOnDeskTop(false);
             this.CreatAndishehReportOnDeskTop(false);
