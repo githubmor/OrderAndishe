@@ -13,11 +13,9 @@
 	{
 
         private List<ReportRow> ReportRows;
-        //private List<DriverReportRow> DriverReportRows;
         private string Tarikh;
         private List<CheckList> CheckList;
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        //private ObservableCollection<ItemSefaresh> items;
 
 
         public FileManagar(List<ReportRow> reportRows, string Tarikh)
@@ -49,62 +47,40 @@
                 package.Save();
             }
         }
-        //public FileManagar(ObservableCollection<ItemSefaresh> observableCollection)
-        //{
-        //    // TODO: Complete member initialization
-        //    this.items = observableCollection;
-        //}
 
-
-        public void CreatDriverFile(List<DriverWork> rt , string fileName)
+        public void CreatDriverFile(List<DriverWork> rt , string fileName = "DriverReport",bool IsLocationSelection = true)
         {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (IsLocationSelection)
+            {
+                GetSavingLocation();
+            }
+            CreateReportFile(fileName, null, "DriverListReport", StiExportFormat.Pdf, false);
+        }
+
+        private void GetSavingLocation()
+        {
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())
             {
                 dlg.Description = "Select a folder";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     path = dlg.SelectedPath;
-                    if (string.IsNullOrEmpty(fileName))
-                    {
-                        fileName = "Report";
-                    }
-
-                    CreateReportFile(fileName, null, "DriverListReport", StiExportFormat.Pdf,false);
-                    //StiReport mainreport = new StiReport();
-                    //mainreport.RegBusinessObject("Items", ReportRows);
-                    //mainreport.RegBusinessObject("Works", rt);
-                    //mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\DriverListReport.mrt");
-                    //mainreport.Render();
-                    //mainreport.Show();
-                    //mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
                 }
+
             }
         }
-        
-		public void CreatFile(string fileName)
+
+        public void CreatFile(string fileName = "Report", bool IsLocationSelection = true)
 		{
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            if (IsLocationSelection)
             {
-                dlg.Description = "Select a folder";
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    //MessageBox.Show("You selected: " + dlg.SelectedPath);
-                    path = dlg.SelectedPath;
-                    if (string.IsNullOrEmpty(fileName))
-                    {
-                        fileName = "Report";
-                    }
-                    var h = new Header();
-                    h.Tarikh = Tarikh;
-                    h.WeekDay = getWeekDay();
-
-
-
-                    CreateReportFile(fileName, h,"Report2",StiExportFormat.Pdf,false);
-                }
+                GetSavingLocation();
             }
+            var h = new Header();
+            h.Tarikh = Tarikh;
+            h.WeekDay = getWeekDay();
+
+            CreateReportFile(fileName, h, "Report2", StiExportFormat.Pdf, false);
             
 		}
 
@@ -140,67 +116,32 @@
             }
             mainreport.ExportDocument(fileFormat, path + "\\" + fileName + "." + extension);
         }
-        public void CreatFileMali(string fileName)
+        public void CreatFileMali(string fileName = "MaliReport", bool IsLocationSelection = true)
         {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            if (IsLocationSelection)
             {
-                dlg.Description = "Select a folder";
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    //MessageBox.Show("You selected: " + dlg.SelectedPath);
-                    path = dlg.SelectedPath;
-                    if (string.IsNullOrEmpty(fileName))
-                    {
-                        fileName = "Report";
-                    }
-                    var h = new Header();
-                    h.Tarikh = Tarikh;
-                    h.WeekDay = getWeekDay();
-
-
-                    CreateReportFile(fileName, h, "MaliReport", StiExportFormat.Pdf, false);
-                    //StiReport mainreport = new StiReport();
-                    //mainreport.RegBusinessObject("Sefaresh", h);
-                    //mainreport.RegBusinessObject("Items", ReportRows);
-                    //mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\MaliReport.mrt");
-                    //mainreport.Render();
-                    //mainreport.Show();
-                    //mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
-                }
+                GetSavingLocation();
             }
+            var h = new Header();
+            h.Tarikh = Tarikh;
+            h.WeekDay = getWeekDay();
 
+
+            CreateReportFile(fileName, h, "MaliReport", StiExportFormat.Excel2007, false);
         }
 
-        public virtual void CreatDocFile(string fileName)
+        public virtual void CreatDocFile(string fileName = "DocReport", bool IsLocationSelection = true)
         {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            if (IsLocationSelection)
             {
-                dlg.Description = "Select a folder";
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    //MessageBox.Show("You selected: " + dlg.SelectedPath);
-                    path = dlg.SelectedPath;
-                    if (string.IsNullOrEmpty(fileName))
-                    {
-                        fileName = "Report";
-                    }
-                    var h = new Header();
-                    h.Tarikh = Tarikh;
-                    h.WeekDay = getWeekDay();
-
-
-                    CreateReportFile(fileName, h, "Report2", StiExportFormat.Word2007, false);
-                    //StiReport mainreport = new StiReport();
-                    //mainreport.RegBusinessObject("Sefaresh", h);
-                    //mainreport.RegBusinessObject("Items", ReportRows);
-                    //mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\Report2.mrt");
-                    //mainreport.Render();
-                    //mainreport.Show();
-                    //mainreport.ExportDocument(StiExportFormat.RtfWinWord, path + "\\" + fileName + ".doc");
-                }
+                GetSavingLocation();
             }
+            var h = new Header();
+            h.Tarikh = Tarikh;
+            h.WeekDay = getWeekDay();
+
+
+            CreateReportFile(fileName, h, "Report2", StiExportFormat.Word2007, false);
             
         }
 
@@ -211,52 +152,39 @@
 
         public void CreatCheckListFile()
         {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             using (FolderBrowserDialog dlg = new FolderBrowserDialog())
             {
                 dlg.Description = "Select a folder";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    //var settings = new StiPdfExportSettings() { ImageQuality = 1.0f, ImageResolution = 300, EmbeddedFonts = true, UseUnicode = false, StandardPdfFonts = true };
                     path = dlg.SelectedPath;
                     for (int i = 0; i < CheckList.Count; i++)
                     {
                         StiReport mainreport = new StiReport();
                         mainreport.RegBusinessObject("Item", CheckList[i]);
                         mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
-                        mainreport.Render();
+                        mainreport.Render(false);
                         //mainreport.Show();
                         mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + i + ".pdf");
                     }
                     
                 }
             }
+            //GetSavingLocation();
+            //for (int i = 0; i < CheckList.Count; i++)
+            //{
+            //    CreateReportFile(i.ToString(), null, "CheckListReport", StiExportFormat.Pdf, false);
+            //}
 
         }
 
-        public void CreatDriverErsalFile(string fileName)
+        public void CreatDriverErsalFile(string fileName = "DriverErsalReport", bool IsLocationSelection = true)
         {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            if (IsLocationSelection)
             {
-                dlg.Description = "Select a folder";
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    path = dlg.SelectedPath;
-                    if (string.IsNullOrEmpty(fileName))
-                    {
-                        fileName = "Report";
-                    }
-
-                    CreateReportFile(fileName, null, "DriverErsalListReport", StiExportFormat.Pdf, false);
-                    //StiReport mainreport = new StiReport();
-                    //mainreport.RegBusinessObject("Items", ReportRows);
-                    //mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\DriverErsalListReport.mrt");
-                    //mainreport.Render();
-                    //mainreport.Show();
-                    //mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + fileName + ".pdf");
-                }
+                GetSavingLocation();
             }
+            CreateReportFile(fileName, null, "DriverErsalListReport", StiExportFormat.Pdf, false);
         }
     }
     public class Header

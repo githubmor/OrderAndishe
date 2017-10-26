@@ -55,10 +55,10 @@ namespace OrdersAndisheh.ViewModel
                 IsEdit = true;
                 IsDirty = false;
                 CanEdit = !sefaresh.Accepted;
-                KalaChanged = true;
-                TedadChanged = true;
-                CustomerChanged = true;
-                DriverChanged = true;
+                //KalaChanged = true;
+                //TedadChanged = true;
+                //CustomerChanged = true;
+                //DriverChanged = true;
                 //MessageBox.Show("سفارش تاریخ " + Tarikh + "بار گذاری شد");
                 RaisePropertyChanged(() => this.Tarikh);
                 RaisePropertyChanged(() => this.SaveText);
@@ -658,6 +658,7 @@ namespace OrdersAndisheh.ViewModel
                     }
                     ReportManager rp = new ReportManager(sefaresh);
                     rp.CreatAllReport();
+                    MessageBox.Show("همه گزارش ها ساخته شد");
                 }
                 else
                 {
@@ -732,6 +733,7 @@ namespace OrdersAndisheh.ViewModel
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatAllBazresReportOnDeskTop();
             changeState();
+            MessageBox.Show("گزارش ساخته شد");
             //RaisePropertyChanged(() => Items);
         }
 
@@ -761,6 +763,7 @@ namespace OrdersAndisheh.ViewModel
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatListErsalReportOnDeskTop();
             changeState();
+            MessageBox.Show("گزارش ساخته شد");
         }
 
         private bool CanExecuteCreatListErsal()
@@ -790,6 +793,7 @@ namespace OrdersAndisheh.ViewModel
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatAnbarReportOnDeskTop();
                 changeState();
+                MessageBox.Show("گزارش ساخته شد");
                 //RaisePropertyChanged(() => Items);
             }
             catch (Exception rt)
@@ -824,6 +828,7 @@ namespace OrdersAndisheh.ViewModel
             ReportManager rp = new ReportManager(sefaresh);
              rp.CreatImenSazanReportOnDeskTop();
              changeState();
+             MessageBox.Show("گزارش ساخته شد");
         }
 
         private bool CanExecuteCreateImensazanList()
@@ -857,7 +862,7 @@ namespace OrdersAndisheh.ViewModel
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatAndishehReportOnDeskTop();
             changeState();
-
+            MessageBox.Show("گزارش ساخته شد");
             //RaisePropertyChanged(() => Items);
         }
 
@@ -889,6 +894,7 @@ namespace OrdersAndisheh.ViewModel
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatKontrolReportOnDeskTop();
                 changeState();
+                MessageBox.Show("گزارش ساخته شد");
             }
             catch (Exception rrr)
             {
@@ -1038,7 +1044,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreatDriverReport()
         {
-            return KalaChanged | TedadChanged | CustomerChanged | DriverChanged; 
+            return true;
         }
 
         private void ExecuteCreatDriverReport()
@@ -1047,7 +1053,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatDriverReport();
-                changeState();
+                MessageBox.Show("گزارش ساخته شد");
                 //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
@@ -1074,7 +1080,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteCreatDriverErsalListReport()
         {
-            return KalaChanged | TedadChanged | CustomerChanged | DriverChanged;
+            return true;
         }
 
         private void ExecuteCreatDriverErsalListReport()
@@ -1083,7 +1089,7 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatDriverErsalListReport();
-                changeState();
+                MessageBox.Show("گزارش ساخته شد");
                 //RaisePropertyChanged(() => Items);
             }
             catch (Exception rrr)
@@ -1164,12 +1170,12 @@ namespace OrdersAndisheh.ViewModel
             {
                 ReportManager rp = new ReportManager(sefaresh);
                 rp.CreatCheckListErsalOnDeskTop();
-                //RaisePropertyChanged(() => Items);
+                MessageBox.Show("گزارش ساخته شد");
             }
             catch (Exception rrr)
             {
 
-                MessageBox.Show(rrr.Message.ToString()); ;
+                MessageBox.Show(rrr.Message.ToString());
             }
         }
 
@@ -1215,7 +1221,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteMontagReciving()
         {
-            return KalaChanged | TedadChanged;
+            return true;
         }
 
         private void ExecuteMontagReciving()
@@ -1243,12 +1249,12 @@ namespace OrdersAndisheh.ViewModel
             OracleView v = new OracleView();
             Messenger.Default.Send<string>(sefaresh.Tarikh, "SefareshTarikh");
             v.ShowDialog();
-            changeState();
+            
         }
 
         private bool CanExecuteOracleSet()
         {
-            return !IsDirty & !Items.Any(p=>string.IsNullOrEmpty(p.Maghsad)) & (TedadChanged | KalaChanged | CustomerChanged );
+            return !IsDirty & !Items.Any(p=>string.IsNullOrEmpty(p.Maghsad)) ;
         }
 
         private RelayCommand _myCommand96595;
@@ -1271,6 +1277,7 @@ namespace OrdersAndisheh.ViewModel
             ReportManager rp = new ReportManager(sefaresh);
             rp.CreatMaliReport();
             changeState();
+            MessageBox.Show("گزارش ساخته شد");
         }
 
         private bool CanExecuteCreateMaliReport()

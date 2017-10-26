@@ -12,7 +12,7 @@ namespace BL
     using System.Linq;
     using System.Text;
 
-	public class ReportRow 
+	public class ReportRow : OrdersAndisheh.BL.IReportRow 
 	{
         public int Position { get; set; }
         public string Kala { get; set; }

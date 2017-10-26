@@ -57,7 +57,7 @@
             <Text1 Ref="6" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,1.1,0.3</ClientRectangle>
+              <ClientRectangle>0,0,1.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,11</Font>
               <HorAlignment>Center</HorAlignment>
@@ -73,7 +73,7 @@
             <Text3 Ref="7" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.3,1.1,0.3</ClientRectangle>
+              <ClientRectangle>0,0.3,1.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,11</Font>
               <HorAlignment>Center</HorAlignment>
@@ -89,7 +89,7 @@
             <Text2 Ref="8" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.1,0,0.7,0.3</ClientRectangle>
+              <ClientRectangle>1.3,0,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,13,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -104,7 +104,7 @@
             <Text4 Ref="9" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.1,0.3,0.7,0.3</ClientRectangle>
+              <ClientRectangle>1.3,0.3,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,13,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -119,7 +119,7 @@
             <Text5 Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.8,0,4,0.6</ClientRectangle>
+              <ClientRectangle>2,0,3.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,21,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -167,13 +167,13 @@
         <Header Ref="13" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,1.7,7.87,0.3</ClientRectangle>
-          <Components isList="true" count="7">
+          <Components isList="true" count="9">
             <HeaderItems_kala Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>0,0,1.3,0.3</ClientRectangle>
+              <ClientRectangle>1.7,0,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Titr,10,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>b678218246f84db18fefa355ff6a6056</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -189,7 +189,7 @@
             <HeaderItems_karton Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>1.3,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>2.4,0,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>cce957a6fa4f4fecb0454560430ed2cb</Guid>
@@ -206,7 +206,7 @@
             <HeaderItems_pallet Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>3.4,0,0.8,0.3</ClientRectangle>
+              <ClientRectangle>4,0,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>4e0efe66f0e14e9aa8d39ae3e0b50f59</Guid>
@@ -224,7 +224,7 @@
             <HeaderItems_maghsad Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>4.2,0,0.9,0.3</ClientRectangle>
+              <ClientRectangle>4.8,0,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,11,Bold</Font>
               <Guid>bc4a3ec0de604e50b49feca2da872253</Guid>
@@ -242,7 +242,7 @@
             <HeaderItems_vazn Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>2.5,0,0.9,0.3</ClientRectangle>
+              <ClientRectangle>3.3,0,0.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>6e05b718a97e4788b5980c85e2efc031</Guid>
@@ -259,7 +259,7 @@
             <HeaderItems_Ranande Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>5.1,0,2.3,0.3</ClientRectangle>
+              <ClientRectangle>5.7,0,1.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>873ff8dab067480585c2826352ab82a9</Guid>
@@ -276,7 +276,7 @@
             <Text8 Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>7.4,0,0.47,0.3</ClientRectangle>
+              <ClientRectangle>7.5,0,0.37,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,9,Bold</Font>
               <Guid>51a1e7a4359946d3b9e39ff3d413a138</Guid>
@@ -290,22 +290,59 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
+            <Text10 Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0.9,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>67ba39c4c17b442da98a28b43250f55a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="13" />
+              <Text>توضيحات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,9,Bold</Font>
+              <Guid>0323c4453fe84c3ca344f8f3107c7967</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4" />
+              <Parent isRef="13" />
+              <Text>تأييديه حسابداري 
+</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>Header</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </Header>
-        <Data Ref="21" type="DataBand" isKey="true">
+        <Data Ref="23" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>febeeb78b448498fbfc442ce5bff949c</BusinessObjectGuid>
           <ClientRectangle>0,2.4,7.87,0.24</ClientRectangle>
-          <Components isList="true" count="6">
-            <DataItems_karton Ref="22" type="Text" isKey="true">
+          <Components isList="true" count="9">
+            <DataItems_karton Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>1.3,0,1.2,0.24</ClientRectangle>
+              <ClientRectangle>2.4,0,0.9,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsCustomerChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold,True,False,,,All</value>
               </Conditions>
@@ -315,18 +352,18 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_karton</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="23" />
               <Text>{Items.Maghsad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_karton>
-            <DataItems_pallet Ref="23" type="Text" isKey="true">
+            <DataItems_pallet Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.4,0,0.8,0.24</ClientRectangle>
+              <ClientRectangle>4,0,0.8,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold,True,False,,,All</value>
               </Conditions>
@@ -336,18 +373,18 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_pallet</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="23" />
               <Text>{Items.Pallet}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_pallet>
-            <DataItems_maghsad Ref="24" type="Text" isKey="true">
+            <DataItems_maghsad Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.2,0,0.9,0.24</ClientRectangle>
+              <ClientRectangle>4.8,0,0.9,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold,True,False,,,All</value>
               </Conditions>
@@ -357,17 +394,17 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_maghsad</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="23" />
               <Text>{Items.Karton}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_maghsad>
-            <Text7 Ref="25" type="Text" isKey="true">
+            <Text7 Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>7.4,0,0.47,0.24</ClientRectangle>
+              <ClientRectangle>7.5,0,0.37,0.24</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>8f147ce04bcf4ceeaf95d8e246387c9d</Guid>
@@ -375,17 +412,17 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="23" />
               <Text>{LineThrough}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <DataItems_Ranande Ref="26" type="Text" isKey="true">
+            <DataItems_Ranande Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.1,0,2.3,0.24</ClientRectangle>
+              <ClientRectangle>5.7,0,1.8,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
@@ -394,7 +431,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Items.Kala}</Text>
               <TextBrush>Black</TextBrush>
@@ -402,11 +439,11 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_Ranande>
-            <DataItems_vazn Ref="27" type="Text" isKey="true">
+            <DataItems_vazn Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2.5,0,0.9,0.24</ClientRectangle>
+              <ClientRectangle>3.3,0,0.7,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsTedadChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
@@ -416,13 +453,67 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_vazn</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="23" />
               <Text>{Items.Tedad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_vazn>
+            <Text9 Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.7,0,0.7,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>bbc3a793402b41d5a7bea199f9660497</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text12 Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0.9,0,0.8,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>98fd1e4be5164b7bbcd51e93b73614d5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,0.9,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>abf633be90224274b033d58f74f2edbe</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName isNull="true" />
@@ -432,7 +523,7 @@
           <Parent isRef="4" />
           <Sort isList="true" count="0" />
         </Data>
-        <GroupFooterBand1 Ref="28" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand1 Ref="33" type="GroupFooterBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>[191:191:191]</Brush>
           <ClientRectangle>0,3.04,7.87,0.13</ClientRectangle>
@@ -451,13 +542,13 @@
       <PageWidth>8.27</PageWidth>
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="29" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="34" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="30" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="35" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -469,10 +560,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/14/2017 11:54:49 AM</ReportChanged>
+  <ReportChanged>8/15/2017 10:39:47 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\MaliReport.mrt</ReportFile>
-  <ReportGuid>bae6ccc0e1ee4e6b8a280a0db9b01b6f</ReportGuid>
+  <ReportGuid>1a33605deac44feca935dfb16292936f</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
@@ -501,7 +592,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="1">
-    <Style1 Ref="31" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="36" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Brush>Transparent</Brush>
       <Conditions isList="true" count="0" />
       <Description />
