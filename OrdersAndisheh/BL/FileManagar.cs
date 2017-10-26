@@ -83,6 +83,16 @@
             CreateReportFile(fileName, h, "Report2", StiExportFormat.Pdf, false);
             
 		}
+        public void CreatPalletTabloFile(string fileName = "PalletTablo", bool IsLocationSelection = true)
+        {
+            if (IsLocationSelection)
+            {
+                GetSavingLocation();
+            }
+
+            CreateReportFile(fileName, null, "PalletTabloReport", StiExportFormat.Pdf, false);
+
+        }
 
         private void CreateReportFile(string fileName, Header h,string ReportFileName,StiExportFormat fileFormat,bool showreportAfterCreate)
         {
@@ -165,7 +175,8 @@
                         mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
                         mainreport.Render(false);
                         //mainreport.Show();
-                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\" + i + ".pdf");
+                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\"
+                            + CheckList[i].NameKala +" - "+ CheckList[i].RanandeName + ".pdf");
                     }
                     
                 }
@@ -185,6 +196,19 @@
                 GetSavingLocation();
             }
             CreateReportFile(fileName, null, "DriverErsalListReport", StiExportFormat.Pdf, false);
+        }
+
+        public void CreatCheckFile(string fileName = "CheckReport", bool IsLocationSelection = true)
+        {
+            if (IsLocationSelection)
+            {
+                GetSavingLocation();
+            }
+            var h = new Header();
+            h.Tarikh = Tarikh;
+            h.WeekDay = getWeekDay();
+
+            CreateReportFile(fileName, h, "CheckReport", StiExportFormat.Pdf, false);
         }
     }
     public class Header

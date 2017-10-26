@@ -1284,6 +1284,56 @@ namespace OrdersAndisheh.ViewModel
         {
             return !IsDirty & (KalaChanged | TedadChanged | CustomerChanged);
         }
+
+        private RelayCommand _myCommand96565;
+
+        /// <summary>
+        /// Gets the PalletTablo.
+        /// </summary>
+        public RelayCommand PalletTablo
+        {
+            get
+            {
+                return _myCommand96565
+                    ?? (_myCommand96565 = new RelayCommand(ExecutePalletTablo));
+            }
+        }
+
+        private void ExecutePalletTablo()
+        {
+            ReportManager rp = new ReportManager(sefaresh);
+            rp.CreatPalletTabloReportOnDeskTop();
+            changeState();
+            MessageBox.Show("گزارش ساخته شد");
+        }
+
+        private RelayCommand _myCommand95685658655;
+
+        /// <summary>
+        /// Gets the CheckReportPrint.
+        /// </summary>
+        public RelayCommand CheckReportPrint
+        {
+            get
+            {
+                return _myCommand95685658655 ?? (_myCommand95685658655 = new RelayCommand(
+                    ExecuteCheckReportPrint,
+                    CanExecuteCheckReportPrint));
+            }
+        }
+
+        private void ExecuteCheckReportPrint()
+        {
+            ReportManager rp = new ReportManager(sefaresh);
+            rp.CreatCheckReport();
+            changeState();
+            MessageBox.Show("گزارش ساخته شد");
+        }
+
+        private bool CanExecuteCheckReportPrint()
+        {
+            return true;
+        }
     }
 
     public static class ObservableCollectionExtensions

@@ -22,6 +22,8 @@ namespace BL
         public string Maghsad { get; set; }
         public string Vazn { get; set; }
         public string Ranande { get; set; }
+        public string Phone { get; set; }
+        public string Car { get; set; }
         public string Pelak { get; set; }
         public bool IsKalaChanged { get; set; }
         public bool IsTedadChanged { get; set; }
