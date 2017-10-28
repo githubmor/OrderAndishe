@@ -163,11 +163,11 @@ namespace OrdersAndisheh.BL
                 pos += 1;
             }
 
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFile("Anbar");
+            //FileManagar fg = NewMethod(reportRows,true);
+            //fg.CreatFile("Anbar");
            
             FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-            fg.CreatPalletTabloFile("PalletTablo", false);
+            fg.CreatFile("Anbar", false);
 
         }
 
@@ -216,10 +216,10 @@ namespace OrdersAndisheh.BL
                 });
                 pos += 1;
             }
-            FileManagar fg = NewMethod(reportRows,true);
-            fg.CreatFile("Andisheh");
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFile("Andisheh",false);
         }
-        public void CreatMaliReport()
+        public void CreatMaliReport(bool showPreview = true)
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
@@ -371,6 +371,47 @@ namespace OrdersAndisheh.BL
             this.CreatImenSazanReportOnDeskTop(false);
             this.CreatKontrolReportOnDeskTop(false);
             this.CreatMaliReport(false);
+        }
+
+        public void CreatPalletTabloReportOnDeskTop(bool showPreview = true)
+        {
+            pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Maghsad = b.Maghsad,
+                    Ranande = b.Ranande,
+                });
+                pos += 1;
+            }
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatPalletTabloFile("", false);
+        }
+
+        public void CreatCheckReport(bool showPreview = true)
+        {
+             pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Pallet = b.PalletCount.ToString(),
+                    Karton = b.Karton,
+                    Maghsad = b.Maghsad,
+                    Ranande = b.Ranande,
+                });
+                pos += 1;
+            }
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatCheckFile("", false);
+        }
         }
     }
 }

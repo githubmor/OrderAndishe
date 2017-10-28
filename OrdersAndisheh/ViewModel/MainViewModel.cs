@@ -656,9 +656,14 @@ namespace OrdersAndisheh.ViewModel
                         changeState();
                         MessageBox.Show("اطلاعات سفارش روز " + Tarikh + " ذخیره شد");
                     }
-                    ReportManager rp = new ReportManager(sefaresh);
-                    rp.CreatAllReport();
-                    MessageBox.Show("همه گزارش ها ساخته شد");
+                    var res = MessageBox.Show("آيا مي خواهيد گزارش بسازيد ؟","گزارش ساز",MessageBoxButtons.YesNo);
+
+                    if (res == DialogResult.Yes)
+                    {
+                        ReportManager rp = new ReportManager(sefaresh);
+                        rp.CreatAllReport();
+                        MessageBox.Show("همه گزارش ها ساخته شد"); 
+                    }
                 }
                 else
                 {
@@ -1275,7 +1280,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteCreateMaliReport()
         {
             ReportManager rp = new ReportManager(sefaresh);
-            rp.CreatMaliReport();
+            rp.CreatMaliReport(false);
             changeState();
             MessageBox.Show("گزارش ساخته شد");
         }
@@ -1302,7 +1307,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecutePalletTablo()
         {
             ReportManager rp = new ReportManager(sefaresh);
-            rp.CreatPalletTabloReportOnDeskTop();
+            rp.CreatPalletTabloReportOnDeskTop(false);
             changeState();
             MessageBox.Show("گزارش ساخته شد");
         }
@@ -1325,7 +1330,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteCheckReportPrint()
         {
             ReportManager rp = new ReportManager(sefaresh);
-            rp.CreatCheckReport();
+            rp.CreatCheckReport(false);
             changeState();
             MessageBox.Show("گزارش ساخته شد");
         }
