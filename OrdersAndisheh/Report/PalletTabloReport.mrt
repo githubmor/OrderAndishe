@@ -51,13 +51,13 @@
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>febeeb78b448498fbfc442ce5bff949c</BusinessObjectGuid>
           <ClientRectangle>0,0.2,3.94,5.54</ClientRectangle>
-          <Components isList="true" count="4">
+          <Components isList="true" count="5">
             <Text4 Ref="6" type="Text" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,3.89,1.64</ClientRectangle>
+              <ClientRectangle>0,0.5,3.89,1.54</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>2  Titr,1000,Bold</Font>
+              <Font>Tahoma,1000,Bold</Font>
               <Guid>e29056f2541c4eeb8604b2807d51b808</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -74,7 +74,7 @@
             <Text5 Ref="7" type="Text" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,3.4,3.89,1.64</ClientRectangle>
+              <ClientRectangle>0,3.7,3.89,1.54</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,1000,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -92,7 +92,7 @@
             <Text1 Ref="8" type="Text" isKey="true">
               <Border>None;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.2,5.1,3.5,0.2</ClientRectangle>
+              <ClientRectangle>0.2,5.3,3.5,0.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -107,9 +107,9 @@
             <Text2 Ref="9" type="Text" isKey="true">
               <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,1.71,3.89,1.64</ClientRectangle>
+              <ClientRectangle>0,2.11,3.89,1.54</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>2  Titr,1000,Bold</Font>
+              <Font>Tahoma,1000,Bold</Font>
               <Guid>980e55c60a0345198dd29d322dc787c7</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -123,6 +123,26 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text2>
+            <Text3 Ref="10" type="Text" isKey="true">
+              <Border>All;[105:105:105];1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3.89,0.44</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,18,Bold</Font>
+              <Guid>5e7a9848fbf041de8fa198b8b7e81979</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <ShrinkFontToFitMinimumSize>5</ShrinkFontToFitMinimumSize>
+              <Text>{Items.Ranande} - {Items.Maghsad} - {Items.Kala}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName isNull="true" />
@@ -141,13 +161,13 @@
       <PageWidth>8.27</PageWidth>
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="10" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="11" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="11" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="12" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -159,10 +179,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>9/19/2017 3:52:52 PM</ReportChanged>
+  <ReportChanged>10/28/2017 2:33:10 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
-  <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\PalletTabloReport.mrt</ReportFile>
-  <ReportGuid>a88b666f5e804b09a1c82f2781e11d45</ReportGuid>
+  <ReportFile>D:\restore darzi\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\PalletTabloReport.mrt</ReportFile>
+  <ReportGuid>6e5e496e16e94e9bb8c842c0cd019da1</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
@@ -191,7 +211,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="1">
-    <Style1 Ref="12" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="13" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Brush>Transparent</Brush>
       <Conditions isList="true" count="0" />
       <Description />

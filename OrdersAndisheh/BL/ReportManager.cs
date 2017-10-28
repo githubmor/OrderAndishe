@@ -379,14 +379,22 @@ namespace OrdersAndisheh.BL
             List<ReportRow> reportRows = new List<ReportRow>();
             foreach (var b in sefaresh.Items)
             {
-                reportRows.Add(new ReportRow()
+                int len = b.PalletCount;
+                if (len<=0)
                 {
-                    Position = pos,
-                    Kala = b.Kala,
-                    Maghsad = b.Maghsad,
-                    Ranande = b.Ranande,
-                });
-                pos += 1;
+                    len = 1;
+                }
+                for (int i = 0; i < len; i++)
+                {
+                    reportRows.Add(new ReportRow()
+                    {
+                        Position = pos,
+                        Kala = b.Kala,
+                        Maghsad = b.Maghsad,
+                        Ranande = b.Ranande,
+                    });
+                    pos += 1;
+                }
             }
             FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
             fg.CreatPalletTabloFile("", false);

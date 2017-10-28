@@ -387,7 +387,7 @@
         <HeaderBand1 Ref="26" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,1.7,10.22,1.6</ClientRectangle>
-          <Components isList="true" count="14">
+          <Components isList="true" count="15">
             <HeaderItems_kala Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
@@ -472,7 +472,7 @@
             <HeaderItems_Ranande Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>6.4,0.3,3.4,1.3</ClientRectangle>
+              <ClientRectangle>7.2,0.3,2.6,1.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -620,18 +620,35 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text23>
+            <Text42 Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:243:232]</Brush>
+              <ClientRectangle>6.4,0.3,0.8,1.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>35161947a519449299c6aab3b26eaf3c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text42</Name>
+              <Page isRef="4" />
+              <Parent isRef="26" />
+              <Text>مقصد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text42>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>HeaderBand1</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </HeaderBand1>
-        <Data Ref="41" type="DataBand" isKey="true">
+        <Data Ref="42" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>febeeb78b448498fbfc442ce5bff949c</BusinessObjectGuid>
           <ClientRectangle>0,3.7,10.22,0.34</ClientRectangle>
-          <Components isList="true" count="9">
-            <DataItems_pallet Ref="42" type="Text" isKey="true">
+          <Components isList="true" count="10">
+            <DataItems_pallet Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -642,14 +659,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_pallet</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <Text>{Items.Pallet}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_pallet>
-            <DataItems_maghsad Ref="43" type="Text" isKey="true">
+            <DataItems_maghsad Ref="44" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -660,14 +677,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_maghsad</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <Text>{Items.Karton}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_maghsad>
-            <DataItems_vazn Ref="44" type="Text" isKey="true">
+            <DataItems_vazn Ref="45" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -678,14 +695,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_vazn</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <Text>{Items.Tedad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_vazn>
-            <Text7 Ref="45" type="Text" isKey="true">
+            <Text7 Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>9.8,0,0.42,0.34</ClientRectangle>
@@ -695,23 +712,23 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <Text>{LineThrough}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <DataItems_Ranande Ref="46" type="Text" isKey="true">
+            <DataItems_Ranande Ref="47" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>6.4,0,3.4,0.34</ClientRectangle>
+              <ClientRectangle>7.2,0,2.6,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Items.Kala}</Text>
               <TextBrush>Black</TextBrush>
@@ -719,7 +736,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_Ranande>
-            <Text24 Ref="47" type="Text" isKey="true">
+            <Text24 Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -731,13 +748,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text24>
-            <Text25 Ref="48" type="Text" isKey="true">
+            <Text25 Ref="49" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -749,13 +766,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text25</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text25>
-            <Text26 Ref="49" type="Text" isKey="true">
+            <Text26 Ref="50" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -767,13 +784,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text26>
-            <Text27 Ref="50" type="Text" isKey="true">
+            <Text27 Ref="51" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -785,12 +802,31 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
               <Page isRef="4" />
-              <Parent isRef="41" />
+              <Parent isRef="42" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text27>
+            <Text43 Ref="52" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.4,0,0.8,0.34</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,14</Font>
+              <Guid>288e9d85f1364286acd84d7c264a0164</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="4" />
+              <Parent isRef="42" />
+              <Text>{Items.Maghsad}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text43>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName isNull="true" />
@@ -800,11 +836,11 @@
           <Parent isRef="4" />
           <Sort isList="true" count="0" />
         </Data>
-        <EmptyBand1 Ref="51" type="Stimulsoft.Report.Components.StiEmptyBand" isKey="true">
+        <EmptyBand1 Ref="53" type="Stimulsoft.Report.Components.StiEmptyBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,4.44,10.22,0.34</ClientRectangle>
-          <Components isList="true" count="9">
-            <Text28 Ref="52" type="Text" isKey="true">
+          <Components isList="true" count="10">
+            <Text28 Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -816,13 +852,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text28</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text28>
-            <Text34 Ref="53" type="Text" isKey="true">
+            <Text34 Ref="55" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -834,13 +870,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text34</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text34>
-            <Text35 Ref="54" type="Text" isKey="true">
+            <Text35 Ref="56" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -852,13 +888,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text35</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
-            <Text36 Ref="55" type="Text" isKey="true">
+            <Text36 Ref="57" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>9.8,0,0.42,0.34</ClientRectangle>
@@ -869,31 +905,31 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text36</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <Text>{LineThrough}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text36>
-            <Text37 Ref="56" type="Text" isKey="true">
+            <Text37 Ref="58" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>6.4,0,3.4,0.34</ClientRectangle>
+              <ClientRectangle>7.2,0,2.6,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>59b4a13a9e9b4bd8916fa6fc810b1153</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text37</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text37>
-            <Text38 Ref="57" type="Text" isKey="true">
+            <Text38 Ref="59" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -905,13 +941,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text38</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text38>
-            <Text39 Ref="58" type="Text" isKey="true">
+            <Text39 Ref="60" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -923,13 +959,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text39</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text39>
-            <Text40 Ref="59" type="Text" isKey="true">
+            <Text40 Ref="61" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -941,13 +977,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text40</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text40>
-            <Text41 Ref="60" type="Text" isKey="true">
+            <Text41 Ref="62" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -959,12 +995,30 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text41</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="53" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text41>
+            <Text44 Ref="63" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.4,0,0.8,0.34</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>50a4c4f03eae4a80aae25726732f1473</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="4" />
+              <Parent isRef="53" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text44>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>EmptyBand1</Name>
@@ -982,13 +1036,13 @@
       <PageWidth>11</PageWidth>
       <PaperSize>Letter</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="61" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="64" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="62" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="65" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -1000,10 +1054,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/3/2017 9:34:36 AM</ReportChanged>
+  <ReportChanged>10/28/2017 2:26:07 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
-  <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckReport.mrt</ReportFile>
-  <ReportGuid>216b0fb804e04ff299456d1502b0d929</ReportGuid>
+  <ReportFile>D:\restore darzi\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckReport.mrt</ReportFile>
+  <ReportGuid>2009258206d74818b371acbcc341dfc2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
@@ -1032,7 +1086,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="1">
-    <Style1 Ref="63" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="66" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Brush>Transparent</Brush>
       <Conditions isList="true" count="0" />
       <Description />
