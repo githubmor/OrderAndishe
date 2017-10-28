@@ -394,24 +394,34 @@ namespace OrdersAndisheh.BL
 
         public void CreatCheckReport(bool showPreview = true)
         {
-             pos = 0;
-            List<ReportRow> reportRows = new List<ReportRow>();
-            foreach (var b in sefaresh.Items)
+            
+            var yu = sefaresh.Items.GroupBy(p => p.Ranande)
+                .Select(c=>new {ranande = c.Key,list = c.ToList()});
+            foreach (var brt in yu)
             {
-                reportRows.Add(new ReportRow()
+                pos = 0;
+                List<ReportRow> reportRows = new List<ReportRow>();
+                foreach (var b in brt.list)
                 {
-                    Position = pos,
-                    Kala = b.Kala,
-                    Pallet = b.PalletCount.ToString(),
-                    Karton = b.Karton,
-                    Maghsad = b.Maghsad,
-                    Ranande = b.Ranande,
-                });
-                pos += 1;
+                    reportRows.Add(new ReportRow()
+                    {
+                        Position = pos,
+                        Kala = b.Kala,
+                        Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                        Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : ""),
+                        Karton = b.Karton,
+                        Maghsad = b.Maghsad,
+                        Ranande = b.Ranande,
+                        Pelak = b.Driver.Pelak,
+                        Phone = b.Driver.Tel1,
+                        Car = b.Driver.Car
+                    });
+                    pos += 1;
+                }
+                FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+                fg.CreatCheckFile(brt.ranande, false);
             }
-            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-            fg.CreatCheckFile("", false);
+            
         }
         }
     }
-}

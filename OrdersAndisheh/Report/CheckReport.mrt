@@ -58,7 +58,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.3,1.7,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11,Bold</Font>
+              <Font>B Nazanin,14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
@@ -136,7 +136,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,1.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11,Bold</Font>
+              <Font>B Nazanin,14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
@@ -169,7 +169,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>7.9,0.7,1.5,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>Tahoma,14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
@@ -202,7 +202,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>5.3,0.7,1.8,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>Tahoma,14,Bold</Font>
               <Guid>df50d3affef44b7096969581a3772022</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -236,7 +236,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>2.4,0.7,2.1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10,Bold</Font>
+              <Font>Tahoma,14,Bold</Font>
               <Guid>4486b277c2674be1ac2de5b03e9aa338</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -271,7 +271,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.7,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10,Bold</Font>
+              <Font>Tahoma,14,Bold</Font>
               <Guid>9fbf803e23c4413e84ce72aa0eee5b73</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -637,7 +637,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>4,0,0.8,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_pallet</Name>
@@ -655,7 +655,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>4.8,0,0.8,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_maghsad</Name>
@@ -673,7 +673,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>5.6,0,0.8,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_vazn</Name>
@@ -690,7 +690,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>9.8,0,0.42,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
@@ -707,7 +707,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>6.4,0,3.4,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
               <Page isRef="4" />
@@ -725,7 +725,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>3,0,1,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>Tahoma,14</Font>
               <Guid>735f76ce84924a0faa27500e391ccb3c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
