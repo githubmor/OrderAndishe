@@ -273,12 +273,14 @@
     <Compile Include="BL\ErsalItem.cs" />
     <Compile Include="BL\ExportToFile\Exporter.cs" />
     <Compile Include="BL\ICheckList.cs" />
-    <Compile Include="BL\Importing\FactoryImporter.cs" />
-    <Compile Include="BL\Importing\IImportData.cs" />
     <Compile Include="BL\Importing\ImportDataKind.cs" />
+    <Compile Include="BL\Importing\FactoryImporter.cs" />
+    <Compile Include="BL\Importing\FileImporter.cs" />
+    <Compile Include="BL\Importing\IImportData.cs" />
+    <Compile Include="BL\Importing\IBaseImportData.cs" />
+    <Compile Include="BL\Importing\AmountImporter.cs" />
     <Compile Include="BL\Importing\AmountData.cs" />
     <Compile Include="BL\Importing\TahvilFroshData.cs" />
-    <Compile Include="BL\Importing\AmountImporter.cs" />
     <Compile Include="BL\Importing\TahvilFroshImporter.cs" />
     <Compile Include="BL\IReportRow.cs" />
     <Compile Include="BL\ItemType.cs" />
