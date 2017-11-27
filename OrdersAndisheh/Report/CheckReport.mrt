@@ -424,7 +424,7 @@
             <HeaderItems_pallet Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>4,0.3,0.8,1.3</ClientRectangle>
+              <ClientRectangle>4,0.3,0.6,1.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -456,7 +456,7 @@
             <HeaderItems_vazn Ref="31" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>5.6,0.3,0.8,1.3</ClientRectangle>
+              <ClientRectangle>5.2,0.3,0.7,1.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -589,7 +589,7 @@
             <Text22 Ref="39" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>4.8,0.3,0.8,1.3</ClientRectangle>
+              <ClientRectangle>4.6,0.3,0.6,1.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>86983629503d4fbaa18528f27650fd14</Guid>
@@ -623,7 +623,7 @@
             <Text42 Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>6.4,0.3,0.8,1.3</ClientRectangle>
+              <ClientRectangle>5.9,0.3,1.3,1.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>35161947a519449299c6aab3b26eaf3c</Guid>
@@ -652,7 +652,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>4,0,0.6,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
@@ -670,7 +670,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.8,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>4.6,0,0.6,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
@@ -688,7 +688,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.6,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>5.2,0,0.7,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
@@ -812,7 +812,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>6.4,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>5.9,0,1.3,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,14</Font>
               <Guid>288e9d85f1364286acd84d7c264a0164</Guid>
@@ -844,7 +844,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>4,0,0.6,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>71ef025ad89f452b944e0697134485e1</Guid>
@@ -862,7 +862,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.8,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>4.6,0,0.6,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>e5d546c9b0aa4b11a51250a6da8b4e79</Guid>
@@ -880,7 +880,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.6,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>5.2,0,0.7,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>2d4079548dc74d36ae927c46d85ffa81</Guid>
@@ -1005,7 +1005,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>6.4,0,0.8,0.34</ClientRectangle>
+              <ClientRectangle>5.9,0,1.3,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>50a4c4f03eae4a80aae25726732f1473</Guid>
@@ -1054,10 +1054,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/28/2017 2:26:07 PM</ReportChanged>
+  <ReportChanged>11/7/2017 1:43:48 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
-  <ReportFile>D:\restore darzi\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckReport.mrt</ReportFile>
-  <ReportGuid>2009258206d74818b371acbcc341dfc2</ReportGuid>
+  <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckReport.mrt</ReportFile>
+  <ReportGuid>ae2ae59f9072456abdb3d89b174c7b69</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

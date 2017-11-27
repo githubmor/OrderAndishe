@@ -41,6 +41,7 @@ namespace OrdersAndisheh.ViewModel
             SimpleIoc.Default.Register<OracleRelationViewModel>();
             SimpleIoc.Default.Register<ISefareshService, SefareshService>();
             SimpleIoc.Default.Register<TahvilforoshViewModel>();
+            SimpleIoc.Default.Register<IMyContextCF, MyContextCF>();
             SimpleIoc.Default.Register<AsnViewModel>();
             SimpleIoc.Default.Register<OracleViewModel>();
         }

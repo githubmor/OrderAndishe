@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="شامل هدر ستون و اطلاعات زير هدر مي باشد&#xD;&#xA;در ضمن در سازه ميتوان هدر و مقادير را گرفت&#xD;&#xA;در توسعه شايد بتوان نوع مقادير و يا تعداد كاراكتر مقادير را هم بدست اورد كه بعدا در پيشنهادي استفاده كرد">
+    <Position X="9.135" Y="0.625" Height="1.146" Width="2.315" />
+  </Comment>
+  <Class Name="ImportingLib.Column">
+    <Position X="6.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAgAQAAAQA=</HashCode>
+      <FileName>Column.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImportingLib.SampleData">
+    <Position X="3.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAhAAAA=</HashCode>
+      <FileName>SampleData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Columns" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ImportingLib.Importer">
+    <Position X="0.5" Y="2.5" Width="2.25" />
+    <AssociationLine Name="SampleData" Type="ImportingLib.SampleData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.438" Y="2.5" />
+        <Point X="1.438" Y="1.06" />
+        <Point X="3.25" Y="1.06" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAEAAAA=</HashCode>
+      <FileName>Importer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SampleData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ImportingLib.ImportData">
+    <Position X="4.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ImportData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

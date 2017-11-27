@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>179</ApplicationRevision>
+    <ApplicationRevision>186</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -342,6 +342,7 @@
     <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\Baste.cs" />
     <Compile Include="DBL\DriverWork.cs" />
+    <Compile Include="DBL\IMyContextCF.cs" />
     <Compile Include="DBL\OracleRelation.cs" />
     <Compile Include="DBL\TempDriver.cs" />
     <Compile Include="DBL\MOracle.cs" />
@@ -683,6 +684,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Content Include="bin\Debug\OrderDbCompact.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Report\Report2.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

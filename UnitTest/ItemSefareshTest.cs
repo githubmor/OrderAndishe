@@ -74,7 +74,7 @@ namespace UnitTest
             //o.HasOracle = true;
             o.ItemType = (byte) ItemType.عادی;
             o.TahvilForosh = 56;
-            o.Tedad = Convert.ToInt16(48522);
+            o.Tedad = Convert.ToInt16(522);
 
             ItemSefaresh i = new ItemSefaresh(o);
 
@@ -133,27 +133,27 @@ namespace UnitTest
 
             i.Tedad = 192;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("2", i.PalletCount);
+            Assert.AreEqual(2, i.PalletCount);
             Assert.AreEqual(1000, i.Vazn);
 
             i.Tedad = 96;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
             Assert.AreEqual(500, i.Vazn);
             
             i.Tedad = 70;
-            Assert.AreEqual("17+1", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual("17[2]", i.Karton);
+            Assert.AreEqual(1, i.PalletCount);
             Assert.AreEqual(418, i.Vazn);
 
             i.Tedad = 200;
             Assert.AreEqual("50", i.Karton);
-            Assert.AreEqual("3", i.PalletCount);
+            Assert.AreEqual(3, i.PalletCount);
             Assert.AreEqual(1225, i.Vazn);
 
             i.Tedad = 213;
-            Assert.AreEqual("53+1", i.Karton);
-            Assert.AreEqual("3", i.PalletCount);
+            Assert.AreEqual("53[1]", i.Karton);
+            Assert.AreEqual(3, i.PalletCount);
             Assert.AreEqual(1265, i.Vazn);
         }
 
@@ -169,23 +169,23 @@ namespace UnitTest
 
             i.Tedad = 192;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 96;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 70;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 200;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 213;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
         }
 
         //چک کردن تعداد در پالت و تعداد در سبد
@@ -200,7 +200,7 @@ namespace UnitTest
 
             i.Tedad = 192;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
             Assert.AreEqual(0, i.Vazn);
 
         }
@@ -217,23 +217,23 @@ namespace UnitTest
 
             i.Tedad = 192;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 96;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 70;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 200;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
 
             i.Tedad = 213;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
         }
 
         //چک کردن تعداد صفر در پالت و تعداد در سبد
@@ -248,7 +248,7 @@ namespace UnitTest
 
             i.Tedad = 192;
             Assert.AreEqual("", i.Karton);
-            Assert.AreEqual("1", i.PalletCount);
+            Assert.AreEqual(1, i.PalletCount);
             Assert.AreEqual(0, i.Vazn);
 
         }

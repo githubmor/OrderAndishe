@@ -115,16 +115,24 @@ namespace OrdersAndisheh.ViewModel
 
         private void CalculateSefareshWithData()
         {
-            //bool isImen;
-            //if (TahvilFroshs.Any(p => int.Parse(p.CodeKala) < 15009000))
-            //{
+            
+            //var isImen = !TahvilFroshs.Any(p => int.Parse(p.CodeKala) < 15009000);
 
-            //}
-            //else
-            //{
+            //var t = TahvilFroshs.Where(p => p.CodeKala.StartsWith("15")).ToList();
 
+            //foreach (var item in t)
+            //{
+            //    var ddddd = item.CodeKala.Substring(0, 4);
+            //    var iiiii = ddddd.Substring(3, 1);
+            //    var o = iiiii;
             //}
-            var isImen = !TahvilFroshs.Any(p => int.Parse(p.CodeKala) < 15009000);
+
+
+            //15001067 -> Substring(0, 4)= 1500 -> Substring(3,1) = 0 => Andisheh
+            //15010001 -> Substring(0, 4)= 1501 -> Substring(3,1) = 1 => ImenSazan
+            var isImen = TahvilFroshs.Where(p => p.CodeKala.StartsWith("15"))
+                .Any(p => (p.CodeKala.Substring(0, 4)).Substring(3,1) == "1");
+            
             CheckMoreThanOneTarikh();
 
             var ItemForCheck = sefaresh.Items.Where(p => p.IsImenKala == isImen);

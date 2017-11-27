@@ -14,7 +14,7 @@ namespace BL
         void UnAcceptSefaresh(Sefaresh sefaresh);
         void UpdateSefaresh(Sefaresh sefaresh);
         List<Customer> LoadOracleCustomer();
-
+        string MontagReciving(int sefareshId);
         void SaveOracleRelation(List<OrdersAndisheh.DBL.Customer> OCustomers);
 
         List<ItemSefaresh> LoadNoDriverSefareshItems(string sefareshTarikh);

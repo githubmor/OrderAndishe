@@ -650,7 +650,7 @@ namespace OrdersAndisheh.ViewModel
         {
             TahvilfroshView v = new TahvilfroshView();
             Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "sefareshForTahvilSet");
-            v.Show();
+            v.ShowDialog();
             RaisePropertyChanged(() => this.CheckSefareshs);
         }
 

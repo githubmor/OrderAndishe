@@ -70,7 +70,7 @@
             }
         }
 
-        public void CreatFile(string fileName = "Report", bool IsLocationSelection = true)
+        public void CreatFile(string fileName = "Report", bool IsLocationSelection = true, bool IsShowReportAfterCreat = false)
 		{
             if (IsLocationSelection)
             {
@@ -80,7 +80,7 @@
             h.Tarikh = Tarikh;
             h.WeekDay = getWeekDay();
 
-            CreateReportFile(fileName, h, "Report2", StiExportFormat.Pdf, false);
+            CreateReportFile(fileName, h, "Report2", StiExportFormat.Pdf, IsShowReportAfterCreat);
             
 		}
         public void CreatPalletTabloFile(string fileName = "PalletTablo", bool IsLocationSelection = true)

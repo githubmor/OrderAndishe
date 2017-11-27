@@ -1,13 +1,10 @@
 ﻿using BL;
-using OrdersAndisheh.DBL;
 using OrdersAndisheh.View;
 using OrdersAndisheh.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrdersAndisheh.BL
 {
@@ -288,7 +285,12 @@ namespace OrdersAndisheh.BL
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            foreach (var b in sefaresh.Items)
+            List<ItemSefaresh> dd = sefaresh.Items.ToList();
+            if (sefaresh.Items.Any(p => p.IsSelected))
+            {
+                dd = sefaresh.Items.Where(p => p.IsSelected).ToList();
+            }
+            foreach (var b in dd)
             {
                 reportRows.Add(new ReportRow() 
                 { 
@@ -309,7 +311,7 @@ namespace OrdersAndisheh.BL
 
 
             FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-            fg.CreatFile("Ersal", false);
+            fg.CreatFile("Ersal", false,true);
         }
 
         public T GetEnumValue<T>(byte intValue) where T : struct, IConvertible
@@ -336,7 +338,12 @@ namespace OrdersAndisheh.BL
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            foreach (var b in sefaresh.Items)
+            List<ItemSefaresh> dd = sefaresh.Items.ToList();
+            if (sefaresh.Items.Any(p => p.IsSelected))
+            {
+                dd = sefaresh.Items.Where(p => p.IsSelected).ToList();
+            }
+            foreach (var b in dd)
             {
                 reportRows.Add(new ReportRow()
                 {
@@ -377,7 +384,12 @@ namespace OrdersAndisheh.BL
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            foreach (var b in sefaresh.Items)
+            List<ItemSefaresh> dd = sefaresh.Items.ToList();
+            if (sefaresh.Items.Any(p => p.IsSelected))
+            {
+                dd = sefaresh.Items.Where(p => p.IsSelected).ToList();
+            }
+            foreach (var b in dd)
             {
                 int len = b.PalletCount;
                 if (len<=0)
@@ -405,6 +417,7 @@ namespace OrdersAndisheh.BL
             
             var yu = sefaresh.Items.GroupBy(p => p.Ranande)
                 .Select(c=>new {ranande = c.Key,list = c.ToList()});
+
             foreach (var brt in yu)
             {
                 pos = 0;
