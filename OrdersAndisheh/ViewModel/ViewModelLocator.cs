@@ -44,6 +44,7 @@ namespace OrdersAndisheh.ViewModel
             SimpleIoc.Default.Register<IMyContextCF, MyContextCF>();
             SimpleIoc.Default.Register<AsnViewModel>();
             SimpleIoc.Default.Register<OracleViewModel>();
+            SimpleIoc.Default.Register<ImportViewModel>();
         }
 
         public MainViewModel Main
@@ -59,6 +60,14 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<AsnViewModel>(Guid.NewGuid().ToString());
+            }
+        }
+
+        public ImportViewModel Import
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ImportViewModel>(Guid.NewGuid().ToString());
             }
         }
 

@@ -410,17 +410,41 @@
 
         public Product GetProduct(string code)
         {
-            return db.Products.Where(p => p.Code == code).FirstOrDefault();
+            var pr = db.Products.Where(p => p.Code == code).FirstOrDefault();
+            if (pr == null)
+            {
+                throw new NullReferenceException("کالایی با کد " + code + " پیدا نشد");
+            }
+            else
+            {
+                return pr;
+            }
         }
 
         public Customer GetCustomer(string name)
         {
-            return db.Customers.Where(p => p.Name == name).FirstOrDefault();
+            var c = db.Customers.Where(p => p.Name == name).FirstOrDefault();
+            if (c == null)
+            {
+                throw new NullReferenceException("مشتری با نام " + name + " پیدا نشد");
+            }
+            else
+            {
+                return c;
+            }
         }
 
         public Driver GetDriver(string name)
         {
-            return db.Drivers.Where(p => p.Name == name).FirstOrDefault();
+            var d =  db.Drivers.Where(p => p.Name == name).FirstOrDefault();
+            if (d == null)
+            {
+                throw new NullReferenceException("راننده با نام " + name + " پیدا نشد");
+            }
+            else
+            {
+                return d;
+            }
         }
 
         public void SaveOrders(List<Order> yu)

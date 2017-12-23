@@ -517,7 +517,8 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteOracleRelation()
         {
 
-            
+            ImportView v = new ImportView();
+            v.ShowDialog();
             //try
             //{
                 //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())

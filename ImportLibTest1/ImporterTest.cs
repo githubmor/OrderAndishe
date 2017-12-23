@@ -8,6 +8,7 @@ namespace ImportLibTest1
     [TestClass]
     public class ImporterTest
     {
+        const string path = @"D:\andisheh\Programming\OrdersApp\OrdersAndisheh\ImportLibTest1\1.xlsx";
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void CreateNewImporter_throwException_ifPathIsNullOrEmpty()
@@ -18,15 +19,16 @@ namespace ImportLibTest1
         [TestMethod]
         public void CreateNewImporter_IsOK()
         {
-            Importer im = new Importer(@"D:\1.xlsx");
 
-            var r = im.GetSampleData();
+            Importer im = new Importer(path);
 
-            var col = r.Columns;
+            var sample = im.SampleData;
 
-            Assert.AreEqual("1.xlsx", r.FileName);
-            Assert.AreEqual(@"D:\1.xlsx", r.Address);
-            Assert.AreEqual(10, r.Columns.Count);
+            var col = sample.Columns;
+
+            Assert.AreEqual("1.xlsx", sample.FileName);
+            Assert.AreEqual(path, sample.Address);
+            Assert.AreEqual(9, sample.Columns.Count);
 
             Assert.AreEqual("کد محصول", col[0].Header);
             Assert.AreEqual("1", col[0].Position);
@@ -36,16 +38,16 @@ namespace ImportLibTest1
         [TestMethod]
         public void CreateNewImporter_IsOKs()
         {
-            Importer im = new Importer(@"D:\1.xlsx");
+            Importer im = new Importer(path);
 
-            var sample = im.GetSampleData();
+            var sample = im.SampleData;
 
             var col = sample.Columns;
 
 
             col[0].MatchName = "Codekala";
-            col[0].MatchName = "Tedad";
-            col[0].MatchName = "DriverName";
+            col[1].MatchName = "Tedad";
+            col[6].MatchName = "DriverName";
 
             var match = sample.GetMatch();
 
@@ -56,9 +58,12 @@ namespace ImportLibTest1
             //    DriverName = col[3].Position
             //};
 
-            var data = im.GetImportDataWithMatch(match, sample.DataRowCount());
+            var data = im.GetImportDataWithMatch(match);
 
             Assert.AreEqual("15012007", data[0].Codekala);
+            Assert.AreEqual("144", data[0].Tedad);
+            Assert.AreEqual("تيرنژاد", data[0].DriverName);
+            
             //Assert.AreEqual(@"D:\1.xlsx", r.Address);
             //Assert.AreEqual(10, r.Columns.Count);
 

@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>186</ApplicationRevision>
+    <ApplicationRevision>187</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -171,9 +171,11 @@
     <Reference Include="EntityFramework.SqlServerCompact">
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ImportToDB\MvvmLight1\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.DataExtractor">
+      <HintPath>..\packages\EPPlus.DataExtractor.1.3.1\lib\EPPlus.DataExtractor.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -270,9 +272,11 @@
     <Compile Include="BL\Asn\IAsn.cs" />
     <Compile Include="BL\CheckList.cs" />
     <Compile Include="BL\CheckSefaresh.cs" />
+    <Compile Include="BL\ColumnMatcherSuggestion.cs" />
     <Compile Include="BL\ErsalItem.cs" />
     <Compile Include="BL\ExportToFile\Exporter.cs" />
     <Compile Include="BL\ICheckList.cs" />
+    <Compile Include="BL\IImporting.cs" />
     <Compile Include="BL\Importing\ImportDataKind.cs" />
     <Compile Include="BL\Importing\FactoryImporter.cs" />
     <Compile Include="BL\Importing\FileImporter.cs" />
@@ -285,6 +289,7 @@
     <Compile Include="BL\IReportRow.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\aAsn.cs" />
+    <Compile Include="BL\SefareshImporting.cs" />
     <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />
     <Compile Include="BL\ContainerManager.cs" />
@@ -442,11 +447,16 @@
     <Compile Include="ViewModel\OracleRelationViewModel.cs" />
     <Compile Include="ViewModel\OracleViewModel.cs" />
     <Compile Include="ViewModel\ReportPreviewViewModel.cs" />
+    <Compile Include="ViewModel\ImportColumnMatcherViewModel.cs" />
     <Compile Include="ViewModel\ReportRowViewModel.cs" />
     <Compile Include="ViewModel\AsnViewModel.cs" />
+    <Compile Include="ViewModel\ImportViewModel.cs" />
     <Compile Include="ViewModel\TahvilforoshViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\ColumnFilterConverter.cs" />
+    <Compile Include="View\ImportColumnMatcher.xaml.cs">
+      <DependentUpon>ImportColumnMatcher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PalletReportView.xaml.cs">
       <DependentUpon>PalletReportView.xaml</DependentUpon>
     </Compile>
@@ -482,6 +492,9 @@
     </Compile>
     <Compile Include="View\AsnView.xaml.cs">
       <DependentUpon>AsnView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ImportView.xaml.cs">
+      <DependentUpon>ImportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TahvilfroshView.xaml.cs">
       <DependentUpon>TahvilfroshView.xaml</DependentUpon>
@@ -576,6 +589,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ImportColumnMatcher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PalletReportView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -641,6 +658,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AsnView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ImportView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -753,6 +774,12 @@
       <IncludeHash>False</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImportingLib\ImportingLib.csproj">
+      <Project>{c62fa39a-f299-4f9e-9e23-e87cda03d821}</Project>
+      <Name>ImportingLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
