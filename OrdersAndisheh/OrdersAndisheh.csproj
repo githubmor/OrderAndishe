@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>187</ApplicationRevision>
+    <ApplicationRevision>189</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -435,6 +435,7 @@
     <Compile Include="ExcelManager\ExcelBackUp.cs" />
     <Compile Include="ExcelManager\ExcelService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ViewModel\PalletItem.cs" />
     <Compile Include="ViewModel\PalletReportViewModel.cs" />
     <Compile Include="ViewModel\LastAmountViewModel.cs" />

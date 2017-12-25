@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,33 +10,59 @@ namespace OrdersAndisheh.BL
 {
     public class ColumnMatcherSuggestion
     {
-        public string GetImportDataColumnName(string sampleColumnHeaderPosition)
+       
+        public void SaveSetting(Dictionary<string,string> match)
         {
-            string res = "";
-            var Data = Properties.Settings.Default.ImportData;
+            var savedlist = Properties.Settings.Default.SavedMatch;
 
-            if (Data!=null)
+            Dictionary<string, string> merged = match;
+
+            if (savedlist!=null)
             {
-                var prop = Data.GetType().GetProperties();
+                merged.MergeIn(savedlist, match); 
+            }
 
-                foreach (var item in prop)
+            Properties.Settings.Default.SavedMatch = merged;
+            Properties.Settings.Default.Save();
+        }
+
+        public void GetSuggestionMatch(List<Column> column)
+        {
+            var savedlist = Properties.Settings.Default.SavedMatch;
+
+            if (savedlist!=null)
+            {
+                foreach (var item in column)
                 {
-                    
-                    string p = item..GetValue(Data, null).ToString();
-                    if (sampleColumnHeaderPosition == p)
+                    var t = savedlist.ContainsValue(item.Header);
+                    if (t)
                     {
-                        res = item.Name;
-                        break;
+                        item.MatchName = savedlist.First(p => p.Value == item.Header).Key;
                     }
                 } 
             }
-            return res;
-        }
 
-        public void SaveSetting(ImportData match)
+        }
+    }
+
+    public static class DictionaryExtensionMethods
+    {
+        public static void MergeIn<TKey, TValue>(
+            this Dictionary<TKey, TValue> main,
+            params Dictionary<TKey, TValue>[] dictionaries)
         {
-            Properties.Settings.Default.ImportData = match;
-            Properties.Settings.Default.Save();
+            foreach (var dictionary in dictionaries)
+            {
+                foreach (var item in dictionary)
+                {
+                    if (!main.ContainsKey(item.Key))
+                    {
+                        main[item.Key] = item.Value;
+                    }
+                }
+            }
         }
     }
 }
+
+

@@ -48,24 +48,12 @@ namespace OrdersAndisheh.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CodeKala {
+        public global::System.Collections.Generic.Dictionary<string,string> SavedMatch {
             get {
-                return ((string)(this["CodeKala"]));
+                return ((global::System.Collections.Generic.Dictionary<string, string>)(this["SavedMatch"]));
             }
             set {
-                this["CodeKala"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::ImportingLib.ImportData ImportData {
-            get {
-                return ((global::ImportingLib.ImportData)(this["ImportData"]));
-            }
-            set {
-                this["ImportData"] = value;
+                this["SavedMatch"] = value;
             }
         }
     }

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Column.cs" />
+    <Compile Include="MatchData.cs" />
     <Compile Include="ImportData.cs" />
     <Compile Include="Importer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

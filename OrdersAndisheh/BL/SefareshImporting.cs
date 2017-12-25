@@ -32,9 +32,18 @@ namespace OrdersAndisheh.BL
                 
                 Product p = Service.GetProduct(detail.Codekala);
 
-                sefaresh.Items.Add(new ItemSefaresh(p){ Customer = c, Driver = d, 
-                     Tedad = short.Parse(detail.Tedad),TahvilFrosh = short.Parse(detail.SanadNumber)
-                });
+                short tedad = short.Parse(detail.Tedad);
+
+                //چون شماره تحويل فروش ميتواند اختياري باشد
+                short tahvil = (string.IsNullOrEmpty(detail.SanadNumber)?short.Parse("0"):short.Parse(detail.SanadNumber));
+
+                ItemSefaresh it = new ItemSefaresh(p);
+                it.Customer = c;
+                it.Driver = d;
+                it.Tedad = tedad;
+                it.TahvilFrosh = tahvil;
+
+                sefaresh.Items.Add(it);
             }
 
             Service.SaveSefaresh(sefaresh);

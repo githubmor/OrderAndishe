@@ -77,12 +77,15 @@ namespace OrdersAndisheh.ViewModel
                     
                     var day = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
 
-                    Tarikh = "1396/01" + day;
+                    Tarikh = "1396/01/" + day;
 
                     Importer = new Importer(path);
                     sample = Importer.SampleData;
                     RaisePropertyChanged(() => FilePath);
                     SampleColumn = new Table(new ObservableCollection<Column>(sample.Columns));
+
+                    ColumnMatcherSuggestion cs = new ColumnMatcherSuggestion();
+                    cs.GetSuggestionMatch(sample.Columns);
 
                     foreach (var item in sample.Columns)
                     {
@@ -91,6 +94,7 @@ namespace OrdersAndisheh.ViewModel
                     RaisePropertyChanged(() => SampleColumn);
                     RaisePropertyChanged(() => Tarikh);
 
+                    
                     //Properties.Settings.Default.LastExcelBackUpPath = dlg.SelectedPath;
                     //Properties.Settings.Default.Save();
                     //var CodeKalaColumnName = Properties.Settings.Default.CodeKala;
@@ -116,20 +120,28 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteTest()
         {
-            var match = sample.GetMatch();
+            try
+            {
+                var match = sample.GetMatch();
 
-            ColumnMatcherSuggestion cs = new ColumnMatcherSuggestion();
-            cs.SaveSetting(match);
+                var i = Importer.GetImportDataWithMatch(match);
 
-            var i =  Importer.GetImportDataWithMatch(match);
+                SefareshImporting s = new SefareshImporting(new SefareshService());
 
-            SefareshImporting s = new SefareshImporting(new SefareshService());
+                s.Tarikh = Tarikh;
 
-            s.Tarikh = Tarikh;
+                s.SaveData(i);
 
-            s.SaveData(i);
+                ColumnMatcherSuggestion cs = new ColumnMatcherSuggestion();
+                cs.SaveSetting(sample.GetSavedMatch());
 
-            MessageBox.Show("data row is " + i.Count);
+                MessageBox.Show("data row is " + i.Count);
+            }
+            catch (Exception t)
+            {
+
+                MessageBox.Show(t.Message.ToString());
+            }
         }
     }
 

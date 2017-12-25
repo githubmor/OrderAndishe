@@ -22,8 +22,7 @@ namespace OrdersAndisheh.ViewModel
                 ImportingData.Add(item.Name);
             }
 
-            ColumnMatcherSuggestion cs = new ColumnMatcherSuggestion();
-            MatchName = cs.GetImportDataColumnName(Column.Position);
+           
             
         }
 
