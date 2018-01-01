@@ -136,8 +136,8 @@
             h.Tarikh = Tarikh;
             h.WeekDay = getWeekDay();
 
-
-            CreateReportFile(fileName, h, "MaliReport", StiExportFormat.Excel2007, false);
+            //CreateReportFile(fileName, h, "MaliReport", StiExportFormat.Excel2007, false);
+            CreateReportFile(fileName, h, "MaliReport2", StiExportFormat.Excel2007, false);
         }
 
         public virtual void CreatDocFile(string fileName = "DocReport", bool IsLocationSelection = true)

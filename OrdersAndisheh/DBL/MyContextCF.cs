@@ -24,6 +24,8 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<Pallet> Pallets { get; set; }
         public virtual DbSet<Baste> Bastes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Khodro> Khodros { get; set; }
+        public virtual DbSet<AmarTolidKhodro> AmarTolidKhodros { get; set; }
         public virtual DbSet<MOracle> MOracles { get; set; }
         public virtual DbSet<CustomerProductRelation> CustomerProductRelations { get; set; }
         public virtual DbSet<TempDriver> TempDriver { get; set; }
@@ -37,7 +39,16 @@ namespace OrdersAndisheh.DBL
                 .HasKey(p=>p.ProductId)
                 .HasRequired(et => et.Product)
                 .WithOptional(eo => eo.Amount);
-            
+
+            modelBuilder.Entity<Product>()
+                .HasMany(p => p.Khodros)
+                .WithMany(p => p.Products);
+
+            modelBuilder.Entity<Khodro>()
+                .HasMany(p => p.Tolids)
+                .WithRequired(p => p.Khodro)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Bazres>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Bazre)

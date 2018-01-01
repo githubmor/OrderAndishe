@@ -357,16 +357,24 @@
         public void AddNewAmount(List<AmountData> Amounts)
         {
             List<Amount> addamount = new List<Amount>();
-            var pr = db.Amount.ToList();
-            db.Amount.RemoveRange(pr);
-            db.SaveChanges();
+            //var pr = db.Amount.ToList();
+            //db.Amount.RemoveRange(pr);
+            //db.SaveChanges();
 
             foreach (var item in Amounts)
             {
-                var kala = db.Products.Where(p => p.Code == item.CodeKala).FirstOrDefault();
+                var kala = db.Products.Include("Amount").Where(p => p.Code == item.CodeKala).FirstOrDefault();
                 if (kala!=null)
                 {
-                    addamount.Add(new Amount() { Product = kala, LastAmount = item.LastAmount }); 
+                    if (kala.Amount!=null)
+                    {
+                        kala.Amount.LastAmount = item.LastAmount;
+                    }
+                    else
+                    {
+                        addamount.Add(new Amount() { Product = kala, LastAmount = item.LastAmount }); 
+                    }
+                    
                 }
             }
             db.Amount.AddRange(addamount);

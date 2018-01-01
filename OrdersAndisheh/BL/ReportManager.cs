@@ -245,6 +245,37 @@ namespace OrdersAndisheh.BL
             fg.CreatFileMali("Mali", false);
         }
 
+        public void CreatMaliReport2(bool showPreview = true)
+        {
+            pos = 0;
+            List<ReportRow> reportRows = new List<ReportRow>();
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.IsNew)
+                .ThenBy(p => p.Product.FaniCode).ToList());
+            //var ImenKalas = sefaresh.Items.Where(p => !p.IsImenKala);
+            foreach (var b in sefaresh.Items)
+            {
+                reportRows.Add(new ReportRow()
+                {
+                    Position = pos,
+                    Kala = b.Kala,
+                    Karton = b.Karton,
+                    Pallet = b.PalletCount.ToString(),
+                    Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                    Maghsad = b.Maghsad,
+                    Ranande = (b.Product.Amount!=null?b.Product.Amount.LastAmount.ToString():""),
+                    Vazn = b.Des,
+                    IsDriverChanged = b.IsDriverChanged,
+                    IsKalaChanged = b.IsNew,
+                    IsCustomerChanged = b.IsCustomerChanged,
+                    IsTedadChanged = b.IsTedadChanged
+
+                });
+                pos += 1;
+            }
+            FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+            fg.CreatFileMali("Basra", false);
+        }
+
         public void CreatKontrolReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
@@ -377,7 +408,7 @@ namespace OrdersAndisheh.BL
             this.CreatAndishehReportOnDeskTop(false);
             this.CreatImenSazanReportOnDeskTop(false);
             this.CreatKontrolReportOnDeskTop(false);
-            this.CreatMaliReport(false);
+            this.CreatMaliReport2(false);
         }
 
         public void CreatPalletTabloReportOnDeskTop(bool showPreview = true)

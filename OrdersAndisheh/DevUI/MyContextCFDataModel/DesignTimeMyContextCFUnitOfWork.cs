@@ -28,6 +28,10 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         {
             get { return GetRepository((Baste x) => x.Id); }
         }
+        IRepository<Khodro, int> IMyContextCFUnitOfWork.Khodros
+        {
+            get { return GetRepository((Khodro x) => x.Id); }
+        }
 
         IRepository<Product, int> IMyContextCFUnitOfWork.Products
         {

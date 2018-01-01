@@ -10,7 +10,10 @@ namespace OrdersAndisheh.BL
 {
     public class ColumnMatcherSuggestion
     {
-       
+        public ColumnMatcherSuggestion()
+        {
+
+        }
         public void SaveSetting(Dictionary<string,string> match)
         {
             var savedlist = Properties.Settings.Default.SavedMatch;

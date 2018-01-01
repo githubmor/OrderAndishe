@@ -12,6 +12,8 @@ namespace OrdersAndisheh.DBL
         System.Data.Entity.DbSet<Driver> Drivers { get; set; }
         System.Data.Entity.DbSet<DriverWork> DriverWork { get; set; }
         System.Data.Entity.DbSet<MOracle> MOracles { get; set; }
+        DbSet<Khodro> Khodros { get; set; }
+        DbSet<AmarTolidKhodro> AmarTolidKhodros { get; set; }
         System.Data.Entity.DbSet<OracleRelation> OracleRelation { get; set; }
         System.Data.Entity.DbSet<OrderDetail> OrderDetails { get; set; }
         System.Data.Entity.DbSet<Order> Orders { get; set; }
