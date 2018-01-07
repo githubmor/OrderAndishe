@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.OracleRelationCollectionView"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.KhodroCollectionView"
 xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,7 +15,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 
 mc:Ignorable="d"
         d:DesignHeight="400" d:DesignWidth="600"
- DataContext="{dxmvvm:ViewModelSource viewmodel:OracleRelationCollectionViewModel}"
+ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroCollectionViewModel}"
  
 >
 
@@ -47,8 +47,7 @@ mc:Ignorable="d"
             </dxmvvm:Interaction.Behaviors>
             <dxg:GridControl.Columns>
                 <dxg:GridColumn IsSmart="True" FieldName="Id" />
-                <dxg:GridColumn FieldName="Customer.Name" Header="Customer" ReadOnly="True" />
-                <dxg:GridColumn FieldName="Product.Name" Header="Product" ReadOnly="True" />
+                <dxg:GridColumn IsSmart="True" FieldName="Name" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>

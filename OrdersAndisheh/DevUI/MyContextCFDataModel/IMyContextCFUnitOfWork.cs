@@ -18,14 +18,14 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
     {
 
         /// <summary>
-        /// The Baste entities repository.
-        /// </summary>
-        IRepository<Baste, int> Bastes { get; }
-
-        /// <summary>
         /// The Khodro entities repository.
         /// </summary>
         IRepository<Khodro, int> Khodros { get; }
+
+        /// <summary>
+        /// The KhodroProductRelation entities repository.
+        /// </summary>
+        IRepository<KhodroProductRelation, int> KhodroProductRelation { get; }
 
         /// <summary>
         /// The Product entities repository.
@@ -33,9 +33,19 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         IRepository<Product, int> Products { get; }
 
         /// <summary>
+        /// The Baste entities repository.
+        /// </summary>
+        IRepository<Baste, int> Bastes { get; }
+
+        /// <summary>
         /// The Bazres entities repository.
         /// </summary>
         IRepository<Bazres, int> Bazress { get; }
+
+        /// <summary>
+        /// The OracleRelation entities repository.
+        /// </summary>
+        IRepository<OracleRelation, int> OracleRelation { get; }
 
         /// <summary>
         /// The Customer entities repository.
@@ -43,23 +53,18 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         IRepository<Customer, int> Customers { get; }
 
         /// <summary>
-        /// The CustomerProductRelation entities repository.
-        /// </summary>
-        IRepository<CustomerProductRelation, int> CustomerProductRelations { get; }
-
-        /// <summary>
         /// The Driver entities repository.
         /// </summary>
         IRepository<Driver, int> Drivers { get; }
 
         /// <summary>
+        /// The CustomerProductRelation entities repository.
+        /// </summary>
+        IRepository<CustomerProductRelation, int> CustomerProductRelations { get; }
+
+        /// <summary>
         /// The Pallet entities repository.
         /// </summary>
         IRepository<Pallet, int> Pallets { get; }
-
-        /// <summary>
-        /// The OracleRelation entities repository.
-        /// </summary>
-        IRepository<OracleRelation, int> OracleRelations { get; }
     }
 }

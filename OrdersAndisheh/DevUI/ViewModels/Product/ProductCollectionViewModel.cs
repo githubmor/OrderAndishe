@@ -30,8 +30,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
         /// </summary>
         /// <param name="unitOfWorkFactory">A factory used to create a unit of work instance.</param>
         protected ProductCollectionViewModel(IUnitOfWorkFactory<IMyContextCFUnitOfWork> unitOfWorkFactory = null)
-            : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.Products,
-            projection: query => query.Include(x => x.Bazre).Include(x => x.Pallet).OrderBy(x => x.Code))
+            : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.Products)
         {
         }
     }

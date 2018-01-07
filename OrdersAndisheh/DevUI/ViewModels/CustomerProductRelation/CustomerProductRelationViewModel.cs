@@ -34,7 +34,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
         /// </summary>
         /// <param name="unitOfWorkFactory">A factory used to create a unit of work instance.</param>
         protected CustomerProductRelationViewModel(IUnitOfWorkFactory<IMyContextCFUnitOfWork> unitOfWorkFactory = null)
-            : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.CustomerProductRelations, x => x.Id)
+            : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.CustomerProductRelations, x => x.Anbar)
         {
         }
 

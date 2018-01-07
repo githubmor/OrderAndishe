@@ -24,13 +24,14 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         {
         }
 
-        IRepository<Baste, int> IMyContextCFUnitOfWork.Bastes
-        {
-            get { return GetRepository((Baste x) => x.Id); }
-        }
         IRepository<Khodro, int> IMyContextCFUnitOfWork.Khodros
         {
             get { return GetRepository((Khodro x) => x.Id); }
+        }
+
+        IRepository<KhodroProductRelation, int> IMyContextCFUnitOfWork.KhodroProductRelation
+        {
+            get { return GetRepository((KhodroProductRelation x) => x.Id); }
         }
 
         IRepository<Product, int> IMyContextCFUnitOfWork.Products
@@ -38,9 +39,19 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
             get { return GetRepository((Product x) => x.Id); }
         }
 
+        IRepository<Baste, int> IMyContextCFUnitOfWork.Bastes
+        {
+            get { return GetRepository((Baste x) => x.Id); }
+        }
+
         IRepository<Bazres, int> IMyContextCFUnitOfWork.Bazress
         {
             get { return GetRepository((Bazres x) => x.Id); }
+        }
+
+        IRepository<OracleRelation, int> IMyContextCFUnitOfWork.OracleRelation
+        {
+            get { return GetRepository((OracleRelation x) => x.Id); }
         }
 
         IRepository<Customer, int> IMyContextCFUnitOfWork.Customers
@@ -48,23 +59,19 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
             get { return GetRepository((Customer x) => x.Id); }
         }
 
-        IRepository<CustomerProductRelation, int> IMyContextCFUnitOfWork.CustomerProductRelations
-        {
-            get { return GetRepository((CustomerProductRelation x) => x.Id); }
-        }
-
         IRepository<Driver, int> IMyContextCFUnitOfWork.Drivers
         {
             get { return GetRepository((Driver x) => x.Id); }
         }
 
+        IRepository<CustomerProductRelation, int> IMyContextCFUnitOfWork.CustomerProductRelations
+        {
+            get { return GetRepository((CustomerProductRelation x) => x.Id); }
+        }
+
         IRepository<Pallet, int> IMyContextCFUnitOfWork.Pallets
         {
             get { return GetRepository((Pallet x) => x.Id); }
-        }
-        IRepository<OracleRelation, int> IMyContextCFUnitOfWork.OracleRelations
-        {
-            get { return GetRepository((OracleRelation x) => x.Id); }
         }
     }
 }

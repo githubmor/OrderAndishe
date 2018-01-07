@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.CustomerProductRelationView"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.KhodroProductRelationView"
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,7 +15,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="600"
-	 DataContext="{dxmvvm:ViewModelSource viewmodel:CustomerProductRelationViewModel}"
+	 DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroProductRelationViewModel}"
  
 >
     <dxmvvm:Interaction.Behaviors>
@@ -38,35 +38,11 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
             <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
                 <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
             </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Has Oracle" Name="layoutItemHasOracle" >
-                <dxe:CheckEdit EditValue="{Binding Entity.HasOracle, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Has Barname Dasti" Name="layoutItemHasBarnameDasti" >
-                <dxe:CheckEdit EditValue="{Binding Entity.HasBarnameDasti, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Has Barchasb" Name="layoutItemHasBarchasb" >
-                <dxe:CheckEdit EditValue="{Binding Entity.HasBarchasb, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Has Daste Tolidi" Name="layoutItemHasDasteTolidi" >
-                <dxe:CheckEdit EditValue="{Binding Entity.HasDasteTolidi, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Has Label Print" Name="layoutItemHasLabelPrint" >
-                <dxe:CheckEdit EditValue="{Binding Entity.HasLabelPrint, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Has Hamlo Naghl" Name="layoutItemHasHamloNaghl" >
-                <dxe:CheckEdit EditValue="{Binding Entity.HasHamloNaghl, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Has Moshtari ASN" Name="layoutItemHasMoshtariASN" >
-                <dxe:CheckEdit EditValue="{Binding Entity.HasMoshtariASN, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Anbar" Name="layoutItemAnbar" >
-                <dxe:TextEdit EditValue="{Binding Entity.Anbar, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
-            </dxlc:LayoutItem>
-            <dxlc:LayoutItem Label="Customer" Name="layoutItemCustomer" >
-                <dxg:LookUpEdit EditValue="{Binding Entity.CustomerId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpCustomers.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
+            <dxlc:LayoutItem Label="Khodro" Name="layoutItemKhodro" >
+                <dxg:LookUpEdit EditValue="{Binding Entity.KhodroId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpKhodros.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
                     <dxg:LookUpEdit.PopupContentTemplate>
                         <ControlTemplate TargetType="ContentControl" >
-                            <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpCustomers.IsLoading}" />
+                            <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpKhodros.IsLoading}" />
                         </ControlTemplate>
                     </dxg:LookUpEdit.PopupContentTemplate>
                 </dxg:LookUpEdit>

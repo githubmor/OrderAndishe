@@ -28,6 +28,7 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<AmarTolidKhodro> AmarTolidKhodros { get; set; }
         public virtual DbSet<MOracle> MOracles { get; set; }
         public virtual DbSet<CustomerProductRelation> CustomerProductRelations { get; set; }
+        public virtual DbSet<KhodroProductRelation> KhodroProductRelation { get; set; }
         public virtual DbSet<TempDriver> TempDriver { get; set; }
         public virtual DbSet<DriverWork> DriverWork { get; set; }
         public virtual DbSet<Amount> Amount { get; set; }

@@ -70,6 +70,7 @@ xmlns:system="clr-namespace:System;assembly=mscorlib"
                             <dxg:GridColumn FieldName="Bazre.Name" Header="Bazre" ReadOnly="True" />
                             <dxg:GridColumn FieldName="Pallet.Name" Header="Pallet" ReadOnly="True" />
                             <dxg:GridColumn FieldName="Baste.Name" Header="Baste" ReadOnly="True" />
+                            <dxg:GridColumn FieldName="Amount.ProductId" Header="Amount" ReadOnly="True" />
                         </dxg:GridControl.Columns>
                         <dxg:GridControl.TotalSummary>
                             <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>

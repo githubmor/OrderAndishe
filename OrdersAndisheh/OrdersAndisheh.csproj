@@ -345,25 +345,25 @@
     <Compile Include="Common\ViewModel\PersistentLayoutHelper.cs" />
     <Compile Include="Common\ViewModel\ReadOnlyCollectionViewModel.cs" />
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
-    <Compile Include="DBL\Amount.cs" />
     <Compile Include="DBL\AmarTolidKhodro.cs" />
-    <Compile Include="DBL\KhodroProductRelation.cs" />
-    <Compile Include="DBL\Khodro.cs" />
-    <Compile Include="DBL\CustomerProductRelation.cs" />
+    <Compile Include="DBL\Amount.cs" />
     <Compile Include="DBL\Baste.cs" />
-    <Compile Include="DBL\DriverWork.cs" />
-    <Compile Include="DBL\IMyContextCF.cs" />
-    <Compile Include="DBL\OracleRelation.cs" />
-    <Compile Include="DBL\TempDriver.cs" />
-    <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\Bazres.cs" />
     <Compile Include="DBL\Customer.cs" />
+    <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\Driver.cs" />
+    <Compile Include="DBL\DriverWork.cs" />
+    <Compile Include="DBL\IMyContextCF.cs" />
+    <Compile Include="DBL\Khodro.cs" />
+    <Compile Include="DBL\KhodroProductRelation.cs" />
+    <Compile Include="DBL\MOracle.cs" />
     <Compile Include="DBL\MyContextCF.cs" />
+    <Compile Include="DBL\OracleRelation.cs" />
     <Compile Include="DBL\Order.cs" />
     <Compile Include="DBL\OrderDetail.cs" />
     <Compile Include="DBL\Pallet.cs" />
     <Compile Include="DBL\Product.cs" />
+    <Compile Include="DBL\TempDriver.cs" />
     <Compile Include="DevUI\MyContextCFDataModel\DesignTimeMyContextCFUnitOfWork.cs" />
     <Compile Include="DevUI\MyContextCFDataModel\IMyContextCFUnitOfWork.cs" />
     <Compile Include="DevUI\MyContextCFDataModel\MyContextCFUnitOfWork.cs" />
@@ -372,15 +372,19 @@
     <Compile Include="DevUI\ViewModels\Baste\BasteViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Bazres\BazresCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Bazres\BazresViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Customer\CustomerCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Customer\CustomerViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Driver\DriverCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Driver\DriverViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\KhodroProductRelation\KhodroProductRelationCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\KhodroProductRelation\KhodroProductRelationViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Khodro\KhodroCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Khodro\KhodroViewModel.cs" />
     <Compile Include="DevUI\ViewModels\MyContextCFViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Pallet\PalletCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Pallet\PalletViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Product\ProductCollectionViewModel.cs" />
@@ -396,12 +400,6 @@
     </Compile>
     <Compile Include="DevUI\Views\Bazres\BazresView.xaml.cs">
       <DependentUpon>BazresView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml.cs">
-      <DependentUpon>OracleRelationCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\OracleRelation\OracleRelationView.xaml.cs">
-      <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml.cs">
       <DependentUpon>CustomerProductRelationCollectionView.xaml</DependentUpon>
@@ -421,8 +419,26 @@
     <Compile Include="DevUI\Views\Driver\DriverView.xaml.cs">
       <DependentUpon>DriverView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationCollectionView.xaml.cs">
+      <DependentUpon>KhodroProductRelationCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationView.xaml.cs">
+      <DependentUpon>KhodroProductRelationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Khodro\KhodroCollectionView.xaml.cs">
+      <DependentUpon>KhodroCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Khodro\KhodroView.xaml.cs">
+      <DependentUpon>KhodroView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevUI\Views\MyContextCFView.xaml.cs">
       <DependentUpon>MyContextCFView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml.cs">
+      <DependentUpon>OracleRelationCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OracleRelation\OracleRelationView.xaml.cs">
+      <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\Pallet\PalletCollectionView.xaml.cs">
       <DependentUpon>PalletCollectionView.xaml</DependentUpon>
@@ -543,14 +559,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\OracleRelation\OracleRelationView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -575,7 +583,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Khodro\KhodroCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Khodro\KhodroView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DevUI\Views\MyContextCFView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OracleRelation\OracleRelationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -693,8 +725,8 @@
     <EmbeddedResource Include="Common\CommonResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -787,6 +819,7 @@
       <Name>ImportingLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

@@ -54,6 +54,7 @@ mc:Ignorable="d"
                 <dxg:GridColumn IsSmart="True" FieldName="HasLabelPrint" />
                 <dxg:GridColumn IsSmart="True" FieldName="HasHamloNaghl" />
                 <dxg:GridColumn IsSmart="True" FieldName="HasMoshtariASN" />
+                <dxg:GridColumn IsSmart="True" FieldName="Anbar" />
                 <dxg:GridColumn FieldName="Customer.Name" Header="Customer" ReadOnly="True" />
                 <dxg:GridColumn FieldName="Product.Name" Header="Product" ReadOnly="True" />
             </dxg:GridControl.Columns>
