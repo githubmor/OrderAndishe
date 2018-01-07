@@ -347,6 +347,7 @@
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
     <Compile Include="DBL\Amount.cs" />
     <Compile Include="DBL\AmarTolidKhodro.cs" />
+    <Compile Include="DBL\KhodroProductRelation.cs" />
     <Compile Include="DBL\Khodro.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\Baste.cs" />

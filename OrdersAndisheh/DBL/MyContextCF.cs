@@ -40,10 +40,6 @@ namespace OrdersAndisheh.DBL
                 .HasRequired(et => et.Product)
                 .WithOptional(eo => eo.Amount);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(p => p.Khodros)
-                .WithMany(p => p.Products);
-
             modelBuilder.Entity<Khodro>()
                 .HasMany(p => p.Tolids)
                 .WithRequired(p => p.Khodro)
@@ -138,6 +134,17 @@ namespace OrdersAndisheh.DBL
             modelBuilder.Entity<CustomerProductRelation>()
                 .HasRequired(p => p.Product)
                 .WithMany(o => o.Relations)
+                .HasForeignKey(p => p.ProductId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<KhodroProductRelation>()
+                .HasRequired(p => p.Khodro)
+                .WithMany(o => o.KhodroProductRelation)
+                .HasForeignKey(p => p.KhodroId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<KhodroProductRelation>()
+                .HasRequired(p => p.Product)
+                .WithMany(o => o.KhodroProductRelation)
                 .HasForeignKey(p => p.ProductId)
                 .WillCascadeOnDelete(false);
 
