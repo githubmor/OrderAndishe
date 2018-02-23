@@ -39,11 +39,27 @@ namespace OrdersAndisheh.DevUI.ViewModels
         }
 
         /// <summary>
+        /// The view model for the CustomerOrderDetails detail collection.
+        /// </summary>
+        public CollectionViewModel<OrderDetail, int, IMyContextCFUnitOfWork> CustomerOrderDetailsDetails
+        {
+            get { return GetDetailsCollectionViewModel((CustomerViewModel x) => x.CustomerOrderDetailsDetails, x => x.OrderDetails, x => x.Customer_Id, (x, key) => x.Customer_Id = key); }
+        }
+
+        /// <summary>
         /// The view model for the CustomerRelations detail collection.
         /// </summary>
         public CollectionViewModel<CustomerProductRelation, int, IMyContextCFUnitOfWork> CustomerRelationsDetails
         {
             get { return GetDetailsCollectionViewModel((CustomerViewModel x) => x.CustomerRelationsDetails, x => x.CustomerProductRelations, x => x.CustomerId, (x, key) => x.CustomerId = key); }
+        }
+
+        /// <summary>
+        /// The view model for the CustomerOracleRelations detail collection.
+        /// </summary>
+        public CollectionViewModel<OracleRelation, int, IMyContextCFUnitOfWork> CustomerOracleRelationsDetails
+        {
+            get { return GetDetailsCollectionViewModel((CustomerViewModel x) => x.CustomerOracleRelationsDetails, x => x.OracleRelation, x => x.CustomerId, (x, key) => x.CustomerId = key); }
         }
     }
 }

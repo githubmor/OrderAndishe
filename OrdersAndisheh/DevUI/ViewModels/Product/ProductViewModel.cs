@@ -39,6 +39,14 @@ namespace OrdersAndisheh.DevUI.ViewModels
         }
 
         /// <summary>
+        /// The view model that contains a look-up collection of Amount for the corresponding navigation property in the view.
+        /// </summary>
+        public IEntitiesViewModel<Amount> LookUpAmount
+        {
+            get { return GetLookUpEntitiesViewModel((ProductViewModel x) => x.LookUpAmount, x => x.Amount); }
+        }
+
+        /// <summary>
         /// The view model that contains a look-up collection of Bastes for the corresponding navigation property in the view.
         /// </summary>
         public IEntitiesViewModel<Baste> LookUpBastes
@@ -63,11 +71,27 @@ namespace OrdersAndisheh.DevUI.ViewModels
         }
 
         /// <summary>
+        /// The view model for the ProductOrderDetails detail collection.
+        /// </summary>
+        public CollectionViewModel<OrderDetail, int, IMyContextCFUnitOfWork> ProductOrderDetailsDetails
+        {
+            get { return GetDetailsCollectionViewModel((ProductViewModel x) => x.ProductOrderDetailsDetails, x => x.OrderDetails, x => x.ProductId, (x, key) => x.ProductId = key); }
+        }
+
+        /// <summary>
         /// The view model for the ProductRelations detail collection.
         /// </summary>
         public CollectionViewModel<CustomerProductRelation, int, IMyContextCFUnitOfWork> ProductRelationsDetails
         {
             get { return GetDetailsCollectionViewModel((ProductViewModel x) => x.ProductRelationsDetails, x => x.CustomerProductRelations, x => x.ProductId, (x, key) => x.ProductId = key); }
+        }
+
+        /// <summary>
+        /// The view model for the ProductOracleRelations detail collection.
+        /// </summary>
+        public CollectionViewModel<OracleRelation, int, IMyContextCFUnitOfWork> ProductOracleRelationsDetails
+        {
+            get { return GetDetailsCollectionViewModel((ProductViewModel x) => x.ProductOracleRelationsDetails, x => x.OracleRelation, x => x.ProductId, (x, key) => x.ProductId = key); }
         }
     }
 }

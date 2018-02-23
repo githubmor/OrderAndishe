@@ -14,13 +14,13 @@ using OrdersAndisheh.Common.ViewModel;
 namespace OrdersAndisheh.DevUI.ViewModels
 {
     /// <summary>
-    /// Represents the single CustomerProductRelation object view model.
+    /// Represents the single OracleRelation object view model.
     /// </summary>
     public partial class OracleRelationViewModel : SingleObjectViewModel<OracleRelation, int, IMyContextCFUnitOfWork>
     {
 
         /// <summary>
-        /// Creates a new instance of CustomerProductRelationViewModel as a POCO view model.
+        /// Creates a new instance of OracleRelationViewModel as a POCO view model.
         /// </summary>
         /// <param name="unitOfWorkFactory">A factory used to create a unit of work instance.</param>
         public static OracleRelationViewModel Create(IUnitOfWorkFactory<IMyContextCFUnitOfWork> unitOfWorkFactory = null)
@@ -29,12 +29,12 @@ namespace OrdersAndisheh.DevUI.ViewModels
         }
 
         /// <summary>
-        /// Initializes a new instance of the CustomerProductRelationViewModel class.
-        /// This constructor is declared protected to avoid undesired instantiation of the CustomerProductRelationViewModel type without the POCO proxy factory.
+        /// Initializes a new instance of the OracleRelationViewModel class.
+        /// This constructor is declared protected to avoid undesired instantiation of the OracleRelationViewModel type without the POCO proxy factory.
         /// </summary>
         /// <param name="unitOfWorkFactory">A factory used to create a unit of work instance.</param>
         protected OracleRelationViewModel(IUnitOfWorkFactory<IMyContextCFUnitOfWork> unitOfWorkFactory = null)
-            : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.OracleRelations, x => x.Id)
+            : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.OracleRelation, x => x.Id)
         {
         }
 
