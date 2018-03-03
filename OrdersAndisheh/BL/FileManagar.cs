@@ -210,6 +210,19 @@
 
             CreateReportFile(fileName, h, "CheckReport", StiExportFormat.Pdf, false);
         }
+
+        public void CreatKartablFile(string fileName = "KartablReport", bool IsLocationSelection = true)
+        {
+            if (IsLocationSelection)
+            {
+                GetSavingLocation();
+            }
+            var h = new Header();
+            h.Tarikh = Tarikh;
+            h.WeekDay = getWeekDay();
+
+            CreateReportFile(fileName, h, "KartablReport", StiExportFormat.Pdf, false);
+        }
     }
     public class Header
     {

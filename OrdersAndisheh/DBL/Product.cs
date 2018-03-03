@@ -12,6 +12,7 @@ namespace OrdersAndisheh.DBL
         public Product()
         {
             OrderDetails = new HashSet<OrderDetail>();
+            Khodros = new HashSet<Khodro>();
             //CustomerRelations = new HashSet<CustomerProductRelation>();
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

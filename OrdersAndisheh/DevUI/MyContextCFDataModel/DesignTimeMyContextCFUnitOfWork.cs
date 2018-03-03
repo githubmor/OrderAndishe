@@ -24,10 +24,11 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         {
         }
 
-        IRepository<Baste, int> IMyContextCFUnitOfWork.Bastes
+        IRepository<AmarTolidKhodro, int> IMyContextCFUnitOfWork.AmarTolidKhodros
         {
-            get { return GetRepository((Baste x) => x.Id); }
+            get { return GetRepository((AmarTolidKhodro x) => x.Id); }
         }
+
         IRepository<Khodro, int> IMyContextCFUnitOfWork.Khodros
         {
             get { return GetRepository((Khodro x) => x.Id); }
@@ -38,9 +39,24 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
             get { return GetRepository((Product x) => x.Id); }
         }
 
+        IRepository<Amount, int> IMyContextCFUnitOfWork.Amount
+        {
+            get { return GetRepository((Amount x) => x.ProductId); }
+        }
+
+        IRepository<Baste, int> IMyContextCFUnitOfWork.Bastes
+        {
+            get { return GetRepository((Baste x) => x.Id); }
+        }
+
         IRepository<Bazres, int> IMyContextCFUnitOfWork.Bazress
         {
             get { return GetRepository((Bazres x) => x.Id); }
+        }
+
+        IRepository<OracleRelation, int> IMyContextCFUnitOfWork.OracleRelation
+        {
+            get { return GetRepository((OracleRelation x) => x.Id); }
         }
 
         IRepository<Customer, int> IMyContextCFUnitOfWork.Customers
@@ -48,9 +64,9 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
             get { return GetRepository((Customer x) => x.Id); }
         }
 
-        IRepository<CustomerProductRelation, int> IMyContextCFUnitOfWork.CustomerProductRelations
+        IRepository<OrderDetail, int> IMyContextCFUnitOfWork.OrderDetails
         {
-            get { return GetRepository((CustomerProductRelation x) => x.Id); }
+            get { return GetRepository((OrderDetail x) => x.Id); }
         }
 
         IRepository<Driver, int> IMyContextCFUnitOfWork.Drivers
@@ -58,13 +74,34 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
             get { return GetRepository((Driver x) => x.Id); }
         }
 
+        IRepository<DriverWork, int> IMyContextCFUnitOfWork.DriverWork
+        {
+            get { return GetRepository((DriverWork x) => x.DriverWorkId); }
+        }
+
+        IRepository<Order, int> IMyContextCFUnitOfWork.Orders
+        {
+            get { return GetRepository((Order x) => x.Id); }
+        }
+
+        IRepository<TempDriver, int> IMyContextCFUnitOfWork.TempDriver
+        {
+            get { return GetRepository((TempDriver x) => x.Id); }
+        }
+
+        IRepository<MOracle, int> IMyContextCFUnitOfWork.MOracles
+        {
+            get { return GetRepository((MOracle x) => x.Id); }
+        }
+
+        IRepository<CustomerProductRelation, int> IMyContextCFUnitOfWork.CustomerProductRelations
+        {
+            get { return GetRepository((CustomerProductRelation x) => x.Id); }
+        }
+
         IRepository<Pallet, int> IMyContextCFUnitOfWork.Pallets
         {
             get { return GetRepository((Pallet x) => x.Id); }
-        }
-        IRepository<OracleRelation, int> IMyContextCFUnitOfWork.OracleRelations
-        {
-            get { return GetRepository((OracleRelation x) => x.Id); }
         }
     }
 }

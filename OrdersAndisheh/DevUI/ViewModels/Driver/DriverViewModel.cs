@@ -37,5 +37,29 @@ namespace OrdersAndisheh.DevUI.ViewModels
             : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.Drivers, x => x.Name)
         {
         }
+
+        /// <summary>
+        /// The view model that contains a look-up collection of TempDriver for the corresponding navigation property in the view.
+        /// </summary>
+        public IEntitiesViewModel<TempDriver> LookUpTempDriver
+        {
+            get { return GetLookUpEntitiesViewModel((DriverViewModel x) => x.LookUpTempDriver, x => x.TempDriver); }
+        }
+
+        /// <summary>
+        /// The view model for the DriverOrderDetails detail collection.
+        /// </summary>
+        public CollectionViewModel<OrderDetail, int, IMyContextCFUnitOfWork> DriverOrderDetailsDetails
+        {
+            get { return GetDetailsCollectionViewModel((DriverViewModel x) => x.DriverOrderDetailsDetails, x => x.OrderDetails, x => x.Driver_Id, (x, key) => x.Driver_Id = key); }
+        }
+
+        /// <summary>
+        /// The view model for the DriverDriverWorks detail collection.
+        /// </summary>
+        public CollectionViewModel<DriverWork, int, IMyContextCFUnitOfWork> DriverDriverWorksDetails
+        {
+            get { return GetDetailsCollectionViewModel((DriverViewModel x) => x.DriverDriverWorksDetails, x => x.DriverWork, x => x.DriverId, (x, key) => x.DriverId = key); }
+        }
     }
 }

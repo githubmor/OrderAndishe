@@ -20,7 +20,6 @@ namespace OrdersAndisheh.DevUI.ViewModels
         const string TablesGroup = "Tables";
 
         const string ViewsGroup = "Views";
-        INavigationService NavigationService { get { return this.GetService<INavigationService>(); } }
 
         /// <summary>
         /// Creates a new instance of MyContextCFViewModel as a POCO view model.
@@ -42,27 +41,27 @@ namespace OrdersAndisheh.DevUI.ViewModels
         protected override MyContextCFModuleDescription[] CreateModules()
         {
             return new MyContextCFModuleDescription[] {
-                new MyContextCFModuleDescription("بسته", "BasteCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bastes)),
-                new MyContextCFModuleDescription("کالا", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),
-                new MyContextCFModuleDescription("بازرسان", "BazresCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bazress)),
-                new MyContextCFModuleDescription("مقاصد", "CustomerCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Customers)),
-                new MyContextCFModuleDescription("مشتری - کالا", "CustomerProductRelationCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.CustomerProductRelations)),
-                new MyContextCFModuleDescription("راننده", "DriverCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Drivers)),
-                new MyContextCFModuleDescription("پالت", "PalletCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Pallets)),
-                new MyContextCFModuleDescription("اوراکل", "OracleRelationCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.OracleRelations)),
+                new MyContextCFModuleDescription("Amar Tolid Khodros", "AmarTolidKhodroCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.AmarTolidKhodros)),
+                new MyContextCFModuleDescription("Khodros", "KhodroCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Khodros)),
+                new MyContextCFModuleDescription("Products", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),
+                new MyContextCFModuleDescription("Amount", "AmountCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Amount)),
+                new MyContextCFModuleDescription("Bastes", "BasteCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bastes)),
+                new MyContextCFModuleDescription("Bazress", "BazresCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bazress)),
+                new MyContextCFModuleDescription("Oracle Relation", "OracleRelationCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.OracleRelation)),
+                new MyContextCFModuleDescription("Customers", "CustomerCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Customers)),
+                new MyContextCFModuleDescription("Order Details", "OrderDetailCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.OrderDetails)),
+                new MyContextCFModuleDescription("Drivers", "DriverCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Drivers)),
+                new MyContextCFModuleDescription("Driver Work", "DriverWorkCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.DriverWork)),
+                new MyContextCFModuleDescription("Orders", "OrderCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Orders)),
+                new MyContextCFModuleDescription("Temp Driver", "TempDriverCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.TempDriver)),
+                new MyContextCFModuleDescription("MOracles", "MOracleCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.MOracles)),
+                new MyContextCFModuleDescription("Customer Product Relations", "CustomerProductRelationCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.CustomerProductRelations)),
+                new MyContextCFModuleDescription("Pallets", "PalletCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Pallets)),
 			};
         }
 
 
 
-        protected override void OnActiveModuleChanged(MyContextCFModuleDescription oldModule)
-        {
-            if (ActiveModule != null && NavigationService != null)
-            {
-                NavigationService.ClearNavigationHistory();
-            }
-            base.OnActiveModuleChanged(oldModule);
-        }
     }
 
     public partial class MyContextCFModuleDescription : ModuleDescription<MyContextCFModuleDescription>

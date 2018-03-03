@@ -475,5 +475,38 @@ namespace OrdersAndisheh.BL
             }
             
         }
+        public void CreatKartablReport(bool showPreview = true)
+        {
+
+            var yu = sefaresh.Items.GroupBy(p => p.Ranande)
+                .Select(c => new { ranande = c.Key, list = c.ToList() });
+
+            foreach (var brt in yu)
+            {
+                pos = 0;
+                List<ReportRow> reportRows = new List<ReportRow>();
+                foreach (var b in brt.list)
+                {
+                    reportRows.Add(new ReportRow()
+                    {
+                        Position = pos,
+                        Kala = b.Kala,
+                        Vazn = ((b.Product.Pallet.Name == "RE8" || b.Product.Pallet.Name == "GP8")? "1" : "0"),
+                        Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
+                        Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : "0"),
+                        Karton = b.Product.FaniCode,
+                        Maghsad = b.Maghsad,
+                        Ranande = b.Ranande,
+                        Pelak = b.Driver.Pelak,
+                        Phone = b.Driver.Tel1,
+                        Car = b.Driver.Car
+                    });
+                    pos += 1;
+                }
+                FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
+                fg.CreatKartablFile(brt.ranande, false);
+            }
+
+        }
         }
     }

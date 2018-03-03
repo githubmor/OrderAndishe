@@ -18,9 +18,9 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
     {
 
         /// <summary>
-        /// The Baste entities repository.
+        /// The AmarTolidKhodro entities repository.
         /// </summary>
-        IRepository<Baste, int> Bastes { get; }
+        IRepository<AmarTolidKhodro, int> AmarTolidKhodros { get; }
 
         /// <summary>
         /// The Khodro entities repository.
@@ -33,9 +33,24 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         IRepository<Product, int> Products { get; }
 
         /// <summary>
+        /// The Amount entities repository.
+        /// </summary>
+        IRepository<Amount, int> Amount { get; }
+
+        /// <summary>
+        /// The Baste entities repository.
+        /// </summary>
+        IRepository<Baste, int> Bastes { get; }
+
+        /// <summary>
         /// The Bazres entities repository.
         /// </summary>
         IRepository<Bazres, int> Bazress { get; }
+
+        /// <summary>
+        /// The OracleRelation entities repository.
+        /// </summary>
+        IRepository<OracleRelation, int> OracleRelation { get; }
 
         /// <summary>
         /// The Customer entities repository.
@@ -43,9 +58,9 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         IRepository<Customer, int> Customers { get; }
 
         /// <summary>
-        /// The CustomerProductRelation entities repository.
+        /// The OrderDetail entities repository.
         /// </summary>
-        IRepository<CustomerProductRelation, int> CustomerProductRelations { get; }
+        IRepository<OrderDetail, int> OrderDetails { get; }
 
         /// <summary>
         /// The Driver entities repository.
@@ -53,13 +68,33 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         IRepository<Driver, int> Drivers { get; }
 
         /// <summary>
+        /// The DriverWork entities repository.
+        /// </summary>
+        IRepository<DriverWork, int> DriverWork { get; }
+
+        /// <summary>
+        /// The Order entities repository.
+        /// </summary>
+        IRepository<Order, int> Orders { get; }
+
+        /// <summary>
+        /// The TempDriver entities repository.
+        /// </summary>
+        IRepository<TempDriver, int> TempDriver { get; }
+
+        /// <summary>
+        /// The MOracle entities repository.
+        /// </summary>
+        IRepository<MOracle, int> MOracles { get; }
+
+        /// <summary>
+        /// The CustomerProductRelation entities repository.
+        /// </summary>
+        IRepository<CustomerProductRelation, int> CustomerProductRelations { get; }
+
+        /// <summary>
         /// The Pallet entities repository.
         /// </summary>
         IRepository<Pallet, int> Pallets { get; }
-
-        /// <summary>
-        /// The OracleRelation entities repository.
-        /// </summary>
-        IRepository<OracleRelation, int> OracleRelations { get; }
     }
 }

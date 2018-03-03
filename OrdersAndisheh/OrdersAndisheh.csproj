@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>193</ApplicationRevision>
+    <ApplicationRevision>194</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -367,23 +367,51 @@
     <Compile Include="DevUI\MyContextCFDataModel\IMyContextCFUnitOfWork.cs" />
     <Compile Include="DevUI\MyContextCFDataModel\MyContextCFUnitOfWork.cs" />
     <Compile Include="DevUI\MyContextCFDataModel\UnitOfWorkSource.cs" />
+    <Compile Include="DevUI\ViewModels\AmarTolidKhodro\AmarTolidKhodroCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\AmarTolidKhodro\AmarTolidKhodroViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Amount\AmountCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Amount\AmountViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Baste\BasteCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Baste\BasteViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Bazres\BazresCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Bazres\BazresViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\CustomerProductRelation\CustomerProductRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Customer\CustomerCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Customer\CustomerViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\DriverWork\DriverWorkCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\DriverWork\DriverWorkViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Driver\DriverCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Driver\DriverViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Khodro\KhodroCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Khodro\KhodroViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\MOracle\MOracleCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\MOracle\MOracleViewModel.cs" />
     <Compile Include="DevUI\ViewModels\MyContextCFViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OracleRelation\OracleRelationViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OrderDetail\OrderDetailCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\OrderDetail\OrderDetailViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Order\OrderCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Order\OrderViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Pallet\PalletCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Pallet\PalletViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Product\ProductCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Product\ProductViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\TempDriver\TempDriverCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\TempDriver\TempDriverViewModel.cs" />
+    <Compile Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroCollectionView.xaml.cs">
+      <DependentUpon>AmarTolidKhodroCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroView.xaml.cs">
+      <DependentUpon>AmarTolidKhodroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Amount\AmountCollectionView.xaml.cs">
+      <DependentUpon>AmountCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Amount\AmountView.xaml.cs">
+      <DependentUpon>AmountView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevUI\Views\Baste\BasteCollectionView.xaml.cs">
       <DependentUpon>BasteCollectionView.xaml</DependentUpon>
     </Compile>
@@ -395,12 +423,6 @@
     </Compile>
     <Compile Include="DevUI\Views\Bazres\BazresView.xaml.cs">
       <DependentUpon>BazresView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml.cs">
-      <DependentUpon>OracleRelationCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\OracleRelation\OracleRelationView.xaml.cs">
-      <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\CustomerProductRelation\CustomerProductRelationCollectionView.xaml.cs">
       <DependentUpon>CustomerProductRelationCollectionView.xaml</DependentUpon>
@@ -414,14 +436,50 @@
     <Compile Include="DevUI\Views\Customer\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DevUI\Views\DriverWork\DriverWorkCollectionView.xaml.cs">
+      <DependentUpon>DriverWorkCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\DriverWork\DriverWorkView.xaml.cs">
+      <DependentUpon>DriverWorkView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevUI\Views\Driver\DriverCollectionView.xaml.cs">
       <DependentUpon>DriverCollectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\Driver\DriverView.xaml.cs">
       <DependentUpon>DriverView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DevUI\Views\Khodro\KhodroCollectionView.xaml.cs">
+      <DependentUpon>KhodroCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Khodro\KhodroView.xaml.cs">
+      <DependentUpon>KhodroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\MOracle\MOracleCollectionView.xaml.cs">
+      <DependentUpon>MOracleCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\MOracle\MOracleView.xaml.cs">
+      <DependentUpon>MOracleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevUI\Views\MyContextCFView.xaml.cs">
       <DependentUpon>MyContextCFView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml.cs">
+      <DependentUpon>OracleRelationCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OracleRelation\OracleRelationView.xaml.cs">
+      <DependentUpon>OracleRelationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OrderDetail\OrderDetailCollectionView.xaml.cs">
+      <DependentUpon>OrderDetailCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\OrderDetail\OrderDetailView.xaml.cs">
+      <DependentUpon>OrderDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Order\OrderCollectionView.xaml.cs">
+      <DependentUpon>OrderCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Order\OrderView.xaml.cs">
+      <DependentUpon>OrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\Pallet\PalletCollectionView.xaml.cs">
       <DependentUpon>PalletCollectionView.xaml</DependentUpon>
@@ -434,6 +492,12 @@
     </Compile>
     <Compile Include="DevUI\Views\Product\ProductView.xaml.cs">
       <DependentUpon>ProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\TempDriver\TempDriverCollectionView.xaml.cs">
+      <DependentUpon>TempDriverCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\TempDriver\TempDriverView.xaml.cs">
+      <DependentUpon>TempDriverView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExcelManager\DbService.cs" />
     <Compile Include="ExcelManager\ExcelBackUp.cs" />
@@ -526,6 +590,22 @@
     <Compile Include="View\OracleRelationView.xaml.cs">
       <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
+    <Page Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Amount\AmountCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Amount\AmountView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DevUI\Views\Baste\BasteCollectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -539,14 +619,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\Bazres\BazresView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\OracleRelation\OracleRelationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -566,6 +638,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DevUI\Views\DriverWork\DriverWorkCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\DriverWork\DriverWorkView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DevUI\Views\Driver\DriverCollectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -574,7 +654,47 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DevUI\Views\Khodro\KhodroCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Khodro\KhodroView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\MOracle\MOracleCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\MOracle\MOracleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DevUI\Views\MyContextCFView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OracleRelation\OracleRelationCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OracleRelation\OracleRelationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OrderDetail\OrderDetailCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\OrderDetail\OrderDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Order\OrderCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Order\OrderView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -591,6 +711,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\Product\ProductView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\TempDriver\TempDriverCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\TempDriver\TempDriverView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -692,8 +820,8 @@
     <EmbeddedResource Include="Common\CommonResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -726,6 +854,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Report\MaliReport2.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\KartablReport.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="OrderAndisheh.ico" />
@@ -771,12 +902,12 @@
   <ItemGroup>
     <PublishFile Include="DevExpress.Office.v15.1.Core">
       <Visible>False</Visible>
-      <PublishState>Auto</PublishState>
-      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

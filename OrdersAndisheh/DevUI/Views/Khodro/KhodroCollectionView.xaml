@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.ProductCollectionView"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.KhodroCollectionView"
 xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -14,7 +14,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 
 mc:Ignorable="d"
         d:DesignHeight="400" d:DesignWidth="600"
- DataContext="{dxmvvm:ViewModelSource viewmodel:ProductCollectionViewModel}"
+ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroCollectionViewModel}"
       
 >
 
@@ -29,7 +29,7 @@ mc:Ignorable="d"
             <dxr:RibbonControl RibbonStyle="Office2010" DockPanel.Dock="Top" AllowCustomization="False" >
                 <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                     <dxr:RibbonPage Caption="Home">
-                        <dxr:RibbonPageGroup Caption="Product Tasks">
+                        <dxr:RibbonPageGroup Caption="Khodro Tasks">
                             <dxb:BarButtonItem Content="New" Command="{Binding NewCommand}"  LargeGlyph="{dx:DXImage Image=New_32x32.png}" Glyph="{dx:DXImage Image=New_16x16.png}"/>
                             <dxb:BarButtonItem Content="Edit" Command="{Binding EditCommand}" CommandParameter="{Binding SelectedEntity}" LargeGlyph="{dx:DXImage Image=Edit_32x32.png}" Glyph="{dx:DXImage Image=Edit_16x16.png}"/>
                             <dxb:BarButtonItem Content="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedEntity}" LargeGlyph="{dx:DXImage Image=Delete_32x32.png}" Glyph="{dx:DXImage Image=Delete_16x16.png}"/>
@@ -61,19 +61,7 @@ mc:Ignorable="d"
                     </dxmvvm:Interaction.Behaviors>
                     <dxg:GridControl.Columns>
                         <dxg:GridColumn IsSmart="True" FieldName="Id" />
-                        <dxg:GridColumn IsSmart="True" FieldName="Code" />
                         <dxg:GridColumn IsSmart="True" FieldName="Name" />
-                        <dxg:GridColumn IsSmart="True" FieldName="Weight" />
-                        <dxg:GridColumn IsSmart="True" FieldName="IsImenKala" />
-                        <dxg:GridColumn IsSmart="True" FieldName="FaniCode" />
-                        <dxg:GridColumn IsSmart="True" FieldName="CodeJense" />
-                        <dxg:GridColumn IsSmart="True" FieldName="BasteBandi" />
-                        <dxg:GridColumn IsSmart="True" FieldName="TedadDarPallet" />
-                        <dxg:GridColumn IsSmart="True" FieldName="TedadDarSabad" />
-                        <dxg:GridColumn FieldName="Bazre.Name" Header="Bazre" ReadOnly="True" />
-                        <dxg:GridColumn FieldName="Pallet.Name" Header="Pallet" ReadOnly="True" />
-                        <dxg:GridColumn FieldName="Baste.Name" Header="Baste" ReadOnly="True" />
-                        <dxg:GridColumn FieldName="Amount.ProductId" Header="Amount" ReadOnly="True" />
                     </dxg:GridControl.Columns>
                     <dxg:GridControl.TotalSummary>
                         <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>

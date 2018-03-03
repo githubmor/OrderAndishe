@@ -1,5 +1,5 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.OracleRelationView"
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.KhodroView"
+xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
@@ -14,7 +14,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 
 mc:Ignorable="d"
 d:DesignHeight="400" d:DesignWidth="600"
-DataContext="{dxmvvm:ViewModelSource viewmodel:OracleRelationViewModel}">
+DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
     <dxmvvm:Interaction.Behaviors>
         <dx:DXMessageBoxService/>
         <dxmvvm:EventToCommand Event="Loaded" Command="{Binding OnLoadedCommand}" />
@@ -25,7 +25,7 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:OracleRelationViewModel}">
             <dxr:RibbonControl RibbonStyle="Office2010" DockPanel.Dock="Top" AllowCustomization="False">
                 <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                     <dxr:RibbonPage Caption="Home">
-                        <dxr:RibbonPageGroup Caption="Oracle Relation Tasks">
+                        <dxr:RibbonPageGroup Caption="Khodro Tasks">
                             <dxb:BarButtonItem Content="Save" Command="{Binding SaveCommand}" LargeGlyph="{dx:DXImage Image=Save_32x32.png}" Glyph="{dx:DXImage Image=Save_16x16.png}"/>
                             <dxb:BarButtonItem Content="Save And Close" Command="{Binding SaveAndCloseCommand}" LargeGlyph="{dx:DXImage Image=SaveAndClose_32x32.png}" Glyph="{dx:DXImage Image=SaveAndClose_16x16.png}"/>
                             <dxb:BarButtonItem Content="Save And New" Command="{Binding SaveAndNewCommand}" LargeGlyph="{dx:DXImage Image=SaveAndNew_32x32.png}" Glyph="{dx:DXImage Image=SaveAndNew_16x16.png}"/>
@@ -52,23 +52,8 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:OracleRelationViewModel}">
                     <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
                         <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
                     </dxlc:LayoutItem>
-                    <dxlc:LayoutItem Label="Customer" Name="layoutItemCustomer" >
-                        <dxg:LookUpEdit EditValue="{Binding Entity.CustomerId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpCustomers.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
-                            <dxg:LookUpEdit.PopupContentTemplate>
-                                <ControlTemplate TargetType="ContentControl" >
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpCustomers.IsLoading}" />
-                                </ControlTemplate>
-                            </dxg:LookUpEdit.PopupContentTemplate>
-                        </dxg:LookUpEdit>
-                    </dxlc:LayoutItem>
-                    <dxlc:LayoutItem Label="Product" Name="layoutItemProduct" >
-                        <dxg:LookUpEdit EditValue="{Binding Entity.ProductId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpProducts.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
-                            <dxg:LookUpEdit.PopupContentTemplate>
-                                <ControlTemplate TargetType="ContentControl" >
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpProducts.IsLoading}" />
-                                </ControlTemplate>
-                            </dxg:LookUpEdit.PopupContentTemplate>
-                        </dxg:LookUpEdit>
+                    <dxlc:LayoutItem Label="Name" IsRequired="True" Name="layoutItemName" >
+                        <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="50" />
                     </dxlc:LayoutItem>
 
                 </dxlc:LayoutControl>
