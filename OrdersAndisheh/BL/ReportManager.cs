@@ -30,6 +30,7 @@ namespace OrdersAndisheh.BL
             service = new SefareshService();
 
             this.sefaresh = service.LoadSefaresh(s.Tarikh);
+            //this.sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.Where(p => p.Driver != null).ToList());
 
             foreach (var item in sefaresh.Items)
             {
@@ -411,6 +412,7 @@ namespace OrdersAndisheh.BL
             this.CreatMaliReport2(false);
         }
 
+        
         public void CreatPalletTabloReportOnDeskTop(bool showPreview = true)
         {
             pos = 0;
@@ -464,14 +466,15 @@ namespace OrdersAndisheh.BL
                         Karton = b.Karton,
                         Maghsad = b.Maghsad,
                         Ranande = b.Ranande,
-                        Pelak = b.Driver.Pelak,
-                        Phone = b.Driver.Tel1,
-                        Car = b.Driver.Car
+                        Pelak = (b.Driver!=null?b.Driver.Pelak:""),
+                        Phone = (b.Driver!=null?b.Driver.Tel1:""),
+                        Car = (b.Driver!=null?b.Driver.Car:""),
+                        TahvilFrosh = (b.TahvilFrosh > 0 ? b.TahvilFrosh.ToString() : "")
                     });
                     pos += 1;
                 }
                 FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-                fg.CreatCheckFile(brt.ranande, false);
+                fg.CreatCheckFile(brt.ranande + " چك", false);
             }
             
         }
@@ -504,7 +507,7 @@ namespace OrdersAndisheh.BL
                     pos += 1;
                 }
                 FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-                fg.CreatKartablFile(brt.ranande, false);
+                fg.CreatKartablFile(brt.ranande+" كارتابل", false);
             }
 
         }

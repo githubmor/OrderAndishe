@@ -29,7 +29,9 @@ namespace BL
         public bool IsTedadChanged { get; set; }
         public bool IsCustomerChanged { get; set; }
         public bool IsDriverChanged { get; set; }
-        
+
+
+        public string TahvilFrosh { get; set; }
     }
 }
 

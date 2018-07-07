@@ -18,7 +18,7 @@
         <Alias>Items</Alias>
         <BusinessObjects isList="true" count="0" />
         <Category />
-        <Columns isList="true" count="10">
+        <Columns isList="true" count="11">
           <value>Kala,System.String</value>
           <value>Tedad,System.String</value>
           <value>Karton,System.String</value>
@@ -29,6 +29,7 @@
           <value>Pelak,System.String</value>
           <value>Car,System.String</value>
           <value>Phone,System.String</value>
+          <value>TahvilFrosh,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Guid>febeeb78b448498fbfc442ce5bff949c</Guid>
@@ -56,9 +57,9 @@
             <Text1 Ref="6" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.3,1.7,0.4</ClientRectangle>
+              <ClientRectangle>0,0.4,1.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>B Nazanin,12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
@@ -72,7 +73,7 @@
             <Text2 Ref="7" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.7,0.3,0.7,0.4</ClientRectangle>
+              <ClientRectangle>1.6,0.4,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,13,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -118,7 +119,7 @@
             <Text3 Ref="10" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.7,0,0.7,0.3</ClientRectangle>
+              <ClientRectangle>1.6,0,0.8,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,13,Bold</Font>
               <Guid>d1fdc93de77d4248bd6a983ebd350d26</Guid>
@@ -129,22 +130,23 @@
               <Parent isRef="5" />
               <Text>شماره</Text>
               <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
             <Text16 Ref="11" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,1.7,0.3</ClientRectangle>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>B Nazanin,12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>{LineThrough}</Text>
+              <Text>{PageNumber}</Text>
               <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
+              <Type>SystemVariables</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
             <Text4 Ref="12" type="Text" isKey="true">
@@ -472,7 +474,7 @@
             <HeaderItems_Ranande Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>7.2,0.3,2.6,1.3</ClientRectangle>
+              <ClientRectangle>7.2,0.3,2.5,1.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -488,7 +490,7 @@
             <Text8 Ref="33" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>9.8,0.3,0.42,1.3</ClientRectangle>
+              <ClientRectangle>9.7,0.3,0.52,1.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -496,8 +498,9 @@
               <Name>Text8</Name>
               <Page isRef="4" />
               <Parent isRef="26" />
-              <Text>ردیف</Text>
+              <Text>تحويل فروش</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=False, Angle=90, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
@@ -705,7 +708,7 @@
             <Text7 Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>9.8,0,0.42,0.34</ClientRectangle>
+              <ClientRectangle>9.7,0,0.52,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,14</Font>
               <HorAlignment>Center</HorAlignment>
@@ -713,16 +716,16 @@
               <Name>Text7</Name>
               <Page isRef="4" />
               <Parent isRef="42" />
-              <Text>{LineThrough}</Text>
+              <Text>{Items.TahvilFrosh}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
             <DataItems_Ranande Ref="47" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>7.2,0,2.6,0.34</ClientRectangle>
+              <ClientRectangle>7.2,0,2.5,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
@@ -897,7 +900,7 @@
             <Text36 Ref="57" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>9.8,0,0.42,0.34</ClientRectangle>
+              <ClientRectangle>9.7,0,0.52,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>8acadec41ad34dbbb805048481b1f5b0</Guid>
@@ -906,7 +909,6 @@
               <Name>Text36</Name>
               <Page isRef="4" />
               <Parent isRef="53" />
-              <Text>{LineThrough}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -915,7 +917,7 @@
             <Text37 Ref="58" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>7.2,0,2.6,0.34</ClientRectangle>
+              <ClientRectangle>7.2,0,2.5,0.34</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>59b4a13a9e9b4bd8916fa6fc810b1153</Guid>
@@ -1054,10 +1056,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/7/2017 1:43:48 PM</ReportChanged>
+  <ReportChanged>7/7/2018 10:32:15 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckReport.mrt</ReportFile>
-  <ReportGuid>ae2ae59f9072456abdb3d89b174c7b69</ReportGuid>
+  <ReportGuid>fbd14c9b28014a94979b56abc5420e9d</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

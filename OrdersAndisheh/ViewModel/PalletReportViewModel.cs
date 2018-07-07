@@ -8,10 +8,10 @@ namespace OrdersAndisheh.ViewModel
 
     public class PalletReportViewModel : ViewModelBase
     {
-        public PalletReportViewModel()
+        public PalletReportViewModel(int year)
         {
             SefareshService s = new SefareshService();
-            Pallets = s.LoadAllPalletReport(PersianDateTime.Now.Year);
+            Pallets = s.LoadAllPalletReport(year);
         }
                 
         private List<PalletItem> myVar;

@@ -592,6 +592,13 @@
 
             return ret;
         }
+
+        public List<string> GetYears()
+        {
+            var y = db.Orders.GroupBy(p => p.Tarikh.Substring(0, 4)).Select(p => p.Key).ToList();
+
+            return y;
+        }
     }
 }
 

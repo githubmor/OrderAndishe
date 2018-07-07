@@ -2,57 +2,40 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
+using OrdersAndisheh.BL;
+using OrdersAndisheh.ExcelManager;
 using OrdersAndisheh.View;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using OrdersAndisheh.ExcelManager;
 using System.Data.Entity.Validation;
-using OrdersAndisheh.BL;
-using OrdersAndisheh.DBL;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace OrdersAndisheh.ViewModel
 {
-    
     public class FirstViewModel : ViewModelBase
     {
-        SefareshService ss;
-        ExcelService exService;
+        private SefareshService ss;
+        private ExcelService exService;
+
         public FirstViewModel()
         {
-            
             ss = new SefareshService();
             Messenger.Default.Register<string>(this, "path", getFilePath);
-            //Messenger.Default.Register<string>(this, "Reload", ReloadList);
-            
         }
-
-        //private void ReloadList(CheckSefaresh sefaresh)
-        //{
-        //    RaisePropertyChanged(sefaresh)
-        //}
-
-        //private int myVar;
 
         public string today
         {
-            get { return "سفارش امروز - "+ PersianDateTime.Now.ToString(PersianDateTimeFormat.Date); }
+            get { return "سفارش امروز - " + PersianDateTime.Now.ToString(PersianDateTimeFormat.Date); }
         }
-        
 
-        
         private void getFilePath(string path)
         {
             try
             {
                 DbService dbService = new DbService();
                 exService = new ExcelService(path, dbService);
-
-
 
                 FilePath = exService.FilePath;
 
@@ -68,14 +51,13 @@ namespace OrdersAndisheh.ViewModel
                 RaisePropertyChanged(() => HasNewPallet);
                 RaisePropertyChanged(() => HasNewProduct);
                 RaisePropertyChanged(() => HasNewDriver);
-
             }
             catch (Exception r)
             {
-
                 MessageBox.Show(r.Message.ToString());
             }
         }
+
         public string FilePath { get; set; }
 
         public string CheckResult { get; set; }
@@ -86,21 +68,34 @@ namespace OrdersAndisheh.ViewModel
         public bool HasNewPallet { get; set; }
         public bool HasNewBazres { get; set; }
 
+        public string selectedYear
+        {
+            get { return se; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    se = PersianDateTime.Now.Year.ToString();
+                }
+                else
+                {
+                    se = value;
+                    RaisePropertyChanged(() => CheckSefareshs);
+                }
+            }
+        }
 
-
-
-        //private List<string> lists;
-
-        //public List<string> Lists
-        //{
-        //    get { return ss.LoadAllNOAcceptedSefareshTarikh(); }
-        //    set { lists = value; }
-        //}
+        public List<string> Years
+        {
+            get { return ss.GetYears(); }
+        }
 
         public List<CheckSefaresh> CheckSefareshs
         {
-            get { return ss.LoadCheckSefareshs(PersianDateTime.Now.Year); }
-            //set { lists = value; }
+            get
+            {
+                return ss.LoadCheckSefareshs(int.Parse(selectedYear));
+            }
         }
 
         public CheckSefaresh SelectedSefareshCheck { get; set; }
@@ -132,6 +127,8 @@ namespace OrdersAndisheh.ViewModel
             return true;
         }
 
+        #region Add New data from Excel
+
         private RelayCommand _myCommand255;
 
         /// <summary>
@@ -150,22 +147,21 @@ namespace OrdersAndisheh.ViewModel
         {
             try
             {
-               CheckResult = exService.CheckingData();
-               HasNewBazres = exService.HasNewBazres;
-               HasNewCustomer = exService.HasNewCustomer;
-               HasNewPallet = exService.HasNewPallet;
-               HasNewProduct = exService.HasNewProduct;
-               HasNewDriver = exService.HasNewDriver;
-               RaisePropertyChanged(() => CheckResult);
-               RaisePropertyChanged(() => HasNewBazres);
-               RaisePropertyChanged(() => HasNewCustomer);
-               RaisePropertyChanged(() => HasNewPallet);
-               RaisePropertyChanged(() => HasNewProduct);
-               RaisePropertyChanged(() => HasNewDriver);
+                CheckResult = exService.CheckingData();
+                HasNewBazres = exService.HasNewBazres;
+                HasNewCustomer = exService.HasNewCustomer;
+                HasNewPallet = exService.HasNewPallet;
+                HasNewProduct = exService.HasNewProduct;
+                HasNewDriver = exService.HasNewDriver;
+                RaisePropertyChanged(() => CheckResult);
+                RaisePropertyChanged(() => HasNewBazres);
+                RaisePropertyChanged(() => HasNewCustomer);
+                RaisePropertyChanged(() => HasNewPallet);
+                RaisePropertyChanged(() => HasNewProduct);
+                RaisePropertyChanged(() => HasNewDriver);
             }
             catch (Exception r)
             {
-
                 MessageBox.Show(r.Message.ToString());
             }
         }
@@ -206,7 +202,6 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-
         private RelayCommand _myCommand3;
 
         /// <summary>
@@ -229,12 +224,9 @@ namespace OrdersAndisheh.ViewModel
             }
             catch (Exception r)
             {
-                
                 MessageBox.Show(r.Message.ToString());
             }
         }
-
-
 
         private RelayCommand _myCommand4;
 
@@ -259,7 +251,6 @@ namespace OrdersAndisheh.ViewModel
             }
             catch (Exception r)
             {
-
                 MessageBox.Show(r.Message.ToString());
             }
         }
@@ -287,7 +278,6 @@ namespace OrdersAndisheh.ViewModel
             }
             catch (Exception r)
             {
-
                 MessageBox.Show(r.Message.ToString());
             }
         }
@@ -315,7 +305,6 @@ namespace OrdersAndisheh.ViewModel
             }
             catch (Exception r)
             {
-
                 MessageBox.Show(r.Message.ToString());
             }
         }
@@ -344,7 +333,6 @@ namespace OrdersAndisheh.ViewModel
             }
             catch (Exception r)
             {
-
                 MessageBox.Show(r.Message.ToString());
             }
         }
@@ -353,26 +341,8 @@ namespace OrdersAndisheh.ViewModel
         {
             return true;
         }
-        //private RelayCommand<string> _myCommand3;
 
-        ///// <summary>
-        ///// Gets the EditSefaresh.
-        ///// </summary>
-        //public RelayCommand<string> EditSefaresh
-        //{
-        //    get
-        //    {
-        //        return _myCommand3
-        //            ?? (_myCommand3 = new RelayCommand<string>(ExecuteEditSefaresh));
-        //    }
-        //}
-
-        //private void ExecuteEditSefaresh(string parameter)
-        //{
-        //    MainView v = new MainView();
-        //    v.Show();
-        //    Messenger.Default.Send(parameter, "EditSefaresh");
-        //}
+        #endregion Add New data from Excel
 
         private RelayCommand _myCommand265545;
 
@@ -398,7 +368,6 @@ namespace OrdersAndisheh.ViewModel
                 v.ShowDialog();
                 //ReloadList(SelectedSefareshCheck);
                 //RaisePropertyChanged(() => this.CheckSefareshs);
-                
             }
         }
 
@@ -406,6 +375,8 @@ namespace OrdersAndisheh.ViewModel
         {
             return SelectedSefareshCheck != null;
         }
+
+        #region BackUp
 
         private RelayCommand _myCommand45;
 
@@ -451,7 +422,6 @@ namespace OrdersAndisheh.ViewModel
             //        //conn.connect();
             //    }
             //}
-
         }
 
         private RelayCommand _myCommand65656;
@@ -470,7 +440,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteRestoreDatabase()
         {
-            OpenFileDialog  folderDialog = new OpenFileDialog();
+            OpenFileDialog folderDialog = new OpenFileDialog();
             if (folderDialog.ShowDialog() == DialogResult.OK)
             {
                 string destinationPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -499,6 +469,7 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
+        #endregion BackUp
 
         private RelayCommand _myCommand565;
 
@@ -516,38 +487,33 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteOracleRelation()
         {
-
             ImportView v = new ImportView();
             v.ShowDialog();
             //try
             //{
-                //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-                //{
+            //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            //{
+            //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //    {
+            //        openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
+            //        openFileDialog1.FilterIndex = 1;
+            //        //FilePath = openFileDialog1.FileName;
+            //        //IExcelImporter c = new ErsalImport(ss);
+            //        //var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
 
-                //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                //    {
-                //        openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
-                //        openFileDialog1.FilterIndex = 1;
-                //        //FilePath = openFileDialog1.FileName;
-                //        //IExcelImporter c = new ErsalImport(ss);
-                //        //var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
-
-                //        //ss.SaveOrders(yu);
-                //        MessageBox.Show("ذخیره شد");
-                //    }
-                //}
+            //        //ss.SaveOrders(yu);
+            //        MessageBox.Show("ذخیره شد");
+            //    }
+            //}
             //}
             //catch (Exception eree)
             //{
-
             //    MessageBox.Show(eree.Message.ToString());
             //    MessageBox.Show("ذخیره سازی انجام نشد");
             //}
             //OracleRelationView v = new OracleRelationView();
             //v.Show();
         }
-
-
 
         private RelayCommand _myCommand654654;
 
@@ -585,7 +551,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteBackUpAsExcel()
         {
-            return SelectedSefareshCheck !=null;
+            return SelectedSefareshCheck != null;
         }
 
         private void ExecuteBackUpAsExcel()
@@ -600,7 +566,6 @@ namespace OrdersAndisheh.ViewModel
             }
             catch (Exception r)
             {
-
                 MessageBox.Show(r.Message.ToString());
             }
         }
@@ -629,7 +594,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteDelSefaresh()
         {
-            return SelectedSefareshCheck !=null;
+            return SelectedSefareshCheck != null;
         }
 
         private RelayCommand _myCommand5252656;
@@ -721,9 +686,7 @@ namespace OrdersAndisheh.ViewModel
         private bool CanExecuteAcceptSefaresh()
         {
             return SelectedSefareshCheck != null && SelectedSefareshCheck.IsEveryThingOk;
-                
         }
-
 
         private RelayCommand _myCommand5656565478111;
 
@@ -741,11 +704,10 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteErsalReporting()
         {
-            ErsalReportViewModel vm = new ErsalReportViewModel();
+            ErsalReportViewModel vm = new ErsalReportViewModel(int.Parse(selectedYear));
             ErsalReportView v = new ErsalReportView();
             v.DataContext = vm;
             v.Show();
-            
         }
 
         private RelayCommand _myCommand5465656565656;
@@ -764,11 +726,10 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecutePalletReporting()
         {
-            PalletReportViewModel vm = new PalletReportViewModel();
+            PalletReportViewModel vm = new PalletReportViewModel(int.Parse(selectedYear));
             PalletReportView v = new PalletReportView();
             v.DataContext = vm;
             v.Show();
-
         }
 
         private RelayCommand _myCommand75555;
@@ -797,15 +758,15 @@ namespace OrdersAndisheh.ViewModel
             FileManagar f = new FileManagar();
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
-                if (dialog.ShowDialog()==DialogResult.OK)
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    f.CreatePlaskoreport(items, dialog.SelectedPath+"/pelasko.xlsx");
+                    f.CreatePlaskoreport(items, dialog.SelectedPath + "/pelasko.xlsx");
                 }
             }
-
         }
 
         private RelayCommand _myCommand5595;
+        private string se = PersianDateTime.Now.Year.ToString();
 
         /// <summary>
         /// Gets the DatabaseChecking.
@@ -825,6 +786,4 @@ namespace OrdersAndisheh.ViewModel
             MessageBox.Show("دیتابیس آماده شد");
         }
     }
-
-
 }

@@ -8,10 +8,10 @@ namespace OrdersAndisheh.ViewModel
 
     public class ErsalReportViewModel : ViewModelBase
     {
-        public ErsalReportViewModel()
+        public ErsalReportViewModel (int year)
         {
             SefareshService s = new SefareshService();
-            ItemSefareshes = s.LoadAllSefaresh(PersianDateTime.Now.Year);
+            ItemSefareshes = s.LoadAllSefaresh(year);
         }
                 
         private List<ErsalItem> myVar;
