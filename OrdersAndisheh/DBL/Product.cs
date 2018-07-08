@@ -12,7 +12,6 @@ namespace OrdersAndisheh.DBL
         public Product()
         {
             OrderDetails = new HashSet<OrderDetail>();
-            Khodros = new HashSet<Khodro>();
             //CustomerRelations = new HashSet<CustomerProductRelation>();
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -48,7 +47,7 @@ namespace OrdersAndisheh.DBL
         public int Bazres_Id { get; set; }
 
         public virtual Bazres Bazre { get; set; }
-        public virtual ICollection<Khodro> Khodros { get; set; }
+        public virtual ICollection<KhodroProductRelation> KhodrosRelation { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         //public int? RelationId { get; set; }
         public virtual ICollection<CustomerProductRelation> Relations { get; set; }

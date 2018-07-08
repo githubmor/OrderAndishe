@@ -298,7 +298,63 @@ namespace OrdersAndisheh.ViewModel
         {
             return !sefaresh.Items.Any(p=>p.TahvilFrosh<1);
         }
-        
+
+        private RelayCommand _myCommand55555sdf772;
+
+        /// <summary>
+        /// Gets the SaveTahvilFrosh.
+        /// </summary>
+        public RelayCommand ClearTahvilFrosh
+        {
+            get
+            {
+                return _myCommand55555sdf772 ?? (_myCommand55555sdf772 = new RelayCommand(
+                    ExecuteClearTahvilFrosh,
+                    CanExecuteClearTahvilFrosh));
+            }
+        }
+
+        private void ExecuteClearTahvilFrosh()
+        {
+            foreach (var item in sefaresh.Items)
+            {
+                item.TahvilFrosh = 0;
+            }
+        }
+
+        private bool CanExecuteClearTahvilFrosh()
+        {
+            return sefaresh.Items.Any(p => p.TahvilFrosh > 0);
+        }
+
+        private RelayCommand _myCommand5555as72;
+
+        /// <summary>
+        /// Gets the SaveTahvilFrosh.
+        /// </summary>
+        public RelayCommand TempSaveTahvilFrosh
+        {
+            get
+            {
+                return _myCommand5555as72 ?? (_myCommand5555as72 = new RelayCommand(
+                    ExecuteTempSaveTahvilFrosh,
+                    CanExecuteTempSaveTahvilFrosh));
+            }
+        }
+
+        private void ExecuteTempSaveTahvilFrosh()
+        {
+            foreach (var item in sefaresh.Items.Where(p=>p.TahvilFrosh==0))
+            {
+                item.TahvilFrosh = short.Parse("9999");
+            }
+            ExecuteSaveTahvilFrosh();
+        }
+
+        private bool CanExecuteTempSaveTahvilFrosh()
+        {
+            return sefaresh.Items.Any(p => p.TahvilFrosh == 0);
+        }
     }
 
     

@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>198</ApplicationRevision>
+    <ApplicationRevision>201</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -347,6 +347,7 @@
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
     <Compile Include="DBL\Amount.cs" />
     <Compile Include="DBL\AmarTolidKhodro.cs" />
+    <Compile Include="DBL\KhodroProductRelation.cs" />
     <Compile Include="DBL\Khodro.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
     <Compile Include="DBL\Baste.cs" />
@@ -383,6 +384,8 @@
     <Compile Include="DevUI\ViewModels\DriverWork\DriverWorkViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Driver\DriverCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Driver\DriverViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\KhodroProductRelation\KhodroProductRelationCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\KhodroProductRelation\KhodroProductRelationViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Khodro\KhodroCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Khodro\KhodroViewModel.cs" />
     <Compile Include="DevUI\ViewModels\MOracle\MOracleCollectionViewModel.cs" />
@@ -447,6 +450,12 @@
     </Compile>
     <Compile Include="DevUI\Views\Driver\DriverView.xaml.cs">
       <DependentUpon>DriverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationCollectionView.xaml.cs">
+      <DependentUpon>KhodroProductRelationCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationView.xaml.cs">
+      <DependentUpon>KhodroProductRelationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\Khodro\KhodroCollectionView.xaml.cs">
       <DependentUpon>KhodroCollectionView.xaml</DependentUpon>
@@ -651,6 +660,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\Driver\DriverView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\KhodroProductRelation\KhodroProductRelationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -920,6 +937,7 @@
       <Name>ImportingLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

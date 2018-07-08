@@ -28,6 +28,11 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         IRepository<Khodro, int> Khodros { get; }
 
         /// <summary>
+        /// The KhodroProductRelation entities repository.
+        /// </summary>
+        IRepository<KhodroProductRelation, int> KhodroProductRelation { get; }
+
+        /// <summary>
         /// The Product entities repository.
         /// </summary>
         IRepository<Product, int> Products { get; }

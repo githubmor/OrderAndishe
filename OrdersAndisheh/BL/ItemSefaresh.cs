@@ -178,8 +178,10 @@ namespace BL
 		public short TahvilFrosh
 		{
             get { return OrderDetail.TahvilForosh; }
-            set { OrderDetail.TahvilForosh = value;
+            set { 
+                OrderDetail.TahvilForosh = value;
             IsTahvilFroshChanged = true;
+            NotifyPropertyChanged("TahvilFrosh");
             }
 		}
 

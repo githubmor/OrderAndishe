@@ -49,7 +49,7 @@ namespace OrdersAndisheh.ViewModel
             Messenger.Default.Register<string>(this, "Editsefaresh", LoadThisDateSefaresh);
         }
 
-        internal void LoadThisDateSefaresh(string tarikh)
+        public void LoadThisDateSefaresh(string tarikh)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace OrdersAndisheh.ViewModel
             }
         }
 
-        internal string GoodCode
+        public string GoodCode
         {
             get { return (SelecteddItem != null ? SelecteddItem.CodeKala : null); }
             set

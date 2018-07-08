@@ -37,5 +37,13 @@ namespace OrdersAndisheh.DevUI.ViewModels
             : base(unitOfWorkFactory ?? UnitOfWorkSource.GetUnitOfWorkFactory(), x => x.Khodros, x => x.Name)
         {
         }
+
+        /// <summary>
+        /// The view model for the KhodroProductsRelation detail collection.
+        /// </summary>
+        public CollectionViewModel<KhodroProductRelation, int, IMyContextCFUnitOfWork> KhodroProductsRelationDetails
+        {
+            get { return GetDetailsCollectionViewModel((KhodroViewModel x) => x.KhodroProductsRelationDetails, x => x.KhodroProductRelation, x => x.KhodroId, (x, key) => x.KhodroId = key); }
+        }
     }
 }

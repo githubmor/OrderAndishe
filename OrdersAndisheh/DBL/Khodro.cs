@@ -10,7 +10,6 @@ namespace OrdersAndisheh.DBL
 
         public Khodro()
         {
-            Products = new HashSet<Product>();
             //ProductRelations = new HashSet<CustomerProductRelation>();
         }
 
@@ -21,7 +20,7 @@ namespace OrdersAndisheh.DBL
         [StringLength(50)]
         public string Name { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<KhodroProductRelation> ProductsRelation { get; set; }
 
         public virtual ICollection<AmarTolidKhodro> Tolids { get; set; }
     }

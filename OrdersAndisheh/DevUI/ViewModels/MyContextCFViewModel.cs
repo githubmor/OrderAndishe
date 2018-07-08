@@ -43,6 +43,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
             return new MyContextCFModuleDescription[] {
                 new MyContextCFModuleDescription("Amar Tolid Khodros", "AmarTolidKhodroCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.AmarTolidKhodros)),
                 new MyContextCFModuleDescription("Khodros", "KhodroCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Khodros)),
+                new MyContextCFModuleDescription("Khodro Product Relation", "KhodroProductRelationCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.KhodroProductRelation)),
                 new MyContextCFModuleDescription("Products", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),
                 new MyContextCFModuleDescription("Amount", "AmountCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Amount)),
                 new MyContextCFModuleDescription("Bastes", "BasteCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Bastes)),

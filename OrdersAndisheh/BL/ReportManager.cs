@@ -469,7 +469,7 @@ namespace OrdersAndisheh.BL
                         Pelak = (b.Driver!=null?b.Driver.Pelak:""),
                         Phone = (b.Driver!=null?b.Driver.Tel1:""),
                         Car = (b.Driver!=null?b.Driver.Car:""),
-                        TahvilFrosh = (b.TahvilFrosh > 0 ? b.TahvilFrosh.ToString() : "")
+                        TahvilFrosh = (b.TahvilFrosh != 9999 ? b.TahvilFrosh.ToString() : "")//9999 موقع ثبت موقت براي تحويل فروش هاي كه مشخص نيست انتخاب شده
                     });
                     pos += 1;
                 }

@@ -614,10 +614,18 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteSetTahvilfrosh()
         {
-            TahvilfroshView v = new TahvilfroshView();
-            Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "sefareshForTahvilSet");
-            v.ShowDialog();
-            RaisePropertyChanged(() => this.CheckSefareshs);
+            try
+            {
+                TahvilfroshView v = new TahvilfroshView();
+                Messenger.Default.Send<string>(SelectedSefareshCheck.TarikhSefaresh, "sefareshForTahvilSet");
+                v.ShowDialog();
+                RaisePropertyChanged(() => this.CheckSefareshs);
+            }
+            catch (Exception r)
+            {
+
+                MessageBox.Show(r.Message.ToString());
+            }
         }
 
         private bool CanExecuteSetTahvilfrosh()

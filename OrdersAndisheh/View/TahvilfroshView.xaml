@@ -14,10 +14,11 @@
             <RowDefinition Height="459*"/>
         </Grid.RowDefinitions>
         <StackPanel FlowDirection="RightToLeft" Margin="10" Orientation="Horizontal" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.ColumnSpan="2">
-            <Button Content="Button" Command="{Binding GetFile}"/>
+            <Button Content="انتخاب فايل" Command="{Binding GetFile}"/>
             <Label Content="{Binding FilePath}"/>
-            <Button Content="Save" Width="75" Command="{Binding SaveTahvilFrosh}"/>
-
+            <Button Content="ذخيره" Width="75" Command="{Binding SaveTahvilFrosh}"/>
+            <Button Content="ثبت موقت" Width="75" Margin="10,0,0,0" Command="{Binding TempSaveTahvilFrosh}"/>
+            <Button Content="بازسازي" Width="75" Margin="10,0,0,0" Command="{Binding ClearTahvilFrosh}"/>
         </StackPanel>
         <DataGrid 
             FlowDirection="RightToLeft" 
