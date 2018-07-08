@@ -41,7 +41,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
         protected override MyContextCFModuleDescription[] CreateModules()
         {
             return new MyContextCFModuleDescription[] {
-                new MyContextCFModuleDescription("Amar Tolid Khodros", "AmarTolidKhodroCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.AmarTolidKhodros)),
+                new MyContextCFModuleDescription("Amar Tolid Khodros", "AmarTolidKhodroCollectionView", TablesGroup),
                 new MyContextCFModuleDescription("Khodros", "KhodroCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Khodros)),
                 new MyContextCFModuleDescription("Khodro Product Relation", "KhodroProductRelationCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.KhodroProductRelation)),
                 new MyContextCFModuleDescription("Products", "ProductCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Products)),

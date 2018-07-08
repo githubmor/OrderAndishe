@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>201</ApplicationRevision>
+    <ApplicationRevision>203</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -369,7 +369,6 @@
     <Compile Include="DevUI\MyContextCFDataModel\MyContextCFUnitOfWork.cs" />
     <Compile Include="DevUI\MyContextCFDataModel\UnitOfWorkSource.cs" />
     <Compile Include="DevUI\ViewModels\AmarTolidKhodro\AmarTolidKhodroCollectionViewModel.cs" />
-    <Compile Include="DevUI\ViewModels\AmarTolidKhodro\AmarTolidKhodroViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Amount\AmountCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Amount\AmountViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Baste\BasteCollectionViewModel.cs" />
@@ -405,9 +404,6 @@
     <Compile Include="DevUI\ViewModels\TempDriver\TempDriverViewModel.cs" />
     <Compile Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroCollectionView.xaml.cs">
       <DependentUpon>AmarTolidKhodroCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroView.xaml.cs">
-      <DependentUpon>AmarTolidKhodroView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevUI\Views\Amount\AmountCollectionView.xaml.cs">
       <DependentUpon>AmountCollectionView.xaml</DependentUpon>
@@ -600,10 +596,6 @@
       <DependentUpon>OracleRelationView.xaml</DependentUpon>
     </Compile>
     <Page Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroCollectionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -856,6 +848,9 @@
     </None>
     <AppDesigner Include="Properties\" />
     <Content Include="bin\Debug\OrderDbCompact.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OrderDbCompact.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Report\Report2.mrt">

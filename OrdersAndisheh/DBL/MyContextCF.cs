@@ -40,10 +40,15 @@ namespace OrdersAndisheh.DBL
                 .HasKey(p=>p.ProductId)
                 .HasRequired(et => et.Product)
                 .WithOptional(eo => eo.Amount);
+            modelBuilder.Entity<AmarTolidKhodro>()
+               .HasKey(vf => new { vf.SalMah, vf.KhodroId })
+               .HasRequired(et => et.Khodro)
+               .WithMany(eo => eo.Tolids);
 
             modelBuilder.Entity<Khodro>()
                 .HasMany(p => p.Tolids)
                 .WithRequired(p => p.Khodro)
+                .HasForeignKey(p=>p.KhodroId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Bazres>()

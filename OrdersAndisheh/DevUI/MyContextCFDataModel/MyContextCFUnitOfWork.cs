@@ -22,9 +22,9 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         {
         }
 
-        IRepository<AmarTolidKhodro, int> IMyContextCFUnitOfWork.AmarTolidKhodros
+        IReadOnlyRepository<AmarTolidKhodro> IMyContextCFUnitOfWork.AmarTolidKhodros
         {
-            get { return GetRepository(x => x.Set<AmarTolidKhodro>(), x => x.Id); }
+            get { return GetReadOnlyRepository(x => x.Set<AmarTolidKhodro>()); }
         }
 
         IRepository<Khodro, int> IMyContextCFUnitOfWork.Khodros

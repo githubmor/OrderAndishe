@@ -257,7 +257,8 @@
                         hasAnyEmptyMaghsad = p.OrderDetails.Any(t => t.Customer == null),
                         hasAnyEmptyRanande = p.OrderDetails.Any(t => t.Driver == null),
                         hasAnyTempRanande = p.OrderDetails.Any(t => t.Driver.TempDriver!=null),
-                        hasAnyZeroTahvilFrosh = p.OrderDetails.Any(t => t.TahvilForosh == 0),
+                        hasAnyZeroTahvilFrosh = p.OrderDetails.Any(t => t.TahvilForosh == 0 | 
+                            t.TahvilForosh==9999),
                         hasAnyEmptyOracle = p.OrderDetails.Where(y=>y.Customer!=null)
                         .Where(e => e.Product.OracleRelations.Any(f => f.Customer == e.Customer))
                             .Any(r => r.MOracle == null)

@@ -12,7 +12,7 @@ namespace OrdersAndisheh.DevUI.ViewModels
     /// <summary>
     /// Represents the AmarTolidKhodros collection view model.
     /// </summary>
-    public partial class AmarTolidKhodroCollectionViewModel : CollectionViewModel<AmarTolidKhodro, int, IMyContextCFUnitOfWork>
+    public partial class AmarTolidKhodroCollectionViewModel : ReadOnlyCollectionViewModel<AmarTolidKhodro, IMyContextCFUnitOfWork>
     {
 
         /// <summary>

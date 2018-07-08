@@ -30,9 +30,6 @@ mc:Ignorable="d"
                 <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                     <dxr:RibbonPage Caption="Home">
                         <dxr:RibbonPageGroup Caption="Amar Tolid Khodro Tasks">
-                            <dxb:BarButtonItem Content="New" Command="{Binding NewCommand}"  LargeGlyph="{dx:DXImage Image=New_32x32.png}" Glyph="{dx:DXImage Image=New_16x16.png}"/>
-                            <dxb:BarButtonItem Content="Edit" Command="{Binding EditCommand}" CommandParameter="{Binding SelectedEntity}" LargeGlyph="{dx:DXImage Image=Edit_32x32.png}" Glyph="{dx:DXImage Image=Edit_16x16.png}"/>
-                            <dxb:BarButtonItem Content="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedEntity}" LargeGlyph="{dx:DXImage Image=Delete_32x32.png}" Glyph="{dx:DXImage Image=Delete_16x16.png}"/>
                             <dxb:BarButtonItem Content="Refresh" Command="{Binding RefreshCommand}"  LargeGlyph="{dx:DXImage Image=Refresh_32x32.png}" Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
                         </dxr:RibbonPageGroup>
                         <dxr:RibbonPageGroup Caption="Print and Export">
@@ -52,18 +49,10 @@ mc:Ignorable="d"
                 </dxmvvm:Interaction.Behaviors>
                 <dxg:GridControl Name="gridControl"
 					                 ItemsSource="{Binding Entities}" ShowBorder="False"									 CurrentItem="{Binding SelectedEntity}" ShowLoadingPanel="{Binding IsLoading}" >
-                    <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand PassEventArgsToCommand="True" Command="{Binding EditCommand}" EventName="MouseDoubleClick" MarkRoutedEventsAsHandled="True">
-                            <dxmvvm:EventToCommand.EventArgsConverter>
-                                <dx:EventArgsToDataRowConverter/>
-                            </dxmvvm:EventToCommand.EventArgsConverter>
-                        </dxmvvm:EventToCommand>
-                    </dxmvvm:Interaction.Behaviors>
                     <dxg:GridControl.Columns>
-                        <dxg:GridColumn IsSmart="True" FieldName="Id" />
                         <dxg:GridColumn IsSmart="True" FieldName="TedadTolid" />
-                        <dxg:GridColumn IsSmart="True" FieldName="Tarikh" />
                         <dxg:GridColumn FieldName="Khodro.Name" Header="Khodro" ReadOnly="True" />
+                        <dxg:GridColumn IsSmart="True" FieldName="SalMah" />
                     </dxg:GridControl.Columns>
                     <dxg:GridControl.TotalSummary>
                         <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>
@@ -74,9 +63,6 @@ mc:Ignorable="d"
                     <dxg:GridControl.View>
                         <dxg:TableView Name="tableView" AllowEditing="False" ShowFixedTotalSummary="True" AllowPerPixelScrolling="True" >
                             <dxg:TableView.RowCellMenuCustomizations>
-                                <dxb:BarButtonItem Content="New" Command="{Binding View.DataContext.NewCommand}"  Glyph="{dx:DXImage Image=New_16x16.png}"/>
-                                <dxb:BarButtonItem Content="Edit" Command="{Binding View.DataContext.EditCommand}" CommandParameter="{Binding Row.Row}" Glyph="{dx:DXImage Image=Edit_16x16.png}"/>
-                                <dxb:BarButtonItem Content="Delete" Command="{Binding View.DataContext.DeleteCommand}" CommandParameter="{Binding Row.Row}" Glyph="{dx:DXImage Image=Delete_16x16.png}"/>
                                 <dxb:BarButtonItem Content="Refresh" Command="{Binding View.DataContext.RefreshCommand}"  Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
                             </dxg:TableView.RowCellMenuCustomizations>
                         </dxg:TableView>

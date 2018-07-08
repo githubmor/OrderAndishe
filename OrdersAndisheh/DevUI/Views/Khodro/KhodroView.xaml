@@ -98,6 +98,35 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
                                 </dxg:GridControl.View>
                             </dxg:GridControl>
                         </Grid>
+                        <Grid dxb:MergingProperties.AllowMerging="False" x:Name="KhodroTolidsDetailsPanel" dxb:BarNameScope.IsScopeOwner="True" DataContext="{Binding KhodroTolidsDetails}" dxlc:LayoutControl.TabHeader="Tolids">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <dxb:ToolBarControl>
+                                <dxb:BarButtonItem BarItemDisplayMode="ContentAndGlyph" Content="Refresh" Command="{Binding RefreshCommand}"  Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
+                            </dxb:ToolBarControl>
+                            <dxg:GridControl dx:DXSerializer.SerializationID="KhodroTolidsDetailsGrid" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" MaxHeight="2000" ShowLoadingPanel="{Binding IsLoading}" Grid.Row="1">
+                                <dxg:GridControl.Columns>
+                                    <dxg:GridColumn IsSmart="True" FieldName="TedadTolid" />
+                                    <dxg:GridColumn FieldName="Khodro.Name" Header="Khodro" ReadOnly="True" />
+                                    <dxg:GridColumn IsSmart="True" FieldName="SalMah" />
+                                </dxg:GridControl.Columns>
+                                <dxg:GridControl.TotalSummary>
+                                    <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>
+                                </dxg:GridControl.TotalSummary>
+                                <dxg:GridControl.GroupSummary>
+                                    <dxg:GridSummaryItem SummaryType="Count"/>
+                                </dxg:GridControl.GroupSummary>
+                                <dxg:GridControl.View>
+                                    <dxg:TableView AllowEditing="False" ShowFixedTotalSummary="True" AllowPerPixelScrolling="True" ShowGroupPanel="False">
+                                        <dxg:TableView.RowCellMenuCustomizations>
+                                            <dxb:BarButtonItem Content="Refresh" Command="{Binding View.DataContext.RefreshCommand}"  Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
+                                        </dxg:TableView.RowCellMenuCustomizations>
+                                    </dxg:TableView>
+                                </dxg:GridControl.View>
+                            </dxg:GridControl>
+                        </Grid>
                     </dxlc:LayoutGroup>
 
                 </dxlc:LayoutControl>

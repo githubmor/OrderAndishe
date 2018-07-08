@@ -45,5 +45,13 @@ namespace OrdersAndisheh.DevUI.ViewModels
         {
             get { return GetDetailsCollectionViewModel((KhodroViewModel x) => x.KhodroProductsRelationDetails, x => x.KhodroProductRelation, x => x.KhodroId, (x, key) => x.KhodroId = key); }
         }
+
+        /// <summary>
+        /// The view model for the KhodroTolids detail collection.
+        /// </summary>
+        public ReadOnlyCollectionViewModel<AmarTolidKhodro, IMyContextCFUnitOfWork> KhodroTolidsDetails
+        {
+            get { return GetReadOnlyDetailsCollectionViewModel((KhodroViewModel x) => x.KhodroTolidsDetails, x => x.AmarTolidKhodros, x => x.KhodroId); }
+        }
     }
 }

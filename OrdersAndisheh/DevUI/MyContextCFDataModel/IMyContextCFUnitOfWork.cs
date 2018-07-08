@@ -20,7 +20,7 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         /// <summary>
         /// The AmarTolidKhodro entities repository.
         /// </summary>
-        IRepository<AmarTolidKhodro, int> AmarTolidKhodros { get; }
+        IReadOnlyRepository<AmarTolidKhodro> AmarTolidKhodros { get; }
 
         /// <summary>
         /// The Khodro entities repository.

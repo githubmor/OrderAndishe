@@ -344,7 +344,7 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteTempSaveTahvilFrosh()
         {
-            foreach (var item in sefaresh.Items.Where(p=>p.TahvilFrosh==0))
+            foreach (var item in sefaresh.Items.Where(p => p.TahvilFrosh <= 0))
             {
                 item.TahvilFrosh = short.Parse("9999");
             }
@@ -353,7 +353,7 @@ namespace OrdersAndisheh.ViewModel
 
         private bool CanExecuteTempSaveTahvilFrosh()
         {
-            return sefaresh.Items.Any(p => p.TahvilFrosh == 0);
+            return sefaresh.Items.Any(p => p.TahvilFrosh <=0);
         }
     }
 

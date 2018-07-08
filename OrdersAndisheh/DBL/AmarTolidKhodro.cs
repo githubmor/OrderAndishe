@@ -6,12 +6,20 @@ namespace OrdersAndisheh.DBL
     [Table("AmarTolidKhodro")]
     public class AmarTolidKhodro
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int Id { get; set; }
         public int TedadTolid { get; set; }
         [StringLength(10)]
-        public string Tarikh { get; set; }
-        public int KhodroId { get; set; }
         public virtual Khodro Khodro { get; set; }
+        //[Key, Column(Order = 0)]
+        //public int Id { get; set; }
+        //public int TedadTolid { get; set; }
+        [Key, Column(Order = 0)]
+        [StringLength(6)]
+        public string SalMah { get; set; }
+        //public string Tarikh { get; set; }
+        [Key, Column(Order = 1)]
+        public int KhodroId { get; set; }
+        //public virtual Khodro Khodro { get; set; }
     }
 }
