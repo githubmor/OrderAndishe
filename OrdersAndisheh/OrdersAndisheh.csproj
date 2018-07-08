@@ -850,9 +850,6 @@
     <Content Include="bin\Debug\OrderDbCompact.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="OrderDbCompact.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Report\Report2.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
