@@ -1,0 +1,50 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="OrdersAndisheh.View.AmarTolidKhodroView"
+        Title="TahvilfroshView"  
+        DataContext="{Binding AmarTolidKhodro, Source={StaticResource Locator}}"
+        >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="459*"/>
+        </Grid.RowDefinitions>
+        <StackPanel FlowDirection="RightToLeft" Margin="10" Orientation="Horizontal" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+            <!--<Button Content="انتخاب فايل" Command="{Binding GetFile}"/>-->
+
+            <!--<Label Content="{Binding FilePath}"/>
+            
+            <Button Content="ثبت موقت" Width="75" Margin="10,0,0,0" Command="{Binding TempSaveTahvilFrosh}"/>
+            <Button Content="بازسازي" Width="75" Margin="10,0,0,0" Command="{Binding ClearTahvilFrosh}"/>-->
+            <Label Margin="10,0,0,0" Content="سال :"/>
+            <ComboBox Width="120" ItemsSource="{Binding Sal}" SelectedItem="{Binding SelectedSal}"/>
+            <Label Margin="10,0,0,0" Content="ماه :"/>
+            <ComboBox Width="120" ItemsSource="{Binding Mah}" SelectedItem="{Binding SelectedMah}"/>
+            <Button Margin="10,0,0,0" Content="ذخيره" Width="75" Command="{Binding SaveAmar}"/>
+            <Button Content="بازسازي" Width="75" Margin="10,0,0,0" Command="{Binding ClearAmar}"/> 
+
+        </StackPanel>
+        <DataGrid 
+			FlowDirection="RightToLeft" 
+			ItemsSource="{Binding AmarTolidList}" 
+			AutoGenerateColumns="False" Margin="10" HorizontalAlignment="Stretch"  
+			Grid.Row="1" VerticalAlignment="Stretch" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Khodro, Mode=OneWay}" ClipboardContentBinding="{x:Null}" Header="خودرو"/>
+                <DataGridTextColumn Binding="{Binding Tadad}" ClipboardContentBinding="{x:Null}" Header="تعداد"/>
+                
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <!--<ListView FlowDirection="RightToLeft" ItemsSource="{Binding Errors}" HorizontalAlignment="Stretch" Margin="10"  Grid.Row="1" VerticalAlignment="Stretch" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+
+    </Grid>
+</Window>

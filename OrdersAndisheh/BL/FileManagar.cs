@@ -15,7 +15,7 @@
         private List<ReportRow> ReportRows;
         private string Tarikh;
         private List<CheckList> CheckList;
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
 
         public FileManagar(List<ReportRow> reportRows, string Tarikh)
@@ -64,7 +64,7 @@
                 dlg.Description = "Select a folder";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    path = dlg.SelectedPath;
+                    desktopPath = dlg.SelectedPath;
                 }
 
             }
@@ -93,6 +93,8 @@
             CreateReportFile(fileName, null, "PalletTabloReport", StiExportFormat.Pdf, false);
 
         }
+
+        
 
         private void CreateReportFile(string fileName, Header h,string ReportFileName,StiExportFormat fileFormat,bool showreportAfterCreate)
         {
@@ -124,7 +126,7 @@
             {
                 mainreport.Show();
             }
-            mainreport.ExportDocument(fileFormat, path + "\\" + fileName + "." + extension);
+            mainreport.ExportDocument(fileFormat, desktopPath + "\\" + fileName + "." + extension);
         }
         public void CreatFileMali(string fileName = "MaliReport", bool IsLocationSelection = true)
         {
@@ -167,7 +169,7 @@
                 dlg.Description = "Select a folder";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    path = dlg.SelectedPath;
+                    desktopPath = dlg.SelectedPath;
                     for (int i = 0; i < CheckList.Count; i++)
                     {
                         StiReport mainreport = new StiReport();
@@ -175,7 +177,7 @@
                         mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
                         mainreport.Render(false);
                         //mainreport.Show();
-                        mainreport.ExportDocument(StiExportFormat.Pdf, path + "\\"
+                        mainreport.ExportDocument(StiExportFormat.Pdf, desktopPath + "\\"
                             + CheckList[i].NameKala +" - "+ CheckList[i].RanandeName + ".pdf");
                     }
                     

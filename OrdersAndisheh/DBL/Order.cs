@@ -14,19 +14,15 @@ namespace OrdersAndisheh.DBL
             OrderDetails = new HashSet<OrderDetail>();
             DriverWorks = new HashSet<DriverWork>();
         }
+        //[Key, Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        //public int FullName
-        //{
-        //    get { return calId(); }
-        //    private set
-        //    {
-        //        //Just need this here to trick EF
-        //    }
-        //}
-        
+        //[Key, Column(Order = 1)]
+        //public int Year { get; set; }
+        //[Key, Column(Order = 2)]
+        //public byte Mah { get; set; }
+        //[Key, Column(Order = 3)]
+        //public byte Day { get; set; }
 
         [StringLength(10)]
         public string Tarikh { get; set; }

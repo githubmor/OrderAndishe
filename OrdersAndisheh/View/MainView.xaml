@@ -183,6 +183,7 @@
             <Label Content="{Binding DriversVazn}" />
             <Label Content="{Binding MaghsadVazn}" />
             <Label Content="{Binding palletHa}" />
+            <Label Content="{Binding DriverPriorety}" />
         </StackPanel>
 
     </Grid>

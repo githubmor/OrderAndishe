@@ -129,6 +129,7 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:ProductViewModel}">
                                 </dxmvvm:Interaction.Behaviors>
                                 <dxg:GridControl.Columns>
                                     <dxg:GridColumn IsSmart="True" FieldName="Id" />
+                                    <dxg:GridColumn IsSmart="True" FieldName="Zarib" />
                                     <dxg:GridColumn FieldName="Khodro.Name" Header="Khodro" ReadOnly="True" />
                                     <dxg:GridColumn FieldName="Product.Name" Header="Product" ReadOnly="True" />
                                 </dxg:GridControl.Columns>

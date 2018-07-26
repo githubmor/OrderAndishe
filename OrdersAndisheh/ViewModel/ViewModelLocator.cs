@@ -45,6 +45,7 @@ namespace OrdersAndisheh.ViewModel
             SimpleIoc.Default.Register<AsnViewModel>();
             SimpleIoc.Default.Register<OracleViewModel>();
             SimpleIoc.Default.Register<ImportViewModel>();
+            SimpleIoc.Default.Register<AmarTolidKhodroViewModel>();
         }
 
         public MainViewModel Main
@@ -76,6 +77,14 @@ namespace OrdersAndisheh.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<TahvilforoshViewModel>(Guid.NewGuid().ToString());
+            }
+        }
+
+        public AmarTolidKhodroViewModel AmarTolidKhodro
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AmarTolidKhodroViewModel>(Guid.NewGuid().ToString());
             }
         }
         //public DriverSelectionViewModel DriverSel

@@ -500,9 +500,9 @@ namespace OrdersAndisheh.BL
                         Karton = b.Product.FaniCode,
                         Maghsad = b.Maghsad,
                         Ranande = b.Ranande,
-                        Pelak = b.Driver.Pelak,
-                        Phone = b.Driver.Tel1,
-                        Car = b.Driver.Car
+                        Pelak = (b.Driver != null ? b.Driver.Pelak : ""),
+                        Phone = (b.Driver != null ? b.Driver.Tel1 : ""),
+                        Car = (b.Driver != null ? b.Driver.Car : ""),
                     });
                     pos += 1;
                 }

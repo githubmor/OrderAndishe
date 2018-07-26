@@ -9,7 +9,6 @@ namespace OrdersAndisheh.DBL
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //public int Id { get; set; }
         public int TedadTolid { get; set; }
-        [StringLength(10)]
         public virtual Khodro Khodro { get; set; }
         //[Key, Column(Order = 0)]
         //public int Id { get; set; }

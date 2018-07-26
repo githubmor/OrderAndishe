@@ -113,7 +113,6 @@ namespace OrdersAndisheh.DBL
             modelBuilder.Entity<Order>()
                 .HasMany(e => e.DriverWorks)
                 .WithRequired(e => e.Order)
-                .HasForeignKey(p=>p.OrderId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Driver>()

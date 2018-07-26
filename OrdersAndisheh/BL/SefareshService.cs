@@ -41,7 +41,41 @@
             }
 		}
 
-        
+        public string GetDrivePriority(string tarikh)
+        {
+            String re = "";
+
+            PersianDateTime emroz = PersianDateTime.Parse(tarikh);
+            PersianDateTime yekmahghabl = emroz.AddMonths(-1);
+
+            int year = emroz.Year;
+            
+
+            var ss = db.OrderDetails.GroupBy(p => p.Driver)
+                .Select(g => new
+                {
+                    dname = g.Key.Name,
+                    dcar = g.Key.Car,
+                    tahala = g.Key.OrderDetails.Where(p => p.Order.Tarikh.StartsWith(year.ToString())).GroupBy(p => p.Order).Count()
+                }).ToList();
+
+            var nisanha = ss.Where(p => p.tahala > 0 & p.dcar == "نیسان").OrderByDescending(p => p.tahala).Take(6);
+            var khavarha = ss.Where(p => p.tahala > 0 & p.dcar == "خاور").OrderByDescending(p => p.tahala).Take(6);
+
+            re = "نیسان :";
+            foreach (var item in nisanha)
+            {
+               re += item.dname + " = " + (item.tahala) + " / ";
+            }
+
+            re += ".... خاور :";
+            foreach (var item in khavarha)
+            {
+                re += item.dname + " = " + (item.tahala) + " / ";
+            }
+
+            return re;
+        }
         
 
         public void UpdateSefaresh(Sefaresh sefaresh)
@@ -600,6 +634,25 @@
 
             return y;
         }
+
+        //public void change()
+        //{
+        //    var os = db.Orders.ToList();
+
+        //    foreach (var item in os)
+        //    {
+        //        var t = item.Tarikh;
+        //        var day = t.Substring(8, 2);
+        //        var year = t.Substring(0, 4);
+        //        var mah = t.Substring(5, 2);
+
+        //        item.Day = Byte.Parse(day);
+        //        item.Mah = Byte.Parse(mah);
+        //        item.Year = int.Parse(year);
+        //    }
+
+        //    db.SaveChanges();
+        //}
     }
 }
 

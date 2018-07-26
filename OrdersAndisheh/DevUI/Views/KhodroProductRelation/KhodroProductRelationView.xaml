@@ -52,6 +52,9 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroProductRelationViewModel}">
                     <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
                         <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
                     </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Zarib" Name="layoutItemZarib" >
+                        <dxe:TextEdit EditValue="{Binding Entity.Zarib, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
+                    </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="Khodro" Name="layoutItemKhodro" >
                         <dxg:LookUpEdit EditValue="{Binding Entity.KhodroId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpKhodros.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
                             <dxg:LookUpEdit.PopupContentTemplate>

@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>203</ApplicationRevision>
+    <ApplicationRevision>207</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -266,6 +266,8 @@
     </ApplicationDefinition>
     <Compile Include="BL\AbstractImporter.cs" />
     <Compile Include="BL\AlarmManager.cs" />
+    <Compile Include="BL\AmarService.cs" />
+    <Compile Include="BL\AmarTolidKhodro.cs" />
     <Compile Include="BL\AmountDto.cs" />
     <Compile Include="BL\Asn\AsnChecker.cs" />
     <Compile Include="BL\Asn\AsnHeader.cs" />
@@ -291,6 +293,7 @@
     <Compile Include="BL\IReportRow.cs" />
     <Compile Include="BL\ItemType.cs" />
     <Compile Include="BL\aAsn.cs" />
+    <Compile Include="BL\TolidKhodroImporting.cs" />
     <Compile Include="BL\SefareshImporting.cs" />
     <Compile Include="BL\TahvilItem.cs" />
     <Compile Include="BL\Container.cs" />
@@ -525,6 +528,7 @@
     <Compile Include="ViewModel\ReportRowViewModel.cs" />
     <Compile Include="ViewModel\AsnViewModel.cs" />
     <Compile Include="ViewModel\ImportViewModel.cs" />
+    <Compile Include="ViewModel\AmarTolidKhodroViewModel.cs" />
     <Compile Include="ViewModel\TahvilforoshViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\ColumnFilterConverter.cs" />
@@ -569,6 +573,9 @@
     </Compile>
     <Compile Include="View\ImportView.xaml.cs">
       <DependentUpon>ImportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmarTolidKhodroView.xaml.cs">
+      <DependentUpon>AmarTolidKhodroView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TahvilfroshView.xaml.cs">
       <DependentUpon>TahvilfroshView.xaml</DependentUpon>
@@ -804,6 +811,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ImportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AmarTolidKhodroView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -101,53 +101,11 @@
                     Order.OrderDetails.Add(s.OrderDetail);
                 }
                 NotifyPropertyChanged("Items");
-                //foreach (var item in items)
-                //{
-                //    switch (item.ItemKind)
-                //    {
-                //        case ItemType.Fori:
-                //            ForiItems.Add(item);
-                //            break;
-                //        case ItemType.Govahi:
-                //            GovahiItems.Add(item);
-                //            break;
-                //        case ItemType.AgharAmadeShod:
-                //            AgarShodItems.Add(item);
-                //            break;
-                //        case ItemType.Usual:
-                //            UsualItems.Add(item);
-                //            break;
-                //        default:
-                //            break;
-                //    }
-                //}
+               
             }
         }
 
-        //public virtual List<ItemSefaresh> AgarShodItems
-        //{
-        //    get;
-        //    private set;
-        //}
-
-        //public virtual List<ItemSefaresh> ForiItems
-        //{
-        //    get;
-        //    private set;
-        //}
-
-        //public virtual List<ItemSefaresh> GovahiItems
-        //{
-        //    get;
-        //    private set;
-        //}
-
-        //public virtual List<ItemSefaresh> UsualItems
-        //{
-        //    get;
-        //    private set;
-        //}
-
+        
         public bool Accepted
         {
             get { return Order.Accepted; }
@@ -167,8 +125,7 @@
         internal string GetPalletsSummery()
         {
             string re = "";
-            //var t = from b in Items
-            //select new {palet=b.Product.Pallet.Name,tedadpalet = b.PalletCount };
+            
             var t = Items.Select(p => p.Product.Pallet.Name).Distinct();
 
             foreach (var item in t)
@@ -181,9 +138,7 @@
                 }
                 re += item + " = " + sum + "   -   ";
             }
-            //return t.ToString();
             return re;
-            //string sezeh = Items.Where(p=>p.Product.)
         }
 
         internal string GetDriversSummery()

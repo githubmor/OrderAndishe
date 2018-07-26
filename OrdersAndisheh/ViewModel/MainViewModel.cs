@@ -134,6 +134,11 @@ namespace OrdersAndisheh.ViewModel
             get { return sefaresh.GetPalletsSummery(); }
         }
 
+        public string DriverPriorety
+        {
+            get { return ss.GetDrivePriority(Tarikh.Substring(0,4)); }
+        }
+
         public string DriversVazn
         {
             get { return sefaresh.GetDriversSummery(); }

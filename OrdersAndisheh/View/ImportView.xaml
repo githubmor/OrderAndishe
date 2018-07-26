@@ -10,22 +10,21 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="278*"/>
-            <RowDefinition Height="181*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="139*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel FlowDirection="RightToLeft" Margin="10" Orientation="Horizontal" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
-            <Button Content="Button" Command="{Binding GetFile}"/>
+            <Button Content="دريافت فايل" Command="{Binding GetFile}" Width="80"/>
             <Label Content="{Binding FilePath}"/>
-            <Button Content="TestRun" Command="{Binding TestRun}"/>
-            <TextBox  Width="120" Margin="20,0,0,0" TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" />
         </StackPanel>
         <DataGrid 
             FlowDirection="RightToLeft" 
             Name="dataGrid" ItemsSource="{Binding SampleColumn}"
             Margin="10" HorizontalAlignment="Stretch"  
             Grid.Row="1" VerticalAlignment="Stretch"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" FlowDirection="RightToLeft" Grid.Row="2" Margin="10">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" FlowDirection="RightToLeft" Grid.Row="2" Margin="10,10,10,10">
             <ItemsControl 
               ItemsSource="{Binding Matcher}"  VerticalAlignment="Top">
                 <ItemsControl.ItemsPanel>
@@ -44,5 +43,21 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+        <StackPanel 
+            FlowDirection="RightToLeft" 
+            Grid.Row="3" Margin="10" 
+            Orientation="Horizontal" 
+            HorizontalAlignment="Stretch"  
+            VerticalAlignment="Stretch">
+            <ComboBox Width="173" ItemsSource="{Binding ImportType}"  
+                      SelectedItem="{Binding SelectedImportType}" />
+            <Label Content="{Binding FieldType}"/>
+            <TextBox  Width="120" Margin="20,0,10,0" 
+                      TextWrapping="Wrap" Text="{Binding Tarikh,UpdateSourceTrigger=PropertyChanged}" 
+                      VerticalAlignment="Top" />
+            
+            
+            <Button Content="دريافت" Command="{Binding TestRun}" Width="74"/>
+        </StackPanel>
     </Grid>
 </Window>

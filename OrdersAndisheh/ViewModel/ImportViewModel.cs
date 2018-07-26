@@ -24,15 +24,47 @@ namespace OrdersAndisheh.ViewModel
         private RelayCommand _myCommand6;
         private RelayCommand _myCommand7;
         Importer Importer;
+
         public ImportViewModel()
         {
             sample = new SampleData();
             Matcher = new ObservableCollection<ImportColumnMatcherViewModel>();
+            ImportType = new List<string> { "سفارش روزانه", "توليد خودرو" };
+        }
+
+        public List<string> ImportType { get; set; }
+
+        public string FieldType 
+        { 
+            get {
+                switch (SelectedImportType)
+                {
+                    case "سفارش روزانه":
+                        return "تاريخ سفارش - 1397/04/19";
+                    case "توليد خودرو":
+                        return "سال ماه - 139704";
+                    default:
+                        return "";
+                }
+            } 
+            //private set; 
         }
 
         public string Tarikh { get; set; }
+        public string SelectedImportType
+        {
+            get { return selectedImportType; }
+            set
+            {
+                selectedImportType = value;
+                RaisePropertyChanged(() => SelectedImportType);
+                RaisePropertyChanged(() => FieldType);
+            }
+        }
 
         private Table myVar;
+        private string selectedImportType;
+        
 
         public Table SampleColumn
         {
@@ -77,7 +109,7 @@ namespace OrdersAndisheh.ViewModel
                     
                     var day = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
 
-                    Tarikh = "1396/01/" + day;
+                    //Tarikh = "1396/01/" + day;
 
                     Importer = new Importer(path);
                     sample = Importer.SampleData;
@@ -126,16 +158,34 @@ namespace OrdersAndisheh.ViewModel
 
                 var i = Importer.GetImportDataWithMatch(match);
 
-                SefareshImporting s = new SefareshImporting(new SefareshService());
+                if (SelectedImportType=="سفارش روزانه")
+                {
+                    SefareshImporting s = new SefareshImporting(new SefareshService());
 
-                s.Tarikh = Tarikh;
+                    s.Tarikh = Tarikh;
 
-                s.SaveData(i);
+                    s.SaveData(i);
 
-                ColumnMatcherSuggestion cs = new ColumnMatcherSuggestion();
-                cs.SaveSetting(sample.GetSavedMatch());
+                    ColumnMatcherSuggestion cs = new ColumnMatcherSuggestion();
+                    cs.SaveSetting(sample.GetSavedMatch());
 
-                MessageBox.Show("data row is " + i.Count);
+                    MessageBox.Show("data row is " + i.Count);
+                }
+                else if (SelectedImportType == "توليد خودرو")
+	            {
+                    TolidKhodroImporting s = new TolidKhodroImporting();
+
+                    s.SalMah = Tarikh;
+
+                    s.SaveData(i);
+
+                    ColumnMatcherSuggestion cs = new ColumnMatcherSuggestion();
+                    cs.SaveSetting(sample.GetSavedMatch());
+
+                    MessageBox.Show("data row is " + i.Count);
+
+	            }
+                
             }
             catch (Exception t)
             {
@@ -143,6 +193,8 @@ namespace OrdersAndisheh.ViewModel
                 MessageBox.Show(t.Message.ToString());
             }
         }
+
+        
     }
 
     public class RowPropertyDescriptor : PropertyDescriptor

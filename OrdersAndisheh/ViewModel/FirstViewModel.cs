@@ -23,6 +23,7 @@ namespace OrdersAndisheh.ViewModel
         {
             ss = new SefareshService();
             Messenger.Default.Register<string>(this, "path", getFilePath);
+            //ss.change();
         }
 
         public string today
@@ -487,32 +488,11 @@ namespace OrdersAndisheh.ViewModel
 
         private void ExecuteOracleRelation()
         {
-            ImportView v = new ImportView();
-            v.ShowDialog();
-            //try
-            //{
-            //using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-            //{
-            //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //    {
-            //        openFileDialog1.Filter = "Excel Files (.xlsx)|*.xlsx|All Files (*.*)|*.*";
-            //        openFileDialog1.FilterIndex = 1;
-            //        //FilePath = openFileDialog1.FileName;
-            //        //IExcelImporter c = new ErsalImport(ss);
-            //        //var yu = (List<Order>)c.GetData(openFileDialog1.FileName);
+            //ImportView v = new ImportView();
+            //v.ShowDialog();
 
-            //        //ss.SaveOrders(yu);
-            //        MessageBox.Show("ذخیره شد");
-            //    }
-            //}
-            //}
-            //catch (Exception eree)
-            //{
-            //    MessageBox.Show(eree.Message.ToString());
-            //    MessageBox.Show("ذخیره سازی انجام نشد");
-            //}
-            //OracleRelationView v = new OracleRelationView();
-            //v.Show();
+            AmarTolidKhodroView v = new AmarTolidKhodroView();
+            v.ShowDialog();
         }
 
         private RelayCommand _myCommand654654;
