@@ -23,5 +23,8 @@ namespace OrdersAndisheh.DBL
         public virtual ICollection<KhodroProductRelation> ProductsRelation { get; set; }
 
         public virtual ICollection<AmarTolidKhodro> Tolids { get; set; }
+
+        public int? TarafId { get; set; }
+        public virtual Taraf Sazandeh { get; set; }
     }
 }

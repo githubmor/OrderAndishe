@@ -39,6 +39,14 @@ namespace OrdersAndisheh.DevUI.ViewModels
         }
 
         /// <summary>
+        /// The view model that contains a look-up collection of Taraf for the corresponding navigation property in the view.
+        /// </summary>
+        public IEntitiesViewModel<Taraf> LookUpTaraf
+        {
+            get { return GetLookUpEntitiesViewModel((KhodroViewModel x) => x.LookUpTaraf, x => x.Taraf); }
+        }
+
+        /// <summary>
         /// The view model for the KhodroProductsRelation detail collection.
         /// </summary>
         public CollectionViewModel<KhodroProductRelation, int, IMyContextCFUnitOfWork> KhodroProductsRelationDetails

@@ -59,5 +59,7 @@ namespace OrdersAndisheh.DBL
         public virtual Amount Amount { get; set; }
 
         
+
+        
     }
 }

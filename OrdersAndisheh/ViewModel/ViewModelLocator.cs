@@ -46,6 +46,7 @@ namespace OrdersAndisheh.ViewModel
             SimpleIoc.Default.Register<OracleViewModel>();
             SimpleIoc.Default.Register<ImportViewModel>();
             SimpleIoc.Default.Register<AmarTolidKhodroViewModel>();
+            SimpleIoc.Default.Register<ShakhesViewModel>();
         }
 
         public MainViewModel Main
@@ -87,13 +88,13 @@ namespace OrdersAndisheh.ViewModel
                 return ServiceLocator.Current.GetInstance<AmarTolidKhodroViewModel>(Guid.NewGuid().ToString());
             }
         }
-        //public DriverSelectionViewModel DriverSel
-        //{
-        //    get
-        //    {
-        //        return ServiceLocator.Current.GetInstance<DriverSelectionViewModel>(Guid.NewGuid().ToString());
-        //    }
-        //}
+        public ShakhesViewModel shakhes
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ShakhesViewModel>(Guid.NewGuid().ToString());
+            }
+        }
 
         public OracleRelationViewModel OracleRelation
         {

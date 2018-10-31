@@ -720,6 +720,26 @@ namespace OrdersAndisheh.ViewModel
             v.Show();
         }
 
+        private RelayCommand _myCommand52333565656;
+
+        /// <summary>
+        /// Gets the PalletReporting.
+        /// </summary>
+        public RelayCommand Shakhes
+        {
+            get
+            {
+                return _myCommand52333565656
+                    ?? (_myCommand52333565656 = new RelayCommand(ExecuteShakhes));
+            }
+        }
+
+        private void ExecuteShakhes()
+        {
+            ShakhesView v = new ShakhesView();
+            v.ShowDialog();
+        }
+
         private RelayCommand _myCommand75555;
 
         /// <summary>

@@ -1,5 +1,5 @@
-﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.KhodroView"
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<UserControl x:Class="OrdersAndisheh.DevUI.Views.TarafView"
+xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
@@ -14,7 +14,7 @@ xmlns:viewmodel="clr-namespace:OrdersAndisheh.DevUI.ViewModels"
 
 mc:Ignorable="d"
 d:DesignHeight="400" d:DesignWidth="600"
-DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
+DataContext="{dxmvvm:ViewModelSource viewmodel:TarafViewModel}">
     <dxmvvm:Interaction.Behaviors>
         <dx:DXMessageBoxService/>
         <dxmvvm:EventToCommand Event="Loaded" Command="{Binding OnLoadedCommand}" />
@@ -25,7 +25,7 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
             <dxr:RibbonControl RibbonStyle="Office2010" DockPanel.Dock="Top" AllowCustomization="False">
                 <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                     <dxr:RibbonPage Caption="Home">
-                        <dxr:RibbonPageGroup Caption="Khodro Tasks">
+                        <dxr:RibbonPageGroup Caption="Taraf Tasks">
                             <dxb:BarButtonItem Content="Save" Command="{Binding SaveCommand}" LargeGlyph="{dx:DXImage Image=Save_32x32.png}" Glyph="{dx:DXImage Image=Save_16x16.png}"/>
                             <dxb:BarButtonItem Content="Save And Close" Command="{Binding SaveAndCloseCommand}" LargeGlyph="{dx:DXImage Image=SaveAndClose_32x32.png}" Glyph="{dx:DXImage Image=SaveAndClose_16x16.png}"/>
                             <dxb:BarButtonItem Content="Save And New" Command="{Binding SaveAndNewCommand}" LargeGlyph="{dx:DXImage Image=SaveAndNew_32x32.png}" Glyph="{dx:DXImage Image=SaveAndNew_16x16.png}"/>
@@ -52,20 +52,11 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
                     <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
                         <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
                     </dxlc:LayoutItem>
-                    <dxlc:LayoutItem Label="Name" IsRequired="True" Name="layoutItemName" >
-                        <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="50" />
-                    </dxlc:LayoutItem>
-                    <dxlc:LayoutItem Label="Sazandeh" Name="layoutItemSazandeh" >
-                        <dxg:LookUpEdit EditValue="{Binding Entity.TarafId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpTaraf.Entities}" ValueMember="Id" DisplayMember="Name" IsTextEditable="False" AllowUpdateTwoWayBoundPropertiesOnSynchronization="False" >
-                            <dxg:LookUpEdit.PopupContentTemplate>
-                                <ControlTemplate TargetType="ContentControl" >
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpTaraf.IsLoading}" />
-                                </ControlTemplate>
-                            </dxg:LookUpEdit.PopupContentTemplate>
-                        </dxg:LookUpEdit>
+                    <dxlc:LayoutItem Label="Name" Name="layoutItemName" >
+                        <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="20" />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutGroup x:Name="Tabs" View="Tabs" MinHeight="250">
-                        <Grid dxb:MergingProperties.AllowMerging="False" x:Name="KhodroProductsRelationDetailsPanel" dxb:BarNameScope.IsScopeOwner="True" DataContext="{Binding KhodroProductsRelationDetails}" dxlc:LayoutControl.TabHeader="ProductsRelation">
+                        <Grid dxb:MergingProperties.AllowMerging="False" x:Name="TarafKhodrosDetailsPanel" dxb:BarNameScope.IsScopeOwner="True" DataContext="{Binding TarafKhodrosDetails}" dxlc:LayoutControl.TabHeader="Khodros">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
@@ -76,7 +67,7 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
                                 <dxb:BarButtonItem BarItemDisplayMode="ContentAndGlyph" Content="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedEntity}" Glyph="{dx:DXImage Image=Delete_16x16.png}"/>
                                 <dxb:BarButtonItem BarItemDisplayMode="ContentAndGlyph" Content="Refresh" Command="{Binding RefreshCommand}"  Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
                             </dxb:ToolBarControl>
-                            <dxg:GridControl dx:DXSerializer.SerializationID="KhodroProductsRelationDetailsGrid" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" MaxHeight="2000" ShowLoadingPanel="{Binding IsLoading}" Grid.Row="1">
+                            <dxg:GridControl dx:DXSerializer.SerializationID="TarafKhodrosDetailsGrid" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" MaxHeight="2000" ShowLoadingPanel="{Binding IsLoading}" Grid.Row="1">
                                 <dxmvvm:Interaction.Behaviors>
                                     <dxmvvm:EventToCommand PassEventArgsToCommand="True" Command="{Binding EditCommand}" EventName="MouseDoubleClick">
                                         <dxmvvm:EventToCommand.EventArgsConverter>
@@ -86,9 +77,8 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
                                 </dxmvvm:Interaction.Behaviors>
                                 <dxg:GridControl.Columns>
                                     <dxg:GridColumn IsSmart="True" FieldName="Id" />
-                                    <dxg:GridColumn IsSmart="True" FieldName="Zarib" />
-                                    <dxg:GridColumn FieldName="Khodro.Name" Header="Khodro" ReadOnly="True" />
-                                    <dxg:GridColumn FieldName="Product.Name" Header="Product" ReadOnly="True" />
+                                    <dxg:GridColumn IsSmart="True" FieldName="Name" />
+                                    <dxg:GridColumn FieldName="Sazandeh.Name" Header="Sazandeh" ReadOnly="True" />
                                 </dxg:GridControl.Columns>
                                 <dxg:GridControl.TotalSummary>
                                     <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>
@@ -102,35 +92,6 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:KhodroViewModel}">
                                             <dxb:BarButtonItem Content="New" Command="{Binding View.DataContext.NewCommand}"  Glyph="{dx:DXImage Image=New_16x16.png}"/>
                                             <dxb:BarButtonItem Content="Edit" Command="{Binding View.DataContext.EditCommand}" CommandParameter="{Binding Row.Row}" Glyph="{dx:DXImage Image=Edit_16x16.png}"/>
                                             <dxb:BarButtonItem Content="Delete" Command="{Binding View.DataContext.DeleteCommand}" CommandParameter="{Binding Row.Row}" Glyph="{dx:DXImage Image=Delete_16x16.png}"/>
-                                            <dxb:BarButtonItem Content="Refresh" Command="{Binding View.DataContext.RefreshCommand}"  Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
-                                        </dxg:TableView.RowCellMenuCustomizations>
-                                    </dxg:TableView>
-                                </dxg:GridControl.View>
-                            </dxg:GridControl>
-                        </Grid>
-                        <Grid dxb:MergingProperties.AllowMerging="False" x:Name="KhodroTolidsDetailsPanel" dxb:BarNameScope.IsScopeOwner="True" DataContext="{Binding KhodroTolidsDetails}" dxlc:LayoutControl.TabHeader="Tolids">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <dxb:ToolBarControl>
-                                <dxb:BarButtonItem BarItemDisplayMode="ContentAndGlyph" Content="Refresh" Command="{Binding RefreshCommand}"  Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
-                            </dxb:ToolBarControl>
-                            <dxg:GridControl dx:DXSerializer.SerializationID="KhodroTolidsDetailsGrid" ItemsSource="{Binding Entities}" CurrentItem="{Binding SelectedEntity}" MaxHeight="2000" ShowLoadingPanel="{Binding IsLoading}" Grid.Row="1">
-                                <dxg:GridControl.Columns>
-                                    <dxg:GridColumn IsSmart="True" FieldName="TedadTolid" />
-                                    <dxg:GridColumn FieldName="Khodro.Name" Header="Khodro" ReadOnly="True" />
-                                    <dxg:GridColumn IsSmart="True" FieldName="SalMah" />
-                                </dxg:GridControl.Columns>
-                                <dxg:GridControl.TotalSummary>
-                                    <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>
-                                </dxg:GridControl.TotalSummary>
-                                <dxg:GridControl.GroupSummary>
-                                    <dxg:GridSummaryItem SummaryType="Count"/>
-                                </dxg:GridControl.GroupSummary>
-                                <dxg:GridControl.View>
-                                    <dxg:TableView AllowEditing="False" ShowFixedTotalSummary="True" AllowPerPixelScrolling="True" ShowGroupPanel="False">
-                                        <dxg:TableView.RowCellMenuCustomizations>
                                             <dxb:BarButtonItem Content="Refresh" Command="{Binding View.DataContext.RefreshCommand}"  Glyph="{dx:DXImage Image=Refresh_16x16.png}"/>
                                         </dxg:TableView.RowCellMenuCustomizations>
                                     </dxg:TableView>

@@ -101,5 +101,10 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         /// The Pallet entities repository.
         /// </summary>
         IRepository<Pallet, int> Pallets { get; }
+
+        /// <summary>
+        /// The Taraf entities repository.
+        /// </summary>
+        IRepository<Taraf, int> Taraf { get; }
     }
 }

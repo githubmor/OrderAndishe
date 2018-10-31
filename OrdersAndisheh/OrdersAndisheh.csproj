@@ -28,7 +28,7 @@
     <ProductName>OrderAndisheh</ProductName>
     <PublisherName>Morteza Darzi</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>207</ApplicationRevision>
+    <ApplicationRevision>216</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -266,6 +266,8 @@
     </ApplicationDefinition>
     <Compile Include="BL\AbstractImporter.cs" />
     <Compile Include="BL\AlarmManager.cs" />
+    <Compile Include="BL\AmarErsalMahsol.cs" />
+    <Compile Include="BL\ShakhesService.cs" />
     <Compile Include="BL\AmarService.cs" />
     <Compile Include="BL\AmarTolidKhodro.cs" />
     <Compile Include="BL\AmountDto.cs" />
@@ -350,6 +352,7 @@
     <Compile Include="Common\ViewModel\SingleObjectViewModel.cs" />
     <Compile Include="DBL\Amount.cs" />
     <Compile Include="DBL\AmarTolidKhodro.cs" />
+    <Compile Include="DBL\Taraf.cs" />
     <Compile Include="DBL\KhodroProductRelation.cs" />
     <Compile Include="DBL\Khodro.cs" />
     <Compile Include="DBL\CustomerProductRelation.cs" />
@@ -403,6 +406,8 @@
     <Compile Include="DevUI\ViewModels\Pallet\PalletViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Product\ProductCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\Product\ProductViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Taraf\TarafCollectionViewModel.cs" />
+    <Compile Include="DevUI\ViewModels\Taraf\TarafViewModel.cs" />
     <Compile Include="DevUI\ViewModels\TempDriver\TempDriverCollectionViewModel.cs" />
     <Compile Include="DevUI\ViewModels\TempDriver\TempDriverViewModel.cs" />
     <Compile Include="DevUI\Views\AmarTolidKhodro\AmarTolidKhodroCollectionView.xaml.cs">
@@ -501,6 +506,12 @@
     <Compile Include="DevUI\Views\Product\ProductView.xaml.cs">
       <DependentUpon>ProductView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DevUI\Views\Taraf\TarafCollectionView.xaml.cs">
+      <DependentUpon>TarafCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevUI\Views\Taraf\TarafView.xaml.cs">
+      <DependentUpon>TarafView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevUI\Views\TempDriver\TempDriverCollectionView.xaml.cs">
       <DependentUpon>TempDriverCollectionView.xaml</DependentUpon>
     </Compile>
@@ -512,6 +523,7 @@
     <Compile Include="ExcelManager\ExcelService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModel\ShakhesViewModel.cs" />
     <Compile Include="ViewModel\PalletItem.cs" />
     <Compile Include="ViewModel\PalletReportViewModel.cs" />
     <Compile Include="ViewModel\LastAmountViewModel.cs" />
@@ -531,6 +543,9 @@
     <Compile Include="ViewModel\AmarTolidKhodroViewModel.cs" />
     <Compile Include="ViewModel\TahvilforoshViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\ShakhesView.xaml.cs">
+      <DependentUpon>ShakhesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ColumnFilterConverter.cs" />
     <Compile Include="View\ImportColumnMatcher.xaml.cs">
       <DependentUpon>ImportColumnMatcher.xaml</DependentUpon>
@@ -730,11 +745,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DevUI\Views\Taraf\TarafCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevUI\Views\Taraf\TarafView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DevUI\Views\TempDriver\TempDriverCollectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DevUI\Views\TempDriver\TempDriverView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ShakhesView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -858,9 +885,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Content Include="bin\Debug\OrderDbCompact.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Report\Report2.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

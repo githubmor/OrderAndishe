@@ -34,6 +34,18 @@ namespace OrdersAndisheh.BL
             }
         }
 
+        private string sazandeh;
+
+        public string Sazandeh
+        {
+            get { return sazandeh; }
+            set
+            {
+                sazandeh = value;
+                NotifyPropertyChanged("Sazandeh");
+            }
+        }
+
         private int tadad;
 
         public int Tadad

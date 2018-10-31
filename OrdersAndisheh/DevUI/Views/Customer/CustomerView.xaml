@@ -52,6 +52,9 @@ DataContext="{dxmvvm:ViewModelSource viewmodel:CustomerViewModel}">
                     <dxlc:LayoutItem Label="Id" Name="layoutItemId" >
                         <dxe:TextEdit EditValue="{Binding Entity.Id, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaskType="Numeric" Mask="d" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right" />
                     </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Is Tolid Line" Name="layoutItemIsTolidLine" >
+                        <dxe:CheckEdit EditValue="{Binding Entity.IsTolidLine, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" />
+                    </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="Name" IsRequired="True" Name="layoutItemName" >
                         <dxe:TextEdit EditValue="{Binding Entity.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" MaxLength="50" />
                     </dxlc:LayoutItem>

@@ -33,6 +33,7 @@ namespace OrdersAndisheh.DBL
         public virtual DbSet<DriverWork> DriverWork { get; set; }
         public virtual DbSet<Amount> Amount { get; set; }
         public virtual DbSet<OracleRelation> OracleRelation { get; set; }
+        public virtual DbSet<Taraf> Taraf { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -163,6 +164,24 @@ namespace OrdersAndisheh.DBL
                 .WithMany(o => o.OracleRelations)
                 .HasForeignKey(p => p.ProductId)
                 .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Taraf>()
+            //   .HasMany(e => e.Mahsolat)
+            //   .WithOptional(e => e.TarafHesab)
+            //   .HasForeignKey(h=>h.TarafId)
+            //   .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Taraf>()
+              .HasMany(e => e.Khodros)
+              .WithOptional(e => e.Sazandeh)
+              .HasForeignKey(h => h.TarafId)
+              .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Taraf>()
+            //  .HasMany(e => e.Anbars)
+            //  .WithOptional(e => e.Tamin)
+            //  .HasForeignKey(h => h.TarafId)
+            //  .WillCascadeOnDelete(false);
             //modelBuilder.Entity<Product>()
             //    .HasMany(o=>o.OracleCustomers)
             //    .WithMany(p=>p.OracleProducts)

@@ -136,7 +136,7 @@ namespace OrdersAndisheh.ViewModel
 
         public string DriverPriorety
         {
-            get { return ss.GetDrivePriority(Tarikh.Substring(0,4)); }
+            get { return ss.GetDrivePriority(Tarikh); }
         }
 
         public string DriversVazn

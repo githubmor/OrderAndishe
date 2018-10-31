@@ -103,7 +103,8 @@ namespace OrdersAndisheh.View
             }
             else
             {
-                System.Windows.MessageBox.Show("سفارشی برای امروز ثبت نشده");
+                MainView v = new MainView();
+                v.ShowDialog();
             }
         }
 

@@ -46,17 +46,23 @@
             String re = "";
 
             PersianDateTime emroz = PersianDateTime.Parse(tarikh);
-            PersianDateTime yekmahghabl = emroz.AddMonths(-1);
+            String inMah = (emroz.Month > 10 ? emroz.Month.ToString() : "0" + emroz.Month.ToString());
 
-            int year = emroz.Year;
-            
+            PersianDateTime yekmahghabl = emroz.AddDays(-30);
+            int year = yekmahghabl.Year;
+            String mahGhabl = (yekmahghabl.Month>10?yekmahghabl.Month.ToString():"0"+yekmahghabl.Month.ToString());
+            int roz = yekmahghabl.DaysInMonth;
 
             var ss = db.OrderDetails.GroupBy(p => p.Driver)
                 .Select(g => new
                 {
                     dname = g.Key.Name,
                     dcar = g.Key.Car,
-                    tahala = g.Key.OrderDetails.Where(p => p.Order.Tarikh.StartsWith(year.ToString())).GroupBy(p => p.Order).Count()
+                    tahala = g.Key.OrderDetails.Where(
+                        p => p.Order.Tarikh.StartsWith(year.ToString())
+                        & (p.Order.Tarikh.Substring(5, 2) == mahGhabl | p.Order.Tarikh.Substring(5, 2) == inMah))
+                        .GroupBy(p => p.Order)
+                    .Count()
                 }).ToList();
 
             var nisanha = ss.Where(p => p.tahala > 0 & p.dcar == "نیسان").OrderByDescending(p => p.tahala).Take(6);

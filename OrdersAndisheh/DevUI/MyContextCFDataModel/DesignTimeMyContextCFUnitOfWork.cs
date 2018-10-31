@@ -108,5 +108,10 @@ namespace OrdersAndisheh.DevUI.MyContextCFDataModel
         {
             get { return GetRepository((Pallet x) => x.Id); }
         }
+
+        IRepository<Taraf, int> IMyContextCFUnitOfWork.Taraf
+        {
+            get { return GetRepository((Taraf x) => x.Id); }
+        }
     }
 }

@@ -1,0 +1,57 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="OrdersAndisheh.View.ShakhesView"
+        Title="TahvilfroshView"  
+        DataContext="{Binding shakhes, Source={StaticResource Locator}}"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel FlowDirection="RightToLeft" Margin="10" Orientation="Horizontal" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+            <Label Margin="10,0,0,0" Content="سال :"/>
+            <ComboBox Width="120" ItemsSource="{Binding Sal}" SelectedItem="{Binding SelectedSal}"/>
+            <Label Margin="10,0,0,0" Content="ماه :"/>
+            <ComboBox Width="120" ItemsSource="{Binding Mah}" SelectedItem="{Binding SelectedMah}"/>
+        </StackPanel>
+        <DataGrid 
+			FlowDirection="RightToLeft" 
+			ItemsSource="{Binding AmarTolidList}" 
+			AutoGenerateColumns="False" Margin="10" HorizontalAlignment="Stretch"  
+			Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Khodro, Mode=OneWay}" ClipboardContentBinding="{x:Null}" Header="خودرو"/>
+                <DataGridTextColumn Binding="{Binding Tadad}" ClipboardContentBinding="{x:Null}" Header="تعداد"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        
+        <DataGrid 
+			FlowDirection="RightToLeft" 
+			ItemsSource="{Binding AmarErsal}" 
+			AutoGenerateColumns="False" Margin="10" HorizontalAlignment="Stretch"  
+			Grid.Row="1"  VerticalAlignment="Stretch" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Kala, Mode=OneWay}" ClipboardContentBinding="{x:Null}" Header="محصول"/>
+                <DataGridTextColumn Binding="{Binding Tadad}" ClipboardContentBinding="{x:Null}" Header="تعداد ارسال"/>
+                <DataGridTextColumn Binding="{Binding Sahm}" ClipboardContentBinding="{x:Null}" Header="درصد سهم"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" FlowDirection="RightToLeft" 
+                    Margin="10" Orientation="Vertical" Grid.ColumnSpan="2">
+            <Label Margin="0,0,10,0" Content="{Binding TolidSazandeh}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Margin="0,0,10,0" Content="{Binding DarsadSahm}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Margin="0,0,10,0" Content="{Binding TedadErsal}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

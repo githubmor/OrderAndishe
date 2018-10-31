@@ -93,7 +93,9 @@
                         <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding PalletCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="12"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem Label="مقصد :">
-                        <dxg:LookUpEdit IsEnabled="{Binding CanEdit}" ItemsSource="{Binding Destinations}" SelectedItem="{Binding SelectedDestenation}" 
+                        <dxg:LookUpEdit IsEnabled="{Binding CanEdit}" 
+                                        ItemsSource="{Binding Destinations}" 
+                                        SelectedItem="{Binding SelectedDestenation}" 
                                         ValueMember="Id" DisplayMember="Name"
                                         UI:FocusAdvancement.AdvancesByEnterKey="True"
                                         AllowRejectUnknownValues="True" 

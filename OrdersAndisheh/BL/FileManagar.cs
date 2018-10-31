@@ -178,7 +178,7 @@
                         mainreport.Render(false);
                         //mainreport.Show();
                         mainreport.ExportDocument(StiExportFormat.Pdf, desktopPath + "\\"
-                            + CheckList[i].NameKala +" - "+ CheckList[i].RanandeName + ".pdf");
+                            + CheckList[i].NameKala +" - "+ CheckList[i].RanandeName + i +".pdf");
                     }
                     
                 }

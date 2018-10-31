@@ -62,6 +62,7 @@ mc:Ignorable="d"
                     <dxg:GridControl.Columns>
                         <dxg:GridColumn IsSmart="True" FieldName="Id" />
                         <dxg:GridColumn IsSmart="True" FieldName="Name" />
+                        <dxg:GridColumn FieldName="Sazandeh.Name" Header="Sazandeh" ReadOnly="True" />
                     </dxg:GridControl.Columns>
                     <dxg:GridControl.TotalSummary>
                         <dxg:GridSummaryItem SummaryType="Count" Alignment="Right"/>
