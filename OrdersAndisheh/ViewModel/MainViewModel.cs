@@ -645,7 +645,7 @@ namespace OrdersAndisheh.ViewModel
         private void ExecuteCreatListErsal()
         {
             ReportManager rp = new ReportManager(sefaresh);
-            rp.CreatListErsalReportOnDeskTop(true);
+            rp.CreatListErsalReportOnDeskTop(false);
             changeState();
             MessageBox.Show("گزارش ساخته شد");
         }

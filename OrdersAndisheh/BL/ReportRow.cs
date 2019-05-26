@@ -25,6 +25,8 @@ namespace BL
         public string Phone { get; set; }
         public string Car { get; set; }
         public string Pelak { get; set; }
+        public string Fani { get; set; }
+        public string Jense { get; set; }
         public bool IsKalaChanged { get; set; }
         public bool IsTedadChanged { get; set; }
         public bool IsCustomerChanged { get; set; }

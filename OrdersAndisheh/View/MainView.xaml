@@ -21,12 +21,13 @@
     </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <dxg:GridControl   x:Name="gg"   Grid.Row="1"  FlowDirection="RightToLeft"  
+
+        <dxg:GridControl   x:Name="gg"   Grid.Row="2"  FlowDirection="RightToLeft"  
                           ItemsSource="{Binding Items}" 
                           SelectedItem="{Binding ClickedItem}"
                           SelectionMode="Row" MouseDoubleClick="gg_MouseDoubleClick">
@@ -68,7 +69,7 @@
                 </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>
-        <dxlc:LayoutControl Margin="0" FlowDirection="RightToLeft">
+        <dxlc:LayoutControl Margin="0" Grid.Row="1" FlowDirection="RightToLeft">
             <dxlc:LayoutGroup Orientation="Vertical" >
                 <dxlc:LayoutGroup VerticalAlignment="Top" >
                     <dxlc:LayoutItem Label="کالا :" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -80,7 +81,7 @@
                     <dxlc:LayoutItem Label="تعداد :" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" Width="80" HorizontalAlignment="Left" Text="{Binding Tedad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="2"/>
                     </dxlc:LayoutItem>
-                    
+
                     <dxlc:LayoutItem Label="توضیحات :">
                         <dxe:TextEdit IsEnabled="{Binding CanEdit}" UI:FocusAdvancement.AdvancesByEnterKey="True" TabIndex="3" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </dxlc:LayoutItem>
@@ -125,7 +126,7 @@
                         <Button IsEnabled="{Binding CanEdit}" Content="-"  HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="40" Command="{Binding DeleteItem}" TabIndex="8"/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
-                
+
             </dxlc:LayoutGroup>
             <Button Content="{Binding SaveText}" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="97" Margin="1,26,-56,-26" 
                     Command="{Binding SaveSefaresh}" TabIndex="10"/>
@@ -133,7 +134,7 @@
 
         </dxlc:LayoutControl>
 
-        <WrapPanel  Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
+        <!--<WrapPanel  Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
             <Button Content="ساخت ليست ایمن سازان" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding CreateImensazanList, Mode=OneWay}"/>
             <Button Content="ساخت ليست اندیشه" HorizontalAlignment="Left" 
@@ -180,13 +181,33 @@
         		VerticalAlignment="Top" Width="116" Command="{Binding KartablReportPrint, Mode=OneWay}"/>
             <Button Content="فوري" HorizontalAlignment="Left" 
         		VerticalAlignment="Top" Width="116" Command="{Binding ForiReportPrint, Mode=OneWay}"/>
-        </WrapPanel>
-        <StackPanel  Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
+        </WrapPanel>-->
+        <StackPanel  Orientation="Vertical" Grid.Row="4" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" Grid.RowSpan="1">
             <Label Content="{Binding DriversVazn}" />
             <Label Content="{Binding MaghsadVazn}" />
             <Label Content="{Binding palletHa}" />
             <Label Content="{Binding DriverPriorety}" />
         </StackPanel>
 
+        <dxb:BarManager AllowCustomization="False" AllowQuickCustomization="False" AllowHotCustomization="False" Grid.Row="0" ToolbarGlyphSize="Small" FlowDirection="RightToLeft">
+            <dxb:BarManager.Bars >
+                <dxb:Bar Caption="Tools">
+                    <dxb:BarButtonItem x:Name="biCut" Content="انتخاب راننده"  Command="{Binding SelectDriver, Mode=OneWay}" BarItemDisplayMode="Content" />
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biCopy" Content="ليست ارسال"  Command="{Binding CreatListErsal, Mode=OneWay}" BarItemDisplayMode="Content" />
+                    <dxb:BarButtonItem x:Name="biPaste" Content="برگه كاور"  Command="{Binding CreatDriverReport, Mode=OneWay}" BarItemDisplayMode="Content"/>
+                    <dxb:BarButtonItem x:Name="biPastee" Content="برگه راننده"  Command="{Binding CreatDriverErsalListReport, Mode=OneWay}" BarItemDisplayMode="Content"/>
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biBold" Content="چكينگ" Command="{Binding CheckReportPrint, Mode=OneWay}" BarItemDisplayMode="Content"/>
+                    <dxb:BarButtonItem x:Name="biItalic" Content="كارتابل" Command="{Binding KartablReportPrint, Mode=OneWay}" BarItemDisplayMode="Content"/>
+                    <dxb:BarButtonItem x:Name="fori" Content="فوري" Command="{Binding ForiReportPrint, Mode=OneWay}" BarItemDisplayMode="Content"/>
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biItjalic" Content="پرينت چك ليست" Command="{Binding CreatCheckLists, Mode=OneWay}" BarItemDisplayMode="Content"/>
+                    <dxb:BarButtonItem x:Name="oracle" Content="اوراكل" Command="{Binding OracleSet, Mode=OneWay}" BarItemDisplayMode="Content"/>
+                </dxb:Bar>
+
+            </dxb:BarManager.Bars>
+
+        </dxb:BarManager>
     </Grid>
 </Window>

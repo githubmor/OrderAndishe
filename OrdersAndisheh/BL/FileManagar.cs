@@ -83,6 +83,19 @@
             CreateReportFile(fileName, h, "Report2", StiExportFormat.Pdf, IsShowReportAfterCreat);
             
 		}
+        public void CreatSimpleFile(string fileName = "Report", bool IsLocationSelection = true, bool IsShowReportAfterCreat = false)
+        {
+            if (IsLocationSelection)
+            {
+                GetSavingLocation();
+            }
+            var h = new Header();
+            h.Tarikh = Tarikh;
+            h.WeekDay = getWeekDay();
+
+            CreateReportFile(fileName, h, "Report3", StiExportFormat.Pdf, IsShowReportAfterCreat);
+
+        }
         public void CreatPalletTabloFile(string fileName = "PalletTablo", bool IsLocationSelection = true)
         {
             if (IsLocationSelection)
@@ -174,11 +187,11 @@
                     {
                         StiReport mainreport = new StiReport();
                         mainreport.RegBusinessObject("Item", CheckList[i]);
-                        mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport.mrt");
+                        mainreport.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Report\\CheckListReport2.mrt");
                         mainreport.Render(false);
                         //mainreport.Show();
                         mainreport.ExportDocument(StiExportFormat.Pdf, desktopPath + "\\"
-                            + CheckList[i].NameKala +" - "+ CheckList[i].RanandeName + i +".pdf");
+                            + CheckList[i].RanandeName + ".pdf");
                     }
                     
                 }

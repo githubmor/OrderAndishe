@@ -1002,10 +1002,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>4/9/2018 1:53:02 PM</ReportChanged>
+  <ReportChanged>11/19/2018 9:00:08 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\KartablReport.mrt</ReportFile>
-  <ReportGuid>eee83ee3f2604e199f1445b06058dfaa</ReportGuid>
+  <ReportGuid>73cc8ca5f9fb40eaa7fa984f703abadd</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

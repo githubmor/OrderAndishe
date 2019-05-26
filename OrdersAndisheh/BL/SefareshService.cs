@@ -53,7 +53,18 @@
             String mahGhabl = (yekmahghabl.Month>10?yekmahghabl.Month.ToString():"0"+yekmahghabl.Month.ToString());
             int roz = yekmahghabl.DaysInMonth;
 
-            var ss = db.OrderDetails.GroupBy(p => p.Driver)
+            //var ssr = db.OrderDetails.OrderBy(p=>p.Id).Where(
+            //            p => p.Order.Tarikh.StartsWith(year.ToString())
+            //            & (p.Order.Tarikh.Substring(5, 2) == mahGhabl | p.Order.Tarikh.Substring(5, 2) == inMah))
+            //            .GroupBy(p => p.Driver).Select(g => new
+            //            {
+            //                dname = g.Key.Name,
+            //                dcar = g.Key.Car,
+            //                tahala = g.Key.OrderDetails.GroupBy(p => p.Order).Count(),
+            //                tahalad = g.Key.OrderDetails.GroupBy(p => p.Order).Select(p=>p.Key.Tarikh)
+            //            }).ToList();
+
+            var ss = db.OrderDetails.OrderBy(p=>p.Id).GroupBy(p => p.Driver)
                 .Select(g => new
                 {
                     dname = g.Key.Name,
@@ -61,12 +72,12 @@
                     tahala = g.Key.OrderDetails.Where(
                         p => p.Order.Tarikh.StartsWith(year.ToString())
                         & (p.Order.Tarikh.Substring(5, 2) == mahGhabl | p.Order.Tarikh.Substring(5, 2) == inMah))
-                        .GroupBy(p => p.Order)
-                    .Count()
+                        .GroupBy(p => p.Order).Count(),
+                        tarikhha = g.Key.OrderDetails.GroupBy(p => p.Order).OrderBy(p=>p.Key.Tarikh).Select(p=>p.Key.Tarikh)
                 }).ToList();
 
-            var nisanha = ss.Where(p => p.tahala > 0 & p.dcar == "نیسان").OrderByDescending(p => p.tahala).Take(6);
-            var khavarha = ss.Where(p => p.tahala > 0 & p.dcar == "خاور").OrderByDescending(p => p.tahala).Take(6);
+            var nisanha = ss.Where(p => p.tahala > 0 & p.dcar == "نیسان").OrderByDescending(p => p.tarikhha.Last()).Take(6);
+            var khavarha = ss.Where(p => p.tahala > 0 & p.dcar == "خاور").OrderByDescending(p => p.tarikhha.Last()).Take(6);
 
             re = "نیسان :";
             foreach (var item in nisanha)
@@ -172,35 +183,24 @@
 
         public List<Product> LoadGoods()
         {
-            //using (MyContextCF db = new MyContextCF())
-            //{
             var pp = db.Products.Include("Pallet").Include("Bazre").ToList();
                 return pp;
-            //}
         }
 
         public List<Customer> LoadDestinations()
         {
-            //using (MyContextCF db = new MyContextCF())
-            //{
             return db.Customers.OrderBy(o => o.Name).ToList();
-            //}
         }
 
         public List<string> LoadAllNOAcceptedSefareshTarikh()
         {
-            //using (MyContextCF db = new MyContextCF())
-            //{
-                return db.Orders.Where(p=>!p.Accepted).Select(p=>p.Tarikh).ToList();
-            //}
+            return db.Orders.Where(p=>!p.Accepted).Select(p=>p.Tarikh).ToList();
         }
 
         public List<Customer> LoadOracleCustomer()
         {
-           
             var b = db.Customers.Include("OracleProducts").ToList();
             return b.Where(p => p.Relations!=null).ToList();
-            
         }
 
         public void SaveOracleRelation(List<Customer> oCustomers)
@@ -208,21 +208,14 @@
             var b = db.Customers.Include("OracleProducts").ToList();
             List<Customer> existingItems = b.Where(p => p.Relations!=null).ToList();
 
-
             List<Customer> newItems = new List<Customer>();
             foreach (var item in oCustomers)
             {
                 newItems.Add(item);
             }
 
-            //List<OrderDetail> addedItems = newItems.Except(existingItems).ToList();
-
             List<Customer> deletedItems = existingItems.Except(newItems).ToList();
 
-            //List<OrderDetail> modifiedItems = newItems.Except(addedItems).ToList();
-
-            //    //db.Orders.Remove(db.Orders.Where(p => p.Id == sefaresh.SefareshId).FirstOrDefault());
-            //    //db.SaveChanges();
             foreach (var item in deletedItems)
             {
                 db.Customers.Remove(item);
@@ -304,18 +297,7 @@
                             .Any(r => r.MOracle == null)
                     };
             var sad = u.ToList();
-            //var p = db.Orders
-            //    .Include("OrderDetails.Customer")
-            //    .Include("OrderDetails.Driver")
-            //    .Include("OrderDetails.Driver.TempDriver")
-            //    .Include("OrderDetails.Product")
-            //    .OrderByDescending(o => o.Tarikh)
-            //    .Where(i => !i.Accepted) //UNDONE باید برگشت از تثبیت رو هم درست کنم
-            //    .ToList();
-            //foreach (var item in p)
-            //{
-            //    sd.Add(new CheckSefaresh(new Sefaresh(item, item.OrderDetails.ToList())));
-            //}
+
             foreach (var item in sad)
             {
                 sd.Add(new CheckSefaresh(
@@ -331,14 +313,6 @@
             return sd;
 
         }
-
-        //public List<DriverWork> LoadAllDriverWorkForThisSefaresh(Order order)
-        //{
-        //    return db.DriverWork.Where(p => p.Order.Id == order.Id)
-        //        .Include("Order")
-        //        .Include("Driver")
-        //        .ToList();
-        //}
 
         public void SaveDriverWorks(DriverWork SelectedDriverWork)
         {

@@ -9,10 +9,10 @@ namespace OrdersAndisheh.BL
 {
     public class CheckList : OrdersAndisheh.BL.ICheckList
     {
-        private ItemSefaresh Item;
-        public CheckList(ItemSefaresh item,string Tarikh)
+        private List<ItemSefaresh> Item;
+        public CheckList(List<ItemSefaresh> items,string Tarikh)
         {
-            this.Item = item;
+            this.Item = items;
             this.Tarikh = Tarikh;
         }
 
@@ -20,24 +20,24 @@ namespace OrdersAndisheh.BL
 
         public string NameKala
         {
-            get { return Item.Kala; }
+            get { return joinToString(Item.Select(p => p.Kala).ToList()); }
         }
         public string CodeKala
         {
-            get { return Item.CodeKala; }
+            get { return joinToString(Item.Select(p => p.CodeKala).ToList()); }
         }
         public string FaniCode
         {
-            get { return Item.Product.FaniCode; }
+            get { return joinToString(Item.Select(p => p.Product.FaniCode).ToList()); }
         }
         public string Tarikh { get; set; }
         public string SherkatName
         {
-            get { return (Item.IsImenKala ? "شرکت ایمن سازان خودرو اندیشه" : "شرکت اندیشه ایمنی خودرو"); }
+            get { return (Item.First().IsImenKala ? "شرکت ایمن سازان خودرو اندیشه" : "شرکت اندیشه ایمنی خودرو"); }
         }
         public string CodeJens
         {
-            get { return Item.Product.CodeJense; }
+            get { return joinToString(Item.Select(p => p.Product.CodeJense).ToList()); }
         }
         public string Govahi
         {
@@ -45,44 +45,53 @@ namespace OrdersAndisheh.BL
         }
         public string Moshtari
         {
-            get { return Item.Maghsad; }
+            get { return joinToString(Item.Select(p => p.Maghsad).Distinct().ToList()); }
         }
         public string Address
         {
-            get { return Item.Maghsad; }
+            get { return joinToString(Item.Select(p => p.Maghsad).Distinct().ToList()); }
         }
         public string TahvilFrosh
         {
-            get { return Item.TahvilFrosh.ToString(); }
+            get { return joinToString(Item.Select(p => p.TahvilFrosh.ToString()).Distinct().ToList()); }
         }
-        public string Tedad
-        {
-            get { return Item.Tedad.ToString(); }
-        }
-        public string TedadDarHarPallet
-        {
-            get { return Item.Product.TedadDarPallet.ToString(); }
-        }
+
         
-        public string PalletCount
-        {
-            get { return Item.PalletCount.ToString(); }
-        }
-        public string BasteBandi
-        {
-            get { return Item.Product.BasteBandi; }
-        }
+
+        
+        //public string Tedad
+        //{
+        //    get { return jointoString(Item.Select(p => p.Tedad.ToString()).ToArray()); }
+        //}
+        //public string TedadDarHarPallet
+        //{
+        //    get { return jointoString(Item.Select(p => p.Product.TedadDarPallet.ToString()).ToArray()); }
+        //}
+        
+        //public string PalletCount
+        //{
+        //    get { return string.Join(",", Item.Select(p => p.PalletCount.ToString()).ToList()); }
+        //}
+        //public string BasteBandi
+        //{
+        //    get { return Item.Product.BasteBandi; }
+        //}
         public string RanandeName
         {
-            get { return Item.Ranande; }
+            get { return Item.First().Ranande; }
         }
         public string CarKind
         {
-            get { return Item.Driver.Car; }
+            get { return Item.First().Driver.Car; }
         }
         public string Pelak
         {
-            get { return Item.Driver.Pelak; }
+            get { return Item.First().Driver.Pelak; }
+        }
+
+        private string joinToString(List<String> names)
+        {
+            return string.Join(" , ", names);
         }
     }
 }

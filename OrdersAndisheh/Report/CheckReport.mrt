@@ -144,9 +144,9 @@
               <Name>Text16</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>{PageNumber}</Text>
+              <Text>{Sum(Data,Items.Vazn)}</Text>
               <TextBrush>Black</TextBrush>
-              <Type>SystemVariables</Type>
+              <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
             <Text4 Ref="12" type="Text" isKey="true">
@@ -716,6 +716,7 @@
               <Name>Text7</Name>
               <Page isRef="4" />
               <Parent isRef="42" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <Text>{Items.TahvilFrosh}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -824,6 +825,7 @@
               <Name>Text43</Name>
               <Page isRef="4" />
               <Parent isRef="42" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <Text>{Items.Maghsad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -1056,10 +1058,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>7/7/2018 10:32:15 AM</ReportChanged>
+  <ReportChanged>11/19/2018 9:06:26 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\CheckReport.mrt</ReportFile>
-  <ReportGuid>fbd14c9b28014a94979b56abc5420e9d</ReportGuid>
+  <ReportGuid>87e06804d3204971a5d62e9e069e89bc</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

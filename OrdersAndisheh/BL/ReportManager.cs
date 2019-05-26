@@ -67,6 +67,7 @@ namespace OrdersAndisheh.BL
                     ,Pallet = b.PalletCount.ToString(),
                     Karton = b.Karton,
                     Pelak = b.Driver.Pelak,
+                    Fani = b.Product.FaniCode,
                     IsDriverChanged = b.IsDriverChanged,
                     IsKalaChanged = b.IsNew,
                     IsCustomerChanged = b.IsCustomerChanged,
@@ -250,8 +251,8 @@ namespace OrdersAndisheh.BL
         {
             pos = 0;
             List<ReportRow> reportRows = new List<ReportRow>();
-            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.IsNew)
-                .ThenBy(p => p.Product.FaniCode).ToList());
+            //sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.IsNew)
+                //.ThenBy(p => p.Product.FaniCode).ToList());
             //var ImenKalas = sefaresh.Items.Where(p => !p.IsImenKala);
             foreach (var b in sefaresh.Items)
             {
@@ -297,16 +298,15 @@ namespace OrdersAndisheh.BL
         public void CreatCheckListErsalOnDeskTop(bool showPreview = true)
         {
             List<CheckList> cs = new List<CheckList>();
-            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Maghsad)
-                .ThenBy(p => p.Ranande).ToList());
-            List<ItemSefaresh> dd = sefaresh.Items.ToList();
-            if (sefaresh.Items.Any(p=>p.IsSelected))
-            {
-                dd = sefaresh.Items.Where(p => p.IsSelected).ToList();
-            }
+            sefaresh.Items = new ObservableCollection<ItemSefaresh>(sefaresh.Items.OrderBy(p => p.Ranande).ToList());
+            var dd = sefaresh.Items.GroupBy(p => p.Driver).ToList();
+            //if (sefaresh.Items.Any(p=>p.IsSelected))
+            //{
+            //    dd = sefaresh.Items.Where(p => p.IsSelected).ToList();
+            //}
             foreach (var item in dd)
             {
-                cs.Add(new CheckList(item, sefaresh.Tarikh));
+                cs.Add(new CheckList(item.ToList(), sefaresh.Tarikh));
             }
 
             FileManagar f = new FileManagar(cs, sefaresh.Tarikh);
@@ -332,6 +332,9 @@ namespace OrdersAndisheh.BL
                     Karton = b.Karton.ToString(), 
                     Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : ""),
                     Maghsad = b.Maghsad,
+                    Fani = b.Product.FaniCode,
+                    Jense = b.Product.Code,
+                    Pelak = (b.Driver != null ? b.Driver.Pelak : ""),
                     Ranande = (b.Driver !=null?(b.Driver.TempDriver == null ? b.Ranande : ""):""),
                     IsDriverChanged = b.IsDriverChanged,
                     IsKalaChanged = b.IsNew,
@@ -343,7 +346,8 @@ namespace OrdersAndisheh.BL
 
 
             FileManagar fg = GetDataAfterPreview(reportRows, showPreview);
-            fg.CreatFile("Ersal", false,true);
+            fg.CreatFile("ErsalMoein", false,true);
+            fg.CreatSimpleFile("ErsalDarzi", false, true);
         }
 
         public T GetEnumValue<T>(byte intValue) where T : struct, IConvertible
@@ -403,7 +407,6 @@ namespace OrdersAndisheh.BL
 
         public void CreatAllReport()
         {
-            
             this.CreatAllBazresReportOnDeskTop(false);
             this.CreatAnbarReportOnDeskTop(false);
             this.CreatAndishehReportOnDeskTop(false);
@@ -463,6 +466,7 @@ namespace OrdersAndisheh.BL
                         Kala = b.Kala,
                         Tedad = (b.Tedad > 0 ? b.Tedad.ToString() : ""),
                         Pallet = (b.PalletCount > 0 ? b.PalletCount.ToString() : ""),
+                        Vazn = (b.Vazn > 0 ? b.Vazn.ToString() : ""),
                         Karton = b.Karton,
                         Maghsad = b.Maghsad,
                         Ranande = b.Ranande,

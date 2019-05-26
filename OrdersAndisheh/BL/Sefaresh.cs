@@ -147,14 +147,18 @@
             string ft = "";
             foreach (var item in drss)
             {
-                ft += item + " : ";
-                int sum = 0;
-                var yu = Items.Where(ik => ik.Ranande == item).ToList();
-                foreach (var wew in yu)
+                if (item != "")
                 {
-                    sum += wew.Vazn;
+                    var dfr = Items.Where(o => o.Driver.Name == item).Select(p => p.Driver).First();
+                    ft += item + "(" + dfr.Pelak  +")" + ":";
+                    int sum = 0;
+                    var yu = Items.Where(ik => ik.Ranande == item).ToList();
+                    foreach (var wew in yu)
+                    {
+                        sum += wew.Vazn;
+                    }
+                    ft += sum + " - ";
                 }
-                ft += sum + " - ";
             }
             return ft;
         }

@@ -6,7 +6,7 @@
         <Alias>Items</Alias>
         <BusinessObjects isList="true" count="0" />
         <Category />
-        <Columns isList="true" count="7">
+        <Columns isList="true" count="8">
           <value>Ranande,System.String</value>
           <value>Maghsad,System.String</value>
           <value>Kala,System.String</value>
@@ -14,6 +14,7 @@
           <value>Pallet,System.String</value>
           <value>Karton,System.String</value>
           <value>Pelak,System.String</value>
+          <value>Fani,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Guid>4fcf97da98c8464eb18c1a2ff368d119</Guid>
@@ -49,11 +50,11 @@
         <GroupHeaderBand1 Ref="5" type="GroupHeaderBand" isKey="true">
           <Border>Top, Left, Right;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.2,3.94,0.8</ClientRectangle>
+          <ClientRectangle>0,0.2,3.94,0.7</ClientRectangle>
           <Components isList="true" count="2">
             <Text1 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.01,0,3.9,0.5</ClientRectangle>
+              <ClientRectangle>0.01,0,3.9,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,13,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -69,7 +70,7 @@
             </Text1>
             <Text4 Ref="7" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.5,3.9,0.3</ClientRectangle>
+              <ClientRectangle>0,0.4,3.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -95,11 +96,11 @@
           <Border>Left, Right;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>4fcf97da98c8464eb18c1a2ff368d119</BusinessObjectGuid>
-          <ClientRectangle>0,1.4,3.94,0.3</ClientRectangle>
-          <Components isList="true" count="4">
+          <ClientRectangle>0,1.3,3.94,0.3</ClientRectangle>
+          <Components isList="true" count="5">
             <DataItems_Tedad Ref="9" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.7,0,0.5,0.3</ClientRectangle>
+              <ClientRectangle>0.5,0,0.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,11</Font>
               <HorAlignment>Center</HorAlignment>
@@ -115,7 +116,7 @@
             </DataItems_Tedad>
             <DataItems_PalletCount Ref="10" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.2,0,0.6,0.3</ClientRectangle>
+              <ClientRectangle>0.9,0,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,11</Font>
               <HorAlignment>Center</HorAlignment>
@@ -131,7 +132,7 @@
             </DataItems_PalletCount>
             <DataItems_Ranande Ref="11" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.8,0,2.1,0.3</ClientRectangle>
+              <ClientRectangle>2.4,0,1.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,11</Font>
               <Margins>0,0,0,0</Margins>
@@ -146,7 +147,7 @@
             </DataItems_Ranande>
             <Text2 Ref="12" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,0.7,0.3</ClientRectangle>
+              <ClientRectangle>0,0,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,7</Font>
               <Guid>764a9f14d1fa465eaaa07f3fd75778d2</Guid>
@@ -161,6 +162,22 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
+            <Text5 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.5,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>cb533d64161141ca808ec4ef7f6d42f2</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4" />
+              <Parent isRef="8" />
+              <Text>{Items.Fani}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName isNull="true" />
@@ -170,22 +187,22 @@
           <Parent isRef="4" />
           <Sort isList="true" count="0" />
         </Data>
-        <GroupFooterBand1 Ref="13" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand1 Ref="14" type="GroupFooterBand" isKey="true">
           <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2.1,3.94,0.4</ClientRectangle>
+          <ClientRectangle>0,2,3.94,0.4</ClientRectangle>
           <Components isList="true" count="0" />
           <Conditions isList="true" count="0" />
           <Name>GroupFooterBand1</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupFooterBand1>
-        <FooterBand1 Ref="14" type="FooterBand" isKey="true">
+        <FooterBand1 Ref="15" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <CanShrink>True</CanShrink>
-          <ClientRectangle>0,2.9,3.94,0.3</ClientRectangle>
+          <ClientRectangle>0,2.8,3.94,0.3</ClientRectangle>
           <Components isList="true" count="1">
-            <Text3 Ref="15" type="Text" isKey="true">
+            <Text3 Ref="16" type="Text" isKey="true">
               <Border>Bottom;Black;1;Dash;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -198,7 +215,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
               <Page isRef="4" />
-              <Parent isRef="14" />
+              <Parent isRef="15" />
               <Text>{Works.Works}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -220,13 +237,13 @@
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
-      <Watermark Ref="16" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="17" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="17" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="18" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -238,10 +255,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>2/8/2017 10:15:55 AM</ReportChanged>
+  <ReportChanged>3/2/2019 10:27:28 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\DriverListReport.mrt</ReportFile>
-  <ReportGuid>8fabf35d332b451dbf405299f40adf66</ReportGuid>
+  <ReportGuid>02ae09a548be486b8f04764d7453c1de</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
@@ -270,7 +287,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="1">
-    <Style1 Ref="18" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="19" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Brush>Transparent</Brush>
       <Conditions isList="true" count="0" />
       <Description />

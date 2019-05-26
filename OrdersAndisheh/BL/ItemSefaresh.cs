@@ -203,7 +203,7 @@ namespace BL
 		}
 
 
-        public string Karton //{ get; set; }
+        public string Karton 
         {
             get { return KartonCalCulate(); }
         }

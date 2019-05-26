@@ -353,6 +353,7 @@
               <Name>DataItems_karton</Name>
               <Page isRef="4" />
               <Parent isRef="23" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <Text>{Items.Maghsad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -563,7 +564,7 @@
   <ReportChanged>8/15/2017 10:39:47 AM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
   <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\MaliReport.mrt</ReportFile>
-  <ReportGuid>1a33605deac44feca935dfb16292936f</ReportGuid>
+  <ReportGuid>99ac7de0839a492ea74eb546510a8a87</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>

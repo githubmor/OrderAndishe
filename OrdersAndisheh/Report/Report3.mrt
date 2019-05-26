@@ -18,7 +18,7 @@
         <Alias>Items</Alias>
         <BusinessObjects isList="true" count="0" />
         <Category />
-        <Columns isList="true" count="11">
+        <Columns isList="true" count="14">
           <value>Kala,System.String</value>
           <value>Tedad,System.String</value>
           <value>Karton,System.String</value>
@@ -30,6 +30,9 @@
           <value>IsKalaChanged,System.Boolean</value>
           <value>IsCustomerChanged,System.Boolean</value>
           <value>IsTedadChanged,System.Boolean</value>
+          <value>Pelak,System.String</value>
+          <value>Fani,System.String</value>
+          <value>Jense,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Guid>febeeb78b448498fbfc442ce5bff949c</Guid>
@@ -49,7 +52,7 @@
     <Page1 Ref="4" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="5">
+      <Components isList="true" count="7">
         <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.2,7.87,0.7</ClientRectangle>
@@ -153,7 +156,38 @@
           <Page isRef="4" />
           <Parent isRef="4" />
         </PageHeaderBand1>
-        <GroupHeaderBand1 Ref="12" type="GroupHeaderBand" isKey="true">
+        <Text16 Ref="12" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>[216:216:216]</Brush>
+          <ClientRectangle>8.87,1.7,1,0.3</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Titr,9,Bold</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text16</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Text>Jense</Text>
+          <TextBrush>Black</TextBrush>
+          <VertAlignment>Center</VertAlignment>
+        </Text16>
+        <Text15 Ref="13" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>8.87,2.4,1,0.24</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Tahoma,9</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text15</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Text>{Items.Jense}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text15>
+        <GroupHeaderBand1 Ref="14" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,1.3,7.87,0</ClientRectangle>
           <Components isList="true" count="0" />
@@ -164,14 +198,14 @@
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupHeaderBand1>
-        <Header Ref="13" type="HeaderBand" isKey="true">
+        <Header Ref="15" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,1.7,7.87,0.3</ClientRectangle>
-          <Components isList="true" count="7">
-            <HeaderItems_kala Ref="14" type="Text" isKey="true">
+          <Components isList="true" count="9">
+            <HeaderItems_kala Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>0,0,1.3,0.3</ClientRectangle>
+              <ClientRectangle>0,0,1.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>b678218246f84db18fefa355ff6a6056</Guid>
@@ -179,17 +213,17 @@
               <Margins>0,0,0,0</Margins>
               <Name>HeaderItems_kala</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="15" />
               <Text>راننده</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_kala>
-            <HeaderItems_karton Ref="15" type="Text" isKey="true">
+            <HeaderItems_karton Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>1.3,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>1.2,0,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>cce957a6fa4f4fecb0454560430ed2cb</Guid>
@@ -197,16 +231,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>HeaderItems_karton</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="15" />
               <Text>مقصد</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_karton>
-            <HeaderItems_pallet Ref="16" type="Text" isKey="true">
+            <HeaderItems_pallet Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>2.5,0,0.5,0.3</ClientRectangle>
+              <ClientRectangle>2.1,0,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>4e0efe66f0e14e9aa8d39ae3e0b50f59</Guid>
@@ -214,16 +248,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>HeaderItems_pallet</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="15" />
               <Text>پالت</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_pallet>
-            <HeaderItems_maghsad Ref="17" type="Text" isKey="true">
+            <HeaderItems_maghsad Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>3,0,0.7,0.3</ClientRectangle>
+              <ClientRectangle>2.6,0,0.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,11,Bold</Font>
               <Guid>bc4a3ec0de604e50b49feca2da872253</Guid>
@@ -231,16 +265,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>HeaderItems_maghsad</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="15" />
               <Text>کارتن</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_maghsad>
-            <HeaderItems_vazn Ref="18" type="Text" isKey="true">
+            <HeaderItems_vazn Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>3.7,0,1,0.3</ClientRectangle>
+              <ClientRectangle>3,0,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>6e05b718a97e4788b5980c85e2efc031</Guid>
@@ -248,16 +282,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>HeaderItems_vazn</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="15" />
               <Text>تعداد ارسالی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_vazn>
-            <HeaderItems_Ranande Ref="19" type="Text" isKey="true">
+            <HeaderItems_Ranande Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>4.7,0,2.7,0.3</ClientRectangle>
+              <ClientRectangle>4.8,0,2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>873ff8dab067480585c2826352ab82a9</Guid>
@@ -265,16 +299,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>HeaderItems_Ranande</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="15" />
               <Text>نام کالا</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderItems_Ranande>
-            <Text8 Ref="20" type="Text" isKey="true">
+            <Text8 Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>7.4,0,0.47,0.3</ClientRectangle>
+              <ClientRectangle>7.6,0,0.27,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,9,Bold</Font>
               <Guid>51a1e7a4359946d3b9e39ff3d413a138</Guid>
@@ -282,161 +316,243 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
               <Page isRef="4" />
-              <Parent isRef="13" />
+              <Parent isRef="15" />
               <Text>ردیف</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
+            <Text10 Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>3.8,0,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>e96c85c5d04147e2acc55924f613f15b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>شماره فني</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text9 Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>6.8,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>8a457caf735e4f4bbd763e6863edcec9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>كد جنس</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>Header</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </Header>
-        <Data Ref="21" type="DataBand" isKey="true">
+        <Data Ref="25" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>febeeb78b448498fbfc442ce5bff949c</BusinessObjectGuid>
           <ClientRectangle>0,2.4,7.87,0.24</ClientRectangle>
-          <Components isList="true" count="7">
-            <DataItems_kala Ref="22" type="Text" isKey="true">
+          <Components isList="true" count="9">
+            <DataItems_kala Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,1.3,0.24</ClientRectangle>
+              <ClientRectangle>0,0,1.2,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsDriverChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
-              <Font>Tahoma,9</Font>
+              <Font>Tahoma,11</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>8d4f133da84b4439b13bb39b1cf5d517</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_kala</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="25" />
               <ProcessingDuplicates>Merge</ProcessingDuplicates>
-              <Text>{Items.Ranande}</Text>
+              <Text>{Items.Ranande}
+{Items.Pelak}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>DataColumn</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_kala>
-            <DataItems_karton Ref="23" type="Text" isKey="true">
+            <DataItems_karton Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>1.3,0,1.2,0.24</ClientRectangle>
+              <ClientRectangle>1.2,0,0.9,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsCustomerChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
-              <Font>Tahoma,9</Font>
+              <Font>Tahoma,10</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>a8bb2059e9334ccbb94e09e87814cdb6</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_karton</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="25" />
               <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <Text>{Items.Maghsad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>DataColumn</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_karton>
-            <DataItems_pallet Ref="24" type="Text" isKey="true">
+            <DataItems_pallet Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>2.5,0,0.5,0.24</ClientRectangle>
+              <ClientRectangle>2.1,0,0.5,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
               <Font>Tahoma,9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>e936b727d3664d43b547857e78e77161</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_pallet</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="25" />
               <Text>{Items.Pallet}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_pallet>
-            <DataItems_maghsad Ref="25" type="Text" isKey="true">
+            <DataItems_maghsad Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>3,0,0.7,0.24</ClientRectangle>
+              <ClientRectangle>2.6,0,0.4,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
               <Font>Tahoma,9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>9ed16503a5704c6b8d35df3289af7053</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_maghsad</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="25" />
               <Text>{Items.Karton}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_maghsad>
-            <DataItems_vazn Ref="26" type="Text" isKey="true">
+            <DataItems_vazn Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>3.7,0,1,0.24</ClientRectangle>
+              <ClientRectangle>3,0,0.8,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsTedadChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
               <Font>Tahoma,9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>da0a4306c10a4d0e851e5f5f8a47eeb9</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_vazn</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="25" />
               <Text>{Items.Tedad}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataItems_vazn>
-            <Text7 Ref="27" type="Text" isKey="true">
+            <Text7 Ref="31" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>7.4,0,0.47,0.24</ClientRectangle>
+              <ClientRectangle>7.6,0,0.27,0.24</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>8f147ce04bcf4ceeaf95d8e246387c9d</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="25" />
               <Text>{LineThrough}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <DataItems_Ranande Ref="28" type="Text" isKey="true">
+            <Text11 Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.7,0,2.7,0.24</ClientRectangle>
+              <ClientRectangle>3.8,0,1,0.24</ClientRectangle>
               <Conditions isList="true" count="1">
                 <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
               </Conditions>
               <Font>Tahoma,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>84c4147af3144fbca218edb4970b0679</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4" />
+              <Parent isRef="25" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Items.Fani}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text12 Ref="33" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.8,0,0.8,0.24</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
+              </Conditions>
+              <Font>Tahoma,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>67acfe4e081f4a95848d0dc79c9aaea2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4" />
+              <Parent isRef="25" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Items.Jense}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <DataItems_Ranande Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.8,0,2,0.24</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Items.IsKalaChanged,EqualTo,true,,String,Red,Transparent,Tahoma_x002C_9_x002C_Bold_x002C_Point_x002C_False_x002C_0,True,False,,,All</value>
+              </Conditions>
+              <Font>Tahoma,9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>947297b422234c17b405ec0af4449adb</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>DataItems_Ranande</Name>
               <Page isRef="4" />
-              <Parent isRef="21" />
+              <Parent isRef="25" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Items.Kala}</Text>
               <TextBrush>Black</TextBrush>
@@ -453,7 +569,7 @@
           <Parent isRef="4" />
           <Sort isList="true" count="0" />
         </Data>
-        <GroupFooterBand1 Ref="29" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand1 Ref="35" type="GroupFooterBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>[191:191:191]</Brush>
           <ClientRectangle>0,3.04,7.87,0.13</ClientRectangle>
@@ -472,13 +588,13 @@
       <PageWidth>8.27</PageWidth>
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="30" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="36" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="31" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="37" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -490,10 +606,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/14/2017 11:44:06 AM</ReportChanged>
+  <ReportChanged>11/19/2018 3:25:16 PM</ReportChanged>
   <ReportCreated>6/27/2016 12:14:48 PM</ReportCreated>
-  <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report2.mrt</ReportFile>
-  <ReportGuid>1a0c9904dc8d44489b247d6339e84dc2</ReportGuid>
+  <ReportFile>D:\andisheh\Programming\OrdersApp\OrdersAndisheh\OrdersAndisheh\Report\Report3.mrt</ReportFile>
+  <ReportGuid>439743e221474b73903b79da50e7d1d2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.1.1213</ReportVersion>
@@ -522,7 +638,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="1">
-    <Style1 Ref="32" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="38" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Brush>Transparent</Brush>
       <Conditions isList="true" count="0" />
       <Description />
